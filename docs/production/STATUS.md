@@ -2,6 +2,12 @@
 
 > 맨 위가 최신. 형식: 한 일 / 검증한 것 / 검증 못 한 것 / 다음.
 
+## 2026-11-22 — 콘텐츠 초안·2a UI 배포 확인
+- 사용자 push 지시로 보류했던 커밋 5개를 main에 올림(배포 보류 해제는 AGENTS 2절에 기록).
+- Actions 실행 45002153980 성공(Check project → Smoke test → Pages 배포).
+- 공개 주소의 index.html·css·js 4개·packs/sample.json·data/project.json 8개 파일 모두 HTTP 200, 저장소 site/ 파일과 바이트 단위로 같음. 공개 app.js에 숫자 키 단축키 표시(kbd) 반영 확인.
+- `drafts/`는 공개 저장소에 올라갔지만 Pages(site/)에는 들어가지 않는다.
+
 ## 2026-11-22 — 단계 2a UI/UX 정돈
 - 한 일: 애플 HIG를 기본으로 간결·효율 UI 사례 5개(Wordle, Duolingo, Linear, Lichess, Monkeytype)에서 원칙을 뽑아 `docs/design/UI-PRINCIPLES.md`에 규칙 9개로 정리(D016). 오늘 화면을 ‘다음 일정 + 주 버튼 하나 → 오늘의 링 → 학습 일정 목록 → 큰 숫자 요약’ 순서로 재구성. 숫자 1~5 탭 이동(입력 중·시트 열림·수정키 조합 때는 무시), 데스크톱 사이드바 단축키 표시, 버튼 누름·hover 상태, 고정폭 숫자, 간격 토큰, 동작 줄이기 대응.
 - 검증한 것: check_project 통과. 스모크 검사 49항목 통과(주 행동 버튼, 가장 가까운 일정 강조, 숫자 키 2·1 이동, 탭 단축키 5개 표시 추가).
