@@ -159,7 +159,7 @@ console.log('11. 초안·원본 팩 가져오기');
 const root = path.resolve(here, '..', '..');
 const packFiles = [];
 const walkJson = (d) => { for (const f of fs.readdirSync(d, { withFileTypes: true })) { const p = path.join(d, f.name); if (f.isDirectory()) { walkJson(p); } else if (f.name.endsWith('.json')) { packFiles.push(p); } } };
-for (const dir of ['drafts', 'data']) { if (fs.existsSync(path.join(root, dir))) { walkJson(path.join(root, dir)); } }
+for (const dir of ['data']) { if (fs.existsSync(path.join(root, dir))) { walkJson(path.join(root, dir)); } }
 for (const f of packFiles) {
   const obj = JSON.parse(fs.readFileSync(f, 'utf8'));
   if (Array.isArray(obj) || !obj.packId) { continue; }
@@ -179,6 +179,16 @@ check(await until(() => w.location.hash.indexOf('pipeline') >= 0), '숫자 키 2
 doc.dispatchEvent(new w.KeyboardEvent('keydown', { key: '1', bubbles: true }));
 check(await until(() => w.location.hash.indexOf('today') >= 0), '숫자 키 1로 오늘 탭 이동');
 check(doc.querySelectorAll('.tab kbd').length === 5, '탭마다 단축키 표시');
+console.log('13. 기본 콘텐츠 불러오기·감수 전 표시(D017)');
+for (const id of ['W00-diagnostic', 'W01-pipeline-map', 'HB-REG-001']) { await P.deletePack(id); }
+await nav('#/me');
+check(await until(() => doc.querySelector('[data-action=load-builtin]')), '기본 콘텐츠 불러오기 버튼');
+doc.querySelector('[data-action=load-builtin]').click();
+check(await until(async () => !!(await S.get('packs', 'W00-diagnostic')) && !!(await S.get('packs', 'W01-pipeline-map')) && !!(await S.get('packs', 'HB-REG-001')), 5000), '기본 팩 3개(W00·W01·통계 시드) 불러오기');
+check((await S.get('packs', 'W01-pipeline-map')).review === 'draft', '감수 상태 저장');
+const shc = doc.querySelector('[data-action=sheet-close]'); if (shc) { shc.click(); }
+await nav('#/today'); await nav('#/me');
+check(await until(() => main().indexOf('감수 전') >= 0), '나 화면에 감수 전 표시');
 await wait(100);
 check(pageErrors.length === 0, '페이지 오류 없음' + (pageErrors.length ? ': ' + pageErrors.join(' | ') : ''));
 if (failures.length) { console.log('스모크 검사 실패 ' + failures.length + '건'); process.exit(1); }

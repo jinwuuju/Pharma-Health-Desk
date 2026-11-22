@@ -45,6 +45,7 @@
     var w = typeof pk.week === 'number' ? 'W' + (pk.week < 10 ? '0' : '') + pk.week + ' · ' : '';
     return w + (pk.title || pk.packId);
   }
+  function reviewPill(pk) { return pk && pk.review === 'draft' ? ` <span class='pill warn'>감수 전</span>` : ''; }
   function sortPacks(list) {
     return list.slice().sort(function (a, b) {
       return String(a.courseId).localeCompare(String(b.courseId)) || ((a.week || 0) - (b.week || 0)) || String(a.packId).localeCompare(String(b.packId));
@@ -143,8 +144,9 @@
           `<div class='stat'><b>${sum.kinds.card}</b><span>카드</span></div>` +
           `<div class='stat'><b>${sum.kinds.item}</b><span>문항</span></div></div></div>`;
       } else {
-        hero = emptyCard('아직 콘텐츠가 없습니다', '샘플 팩으로 동작을 확인하거나, AI로 만든 콘텐츠 팩(JSON)을 가져오세요.',
-          `<button type='button' class='btn' data-action='load-sample'>샘플 불러오기</button><button type='button' class='btn secondary' data-action='import-file'>팩 가져오기</button>`);
+        hero = `<div class='card empty'>${ICONS.tray}<h3>아직 콘텐츠가 없습니다</h3><p>기본 콘텐츠(W0 진단평가, W1 전주기 지도, 통계 시드)를 불러오세요. 감수 전 초안입니다.</p>` +
+          `<div class='btn-row'><button type='button' class='btn' data-action='load-builtin'>기본 콘텐츠 불러오기</button><button type='button' class='btn secondary' data-action='import-file'>팩 가져오기</button></div>` +
+          `<button type='button' class='link-btn' data-action='load-sample'>샘플만 보기</button></div>`;
       }
       return `<div class='eyebrow'>${esc(U.koDate())}</div><h1 class='large-title'>오늘</h1>` + hero +
         `<div class='section-title'>오늘의 링</div><div class='card'><div class='rings'>${rings([0, 0, 0])}<div class='ring-legend'>` +
@@ -178,7 +180,7 @@
           return `<div class='row'><div class='tx'><b>${esc(u.data.title || u.id)}</b><span class='sub'>${esc(u.data.domain || '')} · 레슨 ${ls.length}개</span></div></div>` + ls.map(function (l) { return lessonRow(l, true); }).join('');
         }).join('');
         var rest = pl.filter(function (l) { return !used[l.id]; }).map(function (l) { return lessonRow(l, false); }).join('');
-        return `<div class='section-title'>${coursePill(pk.courseId)} ${esc(packLabel(pk))}</div><div class='list'>${rows}${rest}</div>`;
+        return `<div class='section-title'>${coursePill(pk.courseId)} ${esc(packLabel(pk))}${reviewPill(pk)}</div><div class='list'>${rows}${rest}</div>`;
       }).join('');
       return head + body + `<p class='footnote'>레슨 읽기는 설치 단계 4(M3), 개발 단계 지도와 마스터리 표시는 단계 12(M6)에서 열립니다.</p>`;
     });
@@ -232,14 +234,14 @@
       var packRows = sortPacks(packs).map(function (pk) {
         var c = pk.counts || {}, parts = [];
         [['lesson', '레슨'], ['card', '카드'], ['item', '문항'], ['exam', '시험'], ['entry', '백과'], ['stat', '통계']].forEach(function (k) { if (c[k[0]]) { parts.push(k[1] + ' ' + c[k[0]]); } });
-        return `<div class='row'><div class='tx'>${esc(packLabel(pk))}<span class='sub'>${coursePill(pk.courseId)}${esc(pk.packId)} · v${esc(pk.version || '?')} · ${esc(parts.join(' · ') || '내용 없음')}</span></div>` +
+        return `<div class='row'><div class='tx'>${esc(packLabel(pk))}${reviewPill(pk)}<span class='sub'>${coursePill(pk.courseId)}${esc(pk.packId)} · v${esc(pk.version || '?')} · ${esc(parts.join(' · ') || '내용 없음')}</span></div>` +
           `<button type='button' class='del' data-action='delete-pack' data-id='${esc(pk.packId)}' aria-label='${esc(pk.packId)} 팩 삭제'>삭제</button></div>`;
       }).join('');
       if (!packRows) { packRows = `<div class='row'><div class='tx'><span class='sub'>아직 가져온 팩이 없습니다.</span></div></div>`; }
       var last = s.lastBackupAt ? U.dots(U.seoulDate(new Date(s.lastBackupAt))) : '없음';
       return `<h1 class='large-title'>나</h1>` +
         `<div class='section-title'>콘텐츠 팩</div><div class='list'>${packRows}` +
-        `<button type='button' class='row action' data-action='import-file'>파일에서 팩 가져오기</button>` +
+        `<button type='button' class='row action' data-action='load-builtin'>기본 콘텐츠 불러오기·업데이트</button>` + `<button type='button' class='row action' data-action='import-file'>파일에서 팩 가져오기</button>` +
         `<button type='button' class='row action' data-action='import-paste'>붙여넣어 가져오기</button>` +
         `<button type='button' class='row action' data-action='load-sample'>샘플 팩 불러오기</button></div>` +
         `<p class='footnote'>같은 id는 새 내용으로 덮어쓰고 학습 기록은 그대로 둡니다. 나눠 받은 파트 파일(part 1·2·3)은 같은 packId로 차례로 가져오면 합쳐집니다.</p>` +
@@ -405,6 +407,29 @@
       toast('샘플 팩을 읽지 못했습니다. 배포 주소에서 열었는지 확인하세요.');
     }).then(function () { state.busy = false; });
   }
+  function loadBuiltin() {
+    if (state.busy) { return; }
+    state.busy = true;
+    fetch('packs/index.json', { cache: 'no-store' }).then(function (r) {
+      if (!r.ok) { throw new Error('HTTP ' + r.status); }
+      return r.json();
+    }).then(function (man) {
+      var list = (man && man.packs) || [], results = [];
+      return list.reduce(function (p, e) {
+        return p.then(function () {
+          return fetch('packs/' + e.file, { cache: 'no-store' }).then(function (r) {
+            if (!r.ok) { throw new Error('HTTP ' + r.status); }
+            return r.text();
+          }).then(function (text) { return importText(text, e.title || e.file); }).then(function (res) { results.push(res); });
+        });
+      }, Promise.resolve()).then(function () { return results; });
+    }).then(function (results) {
+      showImportResults(results);
+      refresh();
+    }).catch(function () {
+      toast('기본 콘텐츠를 읽지 못했습니다. 배포 주소에서 열었는지 확인하세요.');
+    }).then(function () { state.busy = false; });
+  }
   function deletePack(packId) {
     if (!packId) { return; }
     if (!window.confirm(packId + ' 팩의 콘텐츠를 지웁니다. 학습 기록은 남습니다. 계속할까요?')) { return; }
@@ -496,6 +521,7 @@
       case 'import-paste': openPaste(); break;
       case 'paste-import': pasteImport(); break;
       case 'load-sample': loadSample(); break;
+        case 'load-builtin': loadBuiltin(); break;
       case 'delete-pack': deletePack(t.getAttribute('data-id')); break;
       case 'export': doExport(); break;
       case 'restore': el('file-backup').click(); break;

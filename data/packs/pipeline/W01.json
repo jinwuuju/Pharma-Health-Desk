@@ -1,0 +1,5747 @@
+{
+ "packId": "W01-pipeline-map",
+ "courseId": "pipeline",
+ "version": "2026-11-22.1",
+ "week": 1,
+ "domains": [
+  "D05",
+  "D00"
+ ],
+ "title": "W1 신약개발 전주기 큰 그림 + 약어 100",
+ "description": "감수 전 초안(D017). 선행조직자: 전주기 지도 한 장 + 약어 100.",
+ "units": [
+  {
+   "id": "W01-U1",
+   "domain": "D05",
+   "title": "신약개발 전주기 지도",
+   "order": 1,
+   "lessonIds": [
+    "W01-L1",
+    "W01-L2",
+    "W01-L3"
+   ]
+  },
+  {
+   "id": "W01-U2",
+   "domain": "D00",
+   "title": "약어 기초체력",
+   "order": 2,
+   "lessonIds": [
+    "W01-L4"
+   ]
+  }
+ ],
+ "lessons": [
+  {
+   "id": "W01-L1",
+   "unitId": "W01-U1",
+   "title": "신약개발 전주기 한 장 지도",
+   "minutes": 12,
+   "objectives": [
+    "신약개발 단계를 순서대로 설명한다",
+    "단계별 목적과 대표 기간·성공률을 비교한다",
+    "보도자료의 단계 표현이 과장인지 판단한다"
+   ],
+   "pretestItemIds": [
+    "W01-I001",
+    "W01-I002",
+    "W01-I003"
+   ],
+   "chunks": [
+    {
+     "id": "W01-L1-K1",
+     "markdown": "신약개발은 **타깃 발굴 → 후보물질 도출 → 전임상 → 임상시험계획 승인(IND) → 임상 1·2·3상 → 허가 신청·심사 → 시판 후**로 이어진다.\n\n- 타깃: 병에 관여하는 단백질·유전자 같은 표적을 정한다.\n- 후보물질: 표적에 작용하는 물질을 찾고(히트), 다듬고(리드), 하나를 고른다(후보물질).\n- 전임상: 세포·동물로 효력과 독성을 본다. 독성시험은 GLP 기준으로 한다.\n\n이 지도는 앞으로 36주 동안 모든 레슨의 위치를 알려 주는 기준선이다.",
+     "diagram": {
+      "kind": "flow",
+      "spec": {
+       "steps": [
+        "타깃",
+        "후보물질",
+        "전임상",
+        "IND",
+        "1상",
+        "2상",
+        "3상",
+        "허가 신청·심사",
+        "시판 후(4상)"
+       ]
+      },
+      "caption": "신약개발 전주기",
+      "alt": "타깃에서 시판 후까지 아홉 단계가 왼쪽에서 오른쪽으로 이어진 흐름도"
+     },
+     "checkItemId": "W01-I004"
+    },
+    {
+     "id": "W01-L1-K2",
+     "markdown": "얼마나 걸리고 얼마나 살아남나. 미국제약협회(PhRMA)는 연구 시작부터 허가까지 **10~15년**이 걸린다고 설명한다.\n\nBIO·Informa·QLS 보고서(2021, 2011~2020년 자료)에서 1상에 들어간 후보물질이 FDA 허가까지 간 비율(LOA)은 **7.9%**다. 단계별로 보면 1상→2상 52.0%, **2상→3상 28.9%**, 3상→허가 신청 57.8%, 허가 신청→허가 90.6%다.\n\n가장 큰 관문은 2상이다. 처음으로 효과를 제대로 시험하는 단계이기 때문이다.",
+     "checkItemId": "W01-I005"
+    },
+    {
+     "id": "W01-L1-K3",
+     "markdown": "비용은 보고서마다 크게 다르다.\n\n- 터프츠대 연구진(DiMasi 등, 2016): 실패 비용과 자본 비용을 포함해 약 **26억 달러**(2013년 달러 기준).\n- Wouters 등(JAMA, 2020): 공개 자료로 추정한 중앙값 약 **9.85억 달러**(2018년 달러 기준).\n\n숫자가 다른 이유는 표본(어떤 약을 넣었나), 실패 비용과 자본 비용 포함 여부, 기준 연도가 달라서다. 기사에는 보고서 이름과 연도를 꼭 붙인다.",
+     "checkItemId": "W01-I006"
+    },
+    {
+     "id": "W01-L1-K4",
+     "markdown": "전주기 지도는 기사 읽기 도구다. 같은 회사 소식도 지도 위치에 따라 무게가 다르다.\n\n- 후보물질 도출·전임상: 학회 포스터, 특허, 기술 발표. 사람 자료가 없다.\n- IND·1상 진입: 사람 시험의 시작. 성공 가능성은 아직 낮다.\n- 2상 결과: 효과 신호가 처음 나온다. 기술이전 가치가 크게 바뀌는 시점이다.\n- 3상·허가: 확증과 판매 허락. 그다음 급여·가격이 남는다.\n\n기사 동사도 위치에 맞춘다. 1상은 ‘안전성 확인’, 2상은 ‘효과 신호’, 3상은 ‘효과 확증’, 허가는 ‘판매 허가’다.",
+     "checkItemId": "W01-I081"
+    },
+    {
+     "id": "W01-L1-K5",
+     "markdown": "후보물질은 왜 떨어지나. 후기 임상 실패 분석들은 대체로 **효능 부족**을 가장 흔한 원인으로, 그다음 **안전성 문제**와 **전략·사업성 판단**을 꼽는다.\n\n실패도 기사다. “임상 중단”을 보면 세 가지를 묻는다. 효능이 없었나, 안전성 문제였나, 회사가 우선순위를 바꿨나. 원인에 따라 같은 계열 약 전체에 미치는 영향이 다르다. 효능 실패는 표적 자체에 대한 의문으로, 전략적 중단은 회사 사정으로 읽힌다.",
+     "checkItemId": "W01-I082"
+    }
+   ],
+   "boxes": [
+    {
+     "kind": "reporter",
+     "markdown": "“임상 진입”, “임상 승인” 기사를 보면 먼저 지도에서 위치를 찍는다. 1상 진입이면 허가까지 대략 10곳 중 9곳은 탈락한다는 업계 평균을 함께 떠올린다."
+    },
+    {
+     "kind": "misconception",
+     "markdown": "IND 승인은 사람에게 처음 투여해도 된다는 허락이지 효과의 증거가 아니다."
+    },
+    {
+     "kind": "numbers",
+     "markdown": "LOA 7.9%, 2상→3상 28.9%(BIO 2021) · 10~15년(PhRMA) · 비용 9.85억~26억 달러(보고서·기준 연도별)"
+    }
+   ],
+   "feynman": {
+    "prompt": "신약이 실험실에서 환자에게 가기까지의 길을 독자에게 세 문장으로 설명해 보세요.",
+    "modelSummary": "신약은 표적을 정하고 후보물질을 찾은 뒤 동물 실험으로 안전성을 확인하고, 규제기관 승인을 받아 사람 대상 1·2·3상 임상을 거친다. 3상 결과로 허가를 받으면 판매되지만 시판 후에도 안전성 연구가 이어진다. 이 과정은 10~15년이 걸리고 1상에 들어간 후보물질 가운데 허가까지 가는 것은 10개 중 1개도 안 된다.",
+    "mustInclude": [
+     "전임상",
+     "임상 1·2·3상",
+     "허가",
+     "10~15년",
+     "낮은 성공률"
+    ]
+   },
+   "cardIds": [
+    "W01-C001",
+    "W01-C002",
+    "W01-C003",
+    "W01-C004",
+    "W01-C005",
+    "W01-C006",
+    "W01-C007",
+    "W01-C008",
+    "W01-C009",
+    "W01-C010"
+   ],
+   "sourceIds": [
+    "S-W01-01",
+    "S-W01-02",
+    "S-W01-03",
+    "S-W01-04"
+   ]
+  },
+  {
+   "id": "W01-L2",
+   "unitId": "W01-U1",
+   "title": "임상 1·2·3상과 4상: 각 단계는 무엇을 묻나",
+   "minutes": 12,
+   "objectives": [
+    "임상 단계별 질문과 규모를 비교한다",
+    "1차 평가변수와 탑라인의 뜻을 설명한다",
+    "임상 기사에서 단계에 맞지 않는 효과 표현을 판단한다"
+   ],
+   "pretestItemIds": [
+    "W01-I007",
+    "W01-I008",
+    "W01-I009"
+   ],
+   "chunks": [
+    {
+     "id": "W01-L2-K1",
+     "markdown": "단계마다 묻는 질문이 다르다.\n\n- **1상**: 사람에게 안전한가, 몸에서 어떻게 움직이나(약동학), 다음 단계 용량은? 보통 건강한 지원자 수십 명. 항암제는 환자로 한다.\n- **2상**: 효과 신호가 있나, 어느 용량이 좋은가? 환자 수십~수백 명. 개념 입증(PoC)이 핵심이다.\n- **3상**: 표준 치료나 위약과 비교해 효과와 안전성을 확증하나? 수백~수천 명, 대개 무작위배정.",
+     "checkItemId": "W01-I010"
+    },
+    {
+     "id": "W01-L2-K2",
+     "markdown": "**1차 평가변수**는 시험을 설계할 때 미리 정한 가장 중요한 결과다. 표본 크기도 이것을 기준으로 계산한다.\n\n회사는 결과가 나오면 먼저 **탑라인**(주요 결과 요약)을 발표하고, 전체 데이터는 학회나 논문으로 나중에 공개한다. 탑라인에서 “1차 평가변수 충족”이라고 하면 미리 정한 기준을 통과했다는 뜻이다. 효과 크기·안전성은 전체 데이터를 봐야 안다.",
+     "checkItemId": "W01-I011"
+    },
+    {
+     "id": "W01-L2-K3",
+     "markdown": "**4상(시판 후 연구)**은 허가 뒤 더 많은 환자, 더 긴 기간에서 안전성과 효과를 본다. 드문 부작용은 이 단계에서 드러나는 경우가 많다.\n\n최근에는 진료 기록·청구 자료 같은 실제 진료 데이터(RWD)로 만든 **실사용 근거(RWE)**도 허가 뒤 판단에 쓰인다. 단, 무작위배정이 없으므로 해석에 주의한다.",
+     "checkItemId": "W01-I012"
+    },
+    {
+     "id": "W01-L2-K4",
+     "markdown": "임상시험은 시작 전에 공개 등록부에 올린다. 미국은 **ClinicalTrials.gov**, 국내 승인 정보는 식약처 **의약품안전나라**에서 찾는다.\n\n등록부에는 대상, 설계, **1차 평가변수**, 모집 상태가 적혀 있다. 사전 등록을 하는 이유는 결과를 본 뒤 유리한 지표만 골라 발표하는 것을 막기 위해서다. 기자는 발표된 1차 평가변수가 등록부의 것과 같은지 대조한다. 다르면 이유를 묻는다.",
+     "checkItemId": "W01-I083"
+    },
+    {
+     "id": "W01-L2-K5",
+     "markdown": "임상 결과는 보통 세 번 나온다.\n\n1. **탑라인**: 회사 보도자료·공시. 요약이라 수치가 빠지기 쉽다.\n2. **학회 발표**: 초록과 발표 자료. 학회마다 **엠바고**(보도 유예 시각)가 있다.\n3. **논문**: 동료심사를 거친 전체 결과. 가장 자세하지만 가장 늦다.\n\n단계마다 확인할 것이 다르다. 탑라인에서는 1차 평가변수 충족 여부, 학회에서는 효과 크기와 신뢰구간, 논문에서는 한계와 이해상충을 본다.",
+     "checkItemId": "W01-I084"
+    }
+   ],
+   "boxes": [
+    {
+     "kind": "reporter",
+     "markdown": "임상 결과 기사의 첫 질문 세 가지: 몇 상인가, 1차 평가변수는 무엇이고 충족했나, 비교 대상은 무엇인가."
+    },
+    {
+     "kind": "misconception",
+     "markdown": "1상 “성공”은 안전성 확인이지 효과 입증이 아니다. “효과 확인” 표현은 2상 이상, 그것도 1차 평가변수 결과로 쓴다."
+    },
+    {
+     "kind": "numbers",
+     "markdown": "일반적 규모(교과서적 범위, 약·질환마다 다름): 1상 수십 명, 2상 수십~수백 명, 3상 수백~수천 명."
+    }
+   ],
+   "feynman": {
+    "prompt": "임상 1상·2상·3상이 각각 무엇을 확인하는지 독자에게 세 문장으로 설명해 보세요.",
+    "modelSummary": "1상은 소수의 사람에게 약이 안전한지와 몸속에서 어떻게 움직이는지 보고 용량을 정한다. 2상은 환자에게 효과 신호가 있는지와 알맞은 용량을 찾는다. 3상은 많은 환자를 무작위로 나눠 기존 치료나 위약과 비교해 효과와 안전성을 확증한다.",
+    "mustInclude": [
+     "안전성",
+     "용량",
+     "효과 신호",
+     "확증",
+     "비교"
+    ]
+   },
+   "cardIds": [
+    "W01-C011",
+    "W01-C012",
+    "W01-C013",
+    "W01-C014",
+    "W01-C015",
+    "W01-C016",
+    "W01-C017",
+    "W01-C018"
+   ],
+   "sourceIds": [
+    "S-W01-10",
+    "S-W01-05"
+   ]
+  },
+  {
+   "id": "W01-L3",
+   "unitId": "W01-U1",
+   "title": "허가와 그 뒤: 심사·급여·시판 후",
+   "minutes": 12,
+   "objectives": [
+    "미국·유럽·한국의 허가 결정 주체를 구분한다",
+    "PDUFA 목표일과 신속 프로그램의 의미를 설명한다",
+    "허가와 급여를 구분해 기사 문장을 판단한다"
+   ],
+   "pretestItemIds": [
+    "W01-I013",
+    "W01-I014",
+    "W01-I015"
+   ],
+   "chunks": [
+    {
+     "id": "W01-L3-K1",
+     "markdown": "3상이 끝나면 허가를 신청한다. 미국은 저분자 화학 의약품은 **NDA**, 항체 같은 생물의약품은 **BLA**로 낸다.\n\nFDA는 처방약 사용자 수수료법(**PDUFA**)에 따라 심사 목표 기한을 약속한다. 신규 분자의 표준심사는 접수 확정(제출 후 60일)부터 10개월, 우선심사는 6개월이다. 이 마감일이 기사에 나오는 **PDUFA 목표일**이다. 허가하지 않으면 FDA는 보완점을 적은 **CRL**(보완요구서한)을 보낸다.",
+     "checkItemId": "W01-I016"
+    },
+    {
+     "id": "W01-L3-K2",
+     "markdown": "유럽은 EMA의 약물사용자문위원회(**CHMP**)가 의견을 내고, 최종 허가는 **유럽연합 집행위원회(EC)**가 보통 67일 안에 결정한다. 한국은 **식약처**가 품목허가를 한다.\n\nFDA의 신속 프로그램은 이름이 비슷해 헷갈린다. 심사 기간을 줄이는 것은 **우선심사**, 개발 단계에서 집중 지원하는 것은 **혁신치료제 지정(BTD)**과 **패스트트랙**, 대리 평가변수로 먼저 허가하는 것은 **가속승인**이다. 지정은 허가가 아니다.",
+     "checkItemId": "W01-I017"
+    },
+    {
+     "id": "W01-L3-K3",
+     "markdown": "한국에서 허가(식약처)와 **건강보험 급여**는 별개 절차다. 허가는 안전성·유효성을, 급여는 보험 적용과 가격을 정한다. 급여는 심평원 평가 → 건보공단 약가 협상 → 복지부 고시 순서로 진행된다(자세히는 W23).\n\n그래서 “국내 허가 획득”과 “환자 부담 경감”은 다른 이야기다. 허가 뒤에도 급여가 안 되면 환자가 약값을 전부 낸다.",
+     "checkItemId": "W01-I018"
+    },
+    {
+     "id": "W01-L3-K4",
+     "markdown": "FDA 신속 프로그램 네 가지를 한 표로 정리한다.\n\n| 프로그램 | 언제 | 핵심 혜택 |\n|---|---|---|\n| 패스트트랙 | 개발 중 | 잦은 협의, 서류 순차 제출 |\n| 혁신치료제(BTD) | 초기 임상 근거 뒤 | 패스트트랙 혜택 + 집중 지도 |\n| 가속승인 | 허가 때 | 대리 평가변수로 먼저 허가, 확증 시험 의무 |\n| 우선심사 | 허가 신청 때 | 심사 목표 6개월 |\n\n지정·승인 이름이 기사에 나오면 이 표에서 무엇을 주는지 확인한다.",
+     "checkItemId": "W01-I085"
+    },
+    {
+     "id": "W01-L3-K5",
+     "markdown": "허가는 끝이 아니다.\n\n- **허가 조건**: 시판 후 연구, 확증 시험(가속승인) 의무가 붙을 수 있다.\n- **라벨(허가사항)**: 적응증, 대상 환자, 경고가 적힌다. 기사에서 “누구에게 쓰는 약인지”는 라벨 기준으로 쓴다.\n- **가격·급여**: 나라마다 따로 정한다. 한국은 심평원 평가와 공단 협상을 거친다.\n\n그래서 허가 기사의 마지막 문단에는 남은 단계(급여, 출시 시기)를 쓴다.",
+     "checkItemId": "W01-I086"
+    }
+   ],
+   "boxes": [
+    {
+     "kind": "reporter",
+     "markdown": "“FDA 지정”, “CHMP 승인” 같은 문장을 보면 누가 무엇을 결정했는지 다시 쓴다. 지정은 지원, 의견은 권고, 허가는 판매 승인이다."
+    },
+    {
+     "kind": "misconception",
+     "markdown": "PDUFA 목표일은 허가 예정일이 아니다. 목표일에 CRL이 나오거나 심사가 3개월 연장될 수 있다."
+    },
+    {
+     "kind": "numbers",
+     "markdown": "PDUFA(신규 분자) 표준 10개월·우선 6개월(접수 확정 후) · EC 결정 보통 67일 이내(CHMP 의견 후) · 허가 신청→허가 90.6%(BIO 2021)"
+    }
+   ],
+   "feynman": {
+    "prompt": "허가와 급여가 어떻게 다른지, 왜 환자에게 중요한지 세 문장으로 설명해 보세요.",
+    "modelSummary": "허가는 식약처가 약이 안전하고 효과가 있는지 보고 판매를 허락하는 것이다. 급여는 건강보험이 그 약값을 얼마에, 누구에게 보장할지 정하는 별도 절차다. 그래서 허가를 받아도 급여가 되기 전까지 환자는 약값을 모두 부담할 수 있다.",
+    "mustInclude": [
+     "식약처 허가",
+     "건강보험 급여",
+     "별도 절차",
+     "환자 부담"
+    ]
+   },
+   "cardIds": [
+    "W01-C019",
+    "W01-C020",
+    "W01-C021",
+    "W01-C022",
+    "W01-C023",
+    "W01-C024",
+    "W01-C025",
+    "W01-C026"
+   ],
+   "sourceIds": [
+    "S-W01-06",
+    "S-W01-07",
+    "S-W01-08",
+    "S-W01-09",
+    "S-W01-11"
+   ]
+  },
+  {
+   "id": "W01-L4",
+   "unitId": "W01-U2",
+   "title": "약어 100 지도: 단계별로 묶어 외우기",
+   "minutes": 12,
+   "objectives": [
+    "약어를 전주기 지도의 단계에 배치한다",
+    "헷갈리는 약어 쌍을 구분한다",
+    "기사에서 약어를 처음 쓸 때 풀어 쓴다"
+   ],
+   "pretestItemIds": [
+    "W01-I019",
+    "W01-I020",
+    "W01-I021"
+   ],
+   "chunks": [
+    {
+     "id": "W01-L4-K1",
+     "markdown": "약어는 낱개로 외우면 금방 잊는다. 전주기 지도 위에 올려 묶음으로 외운다.\n\n- 개발 초기: MoA(작용기전), PoC(개념 입증), FIH(사람 첫 투여)\n- 임상: PK·PD, AE·SAE, ORR·PFS·OS, HR·CI, ITT\n- 규제: IND·NDA·BLA·ANDA, PDUFA, CRL, BTD, CHMP\n- 산업: CRO·CMO·CDMO, L/O·L/I, ADC·CAR-T",
+     "checkItemId": "W01-I022"
+    },
+    {
+     "id": "W01-L4-K2",
+     "markdown": "헷갈리는 쌍은 차이 하나만 붙잡는다.\n\n- **CMO vs CDMO**: D(개발)가 붙으면 공정 개발까지 맡는다.\n- **NDA vs ANDA**: A(Abbreviated, 약식)가 붙으면 제네릭 허가 신청이다.\n- **L/O vs L/I**: Out은 기술을 내보내고(수출), In은 들여온다(도입).\n- **PR**: 맥락에 따라 우선심사(Priority Review)도, 부분반응(Partial Response)도 된다. 그래서 기사에서는 풀어 쓴다.",
+     "checkItemId": "W01-I023"
+    },
+    {
+     "id": "W01-L4-K3",
+     "markdown": "기사 규칙: 약어는 처음 나올 때 ‘한국어(영어, 약어)’로 풀어 쓴다. 예: 임상시험계획(Investigational New Drug, IND) 승인.\n\n독자는 약어를 모른다고 가정한다. 한 기사에 새 약어는 3개 이내로 줄이고, 꼭 필요하지 않으면 한국어만 쓴다.",
+     "checkItemId": "W01-I024"
+    },
+    {
+     "id": "W01-L4-K4",
+     "markdown": "임상 결과 약어 묶음(자세히는 W6·W7·W12).\n\n- **ORR**: 종양이 기준 이상 줄어든 환자 비율.\n- **PFS**: 병이 진행하거나 사망하기 전까지의 기간.\n- **OS**: 사망 전까지의 기간. 가장 확실한 평가변수.\n- **HR**: 두 군의 사건 발생 속도 비. 1보다 작으면 치료군이 유리하다.\n- **CI**: 추정값의 불확실성 범위. HR의 CI가 1을 포함하면 유의한 차이를 보이지 못한 것이다.",
+     "checkItemId": "W01-I087"
+    },
+    {
+     "id": "W01-L4-K5",
+     "markdown": "산업·돈 약어 묶음(자세히는 W16).\n\n- **L/O·L/I**: 기술수출·기술도입. 누구 입장인지에 따라 바뀐다.\n- **업프론트**: 계약금. 계약 직후 받는 돈.\n- **마일스톤**: 개발·허가·판매 목표를 달성할 때 받는 돈.\n- **로열티**: 판매 후 매출의 일정 비율.\n- **CDMO**: 남의 약을 개발·생산해 주는 서비스 회사.\n\n총계약규모 = 업프론트 + 마일스톤 합계(로열티 별도). 확정된 돈은 대개 업프론트뿐이다.",
+     "checkItemId": "W01-I088"
+    }
+   ],
+   "boxes": [
+    {
+     "kind": "reporter",
+     "markdown": "보도자료 약어는 회사가 자주 쓰는 말일 뿐 독자 언어가 아니다. 약어를 풀다 보면 과장이 드러나기도 한다(예: BTD를 ‘혁신신약 인정’으로 옮기는 오류)."
+    },
+    {
+     "kind": "misconception",
+     "markdown": "BTD(혁신치료제 지정)는 허가가 아니라 개발 지원 지정이다."
+    },
+    {
+     "kind": "numbers",
+     "markdown": "이번 주 용어집 100개 → 하루 15개씩 7일. 카드는 핵심 30장만 복습에 넣는다."
+    }
+   ],
+   "feynman": {
+    "prompt": "IND, NDA, CRL을 각각 한 문장으로, 서로의 관계가 보이게 설명해 보세요.",
+    "modelSummary": "IND는 사람 대상 임상을 시작하려고 규제기관에 내는 신청이다. NDA는 임상을 마친 뒤 판매 허가를 받으려고 내는 신청이다. CRL은 FDA가 NDA를 검토한 뒤 지금은 허가할 수 없다며 보완점을 알리는 서한이다.",
+    "mustInclude": [
+     "임상 시작",
+     "허가 신청",
+     "보완요구"
+    ]
+   },
+   "cardIds": [
+    "W01-C027",
+    "W01-C028",
+    "W01-C029",
+    "W01-C030"
+   ],
+   "sourceIds": [
+    "S-W01-05",
+    "S-W01-06"
+   ]
+  }
+ ],
+ "cards": [
+  {
+   "id": "W01-C001",
+   "courseId": "pipeline",
+   "domain": "D05",
+   "axis": [
+    "science",
+    "industry"
+   ],
+   "tags": [
+    "core",
+    "W01"
+   ],
+   "front": "신약개발에서 ‘타깃(표적)’이란?",
+   "back": "병에 관여해 약으로 조절하면 치료 효과가 기대되는 단백질·유전자 등 분자다. 신약개발은 타깃을 정하고 검증하는 데서 시작한다.",
+   "why": "타깃이 틀리면 뒤 단계가 모두 헛수고가 된다. 2상 효능 실패의 상당수가 타깃 검증 부족과 관련된다고 본다.",
+   "example": "“GB-301은 EGFR을 표적으로 한다” — 표적이 무엇인지 먼저 적는다.",
+   "en": "Target",
+   "difficulty": 1,
+   "sourceIds": [
+    "S-W01-02"
+   ]
+  },
+  {
+   "id": "W01-C002",
+   "courseId": "pipeline",
+   "domain": "D05",
+   "axis": [
+    "science",
+    "industry"
+   ],
+   "tags": [
+    "core",
+    "W01"
+   ],
+   "front": "히트·리드·후보물질의 차이는?",
+   "back": "히트는 표적에 반응한 첫 물질, 리드는 효력·성질을 다듬을 출발점, 후보물질은 전임상으로 보낼 최종 선택이다.",
+   "confusables": [
+    "W01-C003"
+   ],
+   "en": "Hit, Lead, Candidate",
+   "difficulty": 2,
+   "sourceIds": []
+  },
+  {
+   "id": "W01-C003",
+   "courseId": "pipeline",
+   "domain": "D05",
+   "axis": [
+    "science",
+    "industry"
+   ],
+   "tags": [
+    "core",
+    "W01"
+   ],
+   "front": "전임상(비임상) 시험에서 확인하는 것은?",
+   "back": "세포·동물 실험으로 효력과 독성을 보고, 사람 첫 투여 용량의 근거를 만든다. 독성시험은 GLP(우수실험실운영기준)로 한다.",
+   "confusables": [
+    "W01-C011"
+   ],
+   "en": "Preclinical (Nonclinical) Study",
+   "abbr": "GLP",
+   "difficulty": 2,
+   "sourceIds": []
+  },
+  {
+   "id": "W01-C004",
+   "courseId": "pipeline",
+   "domain": "D05",
+   "axis": [
+    "science",
+    "industry"
+   ],
+   "tags": [
+    "core",
+    "W01"
+   ],
+   "front": "IND(임상시험계획) 승인의 의미는?",
+   "back": "사람에게 처음 투여해도 된다는 규제기관의 허락이다. 미국은 제출 후 30일 안에 FDA가 보류하지 않으면 임상을 시작할 수 있다. 효과의 증거가 아니다.",
+   "why": "보도자료가 IND를 성공처럼 포장하는 일이 잦다.",
+   "example": "“미국 FDA 임상 승인” → “미국에서 임상을 시작할 수 있게 됐다”로 쓴다.",
+   "confusables": [
+    "W01-C019"
+   ],
+   "en": "Investigational New Drug",
+   "abbr": "IND",
+   "difficulty": 2,
+   "sourceIds": [
+    "S-W01-05"
+   ],
+   "asOf": "2026-11-22"
+  },
+  {
+   "id": "W01-C005",
+   "courseId": "pipeline",
+   "domain": "D05",
+   "axis": [
+    "science",
+    "industry"
+   ],
+   "tags": [
+    "core",
+    "W01"
+   ],
+   "front": "신약개발 전주기 순서는?",
+   "back": "타깃 → 후보물질 → 전임상 → IND → 임상 1·2·3상 → 허가 신청·심사 → 시판 후(4상).",
+   "why": "모든 신약 기사는 이 지도의 한 지점에 있다. 위치를 알면 과장 여부가 보인다.",
+   "difficulty": 1,
+   "sourceIds": [
+    "S-W01-02"
+   ]
+  },
+  {
+   "id": "W01-C006",
+   "courseId": "pipeline",
+   "domain": "D05",
+   "axis": [
+    "science",
+    "industry"
+   ],
+   "tags": [
+    "core",
+    "W01"
+   ],
+   "front": "연구 시작부터 허가까지 걸리는 대표 기간은?",
+   "back": "미국제약협회(PhRMA)는 10~15년이라고 설명한다. BIO 2021 보고서는 1상부터 허가까지 평균 약 10.5년으로 집계했다.",
+   "difficulty": 2,
+   "sourceIds": [
+    "S-W01-02",
+    "S-W01-01"
+   ],
+   "asOf": "2021-02",
+   "needsVerification": true
+  },
+  {
+   "id": "W01-C007",
+   "courseId": "pipeline",
+   "domain": "D05",
+   "axis": [
+    "science",
+    "industry"
+   ],
+   "tags": [
+    "core",
+    "W01"
+   ],
+   "front": "신약 하나의 개발 비용은 얼마로 보도되나?",
+   "back": "보고서마다 다르다. DiMasi 등(2016)은 실패·자본 비용 포함 약 26억 달러(2013년 달러), Wouters 등(JAMA 2020)은 중앙값 약 9.85억 달러(2018년 달러)로 추정했다.",
+   "why": "표본, 실패 비용·자본 비용 포함 여부, 기준 연도가 다르다.",
+   "example": "기사에는 “○○ 연구(연도)에 따르면”을 붙인다.",
+   "difficulty": 3,
+   "sourceIds": [
+    "S-W01-03",
+    "S-W01-04"
+   ]
+  },
+  {
+   "id": "W01-C008",
+   "courseId": "pipeline",
+   "domain": "D05",
+   "axis": [
+    "science",
+    "industry"
+   ],
+   "tags": [
+    "core",
+    "W01"
+   ],
+   "front": "LOA(허가 가능성)란? 1상 진입 후보물질의 대표값은?",
+   "back": "특정 단계에서 출발해 최종 허가까지 갈 확률이다. BIO·Informa·QLS(2021, 2011~2020년 자료)는 1상 진입 기준 7.9%로 집계했다.",
+   "confusables": [
+    "W01-C009"
+   ],
+   "en": "Likelihood of Approval",
+   "abbr": "LOA",
+   "difficulty": 3,
+   "sourceIds": [
+    "S-W01-01"
+   ],
+   "asOf": "2021-02"
+  },
+  {
+   "id": "W01-C009",
+   "courseId": "pipeline",
+   "domain": "D05",
+   "axis": [
+    "science",
+    "industry"
+   ],
+   "tags": [
+    "core",
+    "W01"
+   ],
+   "front": "단계 전환 확률에서 가장 낮은 구간은?",
+   "back": "2상→3상(28.9%, BIO 2021)이다. 1상→2상 52.0%, 3상→허가 신청 57.8%, 허가 신청→허가 90.6%.",
+   "why": "2상에서 처음으로 효과를 제대로 시험해 효능 부족 탈락이 많다.",
+   "confusables": [
+    "W01-C008"
+   ],
+   "difficulty": 3,
+   "sourceIds": [
+    "S-W01-01"
+   ],
+   "asOf": "2021-02"
+  },
+  {
+   "id": "W01-C010",
+   "courseId": "pipeline",
+   "domain": "D05",
+   "axis": [
+    "science",
+    "industry"
+   ],
+   "tags": [
+    "W01"
+   ],
+   "front": "제약사의 ‘파이프라인’이란?",
+   "back": "회사가 개발 중인 후보물질 목록과 각 후보의 개발 단계다.",
+   "example": "파이프라인 표의 막대 길이(단계)는 회사가 그린 것이므로 ClinicalTrials.gov 등록 정보와 대조한다.",
+   "en": "Pipeline",
+   "difficulty": 1,
+   "sourceIds": []
+  },
+  {
+   "id": "W01-C011",
+   "courseId": "pipeline",
+   "domain": "D06",
+   "axis": [
+    "science"
+   ],
+   "tags": [
+    "core",
+    "W01"
+   ],
+   "front": "임상 1상의 주된 목적은?",
+   "back": "안전성·내약성·약동학을 보고 다음 단계 용량을 정한다. 보통 건강한 지원자 수십 명, 항암제는 환자로 한다.",
+   "confusables": [
+    "W01-C012"
+   ],
+   "en": "Phase 1",
+   "difficulty": 2,
+   "sourceIds": [
+    "S-W01-10"
+   ]
+  },
+  {
+   "id": "W01-C012",
+   "courseId": "pipeline",
+   "domain": "D06",
+   "axis": [
+    "science"
+   ],
+   "tags": [
+    "core",
+    "W01"
+   ],
+   "front": "임상 2상의 주된 목적은?",
+   "back": "환자에서 효과 신호(개념 입증)를 확인하고 알맞은 용량을 찾는다.",
+   "confusables": [
+    "W01-C011",
+    "W01-C013"
+   ],
+   "en": "Phase 2",
+   "difficulty": 2,
+   "sourceIds": [
+    "S-W01-10"
+   ]
+  },
+  {
+   "id": "W01-C013",
+   "courseId": "pipeline",
+   "domain": "D06",
+   "axis": [
+    "science"
+   ],
+   "tags": [
+    "core",
+    "W01"
+   ],
+   "front": "임상 3상의 주된 목적은?",
+   "back": "많은 환자를 대상으로 표준 치료·위약과 비교해 효과와 안전성을 확증한다. 허가 신청의 핵심 근거가 된다.",
+   "confusables": [
+    "W01-C012"
+   ],
+   "en": "Phase 3",
+   "difficulty": 2,
+   "sourceIds": [
+    "S-W01-10"
+   ]
+  },
+  {
+   "id": "W01-C014",
+   "courseId": "pipeline",
+   "domain": "D06",
+   "axis": [
+    "science"
+   ],
+   "tags": [
+    "core",
+    "W01"
+   ],
+   "front": "4상(시판 후 연구)은 왜 하나?",
+   "back": "허가 뒤 더 많은 환자, 더 긴 기간에서 드문 부작용과 실제 효과를 확인하려고 한다. 허가 조건으로 요구되기도 한다.",
+   "confusables": [
+    "W01-C025"
+   ],
+   "en": "Phase 4 / Post-marketing study",
+   "difficulty": 2,
+   "sourceIds": []
+  },
+  {
+   "id": "W01-C015",
+   "courseId": "pipeline",
+   "domain": "D06",
+   "axis": [
+    "science"
+   ],
+   "tags": [
+    "core",
+    "W01"
+   ],
+   "front": "1차 평가변수란?",
+   "back": "시험 설계 때 미리 정한 가장 중요한 결과 지표다. 표본 크기도 이것을 기준으로 계산하고, 성공·실패도 이것으로 판단한다.",
+   "why": "실패한 시험이 2차·하위군 결과를 강조하는 것은 대표적 레드플래그다.",
+   "en": "Primary endpoint",
+   "difficulty": 3,
+   "sourceIds": []
+  },
+  {
+   "id": "W01-C016",
+   "courseId": "pipeline",
+   "domain": "D07",
+   "axis": [
+    "science",
+    "media"
+   ],
+   "tags": [
+    "core",
+    "W01"
+   ],
+   "front": "탑라인 결과란?",
+   "back": "회사가 임상 주요 결과를 먼저 요약해 공개하는 것이다. 전체 데이터는 학회·논문으로 나중에 나온다.",
+   "example": "“1차 평가변수 충족” 탑라인에는 효과 크기가 빠져 있는 경우가 많다. 수치를 따로 확인한다.",
+   "en": "Topline results",
+   "difficulty": 2,
+   "sourceIds": []
+  },
+  {
+   "id": "W01-C017",
+   "courseId": "pipeline",
+   "domain": "D05",
+   "axis": [
+    "science",
+    "industry"
+   ],
+   "tags": [
+    "core",
+    "W01"
+   ],
+   "front": "PoC(개념 입증)란?",
+   "back": "약이 의도한 기전으로 사람에서 효과 신호를 낸다는 첫 증거다. 보통 2상에서 확인한다.",
+   "en": "Proof of Concept",
+   "abbr": "PoC",
+   "difficulty": 3,
+   "sourceIds": []
+  },
+  {
+   "id": "W01-C018",
+   "courseId": "pipeline",
+   "domain": "D17",
+   "axis": [
+    "media"
+   ],
+   "tags": [
+    "core",
+    "W01"
+   ],
+   "front": "“임상 승인 획득”을 ‘신약 성공’처럼 쓰면 왜 틀리나?",
+   "back": "임상 승인은 시험을 시작해도 된다는 허락일 뿐이다. 1상에 들어간 후보물질 가운데 허가까지 가는 것은 10% 안팎이다.",
+   "difficulty": 2,
+   "sourceIds": [
+    "S-W01-01",
+    "S-W01-05"
+   ]
+  },
+  {
+   "id": "W01-C019",
+   "courseId": "pipeline",
+   "domain": "D08",
+   "axis": [
+    "industry"
+   ],
+   "tags": [
+    "core",
+    "W01"
+   ],
+   "front": "NDA와 BLA의 차이는?",
+   "back": "미국 판매 허가 신청서다. 화학 합성 저분자 약은 NDA, 항체 같은 생물의약품은 BLA로 낸다.",
+   "confusables": [
+    "W01-C004"
+   ],
+   "en": "New Drug Application / Biologics License Application",
+   "difficulty": 2,
+   "sourceIds": [],
+   "asOf": "2026-11-22"
+  },
+  {
+   "id": "W01-C020",
+   "courseId": "pipeline",
+   "domain": "D08",
+   "axis": [
+    "industry"
+   ],
+   "tags": [
+    "core",
+    "W01"
+   ],
+   "front": "PDUFA 목표일이란?",
+   "back": "FDA가 처방약 사용자 수수료법에 따라 심사를 끝내겠다고 약속한 날짜다. 신규 분자 표준심사는 접수 확정 후 10개월, 우선심사는 6개월이다.",
+   "why": "허가 예정일이 아니라 목표일이다. CRL이나 연장도 가능하다.",
+   "en": "PDUFA goal date",
+   "difficulty": 2,
+   "sourceIds": [
+    "S-W01-06"
+   ],
+   "asOf": "2026-11-22"
+  },
+  {
+   "id": "W01-C021",
+   "courseId": "pipeline",
+   "domain": "D08",
+   "axis": [
+    "industry"
+   ],
+   "tags": [
+    "core",
+    "W01"
+   ],
+   "front": "CRL이란?",
+   "back": "FDA가 허가 신청을 검토한 뒤 지금 상태로는 허가할 수 없다며 보완점을 알리는 서한이다.",
+   "example": "“허가 불발”로 쓰되, 보완 내용(효능·안전성·제조)을 확인해 재신청 가능성을 함께 쓴다.",
+   "en": "Complete Response Letter",
+   "abbr": "CRL",
+   "difficulty": 2,
+   "sourceIds": [
+    "S-W01-06"
+   ]
+  },
+  {
+   "id": "W01-C022",
+   "courseId": "pipeline",
+   "domain": "D08",
+   "axis": [
+    "industry"
+   ],
+   "tags": [
+    "core",
+    "W01"
+   ],
+   "front": "우선심사와 혁신치료제 지정(BTD)의 차이는?",
+   "back": "우선심사는 심사 목표 기한을 6개월로 줄인다. BTD는 개발 단계에서 FDA의 집중 지원을 받는 지정으로 허가가 아니다.",
+   "en": "Priority Review / Breakthrough Therapy Designation",
+   "difficulty": 3,
+   "sourceIds": [
+    "S-W01-07"
+   ],
+   "asOf": "2026-11-22"
+  },
+  {
+   "id": "W01-C023",
+   "courseId": "pipeline",
+   "domain": "D08",
+   "axis": [
+    "industry"
+   ],
+   "tags": [
+    "core",
+    "W01"
+   ],
+   "front": "한국에서 의약품 판매 허가를 내주는 곳은?",
+   "back": "식품의약품안전처(식약처)다. 이것을 품목허가라 한다.",
+   "difficulty": 1,
+   "sourceIds": [
+    "S-W01-09"
+   ],
+   "asOf": "2026-11-22"
+  },
+  {
+   "id": "W01-C024",
+   "courseId": "pipeline",
+   "domain": "D09",
+   "axis": [
+    "industry"
+   ],
+   "tags": [
+    "core",
+    "W01"
+   ],
+   "front": "허가와 급여는 어떻게 다른가?",
+   "back": "허가(식약처)는 안전성·유효성을 보고 판매를 허락한다. 급여(건강보험)는 보험 적용 여부와 가격을 정하는 별개 절차다.",
+   "why": "허가를 받아도 급여 전에는 환자가 약값을 모두 낼 수 있다.",
+   "difficulty": 2,
+   "sourceIds": [
+    "S-W01-11"
+   ]
+  },
+  {
+   "id": "W01-C025",
+   "courseId": "pipeline",
+   "domain": "D16",
+   "axis": [
+    "science",
+    "media"
+   ],
+   "tags": [
+    "core",
+    "W01"
+   ],
+   "front": "실사용 근거(RWE)란?",
+   "back": "진료 기록·청구 자료·레지스트리 같은 실제 진료 데이터(RWD)를 분석해 얻은 근거다. 무작위배정이 없어 교란 요인 처리를 확인해야 한다.",
+   "confusables": [
+    "W01-C014"
+   ],
+   "en": "Real-World Evidence",
+   "abbr": "RWE",
+   "difficulty": 3,
+   "sourceIds": []
+  },
+  {
+   "id": "W01-C026",
+   "courseId": "pipeline",
+   "domain": "D08",
+   "axis": [
+    "industry"
+   ],
+   "tags": [
+    "core",
+    "W01"
+   ],
+   "front": "유럽의 허가 결정은 누가 하나?",
+   "back": "EMA의 CHMP가 의견(권고)을 내고, 유럽연합 집행위원회(EC)가 보통 67일 안에 최종 허가를 결정한다.",
+   "example": "“CHMP 승인” → “CHMP 승인 권고”로 고친다.",
+   "difficulty": 3,
+   "sourceIds": [
+    "S-W01-08"
+   ],
+   "asOf": "2026-11-22"
+  },
+  {
+   "id": "W01-C027",
+   "courseId": "pipeline",
+   "domain": "D00",
+   "axis": [
+    "industry",
+    "media"
+   ],
+   "tags": [
+    "core",
+    "W01"
+   ],
+   "front": "MoA란?",
+   "back": "작용기전(Mechanism of Action). 약이 몸에서 어떤 표적에 어떻게 작용해 효과를 내는지다.",
+   "en": "Mechanism of Action",
+   "abbr": "MoA",
+   "difficulty": 1,
+   "sourceIds": []
+  },
+  {
+   "id": "W01-C028",
+   "courseId": "pipeline",
+   "domain": "D10",
+   "axis": [
+    "industry"
+   ],
+   "tags": [
+    "core",
+    "W01"
+   ],
+   "front": "CRO·CMO·CDMO의 차이는?",
+   "back": "CRO는 임상시험 운영을, CMO는 생산을, CDMO는 공정 개발부터 생산까지 위탁받는다.",
+   "en": "Contract Research / Manufacturing / Development and Manufacturing Organization",
+   "difficulty": 2,
+   "sourceIds": []
+  },
+  {
+   "id": "W01-C029",
+   "courseId": "pipeline",
+   "domain": "D11",
+   "axis": [
+    "industry",
+    "media"
+   ],
+   "tags": [
+    "core",
+    "W01"
+   ],
+   "front": "기술수출(L/O) 기사의 ‘총계약규모’는 무엇인가?",
+   "back": "계약금·개발 마일스톤·판매 마일스톤을 모두 더한 최대치다. 조건을 달성해야 받는 돈이 대부분이라 확정 수익이 아니다.",
+   "example": "“1조 원 기술수출(계약금 300억 원)”처럼 계약금을 함께 쓴다.",
+   "en": "License-out / Total deal value",
+   "abbr": "L/O",
+   "difficulty": 2,
+   "sourceIds": []
+  },
+  {
+   "id": "W01-C030",
+   "courseId": "pipeline",
+   "domain": "D10",
+   "axis": [
+    "industry"
+   ],
+   "tags": [
+    "core",
+    "W01"
+   ],
+   "front": "제네릭과 바이오시밀러의 차이는?",
+   "back": "제네릭은 저분자 오리지널과 같은 성분으로 생물학적 동등성을 입증한다. 바이오시밀러는 생물의약품과 동일하게 만들 수 없어 유사성을 입증한다.",
+   "en": "Generic / Biosimilar",
+   "difficulty": 2,
+   "sourceIds": []
+  }
+ ],
+ "items": [
+  {
+   "id": "W01-I001",
+   "courseId": "pipeline",
+   "type": "mcq",
+   "domain": "D05",
+   "axis": [
+    "science",
+    "industry"
+   ],
+   "cardIds": [
+    "W01-C004",
+    "W01-C005"
+   ],
+   "bloom": "remember",
+   "difficulty": 1,
+   "stem": "(사전 질문) 사람에게 처음 약을 투여하기 직전 단계는?",
+   "options": [
+    {
+     "id": "a",
+     "text": "임상시험계획 승인(IND)",
+     "correct": true,
+     "rationale": "정답. 전임상 자료로 사람 첫 투여를 허락받는다."
+    },
+    {
+     "id": "b",
+     "text": "임상 2상 진입",
+     "correct": false,
+     "rationale": "2상은 이미 사람 투여가 진행된 뒤다."
+    },
+    {
+     "id": "c",
+     "text": "허가 신청·심사",
+     "correct": false,
+     "rationale": "허가 신청은 3상 이후다."
+    },
+    {
+     "id": "d",
+     "text": "시판 후 연구(4상)",
+     "correct": false,
+     "rationale": "허가 뒤 단계다."
+    }
+   ],
+   "explanation": "전임상 → IND → 1상 순서다.",
+   "sourceIds": []
+  },
+  {
+   "id": "W01-I002",
+   "courseId": "pipeline",
+   "type": "mcq",
+   "domain": "D05",
+   "axis": [
+    "science",
+    "industry"
+   ],
+   "cardIds": [
+    "W01-C008"
+   ],
+   "bloom": "understand",
+   "difficulty": 2,
+   "stem": "(사전 질문) 1상에 들어간 후보물질 10개 중 허가까지 가는 것은 평균 몇 개쯤일까?",
+   "options": [
+    {
+     "id": "a",
+     "text": "3개쯤",
+     "correct": false,
+     "rationale": "2상→3상 전환율과 헷갈린 값이다."
+    },
+    {
+     "id": "b",
+     "text": "5개쯤",
+     "correct": false,
+     "rationale": "1상→2상 전환율에 가깝다."
+    },
+    {
+     "id": "c",
+     "text": "9개쯤",
+     "correct": false,
+     "rationale": "허가 신청→허가 비율에 가깝다."
+    },
+    {
+     "id": "d",
+     "text": "1개 안팎",
+     "correct": true,
+     "rationale": "정답. BIO 2021 기준 LOA 7.9%."
+    }
+   ],
+   "explanation": "사전 질문은 점수에 들어가지 않는다. 틀려도 레슨 뒤 기억이 더 강해진다.",
+   "sourceIds": [
+    "S-W01-01"
+   ],
+   "asOf": "2021-02"
+  },
+  {
+   "id": "W01-I003",
+   "courseId": "pipeline",
+   "type": "mcq",
+   "domain": "D05",
+   "axis": [
+    "science",
+    "industry"
+   ],
+   "cardIds": [
+    "W01-C007"
+   ],
+   "bloom": "understand",
+   "difficulty": 2,
+   "stem": "(사전 질문) 신약 개발 비용이 보도마다 크게 다른 가장 큰 이유는?",
+   "options": [
+    {
+     "id": "a",
+     "text": "약값이 나라마다 달라서",
+     "correct": false,
+     "rationale": "약값은 개발 비용 추정과 별개다."
+    },
+    {
+     "id": "b",
+     "text": "비용 범위와 기준 연도가 달라서",
+     "correct": true,
+     "rationale": "정답. 실패·자본 비용 포함 여부, 표본, 연도가 다르다. (추정에 넣는 비용 범위와 기준 연도가 달라서)"
+    },
+    {
+     "id": "c",
+     "text": "환율이 매일 바뀌어서",
+     "correct": false,
+     "rationale": "환율 차이로는 몇 배 차이를 설명할 수 없다."
+    },
+    {
+     "id": "d",
+     "text": "회사들이 비용을 공개하지 않아서",
+     "correct": false,
+     "rationale": "일부 이유지만 핵심은 추정 방법 차이다."
+    }
+   ],
+   "explanation": "숫자를 인용할 때는 보고서·기준 연도를 붙인다.",
+   "sourceIds": [
+    "S-W01-03",
+    "S-W01-04"
+   ]
+  },
+  {
+   "id": "W01-I004",
+   "courseId": "pipeline",
+   "type": "order",
+   "domain": "D05",
+   "axis": [
+    "science",
+    "industry"
+   ],
+   "cardIds": [
+    "W01-C005"
+   ],
+   "bloom": "remember",
+   "difficulty": 1,
+   "stem": "신약개발 단계를 순서대로 놓으시오.",
+   "options": [
+    {
+     "id": "a",
+     "text": "IND",
+     "correct": true,
+     "rationale": "사람 첫 투여 허락."
+    },
+    {
+     "id": "b",
+     "text": "허가 신청·심사",
+     "correct": true,
+     "rationale": "3상 자료로 신청."
+    },
+    {
+     "id": "c",
+     "text": "타깃 발굴",
+     "correct": true,
+     "rationale": "출발점."
+    },
+    {
+     "id": "d",
+     "text": "임상 1·2·3상",
+     "correct": true,
+     "rationale": "사람 대상 단계적 시험."
+    },
+    {
+     "id": "e",
+     "text": "전임상",
+     "correct": true,
+     "rationale": "세포·동물 시험."
+    },
+    {
+     "id": "f",
+     "text": "후보물질 도출",
+     "correct": true,
+     "rationale": "히트→리드→후보."
+    }
+   ],
+   "answer": [
+    "c",
+    "f",
+    "e",
+    "a",
+    "d",
+    "b"
+   ],
+   "explanation": "타깃 → 후보물질 → 전임상 → IND → 임상 → 허가 신청·심사.",
+   "sourceIds": []
+  },
+  {
+   "id": "W01-I005",
+   "courseId": "pipeline",
+   "type": "mcq",
+   "domain": "D05",
+   "axis": [
+    "science",
+    "industry"
+   ],
+   "cardIds": [
+    "W01-C009"
+   ],
+   "bloom": "apply",
+   "difficulty": 3,
+   "stem": "BIO 2021 보고서 기준, 다음 중 단계 전환 성공률이 가장 낮은 구간은?",
+   "options": [
+    {
+     "id": "a",
+     "text": "2상→3상",
+     "correct": true,
+     "rationale": "정답. 28.9%."
+    },
+    {
+     "id": "b",
+     "text": "1상→2상",
+     "correct": false,
+     "rationale": "52.0%."
+    },
+    {
+     "id": "c",
+     "text": "3상→허가 신청",
+     "correct": false,
+     "rationale": "57.8%."
+    },
+    {
+     "id": "d",
+     "text": "허가 신청→허가",
+     "correct": false,
+     "rationale": "90.6%."
+    }
+   ],
+   "explanation": "2상은 처음으로 효과를 제대로 시험하는 단계라 탈락이 가장 많다.",
+   "sourceIds": [
+    "S-W01-01"
+   ],
+   "asOf": "2021-02"
+  },
+  {
+   "id": "W01-I006",
+   "courseId": "pipeline",
+   "type": "mcq",
+   "domain": "D05",
+   "axis": [
+    "science",
+    "industry"
+   ],
+   "cardIds": [
+    "W01-C007"
+   ],
+   "bloom": "analyze",
+   "difficulty": 4,
+   "stem": "두 기사: A “신약 개발에 26억 달러”, B “중앙값 9.85억 달러”. 가장 정확한 판단은?",
+   "options": [
+    {
+     "id": "a",
+     "text": "B가 틀렸다. 중앙값은 쓰면 안 된다",
+     "correct": false,
+     "rationale": "중앙값은 극단값 영향을 줄이는 지표다."
+    },
+    {
+     "id": "b",
+     "text": "둘 다 틀렸다. 정답은 10억 원이다",
+     "correct": false,
+     "rationale": "근거 없는 값이다."
+    },
+    {
+     "id": "c",
+     "text": "둘 다 맞을 수 있다(방법·연도 차이)",
+     "correct": true,
+     "rationale": "정답. A는 실패·자본 비용 포함(2013년 달러), B는 공개 자료 중앙값(2018년 달러). (둘 다 맞을 수 있다. 추정 방법과 기준 연도가 다르다)"
+    },
+    {
+     "id": "d",
+     "text": "A가 틀렸다. 최신 연구가 B다",
+     "correct": false,
+     "rationale": "발표 연도만으로 옳고 그름을 가리지 않는다."
+    }
+   ],
+   "explanation": "비용 숫자에는 보고서명·연도·포함 범위를 함께 쓴다.",
+   "sourceIds": [
+    "S-W01-03",
+    "S-W01-04"
+   ]
+  },
+  {
+   "id": "W01-I007",
+   "courseId": "pipeline",
+   "type": "mcq",
+   "domain": "D06",
+   "axis": [
+    "science"
+   ],
+   "cardIds": [
+    "W01-C013"
+   ],
+   "bloom": "remember",
+   "difficulty": 1,
+   "stem": "(사전 질문) 많은 환자를 무작위로 나눠 효과를 확증하는 단계는?",
+   "options": [
+    {
+     "id": "a",
+     "text": "2상",
+     "correct": false,
+     "rationale": "효과 신호·용량 탐색 단계다."
+    },
+    {
+     "id": "b",
+     "text": "전임상",
+     "correct": false,
+     "rationale": "동물·세포 단계다."
+    },
+    {
+     "id": "c",
+     "text": "3상",
+     "correct": true,
+     "rationale": "정답."
+    },
+    {
+     "id": "d",
+     "text": "1상",
+     "correct": false,
+     "rationale": "안전성·용량 단계다."
+    }
+   ],
+   "explanation": "3상은 허가 신청의 핵심 근거다.",
+   "sourceIds": []
+  },
+  {
+   "id": "W01-I008",
+   "courseId": "pipeline",
+   "type": "mcq",
+   "domain": "D06",
+   "axis": [
+    "science"
+   ],
+   "cardIds": [
+    "W01-C015"
+   ],
+   "bloom": "understand",
+   "difficulty": 2,
+   "stem": "(사전 질문) “1차 평가변수 충족”이 뜻하는 것은?",
+   "options": [
+    {
+     "id": "a",
+     "text": "부작용이 하나도 없었다",
+     "correct": false,
+     "rationale": "안전성과 별개다."
+    },
+    {
+     "id": "b",
+     "text": "허가가 확정됐다",
+     "correct": false,
+     "rationale": "허가는 규제기관이 판단한다."
+    },
+    {
+     "id": "c",
+     "text": "미리 정한 핵심 결과 기준을 넘었다",
+     "correct": true,
+     "rationale": "정답. 미리 정한 가장 중요한 결과에서 기준을 넘었다."
+    },
+    {
+     "id": "d",
+     "text": "모든 평가변수에서 효과가 있었다",
+     "correct": false,
+     "rationale": "2차 평가변수는 따로 본다."
+    }
+   ],
+   "explanation": "효과 크기와 안전성은 전체 데이터에서 확인한다.",
+   "sourceIds": []
+  },
+  {
+   "id": "W01-I009",
+   "courseId": "pipeline",
+   "type": "mcq",
+   "domain": "D06",
+   "axis": [
+    "science"
+   ],
+   "cardIds": [
+    "W01-C014"
+   ],
+   "bloom": "understand",
+   "difficulty": 2,
+   "stem": "(사전 질문) 드문 부작용이 주로 드러나는 단계는?",
+   "options": [
+    {
+     "id": "a",
+     "text": "허가 뒤 시판 후 단계",
+     "correct": true,
+     "rationale": "정답. 훨씬 많은 사람이 오래 쓰기 때문이다."
+    },
+    {
+     "id": "b",
+     "text": "전임상",
+     "correct": false,
+     "rationale": "동물에서는 사람의 드문 부작용을 다 알 수 없다."
+    },
+    {
+     "id": "c",
+     "text": "1상",
+     "correct": false,
+     "rationale": "수십 명으로는 드문 부작용을 보기 어렵다."
+    },
+    {
+     "id": "d",
+     "text": "2상",
+     "correct": false,
+     "rationale": "규모가 작다."
+    }
+   ],
+   "explanation": "시판 후 안전성 정보(라벨 변경, 경고 추가)도 기사 소재다.",
+   "sourceIds": []
+  },
+  {
+   "id": "W01-I010",
+   "courseId": "pipeline",
+   "type": "match",
+   "domain": "D06",
+   "axis": [
+    "science"
+   ],
+   "cardIds": [
+    "W01-C011",
+    "W01-C012",
+    "W01-C013",
+    "W01-C014"
+   ],
+   "bloom": "apply",
+   "difficulty": 2,
+   "stem": "설명과 단계를 짝지으시오.",
+   "answer": [
+    [
+     "안전성·약동학·용량 결정",
+     "1상"
+    ],
+    [
+     "효과 신호·용량 탐색",
+     "2상"
+    ],
+    [
+     "대규모 비교·확증",
+     "3상"
+    ],
+    [
+     "허가 뒤 장기 안전성",
+     "4상"
+    ]
+   ],
+   "explanation": "1상 안전성·용량, 2상 효과 신호·용량 탐색, 3상 확증, 4상 시판 후.",
+   "sourceIds": []
+  },
+  {
+   "id": "W01-I011",
+   "courseId": "pipeline",
+   "type": "mcq",
+   "domain": "D07",
+   "axis": [
+    "science",
+    "media"
+   ],
+   "cardIds": [
+    "W01-C016",
+    "W01-C015"
+   ],
+   "bloom": "apply",
+   "difficulty": 3,
+   "stem": "탑라인 보도자료 “GB-401, 3상 1차 평가변수 충족”을 받았다. 기사 쓰기 전 가장 먼저 확인할 것은?",
+   "options": [
+    {
+     "id": "a",
+     "text": "회사 주가 변동",
+     "correct": false,
+     "rationale": "기사의 사실 확인 대상이 아니다."
+    },
+    {
+     "id": "b",
+     "text": "보도자료 배포 시각",
+     "correct": false,
+     "rationale": "중요하지 않다."
+    },
+    {
+     "id": "c",
+     "text": "연구 책임자의 출신 학교",
+     "correct": false,
+     "rationale": "부차적이다."
+    },
+    {
+     "id": "d",
+     "text": "효과 크기·비교 대상·안전성",
+     "correct": true,
+     "rationale": "정답. 탑라인에는 이것이 빠진 경우가 많다. (효과 크기와 비교 대상, 안전성 수치)"
+    }
+   ],
+   "explanation": "탑라인은 요약이다. 전체 데이터가 언제 공개되는지도 묻는다.",
+   "sourceIds": []
+  },
+  {
+   "id": "W01-I012",
+   "courseId": "pipeline",
+   "type": "mcq",
+   "domain": "D16",
+   "axis": [
+    "science",
+    "media"
+   ],
+   "cardIds": [
+    "W01-C025",
+    "W01-C014"
+   ],
+   "bloom": "analyze",
+   "difficulty": 4,
+   "stem": "“시판 후 실사용 데이터에서 효과 확인” 기사에 꼭 붙일 단서는?",
+   "options": [
+    {
+     "id": "a",
+     "text": "실사용 데이터는 임상시험보다 항상 정확하다",
+     "correct": false,
+     "rationale": "정확성은 설계와 분석에 달렸다."
+    },
+    {
+     "id": "b",
+     "text": "실사용 데이터는 허가 판단에 절대 쓰이지 않는다",
+     "correct": false,
+     "rationale": "규제기관도 쓰는 경우가 있다."
+    },
+    {
+     "id": "c",
+     "text": "단서는 필요 없다",
+     "correct": false,
+     "rationale": "해석 한계를 밝혀야 한다."
+    },
+    {
+     "id": "d",
+     "text": "교란 요인 탓에 효과가 왜곡될 수 있다",
+     "correct": true,
+     "rationale": "정답. 무작위배정이 없어 교란 요인 때문에 효과를 과대·과소평가할 수 있다."
+    }
+   ],
+   "explanation": "RWE 기사에서는 비교군을 어떻게 맞췄는지 묻는다.",
+   "sourceIds": []
+  },
+  {
+   "id": "W01-I013",
+   "courseId": "pipeline",
+   "type": "mcq",
+   "domain": "D08",
+   "axis": [
+    "industry"
+   ],
+   "cardIds": [
+    "W01-C020"
+   ],
+   "bloom": "remember",
+   "difficulty": 2,
+   "stem": "(사전 질문) 미국 FDA가 신약 허가 여부를 결정하기로 한 목표일을 부르는 말은?",
+   "options": [
+    {
+     "id": "a",
+     "text": "IND 승인일",
+     "correct": false,
+     "rationale": "임상 시작 절차다."
+    },
+    {
+     "id": "b",
+     "text": "탑라인 발표일",
+     "correct": false,
+     "rationale": "회사의 결과 발표다."
+    },
+    {
+     "id": "c",
+     "text": "엠바고 해제일",
+     "correct": false,
+     "rationale": "보도 시점 약속이다."
+    },
+    {
+     "id": "d",
+     "text": "PDUFA 목표일",
+     "correct": true,
+     "rationale": "정답."
+    }
+   ],
+   "explanation": "목표일은 허가 보장이 아니다.",
+   "sourceIds": [
+    "S-W01-06"
+   ],
+   "asOf": "2026-11-22"
+  },
+  {
+   "id": "W01-I014",
+   "courseId": "pipeline",
+   "type": "mcq",
+   "domain": "D08",
+   "axis": [
+    "industry"
+   ],
+   "cardIds": [
+    "W01-C026"
+   ],
+   "bloom": "understand",
+   "difficulty": 2,
+   "stem": "(사전 질문) 유럽에서 중앙심사 의약품의 최종 허가를 내리는 곳은?",
+   "options": [
+    {
+     "id": "a",
+     "text": "각 회원국 의회",
+     "correct": false,
+     "rationale": "중앙심사와 무관하다."
+    },
+    {
+     "id": "b",
+     "text": "유럽의회 보건위원회",
+     "correct": false,
+     "rationale": "허가 기관이 아니다."
+    },
+    {
+     "id": "c",
+     "text": "EU 집행위원회(EC)",
+     "correct": true,
+     "rationale": "정답. 유럽연합 집행위원회(EC)."
+    },
+    {
+     "id": "d",
+     "text": "EMA의 CHMP",
+     "correct": false,
+     "rationale": "의견(권고)을 낸다."
+    }
+   ],
+   "explanation": "CHMP 긍정 의견 뒤 EC가 보통 67일 안에 결정한다.",
+   "sourceIds": [
+    "S-W01-08"
+   ],
+   "asOf": "2026-11-22"
+  },
+  {
+   "id": "W01-I015",
+   "courseId": "pipeline",
+   "type": "mcq",
+   "domain": "D09",
+   "axis": [
+    "industry"
+   ],
+   "cardIds": [
+    "W01-C024"
+   ],
+   "bloom": "understand",
+   "difficulty": 2,
+   "stem": "(사전 질문) 국내에서 식약처 허가를 받은 신약이면 바로 건강보험이 적용될까?",
+   "options": [
+    {
+     "id": "a",
+     "text": "아니다. 신약은 급여가 금지된다",
+     "correct": false,
+     "rationale": "금지되지 않는다."
+    },
+    {
+     "id": "b",
+     "text": "아니다. 급여는 별도 절차를 거친다",
+     "correct": true,
+     "rationale": "정답."
+    },
+    {
+     "id": "c",
+     "text": "그렇다. 허가와 급여는 같은 절차다",
+     "correct": false,
+     "rationale": "다른 기관, 다른 절차다."
+    },
+    {
+     "id": "d",
+     "text": "그렇다. 다만 희귀의약품만 예외다",
+     "correct": false,
+     "rationale": "일반 규칙이 아니다."
+    }
+   ],
+   "explanation": "허가 → 심평원 평가 → 공단 협상 → 복지부 고시.",
+   "sourceIds": [
+    "S-W01-11"
+   ]
+  },
+  {
+   "id": "W01-I016",
+   "courseId": "pipeline",
+   "type": "mcq",
+   "domain": "D08",
+   "axis": [
+    "industry"
+   ],
+   "cardIds": [
+    "W01-C021"
+   ],
+   "bloom": "apply",
+   "difficulty": 3,
+   "stem": "FDA가 GB-501 허가 신청에 CRL을 보냈다. 가장 정확한 기사 문장은?",
+   "options": [
+    {
+     "id": "a",
+     "text": "“FDA 심사가 시작됐다”",
+     "correct": false,
+     "rationale": "CRL은 심사 결과다."
+    },
+    {
+     "id": "b",
+     "text": "“보완 요구로 이번엔 허가 불발”",
+     "correct": true,
+     "rationale": "정답. 보완 내용과 재신청 계획을 함께 쓴다. (“FDA가 보완을 요구하며 이번에는 허가하지 않았다”)"
+    },
+    {
+     "id": "c",
+     "text": "“FDA가 GB-501을 영구 거절했다”",
+     "correct": false,
+     "rationale": "CRL 뒤 보완해 재신청할 수 있다."
+    },
+    {
+     "id": "d",
+     "text": "“FDA가 GB-501을 조건부 허가했다”",
+     "correct": false,
+     "rationale": "CRL은 허가가 아니다."
+    }
+   ],
+   "explanation": "CRL 사유가 효능인지 제조(CMC)인지에 따라 재신청 기간이 크게 다르다.",
+   "sourceIds": [
+    "S-W01-06"
+   ]
+  },
+  {
+   "id": "W01-I017",
+   "courseId": "pipeline",
+   "type": "mcq",
+   "domain": "D08",
+   "axis": [
+    "industry"
+   ],
+   "cardIds": [
+    "W01-C022"
+   ],
+   "bloom": "analyze",
+   "difficulty": 3,
+   "stem": "보도자료: “GB-601, FDA 혁신치료제(BTD) 지정 — 사실상 허가 청신호.” 판단은?",
+   "options": [
+    {
+     "id": "a",
+     "text": "정확하다. BTD는 우선심사와 같다",
+     "correct": false,
+     "rationale": "심사 기간 단축은 우선심사다."
+    },
+    {
+     "id": "b",
+     "text": "판단할 수 없다. BTD는 비공개다",
+     "correct": false,
+     "rationale": "회사가 공개하는 경우가 많다."
+    },
+    {
+     "id": "c",
+     "text": "과장. BTD는 허가가 아니다",
+     "correct": true,
+     "rationale": "정답. 과장이다. BTD는 개발 지원 지정이며 허가를 보장하지 않는다."
+    },
+    {
+     "id": "d",
+     "text": "정확하다. BTD를 받으면 자동 허가된다",
+     "correct": false,
+     "rationale": "자동 허가는 없다."
+    }
+   ],
+   "explanation": "지정(BTD·패스트트랙·희귀의약품)은 허가가 아니다.",
+   "sourceIds": [
+    "S-W01-07"
+   ],
+   "asOf": "2026-11-22"
+  },
+  {
+   "id": "W01-I018",
+   "courseId": "pipeline",
+   "type": "mcq",
+   "domain": "D09",
+   "axis": [
+    "industry"
+   ],
+   "cardIds": [
+    "W01-C024",
+    "W01-C023"
+   ],
+   "bloom": "analyze",
+   "difficulty": 3,
+   "stem": "제목 “국산 신약 허가… 환자 부담 확 준다.” 문제점은?",
+   "options": [
+    {
+     "id": "a",
+     "text": "허가와 급여는 별개라 단정할 수 없다",
+     "correct": true,
+     "rationale": "정답. 허가와 급여는 별개라 급여 결정 전에는 부담이 준다고 단정할 수 없다."
+    },
+    {
+     "id": "b",
+     "text": "국산 신약은 급여가 필요 없다",
+     "correct": false,
+     "rationale": "모든 약이 같은 절차를 거친다."
+    },
+    {
+     "id": "c",
+     "text": "허가 기사에는 가격을 쓰면 안 된다",
+     "correct": false,
+     "rationale": "가격·급여 계획은 중요한 정보다."
+    },
+    {
+     "id": "d",
+     "text": "문제없다",
+     "correct": false,
+     "rationale": "급여 단계를 건너뛰었다."
+    }
+   ],
+   "explanation": "허가 기사에는 급여 신청 여부와 예상 일정을 덧붙인다.",
+   "sourceIds": []
+  },
+  {
+   "id": "W01-I019",
+   "courseId": "pipeline",
+   "type": "mcq",
+   "domain": "D00",
+   "axis": [
+    "industry",
+    "media"
+   ],
+   "cardIds": [
+    "W01-C028"
+   ],
+   "bloom": "remember",
+   "difficulty": 1,
+   "stem": "(사전 질문) CDMO의 D는 무엇을 뜻할까?",
+   "options": [
+    {
+     "id": "a",
+     "text": "Diagnosis(진단)",
+     "correct": false,
+     "rationale": "무관하다."
+    },
+    {
+     "id": "b",
+     "text": "Development(개발)",
+     "correct": true,
+     "rationale": "정답. 공정 개발까지 맡는다."
+    },
+    {
+     "id": "c",
+     "text": "Drug(약)",
+     "correct": false,
+     "rationale": "CDMO의 D가 아니다."
+    },
+    {
+     "id": "d",
+     "text": "Distribution(유통)",
+     "correct": false,
+     "rationale": "유통이 아니다."
+    }
+   ],
+   "explanation": "CMO에 개발(D)이 붙으면 CDMO.",
+   "sourceIds": []
+  },
+  {
+   "id": "W01-I020",
+   "courseId": "pipeline",
+   "type": "mcq",
+   "domain": "D00",
+   "axis": [
+    "industry",
+    "media"
+   ],
+   "cardIds": [],
+   "bloom": "remember",
+   "difficulty": 2,
+   "stem": "(사전 질문) ANDA의 A는?",
+   "options": [
+    {
+     "id": "a",
+     "text": "Antibody(항체)",
+     "correct": false,
+     "rationale": "아니다."
+    },
+    {
+     "id": "b",
+     "text": "Abbreviated(약식)",
+     "correct": true,
+     "rationale": "정답. 제네릭 허가 신청이다."
+    },
+    {
+     "id": "c",
+     "text": "Advanced(고급)",
+     "correct": false,
+     "rationale": "아니다."
+    },
+    {
+     "id": "d",
+     "text": "Accelerated(가속)",
+     "correct": false,
+     "rationale": "가속승인과 헷갈렸다."
+    }
+   ],
+   "explanation": "제네릭은 오리지널의 안전성·유효성 자료를 원용하고 생물학적 동등성을 입증한다.",
+   "sourceIds": []
+  },
+  {
+   "id": "W01-I021",
+   "courseId": "pipeline",
+   "type": "mcq",
+   "domain": "D00",
+   "axis": [
+    "industry",
+    "media"
+   ],
+   "cardIds": [],
+   "bloom": "understand",
+   "difficulty": 2,
+   "stem": "(사전 질문) 기사에서 “PR”만 쓰면 생기는 문제는?",
+   "options": [
+    {
+     "id": "a",
+     "text": "문제없다",
+     "correct": false,
+     "rationale": "중의적이다."
+    },
+    {
+     "id": "b",
+     "text": "뜻이 여러 개라 헷갈린다",
+     "correct": true,
+     "rationale": "정답. 우선심사와 부분반응 등 뜻이 여러 개라 독자가 헷갈린다."
+    },
+    {
+     "id": "c",
+     "text": "PR은 영어라 쓸 수 없다",
+     "correct": false,
+     "rationale": "영어 약어도 풀어 쓰면 된다."
+    },
+    {
+     "id": "d",
+     "text": "PR은 홍보라는 뜻밖에 없다",
+     "correct": false,
+     "rationale": "맥락마다 다르다."
+    }
+   ],
+   "explanation": "약어는 처음 나올 때 풀어 쓴다.",
+   "sourceIds": []
+  },
+  {
+   "id": "W01-I022",
+   "courseId": "pipeline",
+   "type": "match",
+   "domain": "D00",
+   "axis": [
+    "industry",
+    "media"
+   ],
+   "cardIds": [
+    "W01-C017",
+    "W01-C029"
+   ],
+   "bloom": "apply",
+   "difficulty": 2,
+   "stem": "약어와 전주기 단계를 짝지으시오.",
+   "answer": [
+    [
+     "PoC",
+     "2상 전후 개념 입증"
+    ],
+    [
+     "ORR",
+     "임상 결과 지표"
+    ],
+    [
+     "CRL",
+     "허가 심사 결과"
+    ],
+    [
+     "L/O",
+     "기술 거래"
+    ]
+   ],
+   "explanation": "MoA·PoC는 개발 초기, ORR·HR은 임상 결과, PDUFA·CRL은 허가 심사, L/O는 산업·거래.",
+   "sourceIds": []
+  },
+  {
+   "id": "W01-I023",
+   "courseId": "pipeline",
+   "type": "mcq",
+   "domain": "D00",
+   "axis": [
+    "industry",
+    "media"
+   ],
+   "cardIds": [
+    "W01-C029"
+   ],
+   "bloom": "apply",
+   "difficulty": 3,
+   "stem": "“가온바이오가 한빛제약에 GB-701 권리를 넘겼다.” 가온바이오 입장의 약어는?",
+   "options": [
+    {
+     "id": "a",
+     "text": "CRO(임상수탁)",
+     "correct": false,
+     "rationale": "무관하다."
+    },
+    {
+     "id": "b",
+     "text": "L/O(기술수출)",
+     "correct": true,
+     "rationale": "정답."
+    },
+    {
+     "id": "c",
+     "text": "L/I(기술도입)",
+     "correct": false,
+     "rationale": "한빛제약 입장이다."
+    },
+    {
+     "id": "d",
+     "text": "M&A(인수합병)",
+     "correct": false,
+     "rationale": "회사를 산 것이 아니다."
+    }
+   ],
+   "explanation": "같은 계약도 누구 입장인지에 따라 L/O·L/I가 바뀐다.",
+   "sourceIds": []
+  },
+  {
+   "id": "W01-I024",
+   "courseId": "pipeline",
+   "type": "mcq",
+   "domain": "D00",
+   "axis": [
+    "industry",
+    "media"
+   ],
+   "cardIds": [],
+   "bloom": "apply",
+   "difficulty": 3,
+   "stem": "기사 첫 문장을 가장 바르게 쓴 것은?",
+   "options": [
+    {
+     "id": "a",
+     "text": "Investigational New Drug를 이번에 받았다",
+     "correct": false,
+     "rationale": "한국어 설명이 없다."
+    },
+    {
+     "id": "b",
+     "text": "IND(아이엔디) 승인을 이번에 받았다",
+     "correct": false,
+     "rationale": "발음 표기는 뜻을 알려 주지 않는다."
+    },
+    {
+     "id": "c",
+     "text": "임상시험계획(Investigational New Drug, IND)을 승인받았다",
+     "correct": true,
+     "rationale": "정답. 한국어(영어, 약어) 형식."
+    },
+    {
+     "id": "d",
+     "text": "회사는 이번에 미국에서 IND를 받았다",
+     "correct": false,
+     "rationale": "처음 나올 때 풀어 써야 한다."
+    }
+   ],
+   "explanation": "기획안 1의 12.3 표기 규칙.",
+   "sourceIds": []
+  },
+  {
+   "id": "W01-I025",
+   "courseId": "pipeline",
+   "type": "mcq",
+   "domain": "D05",
+   "axis": [
+    "science",
+    "industry"
+   ],
+   "cardIds": [
+    "W01-C001",
+    "W01-C009"
+   ],
+   "bloom": "understand",
+   "difficulty": 2,
+   "stem": "타깃 검증이 부족한 채 개발을 이어 가면 가장 흔히 생기는 일은?",
+   "options": [
+    {
+     "id": "a",
+     "text": "허가 심사가 자동으로 길어진다",
+     "correct": false,
+     "rationale": "심사 기간과 무관하다."
+    },
+    {
+     "id": "b",
+     "text": "제조 원가가 오른다",
+     "correct": false,
+     "rationale": "원가와 무관하다."
+    },
+    {
+     "id": "c",
+     "text": "2상에서 효과 부족으로 탈락한다",
+     "correct": true,
+     "rationale": "정답. 효능 부족은 2상 실패의 가장 흔한 원인이다. (2상에서 효과가 나오지 않아 탈락한다)"
+    },
+    {
+     "id": "d",
+     "text": "1상에서 반드시 독성이 나온다",
+     "correct": false,
+     "rationale": "독성은 타깃 검증과 별개 문제다."
+    }
+   ],
+   "explanation": "타깃이 병의 원인과 정말 관련 있는지가 전주기의 출발점이다.",
+   "sourceIds": []
+  },
+  {
+   "id": "W01-I026",
+   "courseId": "pipeline",
+   "type": "order",
+   "domain": "D05",
+   "axis": [
+    "science",
+    "industry"
+   ],
+   "cardIds": [
+    "W01-C002"
+   ],
+   "bloom": "remember",
+   "difficulty": 2,
+   "stem": "후보물질 도출 단계를 순서대로 놓으시오.",
+   "options": [
+    {
+     "id": "a",
+     "text": "후보물질 선정",
+     "correct": true,
+     "rationale": "전임상으로 보낼 최종 물질."
+    },
+    {
+     "id": "b",
+     "text": "히트 발굴",
+     "correct": true,
+     "rationale": "표적에 반응한 첫 물질."
+    },
+    {
+     "id": "c",
+     "text": "리드 최적화",
+     "correct": true,
+     "rationale": "효력·안정성 등을 다듬는다."
+    }
+   ],
+   "answer": [
+    "b",
+    "c",
+    "a"
+   ],
+   "explanation": "히트 → 리드 → 후보물질.",
+   "sourceIds": []
+  },
+  {
+   "id": "W01-I027",
+   "courseId": "pipeline",
+   "type": "mcq",
+   "domain": "D05",
+   "axis": [
+    "science",
+    "industry"
+   ],
+   "cardIds": [
+    "W01-C003"
+   ],
+   "bloom": "understand",
+   "difficulty": 2,
+   "stem": "전임상 독성시험을 GLP 기준으로 하는 이유는?",
+   "options": [
+    {
+     "id": "a",
+     "text": "임상시험을 생략하기 위해",
+     "correct": false,
+     "rationale": "임상은 생략할 수 없다."
+    },
+    {
+     "id": "b",
+     "text": "자료의 신뢰성을 보장하려고",
+     "correct": true,
+     "rationale": "정답. 자료의 신뢰성을 보장해 규제기관 판단 근거로 쓰기 위해."
+    },
+    {
+     "id": "c",
+     "text": "동물 수를 늘리기 위해",
+     "correct": false,
+     "rationale": "GLP는 품질 기준이다."
+    },
+    {
+     "id": "d",
+     "text": "효과를 크게 보이게 하기 위해",
+     "correct": false,
+     "rationale": "목적이 반대다."
+    }
+   ],
+   "explanation": "GLP는 비임상시험 관리기준이다.",
+   "sourceIds": []
+  },
+  {
+   "id": "W01-I028",
+   "courseId": "pipeline",
+   "type": "cloze",
+   "domain": "D08",
+   "axis": [
+    "industry"
+   ],
+   "cardIds": [
+    "W01-C004"
+   ],
+   "bloom": "remember",
+   "difficulty": 2,
+   "stem": "빈칸: 미국에서는 IND 제출 후 ___일 안에 FDA가 임상 보류를 하지 않으면 임상을 시작할 수 있다.",
+   "answer": {
+    "accepted": [
+     "30",
+     "30일",
+     "삼십"
+    ]
+   },
+   "explanation": "21 CFR 312.40에 따른 30일 대기 기간이다.",
+   "sourceIds": [
+    "S-W01-05"
+   ],
+   "asOf": "2026-11-22"
+  },
+  {
+   "id": "W01-I029",
+   "courseId": "pipeline",
+   "type": "numeric",
+   "domain": "D05",
+   "axis": [
+    "science",
+    "industry"
+   ],
+   "cardIds": [
+    "W01-C006"
+   ],
+   "bloom": "apply",
+   "difficulty": 2,
+   "stem": "1상부터 허가까지 평균 10.5년(BIO 2021)이 걸린다고 하자. 2026년 말 1상을 시작한 후보물질이 평균대로 간다면 허가는 몇 년쯤인가?",
+   "answer": {
+    "value": 2037,
+    "tolerance": 1,
+    "unit": "년"
+   },
+   "explanation": "2026년 말 + 10.5년 ≈ 2037년. 평균일 뿐이며 질환·모달리티마다 크게 다르다.",
+   "sourceIds": [
+    "S-W01-01"
+   ],
+   "asOf": "2021-02",
+   "needsVerification": true
+  },
+  {
+   "id": "W01-I030",
+   "courseId": "pipeline",
+   "type": "numeric",
+   "domain": "D05",
+   "axis": [
+    "science",
+    "industry"
+   ],
+   "cardIds": [
+    "W01-C008"
+   ],
+   "bloom": "apply",
+   "difficulty": 3,
+   "stem": "1상 단계 후보물질 25개를 가진 회사가 있다. LOA 7.9%를 적용하면 평균적으로 몇 개가 허가될까?",
+   "answer": {
+    "value": 2,
+    "tolerance": 0.5,
+    "unit": "개"
+   },
+   "explanation": "25 × 0.079 ≈ 1.98 → 약 2개. 업계 평균이므로 개별 회사 전망으로 단정하지 않는다.",
+   "sourceIds": [
+    "S-W01-01"
+   ],
+   "asOf": "2021-02"
+  },
+  {
+   "id": "W01-I031",
+   "courseId": "pipeline",
+   "type": "numeric",
+   "domain": "D05",
+   "axis": [
+    "science",
+    "industry"
+   ],
+   "cardIds": [
+    "W01-C008",
+    "W01-C009"
+   ],
+   "bloom": "apply",
+   "difficulty": 4,
+   "stem": "단계 전환율 52.0%, 28.9%, 57.8%, 90.6%를 모두 곱하면 1상 진입 후 LOA는 몇 %인가? (소수 첫째 자리)",
+   "answer": {
+    "value": 7.9,
+    "tolerance": 0.3,
+    "unit": "%"
+   },
+   "explanation": "0.520 × 0.289 × 0.578 × 0.906 ≈ 0.079 → 7.9%. LOA는 단계별 전환율의 곱이다.",
+   "sourceIds": [
+    "S-W01-01"
+   ],
+   "asOf": "2021-02"
+  },
+  {
+   "id": "W01-I032",
+   "courseId": "pipeline",
+   "type": "mcq",
+   "domain": "D05",
+   "axis": [
+    "science",
+    "industry"
+   ],
+   "cardIds": [
+    "W01-C008",
+    "W01-C009"
+   ],
+   "bloom": "analyze",
+   "difficulty": 4,
+   "stem": "같은 자료로 볼 때 2상에 막 들어간 후보물질이 허가까지 갈 확률에 가장 가까운 것은?",
+   "options": [
+    {
+     "id": "a",
+     "text": "약 15%",
+     "correct": true,
+     "rationale": "정답. 28.9% × 57.8% × 90.6% ≈ 15%."
+    },
+    {
+     "id": "b",
+     "text": "약 29%",
+     "correct": false,
+     "rationale": "2상→3상 전환율만 본 값이다."
+    },
+    {
+     "id": "c",
+     "text": "약 52%",
+     "correct": false,
+     "rationale": "1상→2상 전환율이다."
+    },
+    {
+     "id": "d",
+     "text": "약 8%",
+     "correct": false,
+     "rationale": "1상 진입 기준 LOA다."
+    }
+   ],
+   "explanation": "출발 단계가 바뀌면 LOA도 바뀐다. 기사에서는 기준 단계를 밝힌다.",
+   "sourceIds": [
+    "S-W01-01"
+   ],
+   "asOf": "2021-02"
+  },
+  {
+   "id": "W01-I033",
+   "courseId": "pipeline",
+   "type": "mcq",
+   "domain": "D05",
+   "axis": [
+    "science",
+    "industry"
+   ],
+   "cardIds": [
+    "W01-C010"
+   ],
+   "bloom": "apply",
+   "difficulty": 2,
+   "stem": "회사 IR 자료의 파이프라인 표에 GB-901이 ‘2상’으로 그려져 있다. 가장 먼저 할 확인은?",
+   "options": [
+    {
+     "id": "a",
+     "text": "공개 등록 정보와 대조한다",
+     "correct": true,
+     "rationale": "정답. ClinicalTrials.gov 등 공개 등록 정보로 실제 단계와 모집 상태를 대조."
+    },
+    {
+     "id": "b",
+     "text": "막대 색깔의 의미를 묻는다",
+     "correct": false,
+     "rationale": "부차적이다."
+    },
+    {
+     "id": "c",
+     "text": "주가 반응을 본다",
+     "correct": false,
+     "rationale": "사실 확인과 무관하다."
+    },
+    {
+     "id": "d",
+     "text": "경쟁사 표와 막대 길이를 비교한다",
+     "correct": false,
+     "rationale": "회사가 그린 표끼리 비교해도 사실 확인이 안 된다."
+    }
+   ],
+   "explanation": "파이프라인 표는 회사가 만든 홍보 자료다.",
+   "sourceIds": []
+  },
+  {
+   "id": "W01-I034",
+   "courseId": "pipeline",
+   "type": "mcq",
+   "domain": "D06",
+   "axis": [
+    "science"
+   ],
+   "cardIds": [
+    "W01-C011"
+   ],
+   "bloom": "analyze",
+   "difficulty": 3,
+   "stem": "항암제 1상을 건강한 지원자가 아닌 환자로 하는 주된 이유는?",
+   "options": [
+    {
+     "id": "a",
+     "text": "독성이 커 건강인 투여가 어려워서",
+     "correct": true,
+     "rationale": "정답. 독성이 큰 약이 많아 건강인에게 투여하기 어렵기 때문."
+    },
+    {
+     "id": "b",
+     "text": "건강인은 임상에 참여할 수 없어서",
+     "correct": false,
+     "rationale": "다른 약의 1상은 건강인으로 한다."
+    },
+    {
+     "id": "c",
+     "text": "환자로 하면 바로 허가를 받을 수 있어서",
+     "correct": false,
+     "rationale": "1상은 허가 근거가 아니다."
+    },
+    {
+     "id": "d",
+     "text": "비용이 더 싸서",
+     "correct": false,
+     "rationale": "비용 때문이 아니다."
+    }
+   ],
+   "explanation": "그래서 항암 1상에서는 반응률 같은 효과 신호도 함께 본다.",
+   "sourceIds": []
+  },
+  {
+   "id": "W01-I035",
+   "courseId": "pipeline",
+   "type": "mcq",
+   "domain": "D06",
+   "axis": [
+    "science"
+   ],
+   "cardIds": [
+    "W01-C012",
+    "W01-C013"
+   ],
+   "bloom": "apply",
+   "difficulty": 3,
+   "stem": "2상(환자 60명) 결과로 “효과 입증”이라고 쓴 초안. 데스크 판단은?",
+   "options": [
+    {
+     "id": "a",
+     "text": "2상은 기사로 쓰지 않는다",
+     "correct": false,
+     "rationale": "기사 가치는 있다."
+    },
+    {
+     "id": "b",
+     "text": "‘허가 임박’으로 바꾼다",
+     "correct": false,
+     "rationale": "더 큰 과장이다."
+    },
+    {
+     "id": "c",
+     "text": "‘효과 신호 확인’으로 고친다",
+     "correct": true,
+     "rationale": "정답. ‘효과 신호 확인’ 정도로 고친다. 확증은 3상의 몫이다."
+    },
+    {
+     "id": "d",
+     "text": "그대로 둔다. 2상 성공은 효과 입증이다",
+     "correct": false,
+     "rationale": "규모가 작아 확증이 아니다."
+    }
+   ],
+   "explanation": "단계에 맞는 동사를 고른다: 1상 안전성 확인, 2상 효과 신호, 3상 확증.",
+   "sourceIds": []
+  },
+  {
+   "id": "W01-I036",
+   "courseId": "pipeline",
+   "type": "mcq",
+   "domain": "D06",
+   "axis": [
+    "science"
+   ],
+   "cardIds": [
+    "W01-C013"
+   ],
+   "bloom": "understand",
+   "difficulty": 2,
+   "stem": "3상에서 신약과 비교하는 대상으로 맞는 것은?",
+   "options": [
+    {
+     "id": "a",
+     "text": "위약 또는 현재 표준 치료",
+     "correct": true,
+     "rationale": "정답."
+    },
+    {
+     "id": "b",
+     "text": "같은 회사의 다른 후보물질만",
+     "correct": false,
+     "rationale": "일반적이지 않다."
+    },
+    {
+     "id": "c",
+     "text": "비교 대상 없이 신약만",
+     "correct": false,
+     "rationale": "단일군은 주로 초기 단계다."
+    },
+    {
+     "id": "d",
+     "text": "동물 실험 결과",
+     "correct": false,
+     "rationale": "사람 시험의 비교군이 아니다."
+    }
+   ],
+   "explanation": "비교 대상이 무엇인지 기사에 꼭 쓴다.",
+   "sourceIds": []
+  },
+  {
+   "id": "W01-I037",
+   "courseId": "pipeline",
+   "type": "mcq",
+   "domain": "D06",
+   "axis": [
+    "science"
+   ],
+   "cardIds": [
+    "W01-C014"
+   ],
+   "bloom": "apply",
+   "difficulty": 3,
+   "stem": "허가 3년 뒤 규제기관이 GB-102 라벨에 새 간 손상 경고를 추가했다. 이 정보가 나온 단계와 기사 포인트는?",
+   "options": [
+    {
+     "id": "a",
+     "text": "시판 후. 절대 위험과 대상을 함께 쓴다",
+     "correct": true,
+     "rationale": "정답. 시판 후 단계. 위험 빈도와 대상, 환자 행동 지침(의료진 상담)을 함께 쓴다."
+    },
+    {
+     "id": "b",
+     "text": "3상. 허가 전에 숨긴 정보라고 단정한다",
+     "correct": false,
+     "rationale": "근거 없이 단정하면 안 된다."
+    },
+    {
+     "id": "c",
+     "text": "전임상. 동물 자료가 새로 나왔다고 쓴다",
+     "correct": false,
+     "rationale": "대개 시판 후 자료다."
+    },
+    {
+     "id": "d",
+     "text": "1상. 다시 임상을 해야 한다고 쓴다",
+     "correct": false,
+     "rationale": "라벨 변경과 무관하다."
+    }
+   ],
+   "explanation": "시판 후 경고 기사는 공포를 키우지 않게 절대 위험을 함께 쓴다.",
+   "sourceIds": []
+  },
+  {
+   "id": "W01-I038",
+   "courseId": "pipeline",
+   "type": "mcq",
+   "domain": "D06",
+   "axis": [
+    "science"
+   ],
+   "cardIds": [
+    "W01-C015"
+   ],
+   "bloom": "analyze",
+   "difficulty": 4,
+   "stem": "1차 평가변수에서 실패한 3상에 대해 회사가 “2차 평가변수 3개에서 유의한 개선”을 강조했다. 가장 타당한 기사 구조는?",
+   "options": [
+    {
+     "id": "a",
+     "text": "1차 실패를 먼저, 2차는 탐색적으로",
+     "correct": true,
+     "rationale": "정답. 1차 실패를 먼저 쓰고, 2차 결과는 탐색적이라 해석에 한계가 있다고 밝힌다."
+    },
+    {
+     "id": "b",
+     "text": "2차 결과를 제목으로 쓴다",
+     "correct": false,
+     "rationale": "선택적 강조다."
+    },
+    {
+     "id": "c",
+     "text": "2차가 3개면 1차 실패를 상쇄한다",
+     "correct": false,
+     "rationale": "개수로 상쇄되지 않는다."
+    },
+    {
+     "id": "d",
+     "text": "회사 설명을 그대로 옮긴다",
+     "correct": false,
+     "rationale": "검증 없이 옮기면 안 된다."
+    }
+   ],
+   "explanation": "1차 평가변수 결과가 시험의 성패다.",
+   "sourceIds": []
+  },
+  {
+   "id": "W01-I039",
+   "courseId": "pipeline",
+   "type": "cloze",
+   "domain": "D06",
+   "axis": [
+    "science"
+   ],
+   "cardIds": [
+    "W01-C015"
+   ],
+   "bloom": "remember",
+   "difficulty": 2,
+   "stem": "빈칸: 시험 성공·실패를 판단하려고 미리 정한 가장 중요한 결과 지표를 ___ 평가변수라고 한다.",
+   "answer": {
+    "accepted": [
+     "1차",
+     "일차",
+     "primary",
+     "1차 평가변수"
+    ]
+   },
+   "explanation": "1차(primary) 평가변수다.",
+   "sourceIds": []
+  },
+  {
+   "id": "W01-I040",
+   "courseId": "pipeline",
+   "type": "mcq",
+   "domain": "D07",
+   "axis": [
+    "science",
+    "media"
+   ],
+   "cardIds": [
+    "W01-C016"
+   ],
+   "bloom": "analyze",
+   "difficulty": 4,
+   "stem": "탑라인에서 “유의한 개선”이라던 결과가 학회 전체 데이터에서 효과 크기가 작게 나왔다. 기자가 배울 점은?",
+   "options": [
+    {
+     "id": "a",
+     "text": "학회 데이터는 믿을 수 없다",
+     "correct": false,
+     "rationale": "더 자세한 자료다."
+    },
+    {
+     "id": "b",
+     "text": "탑라인은 보도하면 안 된다",
+     "correct": false,
+     "rationale": "보도하되 한계를 밝힌다."
+    },
+    {
+     "id": "c",
+     "text": "전체 데이터를 확인한다",
+     "correct": true,
+     "rationale": "정답. 탑라인만으로 효과 크기를 단정하지 말고 전체 데이터를 확인한다."
+    },
+    {
+     "id": "d",
+     "text": "회사가 거짓말을 했다고 쓴다",
+     "correct": false,
+     "rationale": "유의성과 효과 크기는 다른 개념이다."
+    }
+   ],
+   "explanation": "통계적 유의성과 임상적 의미는 다르다(W6·W7).",
+   "sourceIds": []
+  },
+  {
+   "id": "W01-I041",
+   "courseId": "pipeline",
+   "type": "mcq",
+   "domain": "D05",
+   "axis": [
+    "science",
+    "industry"
+   ],
+   "cardIds": [
+    "W01-C017"
+   ],
+   "bloom": "understand",
+   "difficulty": 3,
+   "stem": "PoC(개념 입증) 결과의 의미로 맞는 것은?",
+   "options": [
+    {
+     "id": "a",
+     "text": "사람에서 나온 첫 효과 신호",
+     "correct": true,
+     "rationale": "정답. 기전대로 사람에서 효과 신호가 나왔다는 첫 증거."
+    },
+    {
+     "id": "b",
+     "text": "허가에 충분한 근거",
+     "correct": false,
+     "rationale": "확증 시험이 남아 있다."
+    },
+    {
+     "id": "c",
+     "text": "동물에서 효과가 있었다는 뜻",
+     "correct": false,
+     "rationale": "사람 자료를 말한다."
+    },
+    {
+     "id": "d",
+     "text": "안전성만 확인했다는 뜻",
+     "correct": false,
+     "rationale": "효과 신호를 말한다."
+    }
+   ],
+   "explanation": "PoC 뒤 기술이전이 많이 일어난다(딜의 가치가 커지는 시점).",
+   "sourceIds": []
+  },
+  {
+   "id": "W01-I042",
+   "courseId": "pipeline",
+   "type": "multi",
+   "domain": "D17",
+   "axis": [
+    "media"
+   ],
+   "cardIds": [
+    "W01-C018",
+    "W01-C004"
+   ],
+   "bloom": "analyze",
+   "difficulty": 3,
+   "stem": "임상 승인 기사에서 과장 표현을 모두 고르시오.",
+   "options": [
+    {
+     "id": "a",
+     "text": "건강한 성인 48명 대상",
+     "correct": false,
+     "rationale": "사실 정보다."
+    },
+    {
+     "id": "b",
+     "text": "FDA가 효과를 인정",
+     "correct": true,
+     "rationale": "레드플래그. IND는 효과를 평가하지 않는다."
+    },
+    {
+     "id": "c",
+     "text": "신약 개발 성공 눈앞",
+     "correct": true,
+     "rationale": "레드플래그. 1상 진입은 성공과 거리가 멀다."
+    },
+    {
+     "id": "d",
+     "text": "미국 임상 1상 시작 가능",
+     "correct": false,
+     "rationale": "정확한 표현이다."
+    },
+    {
+     "id": "e",
+     "text": "글로벌 블록버스터 가시화",
+     "correct": true,
+     "rationale": "레드플래그. 근거 없는 전망이다."
+    }
+   ],
+   "explanation": "IND·임상 승인은 시작 허락이다.",
+   "sourceIds": []
+  },
+  {
+   "id": "W01-I043",
+   "courseId": "pipeline",
+   "type": "match",
+   "domain": "D08",
+   "axis": [
+    "industry"
+   ],
+   "cardIds": [
+    "W01-C019",
+    "W01-C004"
+   ],
+   "bloom": "remember",
+   "difficulty": 2,
+   "stem": "허가 신청 종류와 설명을 짝지으시오.",
+   "answer": [
+    [
+     "IND",
+     "임상 시작 신청"
+    ],
+    [
+     "NDA",
+     "저분자 신약 허가 신청"
+    ],
+    [
+     "BLA",
+     "생물의약품 허가 신청"
+    ],
+    [
+     "ANDA",
+     "제네릭 허가 신청"
+    ]
+   ],
+   "explanation": "IND 임상 시작, NDA 저분자 신약, BLA 생물의약품, ANDA 제네릭.",
+   "sourceIds": [],
+   "asOf": "2026-11-22"
+  },
+  {
+   "id": "W01-I044",
+   "courseId": "pipeline",
+   "type": "mcq",
+   "domain": "D08",
+   "axis": [
+    "industry"
+   ],
+   "cardIds": [
+    "W01-C020"
+   ],
+   "bloom": "apply",
+   "difficulty": 3,
+   "stem": "2026년 3월 초 제출한 신규 분자 신약이 우선심사를 받았다. PDUFA 목표일은 대략 언제인가?",
+   "options": [
+    {
+     "id": "a",
+     "text": "2026년 6월 초",
+     "correct": false,
+     "rationale": "너무 짧다."
+    },
+    {
+     "id": "b",
+     "text": "2026년 11월 초",
+     "correct": true,
+     "rationale": "정답. 접수 확정 60일 + 6개월 ≈ 제출 후 8개월."
+    },
+    {
+     "id": "c",
+     "text": "2026년 9월 초",
+     "correct": false,
+     "rationale": "60일 접수 확정 기간을 빼먹었다."
+    },
+    {
+     "id": "d",
+     "text": "2027년 3월 초",
+     "correct": false,
+     "rationale": "표준심사(약 12개월)로 계산했다."
+    }
+   ],
+   "explanation": "신규 분자는 접수 확정(60일) 뒤부터 기한을 센다.",
+   "sourceIds": [
+    "S-W01-06"
+   ],
+   "asOf": "2026-11-22"
+  },
+  {
+   "id": "W01-I045",
+   "courseId": "pipeline",
+   "type": "mcq",
+   "domain": "D08",
+   "axis": [
+    "industry"
+   ],
+   "cardIds": [
+    "W01-C021"
+   ],
+   "bloom": "understand",
+   "difficulty": 2,
+   "stem": "CRL에 담길 수 있는 보완 사유로 거리가 먼 것은?",
+   "options": [
+    {
+     "id": "a",
+     "text": "회사 주가 하락",
+     "correct": true,
+     "rationale": "정답. 심사 사유가 아니다."
+    },
+    {
+     "id": "b",
+     "text": "효능 근거 부족",
+     "correct": false,
+     "rationale": "흔한 사유다."
+    },
+    {
+     "id": "c",
+     "text": "안전성 우려",
+     "correct": false,
+     "rationale": "흔한 사유다."
+    },
+    {
+     "id": "d",
+     "text": "제조 시설·공정(CMC) 문제",
+     "correct": false,
+     "rationale": "흔한 사유다."
+    }
+   ],
+   "explanation": "**아닌 것**을 고르는 문항이다. CRL 사유에 따라 재신청 시기가 달라진다.",
+   "sourceIds": []
+  },
+  {
+   "id": "W01-I046",
+   "courseId": "pipeline",
+   "type": "mcq",
+   "domain": "D08",
+   "axis": [
+    "industry"
+   ],
+   "cardIds": [
+    "W01-C022"
+   ],
+   "bloom": "apply",
+   "difficulty": 3,
+   "stem": "“GB-602, FDA 패스트트랙 지정으로 허가 서류를 나눠 제출할 수 있게 됐다.” 맞는 설명은?",
+   "options": [
+    {
+     "id": "a",
+     "text": "패스트트랙은 심사 기한을 6개월로 줄인다",
+     "correct": false,
+     "rationale": "그것은 우선심사다."
+    },
+    {
+     "id": "b",
+     "text": "패스트트랙은 허가를 뜻한다",
+     "correct": false,
+     "rationale": "지정일 뿐이다."
+    },
+    {
+     "id": "c",
+     "text": "패스트트랙은 희귀질환에만 준다",
+     "correct": false,
+     "rationale": "중대한 질환과 미충족 수요가 기준이다."
+    },
+    {
+     "id": "d",
+     "text": "순차 제출과 잦은 협의를 허용한다",
+     "correct": true,
+     "rationale": "정답. 패스트트랙은 순차 제출(rolling review)과 잦은 협의를 허용한다."
+    }
+   ],
+   "explanation": "지정의 혜택을 정확히 쓴다.",
+   "sourceIds": [
+    "S-W01-07"
+   ],
+   "asOf": "2026-11-22"
+  },
+  {
+   "id": "W01-I047",
+   "courseId": "pipeline",
+   "type": "mcq",
+   "domain": "D08",
+   "axis": [
+    "industry"
+   ],
+   "cardIds": [
+    "W01-C023"
+   ],
+   "bloom": "remember",
+   "difficulty": 1,
+   "stem": "한국에서 의약품 품목허가를 내주는 기관은?",
+   "options": [
+    {
+     "id": "a",
+     "text": "국민건강보험공단",
+     "correct": false,
+     "rationale": "약가 협상 기관이다."
+    },
+    {
+     "id": "b",
+     "text": "질병관리청",
+     "correct": false,
+     "rationale": "감염병·만성질환 관리 기관이다."
+    },
+    {
+     "id": "c",
+     "text": "식품의약품안전처",
+     "correct": true,
+     "rationale": "정답."
+    },
+    {
+     "id": "d",
+     "text": "건강보험심사평가원",
+     "correct": false,
+     "rationale": "급여 평가 기관이다."
+    }
+   ],
+   "explanation": "허가는 식약처, 급여 평가는 심평원, 협상은 건보공단.",
+   "sourceIds": [
+    "S-W01-09"
+   ],
+   "asOf": "2026-11-22"
+  },
+  {
+   "id": "W01-I048",
+   "courseId": "pipeline",
+   "type": "order",
+   "domain": "D09",
+   "axis": [
+    "industry"
+   ],
+   "cardIds": [
+    "W01-C024"
+   ],
+   "bloom": "understand",
+   "difficulty": 3,
+   "stem": "국내 급여 등재 흐름을 순서대로 놓으시오.",
+   "options": [
+    {
+     "id": "a",
+     "text": "건보공단 약가 협상",
+     "correct": true,
+     "rationale": "가격 협상."
+    },
+    {
+     "id": "b",
+     "text": "복지부 고시",
+     "correct": true,
+     "rationale": "급여 시작."
+    },
+    {
+     "id": "c",
+     "text": "식약처 품목허가",
+     "correct": true,
+     "rationale": "급여 신청의 전제."
+    },
+    {
+     "id": "d",
+     "text": "심평원 급여 평가",
+     "correct": true,
+     "rationale": "임상적 유용성·비용효과성."
+    }
+   ],
+   "answer": [
+    "c",
+    "d",
+    "a",
+    "b"
+   ],
+   "explanation": "허가 → 심평원 평가 → 공단 협상 → 고시.",
+   "sourceIds": [
+    "S-W01-11"
+   ],
+   "asOf": "2026-11-22"
+  },
+  {
+   "id": "W01-I049",
+   "courseId": "pipeline",
+   "type": "mcq",
+   "domain": "D16",
+   "axis": [
+    "science",
+    "media"
+   ],
+   "cardIds": [
+    "W01-C025"
+   ],
+   "bloom": "understand",
+   "difficulty": 2,
+   "stem": "실사용 데이터(RWD)의 예로 맞지 않는 것은?",
+   "options": [
+    {
+     "id": "a",
+     "text": "질병 레지스트리",
+     "correct": false,
+     "rationale": "RWD다."
+    },
+    {
+     "id": "b",
+     "text": "RCT 결과 자료",
+     "correct": true,
+     "rationale": "정답. 통제된 임상시험 자료다. (무작위대조시험의 사전 등록 결과)"
+    },
+    {
+     "id": "c",
+     "text": "건강보험 청구 자료",
+     "correct": false,
+     "rationale": "RWD다."
+    },
+    {
+     "id": "d",
+     "text": "병원 전자의무기록",
+     "correct": false,
+     "rationale": "RWD다."
+    }
+   ],
+   "explanation": "**아닌 것**을 고르는 문항이다.",
+   "sourceIds": []
+  },
+  {
+   "id": "W01-I050",
+   "courseId": "pipeline",
+   "type": "mcq",
+   "domain": "D08",
+   "axis": [
+    "industry"
+   ],
+   "cardIds": [
+    "W01-C026"
+   ],
+   "bloom": "apply",
+   "difficulty": 3,
+   "stem": "오늘 CHMP가 GB-203에 긍정 의견을 냈다. 기사에 쓸 다음 일정으로 맞는 것은?",
+   "options": [
+    {
+     "id": "a",
+     "text": "내일 바로 EU 전역에서 판매된다",
+     "correct": false,
+     "rationale": "EC 허가가 남았다."
+    },
+    {
+     "id": "b",
+     "text": "각 회원국이 1년씩 다시 심사한다",
+     "correct": false,
+     "rationale": "중앙심사 제품은 EC 결정이 EU 전역에 적용된다."
+    },
+    {
+     "id": "c",
+     "text": "EMA 이사회 투표가 남았다",
+     "correct": false,
+     "rationale": "절차가 다르다."
+    },
+    {
+     "id": "d",
+     "text": "EC 결정이 보통 67일 안에 나온다",
+     "correct": true,
+     "rationale": "정답. EC 최종 결정이 보통 두 달여(67일) 안에 나온다."
+    }
+   ],
+   "explanation": "허가 뒤에도 나라별 가격·급여 협상은 따로 진행된다.",
+   "sourceIds": [
+    "S-W01-08"
+   ],
+   "asOf": "2026-11-22"
+  },
+  {
+   "id": "W01-I051",
+   "courseId": "pipeline",
+   "type": "mcq",
+   "domain": "D00",
+   "axis": [
+    "industry",
+    "media"
+   ],
+   "cardIds": [
+    "W01-C027"
+   ],
+   "bloom": "apply",
+   "difficulty": 2,
+   "stem": "“GB-801의 MoA는 GLP-1 수용체 작용이다.”를 독자 언어로 가장 잘 옮긴 것은?",
+   "options": [
+    {
+     "id": "a",
+     "text": "GB-801은 MoA라는 기술을 쓴다",
+     "correct": false,
+     "rationale": "MoA는 기술 이름이 아니다."
+    },
+    {
+     "id": "b",
+     "text": "GLP-1 수용체를 자극해 작용한다",
+     "correct": true,
+     "rationale": "정답. GB-801은 식욕 조절 호르몬 GLP-1의 수용체를 자극해 작용한다."
+    },
+    {
+     "id": "c",
+     "text": "GB-801은 GLP-1이라는 약을 대체한다",
+     "correct": false,
+     "rationale": "수용체와 호르몬을 헷갈렸다."
+    },
+    {
+     "id": "d",
+     "text": "GB-801의 성분은 GLP-1이다",
+     "correct": false,
+     "rationale": "작용 방식과 성분을 헷갈렸다."
+    }
+   ],
+   "explanation": "MoA = 작용기전.",
+   "sourceIds": []
+  },
+  {
+   "id": "W01-I052",
+   "courseId": "pipeline",
+   "type": "mcq",
+   "domain": "D10",
+   "axis": [
+    "industry"
+   ],
+   "cardIds": [
+    "W01-C028"
+   ],
+   "bloom": "analyze",
+   "difficulty": 3,
+   "stem": "“한빛바이오, 2,000억 원 CDMO 수주” 기사에서 피해야 할 해석은?",
+   "options": [
+    {
+     "id": "a",
+     "text": "고객사 제품의 허가 상태가 매출에 영향을 준다",
+     "correct": false,
+     "rationale": "합리적 해석이다."
+    },
+    {
+     "id": "b",
+     "text": "한빛바이오의 신약 개발이 성공했다",
+     "correct": true,
+     "rationale": "정답. CDMO는 남의 약을 만들어 주는 서비스다."
+    },
+    {
+     "id": "c",
+     "text": "생산 설비 가동률이 오를 수 있다",
+     "correct": false,
+     "rationale": "합리적 해석이다."
+    },
+    {
+     "id": "d",
+     "text": "계약 기간과 연도별 인식 금액을 확인해야 한다",
+     "correct": false,
+     "rationale": "필요한 확인이다."
+    }
+   ],
+   "explanation": "CDMO 수주는 서비스 매출이다.",
+   "sourceIds": []
+  },
+  {
+   "id": "W01-I053",
+   "courseId": "pipeline",
+   "type": "numeric",
+   "domain": "D11",
+   "axis": [
+    "industry",
+    "media"
+   ],
+   "cardIds": [
+    "W01-C029"
+   ],
+   "bloom": "apply",
+   "difficulty": 2,
+   "stem": "총계약규모 8,000억 원 중 계약금이 400억 원이다. 계약금 비율(%)은?",
+   "answer": {
+    "value": 5,
+    "tolerance": 0,
+    "unit": "%"
+   },
+   "explanation": "400 ÷ 8,000 = 0.05 = 5%.",
+   "sourceIds": []
+  },
+  {
+   "id": "W01-I054",
+   "courseId": "pipeline",
+   "type": "mcq",
+   "domain": "D11",
+   "axis": [
+    "industry",
+    "media"
+   ],
+   "cardIds": [
+    "W01-C029"
+   ],
+   "bloom": "evaluate",
+   "difficulty": 4,
+   "stem": "같은 계약을 두고 제목 A “1조 원 기술수출”, B “계약금 300억 원 포함 최대 1조 원 기술수출” 중 더 나은 것과 이유는?",
+   "options": [
+    {
+     "id": "a",
+     "text": "B. 확정·조건부 금액을 구분한다",
+     "correct": true,
+     "rationale": "정답. B. 확정 금액과 조건부 최대치를 구분해 착시를 줄인다."
+    },
+    {
+     "id": "b",
+     "text": "A. 짧아서 더 좋다",
+     "correct": false,
+     "rationale": "정확성이 우선이다."
+    },
+    {
+     "id": "c",
+     "text": "A. 총계약규모가 계약의 실제 가치다",
+     "correct": false,
+     "rationale": "대부분 조건부다."
+    },
+    {
+     "id": "d",
+     "text": "둘 다 같다",
+     "correct": false,
+     "rationale": "정보량이 다르다."
+    }
+   ],
+   "explanation": "총계약규모만 쓰는 것은 레드플래그다.",
+   "sourceIds": []
+  },
+  {
+   "id": "W01-I055",
+   "courseId": "pipeline",
+   "type": "mcq",
+   "domain": "D10",
+   "axis": [
+    "industry"
+   ],
+   "cardIds": [
+    "W01-C030"
+   ],
+   "bloom": "understand",
+   "difficulty": 2,
+   "stem": "바이오시밀러를 제네릭과 다르게 부르는 이유는?",
+   "options": [
+    {
+     "id": "a",
+     "text": "유사성만 입증할 수 있어서",
+     "correct": true,
+     "rationale": "정답. 생물의약품은 원본과 동일하게 만들 수 없어 유사성을 입증하기 때문."
+    },
+    {
+     "id": "b",
+     "text": "바이오시밀러가 더 싸기 때문",
+     "correct": false,
+     "rationale": "가격 차이가 이유가 아니다."
+    },
+    {
+     "id": "c",
+     "text": "바이오시밀러는 특허가 있어서",
+     "correct": false,
+     "rationale": "명칭 이유가 아니다."
+    },
+    {
+     "id": "d",
+     "text": "제네릭은 한국에만 있어서",
+     "correct": false,
+     "rationale": "사실이 아니다."
+    }
+   ],
+   "explanation": "제네릭은 동일성, 바이오시밀러는 유사성.",
+   "sourceIds": []
+  },
+  {
+   "id": "W01-I056",
+   "courseId": "pipeline",
+   "type": "short",
+   "domain": "D05",
+   "axis": [
+    "science",
+    "industry"
+   ],
+   "cardIds": [
+    "W01-C005",
+    "W01-C012",
+    "W01-C009"
+   ],
+   "bloom": "create",
+   "difficulty": 4,
+   "stem": "GB-801이 2상에 들어갔다. 전주기 지도를 이용해 독자에게 현재 위치와 남은 관문을 3문장으로 쓰시오.",
+   "explanation": "모범: GB-801은 사람 대상 임상 가운데 두 번째 단계인 2상에 들어갔다. 2상은 효과 신호와 알맞은 용량을 찾는 단계로, 업계 통계상 가장 많은 후보물질이 탈락하는 관문이다. 통과하면 대규모 3상과 허가 심사가 남아 있어 상용화까지는 여러 해가 걸린다.",
+   "sourceIds": [
+    "S-W01-01"
+   ],
+   "rubric": [
+    {
+     "criterion": "현재 단계(2상)를 정확히 썼다",
+     "points": 1
+    },
+    {
+     "criterion": "2상의 목적과 탈락 위험을 썼다",
+     "points": 1
+    },
+    {
+     "criterion": "남은 관문(3상·허가)과 시간을 썼다",
+     "points": 1
+    }
+   ]
+  },
+  {
+   "id": "W01-I057",
+   "courseId": "pipeline",
+   "type": "desk",
+   "domain": "D17",
+   "axis": [
+    "media"
+   ],
+   "cardIds": [
+    "W01-C011",
+    "W01-C018"
+   ],
+   "bloom": "create",
+   "difficulty": 4,
+   "stem": "보도자료 리드 “GB-901 임상 1상 성공, 블록버스터 신약 가시화”를 정확한 리드 한 문장으로 고쳐 쓰시오.",
+   "explanation": "모범: 가온바이오는 GB-901의 임상 1상에서 건강한 성인 48명에게 투여한 결과 중대한 안전성 문제는 보고되지 않았다고 밝혔다. (효과 주장·전망 삭제, 대상·규모·결과를 사실로)",
+   "sourceIds": [],
+   "rubric": [
+    {
+     "criterion": "효과·전망 주장을 뺐다",
+     "points": 1
+    },
+    {
+     "criterion": "대상·규모를 밝혔다",
+     "points": 1
+    },
+    {
+     "criterion": "안전성 결과를 사실로 썼다",
+     "points": 1
+    },
+    {
+     "criterion": "회사 발표임을 밝혔다",
+     "points": 1
+    }
+   ]
+  },
+  {
+   "id": "W01-I058",
+   "courseId": "pipeline",
+   "type": "mcq",
+   "domain": "D05",
+   "axis": [
+    "science",
+    "industry"
+   ],
+   "cardIds": [
+    "W01-C007"
+   ],
+   "bloom": "evaluate",
+   "difficulty": 4,
+   "stem": "초안에 출처 없이 “신약 하나 개발에 3조 원”이 있다. 데스크 판단은?",
+   "options": [
+    {
+     "id": "a",
+     "text": "‘수조 원’으로 바꿔 모호하게 쓴다",
+     "correct": false,
+     "rationale": "모호하게 만들어도 근거가 생기지 않는다."
+    },
+    {
+     "id": "b",
+     "text": "출처를 확인해 붙이거나 뺀다",
+     "correct": true,
+     "rationale": "정답. 보고서명·기준 연도·포함 범위를 확인해 붙이거나 문장을 뺀다."
+    },
+    {
+     "id": "c",
+     "text": "큰 숫자라 독자 관심을 끄니 그대로 둔다",
+     "correct": false,
+     "rationale": "출처 없는 숫자는 쓰지 않는다."
+    },
+    {
+     "id": "d",
+     "text": "환율을 바꿔 달러로 쓴다",
+     "correct": false,
+     "rationale": "출처 문제는 그대로다."
+    }
+   ],
+   "explanation": "대표 수치는 보고서마다 다르다(기획안 1의 12.6).",
+   "sourceIds": []
+  },
+  {
+   "id": "W01-I059",
+   "courseId": "pipeline",
+   "type": "mcq",
+   "domain": "D08",
+   "axis": [
+    "industry"
+   ],
+   "cardIds": [
+    "W01-C004",
+    "W01-C023"
+   ],
+   "bloom": "apply",
+   "difficulty": 2,
+   "stem": "국내에서 임상시험을 시작하려고 식약처에서 받는 것은?",
+   "options": [
+    {
+     "id": "a",
+     "text": "급여 등재",
+     "correct": false,
+     "rationale": "보험 적용이다."
+    },
+    {
+     "id": "b",
+     "text": "GMP 적합 판정",
+     "correct": false,
+     "rationale": "제조 기준이다."
+    },
+    {
+     "id": "c",
+     "text": "임상시험계획 승인",
+     "correct": true,
+     "rationale": "정답."
+    },
+    {
+     "id": "d",
+     "text": "품목허가",
+     "correct": false,
+     "rationale": "판매 허가다."
+    }
+   ],
+   "explanation": "국내 IND에 해당한다.",
+   "sourceIds": [
+    "S-W01-09"
+   ],
+   "asOf": "2026-11-22"
+  },
+  {
+   "id": "W01-I060",
+   "courseId": "pipeline",
+   "type": "mcq",
+   "domain": "D05",
+   "axis": [
+    "science",
+    "industry"
+   ],
+   "cardIds": [
+    "W01-C003"
+   ],
+   "bloom": "analyze",
+   "difficulty": 4,
+   "stem": "“원숭이 독성시험에서 이상이 없어 사람에게도 안전하다.” 판단은?",
+   "options": [
+    {
+     "id": "a",
+     "text": "단정할 수 없다. 임상에서 확인해야 한다",
+     "correct": true,
+     "rationale": "정답. 단정할 수 없다. 종 차이가 있어 사람 안전성은 임상에서 확인해야 한다."
+    },
+    {
+     "id": "b",
+     "text": "맞다. 원숭이는 사람과 같다",
+     "correct": false,
+     "rationale": "종 차이가 있다."
+    },
+    {
+     "id": "c",
+     "text": "맞다. GLP 시험이면 사람 안전이 보장된다",
+     "correct": false,
+     "rationale": "GLP는 자료 품질 기준이다."
+    },
+    {
+     "id": "d",
+     "text": "틀리다. 동물 시험은 의미가 없다",
+     "correct": false,
+     "rationale": "사람 첫 투여의 근거로 쓰인다."
+    }
+   ],
+   "explanation": "동물 결과를 사람 효과·안전처럼 쓰는 것은 레드플래그다.",
+   "sourceIds": []
+  },
+  {
+   "id": "W01-I061",
+   "courseId": "pipeline",
+   "type": "mcq",
+   "domain": "D05",
+   "axis": [
+    "science",
+    "industry"
+   ],
+   "cardIds": [
+    "W01-C005"
+   ],
+   "bloom": "remember",
+   "difficulty": 1,
+   "stem": "전임상 다음 단계는?",
+   "options": [
+    {
+     "id": "a",
+     "text": "임상시험계획 승인(IND)",
+     "correct": true,
+     "rationale": "정답."
+    },
+    {
+     "id": "b",
+     "text": "임상 2상 진입",
+     "correct": false,
+     "rationale": "IND와 1상이 먼저다."
+    },
+    {
+     "id": "c",
+     "text": "허가 신청·심사",
+     "correct": false,
+     "rationale": "3상 뒤다."
+    },
+    {
+     "id": "d",
+     "text": "타깃 발굴·검증",
+     "correct": false,
+     "rationale": "맨 처음 단계다."
+    }
+   ],
+   "explanation": "전임상 → IND → 1상.",
+   "sourceIds": []
+  },
+  {
+   "id": "W01-I062",
+   "courseId": "pipeline",
+   "type": "mcq",
+   "domain": "D06",
+   "axis": [
+    "science"
+   ],
+   "cardIds": [
+    "W01-C012"
+   ],
+   "bloom": "understand",
+   "difficulty": 2,
+   "stem": "임상 2상에서 주로 확인하는 것은?",
+   "options": [
+    {
+     "id": "a",
+     "text": "사람 첫 투여 안전성",
+     "correct": false,
+     "rationale": "1상이다."
+    },
+    {
+     "id": "b",
+     "text": "시판 후 드문 부작용",
+     "correct": false,
+     "rationale": "4상이다."
+    },
+    {
+     "id": "c",
+     "text": "효과 신호와 용량",
+     "correct": true,
+     "rationale": "정답. 효과 신호와 알맞은 용량."
+    },
+    {
+     "id": "d",
+     "text": "대규모 확증",
+     "correct": false,
+     "rationale": "3상이다."
+    }
+   ],
+   "explanation": "2상 = 개념 입증·용량 탐색.",
+   "sourceIds": []
+  },
+  {
+   "id": "W01-I063",
+   "courseId": "pipeline",
+   "type": "mcq",
+   "domain": "D05",
+   "axis": [
+    "science",
+    "industry"
+   ],
+   "cardIds": [
+    "W01-C008",
+    "W01-C009"
+   ],
+   "bloom": "apply",
+   "difficulty": 3,
+   "stem": "BIO 2021 보고서 기준 3상에 들어간 후보물질이 허가까지 갈 확률에 가장 가까운 것은?",
+   "options": [
+    {
+     "id": "a",
+     "text": "약 52%",
+     "correct": true,
+     "rationale": "정답. 57.8% × 90.6% ≈ 52%."
+    },
+    {
+     "id": "b",
+     "text": "약 58%",
+     "correct": false,
+     "rationale": "허가 신청 단계까지만 계산했다."
+    },
+    {
+     "id": "c",
+     "text": "약 91%",
+     "correct": false,
+     "rationale": "허가 신청 뒤 비율이다."
+    },
+    {
+     "id": "d",
+     "text": "약 8%",
+     "correct": false,
+     "rationale": "1상 진입 기준이다."
+    }
+   ],
+   "explanation": "출발 단계마다 LOA가 다르다.",
+   "sourceIds": [
+    "S-W01-01"
+   ],
+   "asOf": "2021-02"
+  },
+  {
+   "id": "W01-I064",
+   "courseId": "pipeline",
+   "type": "numeric",
+   "domain": "D05",
+   "axis": [
+    "science",
+    "industry"
+   ],
+   "cardIds": [
+    "W01-C008"
+   ],
+   "bloom": "apply",
+   "difficulty": 3,
+   "stem": "후보물질 40개가 모두 1상에 있다. LOA 7.9%를 적용하면 평균 허가 수는? (소수 첫째 자리)",
+   "answer": {
+    "value": 3.2,
+    "tolerance": 0.2,
+    "unit": "개"
+   },
+   "explanation": "40 × 0.079 = 3.16 → 3.2개.",
+   "sourceIds": [
+    "S-W01-01"
+   ],
+   "asOf": "2021-02"
+  },
+  {
+   "id": "W01-I065",
+   "courseId": "pipeline",
+   "type": "cloze",
+   "domain": "D08",
+   "axis": [
+    "industry"
+   ],
+   "cardIds": [
+    "W01-C021"
+   ],
+   "bloom": "remember",
+   "difficulty": 2,
+   "stem": "FDA가 허가하지 않을 때 보내는 보완요구서한의 약어는?",
+   "answer": {
+    "accepted": [
+     "CRL",
+     "crl"
+    ]
+   },
+   "explanation": "CRL(Complete Response Letter).",
+   "sourceIds": []
+  },
+  {
+   "id": "W01-I066",
+   "courseId": "pipeline",
+   "type": "mcq",
+   "domain": "D08",
+   "axis": [
+    "industry"
+   ],
+   "cardIds": [
+    "W01-C020"
+   ],
+   "bloom": "apply",
+   "difficulty": 3,
+   "stem": "신규 분자 신약을 2027년 1월 초 제출했고 표준심사다. PDUFA 목표일은 대략 언제인가?",
+   "options": [
+    {
+     "id": "a",
+     "text": "2027년 7월 초",
+     "correct": false,
+     "rationale": "너무 짧다."
+    },
+    {
+     "id": "b",
+     "text": "2028년 1월 초",
+     "correct": true,
+     "rationale": "정답. 접수 확정 60일 + 10개월 ≈ 12개월."
+    },
+    {
+     "id": "c",
+     "text": "2027년 11월 초",
+     "correct": false,
+     "rationale": "60일 접수 기간을 빼먹었다."
+    },
+    {
+     "id": "d",
+     "text": "2027년 9월 초",
+     "correct": false,
+     "rationale": "우선심사로 계산했다."
+    }
+   ],
+   "explanation": "표준 10개월, 우선 6개월은 접수 확정 뒤부터 센다.",
+   "sourceIds": [
+    "S-W01-06"
+   ],
+   "asOf": "2026-11-22"
+  },
+  {
+   "id": "W01-I067",
+   "courseId": "pipeline",
+   "type": "mcq",
+   "domain": "D08",
+   "axis": [
+    "industry"
+   ],
+   "cardIds": [
+    "W01-C022"
+   ],
+   "bloom": "analyze",
+   "difficulty": 4,
+   "stem": "“FDA 희귀의약품 지정 획득, 상용화 초읽기”의 문제는?",
+   "options": [
+    {
+     "id": "a",
+     "text": "희귀의약품은 FDA가 지정하지 않는다",
+     "correct": false,
+     "rationale": "FDA가 지정한다."
+    },
+    {
+     "id": "b",
+     "text": "문제없다",
+     "correct": false,
+     "rationale": "과장이다."
+    },
+    {
+     "id": "c",
+     "text": "지정일 뿐 허가·상용화와 무관하다",
+     "correct": true,
+     "rationale": "정답. 희귀의약품 지정은 인센티브 지정일 뿐 허가·상용화와 무관하다."
+    },
+    {
+     "id": "d",
+     "text": "희귀의약품 지정은 곧 허가다",
+     "correct": false,
+     "rationale": "지정과 허가는 다르다."
+    }
+   ],
+   "explanation": "지정 기사는 단계와 혜택만 쓴다.",
+   "sourceIds": []
+  },
+  {
+   "id": "W01-I068",
+   "courseId": "pipeline",
+   "type": "mcq",
+   "domain": "D09",
+   "axis": [
+    "industry"
+   ],
+   "cardIds": [
+    "W01-C024"
+   ],
+   "bloom": "understand",
+   "difficulty": 2,
+   "stem": "건강보험 약가 협상을 하는 기관은?",
+   "options": [
+    {
+     "id": "a",
+     "text": "국민건강보험공단",
+     "correct": true,
+     "rationale": "정답."
+    },
+    {
+     "id": "b",
+     "text": "식품의약품안전처",
+     "correct": false,
+     "rationale": "허가 기관이다."
+    },
+    {
+     "id": "c",
+     "text": "건강보험심사평가원",
+     "correct": false,
+     "rationale": "급여 평가 기관이다."
+    },
+    {
+     "id": "d",
+     "text": "질병관리청",
+     "correct": false,
+     "rationale": "무관하다."
+    }
+   ],
+   "explanation": "평가는 심평원, 협상은 공단.",
+   "sourceIds": []
+  },
+  {
+   "id": "W01-I069",
+   "courseId": "pipeline",
+   "type": "mcq",
+   "domain": "D06",
+   "axis": [
+    "science"
+   ],
+   "cardIds": [
+    "W01-C015",
+    "W01-C016"
+   ],
+   "bloom": "analyze",
+   "difficulty": 3,
+   "stem": "3상 결과 탑라인: “1차 평가변수 미충족, 일부 하위군에서 개선 경향.” 가장 정확한 제목은?",
+   "options": [
+    {
+     "id": "a",
+     "text": "“GB-303 3상, 1차 목표 실패”",
+     "correct": true,
+     "rationale": "정답. “GB-303 3상, 1차 평가변수 달성 실패”."
+    },
+    {
+     "id": "b",
+     "text": "“GB-303, 하위군서 효과 확인”",
+     "correct": false,
+     "rationale": "선택적 강조다."
+    },
+    {
+     "id": "c",
+     "text": "“GB-303 3상 절반의 성공”",
+     "correct": false,
+     "rationale": "모호하게 실패를 가린다."
+    },
+    {
+     "id": "d",
+     "text": "“GB-303, 허가 신청 예정”",
+     "correct": false,
+     "rationale": "근거 없는 전망이다."
+    }
+   ],
+   "explanation": "성패는 1차 평가변수로 쓴다.",
+   "sourceIds": []
+  },
+  {
+   "id": "W01-I070",
+   "courseId": "pipeline",
+   "type": "mcq",
+   "domain": "D16",
+   "axis": [
+    "science",
+    "media"
+   ],
+   "cardIds": [
+    "W01-C025"
+   ],
+   "bloom": "understand",
+   "difficulty": 3,
+   "stem": "RWE에 대한 설명으로 맞는 것은?",
+   "options": [
+    {
+     "id": "a",
+     "text": "무작위대조시험의 다른 이름이다",
+     "correct": false,
+     "rationale": "무작위배정이 없다."
+    },
+    {
+     "id": "b",
+     "text": "동물 실험 자료다",
+     "correct": false,
+     "rationale": "사람 진료 자료다."
+    },
+    {
+     "id": "c",
+     "text": "허가 판단에 절대 쓰이지 않는다",
+     "correct": false,
+     "rationale": "쓰이는 경우가 있다."
+    },
+    {
+     "id": "d",
+     "text": "실제 진료 데이터 분석 근거",
+     "correct": true,
+     "rationale": "정답. 실제 진료 데이터 분석 근거로, 교란 요인 처리가 핵심이다."
+    }
+   ],
+   "explanation": "RWE = RWD를 분석한 근거.",
+   "sourceIds": []
+  },
+  {
+   "id": "W01-I071",
+   "courseId": "pipeline",
+   "type": "mcq",
+   "domain": "D08",
+   "axis": [
+    "industry"
+   ],
+   "cardIds": [
+    "W01-C026"
+   ],
+   "bloom": "remember",
+   "difficulty": 2,
+   "stem": "EU에서 CHMP 의견 뒤 최종 허가를 내리는 기관은?",
+   "options": [
+    {
+     "id": "a",
+     "text": "세계보건기구(WHO)",
+     "correct": false,
+     "rationale": "무관하다."
+    },
+    {
+     "id": "b",
+     "text": "유럽연합 집행위원회(EC)",
+     "correct": true,
+     "rationale": "정답."
+    },
+    {
+     "id": "c",
+     "text": "EMA 사무국과 이사회",
+     "correct": false,
+     "rationale": "최종 결정 기관이 아니다."
+    },
+    {
+     "id": "d",
+     "text": "각 회원국 보건부",
+     "correct": false,
+     "rationale": "중앙심사와 다르다."
+    }
+   ],
+   "explanation": "EC 결정은 보통 67일 이내.",
+   "sourceIds": [
+    "S-W01-08"
+   ],
+   "asOf": "2026-11-22"
+  },
+  {
+   "id": "W01-I072",
+   "courseId": "pipeline",
+   "type": "match",
+   "domain": "D00",
+   "axis": [
+    "industry",
+    "media"
+   ],
+   "cardIds": [
+    "W01-C003"
+   ],
+   "bloom": "remember",
+   "difficulty": 2,
+   "stem": "약어와 뜻을 짝지으시오.",
+   "answer": [
+    [
+     "GLP",
+     "비임상시험 관리기준"
+    ],
+    [
+     "GCP",
+     "임상시험 관리기준"
+    ],
+    [
+     "GMP",
+     "제조 품질관리기준"
+    ],
+    [
+     "CMC",
+     "화학·제조·품질관리"
+    ]
+   ],
+   "explanation": "GLP 비임상시험 관리기준, GCP 임상시험 관리기준, GMP 제조 품질관리기준, CMC 화학·제조·품질관리.",
+   "sourceIds": []
+  },
+  {
+   "id": "W01-I073",
+   "courseId": "pipeline",
+   "type": "mcq",
+   "domain": "D10",
+   "axis": [
+    "industry"
+   ],
+   "cardIds": [
+    "W01-C028"
+   ],
+   "bloom": "understand",
+   "difficulty": 2,
+   "stem": "임상시험 운영을 대행하는 회사는?",
+   "options": [
+    {
+     "id": "a",
+     "text": "CDMO",
+     "correct": false,
+     "rationale": "개발·생산 위탁이다."
+    },
+    {
+     "id": "b",
+     "text": "KOL",
+     "correct": false,
+     "rationale": "전문가를 뜻한다."
+    },
+    {
+     "id": "c",
+     "text": "CRO",
+     "correct": true,
+     "rationale": "정답."
+    },
+    {
+     "id": "d",
+     "text": "CMO",
+     "correct": false,
+     "rationale": "생산 위탁이다."
+    }
+   ],
+   "explanation": "CRO = 임상시험수탁기관.",
+   "sourceIds": []
+  },
+  {
+   "id": "W01-I074",
+   "courseId": "pipeline",
+   "type": "numeric",
+   "domain": "D11",
+   "axis": [
+    "industry",
+    "media"
+   ],
+   "cardIds": [
+    "W01-C029"
+   ],
+   "bloom": "apply",
+   "difficulty": 3,
+   "stem": "계약금 150억 원, 개발 마일스톤 최대 1,850억 원, 판매 마일스톤 최대 3,000억 원. 총계약규모(억 원)는?",
+   "answer": {
+    "value": 5000,
+    "tolerance": 0,
+    "unit": "억 원"
+   },
+   "explanation": "150 + 1,850 + 3,000 = 5,000억 원. 확정 금액은 계약금 150억 원(3%)뿐이다.",
+   "sourceIds": []
+  },
+  {
+   "id": "W01-I075",
+   "courseId": "pipeline",
+   "type": "mcq",
+   "domain": "D11",
+   "axis": [
+    "industry",
+    "media"
+   ],
+   "cardIds": [
+    "W01-C029"
+   ],
+   "bloom": "evaluate",
+   "difficulty": 4,
+   "stem": "위 계약을 “5,000억 원 기술수출”로만 쓴 제목을 평가하시오.",
+   "options": [
+    {
+     "id": "a",
+     "text": "정확하다. 총계약규모가 실제 수익이다",
+     "correct": false,
+     "rationale": "대부분 조건부다."
+    },
+    {
+     "id": "b",
+     "text": "과소평가다. 로열티를 더해야 한다",
+     "correct": false,
+     "rationale": "로열티도 조건부다."
+    },
+    {
+     "id": "c",
+     "text": "문제없다. 업계 관행이다",
+     "correct": false,
+     "rationale": "관행이어도 착시다."
+    },
+    {
+     "id": "d",
+     "text": "계약금 3%뿐이라 착시가 있다",
+     "correct": true,
+     "rationale": "정답. 계약금 비중이 3%라 확정 수익처럼 보이게 하는 착시가 있다."
+    }
+   ],
+   "explanation": "계약금을 함께 쓴다.",
+   "sourceIds": []
+  },
+  {
+   "id": "W01-I076",
+   "courseId": "pipeline",
+   "type": "mcq",
+   "domain": "D10",
+   "axis": [
+    "industry"
+   ],
+   "cardIds": [
+    "W01-C030"
+   ],
+   "bloom": "understand",
+   "difficulty": 2,
+   "stem": "제네릭 허가에서 입증하는 것은?",
+   "options": [
+    {
+     "id": "a",
+     "text": "생물학적 동등성",
+     "correct": true,
+     "rationale": "정답. 오리지널과의 생물학적 동등성."
+    },
+    {
+     "id": "b",
+     "text": "오리지널보다 우월한 효과",
+     "correct": false,
+     "rationale": "제네릭의 요건이 아니다."
+    },
+    {
+     "id": "c",
+     "text": "새로운 작용기전",
+     "correct": false,
+     "rationale": "제네릭은 같은 성분이다."
+    },
+    {
+     "id": "d",
+     "text": "비임상 독성 전체 재시험",
+     "correct": false,
+     "rationale": "원용한다."
+    }
+   ],
+   "explanation": "바이오시밀러는 유사성 입증.",
+   "sourceIds": []
+  },
+  {
+   "id": "W01-I077",
+   "courseId": "pipeline",
+   "type": "mcq",
+   "domain": "D17",
+   "axis": [
+    "media"
+   ],
+   "cardIds": [
+    "W01-C018"
+   ],
+   "bloom": "analyze",
+   "difficulty": 3,
+   "stem": "“세계 최초 1상 진입”이라는 보도자료 표현을 다룰 때 가장 적절한 것은?",
+   "options": [
+    {
+     "id": "a",
+     "text": "‘국내 최초’로 바꿔 쓴다",
+     "correct": false,
+     "rationale": "역시 근거가 필요하다."
+    },
+    {
+     "id": "b",
+     "text": "따옴표만 치면 된다",
+     "correct": false,
+     "rationale": "따옴표가 검증을 대신하지 않는다."
+    },
+    {
+     "id": "c",
+     "text": "근거를 확인하고 없으면 뺀다",
+     "correct": true,
+     "rationale": "정답. ‘세계 최초’의 근거를 확인하고 확인되지 않으면 쓰지 않는다."
+    },
+    {
+     "id": "d",
+     "text": "회사 표현이니 그대로 쓴다",
+     "correct": false,
+     "rationale": "검증 책임은 기자에게 있다."
+    }
+   ],
+   "explanation": "근거 없는 수식어는 레드플래그.",
+   "sourceIds": []
+  },
+  {
+   "id": "W01-I078",
+   "courseId": "pipeline",
+   "type": "mcq",
+   "domain": "D05",
+   "axis": [
+    "science",
+    "industry"
+   ],
+   "cardIds": [
+    "W01-C006",
+    "W01-C005"
+   ],
+   "bloom": "analyze",
+   "difficulty": 3,
+   "stem": "“전임상 단계에서 2년 내 상용화 목표.” 판단으로 맞는 것은?",
+   "options": [
+    {
+     "id": "a",
+     "text": "현실적이다. 요즘은 2년이면 된다",
+     "correct": false,
+     "rationale": "대표 기간은 10~15년이다."
+    },
+    {
+     "id": "b",
+     "text": "판단할 수 없다. 회사 계획이니까",
+     "correct": false,
+     "rationale": "일정 낙관 여부는 판단할 수 있다."
+    },
+    {
+     "id": "c",
+     "text": "현실적이다. 전임상이 가장 긴 단계라서",
+     "correct": false,
+     "rationale": "그렇지 않다."
+    },
+    {
+     "id": "d",
+     "text": "비현실적이다. 근거가 약하다",
+     "correct": true,
+     "rationale": "정답. 비현실적이다. 대표 개발 기간과 단계별 탈락을 보면 근거가 약하다."
+    }
+   ],
+   "explanation": "일정 낙관은 레드플래그.",
+   "sourceIds": [
+    "S-W01-02"
+   ]
+  },
+  {
+   "id": "W01-I079",
+   "courseId": "pipeline",
+   "type": "mcq",
+   "domain": "D06",
+   "axis": [
+    "science"
+   ],
+   "cardIds": [
+    "W01-C014"
+   ],
+   "bloom": "remember",
+   "difficulty": 2,
+   "stem": "4상의 다른 이름은?",
+   "options": [
+    {
+     "id": "a",
+     "text": "시판 후 연구",
+     "correct": true,
+     "rationale": "정답."
+    },
+    {
+     "id": "b",
+     "text": "확증 시험",
+     "correct": false,
+     "rationale": "3상이다."
+    },
+    {
+     "id": "c",
+     "text": "사람 첫 투여 시험",
+     "correct": false,
+     "rationale": "1상이다."
+    },
+    {
+     "id": "d",
+     "text": "개념 입증 시험",
+     "correct": false,
+     "rationale": "2상이다."
+    }
+   ],
+   "explanation": "허가 뒤 단계다.",
+   "sourceIds": []
+  },
+  {
+   "id": "W01-I080",
+   "courseId": "pipeline",
+   "type": "mcq",
+   "domain": "D05",
+   "axis": [
+    "science",
+    "industry"
+   ],
+   "cardIds": [
+    "W01-C017"
+   ],
+   "bloom": "understand",
+   "difficulty": 2,
+   "stem": "PoC가 주로 확인되는 단계는?",
+   "options": [
+    {
+     "id": "a",
+     "text": "전임상",
+     "correct": false,
+     "rationale": "동물 효력은 사람 PoC가 아니다."
+    },
+    {
+     "id": "b",
+     "text": "4상",
+     "correct": false,
+     "rationale": "시판 후다."
+    },
+    {
+     "id": "c",
+     "text": "허가 심사",
+     "correct": false,
+     "rationale": "규제 절차다."
+    },
+    {
+     "id": "d",
+     "text": "2상",
+     "correct": true,
+     "rationale": "정답."
+    }
+   ],
+   "explanation": "PoC = 사람에서의 첫 효과 신호.",
+   "sourceIds": []
+  },
+  {
+   "id": "W01-I081",
+   "courseId": "pipeline",
+   "type": "mcq",
+   "domain": "D05",
+   "axis": [
+    "science",
+    "industry"
+   ],
+   "cardIds": [
+    "W01-C005",
+    "W01-C012"
+   ],
+   "bloom": "apply",
+   "difficulty": 3,
+   "stem": "“GB-701 2상 결과 발표” 기사에 어울리는 동사는?",
+   "options": [
+    {
+     "id": "a",
+     "text": "안전성만 확인했다",
+     "correct": false,
+     "rationale": "1상 수준 표현이다."
+    },
+    {
+     "id": "b",
+     "text": "효과 신호를 보였다",
+     "correct": true,
+     "rationale": "정답. 2상은 효과 신호 단계다."
+    },
+    {
+     "id": "c",
+     "text": "효과를 확증했다",
+     "correct": false,
+     "rationale": "확증은 3상이다."
+    },
+    {
+     "id": "d",
+     "text": "판매 허가를 받았다",
+     "correct": false,
+     "rationale": "허가 단계가 아니다."
+    }
+   ],
+   "explanation": "단계에 맞는 동사를 고른다.",
+   "sourceIds": []
+  },
+  {
+   "id": "W01-I082",
+   "courseId": "pipeline",
+   "type": "mcq",
+   "domain": "D05",
+   "axis": [
+    "science",
+    "industry"
+   ],
+   "cardIds": [
+    "W01-C001",
+    "W01-C009"
+   ],
+   "bloom": "analyze",
+   "difficulty": 4,
+   "stem": "“GB-702 3상 중단” 공시. 같은 표적의 경쟁 약에도 큰 의미가 있는 경우는?",
+   "options": [
+    {
+     "id": "a",
+     "text": "효능 부족으로 중단한 경우",
+     "correct": true,
+     "rationale": "정답. 표적 자체에 대한 의문이 생긴다."
+    },
+    {
+     "id": "b",
+     "text": "회사 우선순위 변경으로 중단한 경우",
+     "correct": false,
+     "rationale": "회사 사정이라 영향이 작다."
+    },
+    {
+     "id": "c",
+     "text": "환자 모집 지연으로 중단한 경우",
+     "correct": false,
+     "rationale": "운영 문제다."
+    },
+    {
+     "id": "d",
+     "text": "경영진 교체로 중단한 경우",
+     "correct": false,
+     "rationale": "회사 사정이다."
+    }
+   ],
+   "explanation": "중단 사유를 먼저 확인한다.",
+   "sourceIds": []
+  },
+  {
+   "id": "W01-I083",
+   "courseId": "pipeline",
+   "type": "mcq",
+   "domain": "D16",
+   "axis": [
+    "science",
+    "media"
+   ],
+   "cardIds": [
+    "W01-C015"
+   ],
+   "bloom": "apply",
+   "difficulty": 3,
+   "stem": "발표된 1차 평가변수가 ClinicalTrials.gov 등록 내용과 다르다. 기자가 할 일은?",
+   "options": [
+    {
+     "id": "a",
+     "text": "등록부는 참고용이라 무시한다",
+     "correct": false,
+     "rationale": "사전 등록의 목적을 놓친다."
+    },
+    {
+     "id": "b",
+     "text": "발표 내용이 최신이니 그대로 쓴다",
+     "correct": false,
+     "rationale": "선택적 보고일 수 있다."
+    },
+    {
+     "id": "c",
+     "text": "등록부가 틀렸다고 쓴다",
+     "correct": false,
+     "rationale": "근거 없이 단정하면 안 된다."
+    },
+    {
+     "id": "d",
+     "text": "변경 시점과 이유를 회사·연구자에게 묻고 기사에 밝힌다",
+     "correct": true,
+     "rationale": "정답."
+    }
+   ],
+   "explanation": "사전 등록은 선택적 보고를 막는 장치다.",
+   "sourceIds": []
+  },
+  {
+   "id": "W01-I084",
+   "courseId": "pipeline",
+   "type": "mcq",
+   "domain": "D07",
+   "axis": [
+    "science",
+    "media"
+   ],
+   "cardIds": [
+    "W01-C016"
+   ],
+   "bloom": "remember",
+   "difficulty": 2,
+   "stem": "임상 결과가 나오는 순서로 맞는 것은?",
+   "options": [
+    {
+     "id": "a",
+     "text": "논문 → 학회 발표 → 탑라인",
+     "correct": false,
+     "rationale": "순서가 반대다."
+    },
+    {
+     "id": "b",
+     "text": "학회 발표 → 탑라인 → 논문",
+     "correct": false,
+     "rationale": "보통 탑라인이 먼저다."
+    },
+    {
+     "id": "c",
+     "text": "탑라인 → 논문 → 허가",
+     "correct": false,
+     "rationale": "허가는 결과 발표 경로가 아니다."
+    },
+    {
+     "id": "d",
+     "text": "탑라인 → 학회 발표 → 논문",
+     "correct": true,
+     "rationale": "정답."
+    }
+   ],
+   "explanation": "단계마다 확인할 것이 다르다.",
+   "sourceIds": []
+  },
+  {
+   "id": "W01-I085",
+   "courseId": "pipeline",
+   "type": "mcq",
+   "domain": "D08",
+   "axis": [
+    "industry"
+   ],
+   "cardIds": [
+    "W01-C022"
+   ],
+   "bloom": "understand",
+   "difficulty": 3,
+   "stem": "대리 평가변수로 먼저 허가하고 확증 시험을 의무로 붙이는 프로그램은?",
+   "options": [
+    {
+     "id": "a",
+     "text": "혁신치료제 지정",
+     "correct": false,
+     "rationale": "집중 지도 지정이다."
+    },
+    {
+     "id": "b",
+     "text": "우선심사",
+     "correct": false,
+     "rationale": "심사 기한 단축이다."
+    },
+    {
+     "id": "c",
+     "text": "가속승인",
+     "correct": true,
+     "rationale": "정답."
+    },
+    {
+     "id": "d",
+     "text": "패스트트랙",
+     "correct": false,
+     "rationale": "협의·순차 제출 지원이다."
+    }
+   ],
+   "explanation": "신속 프로그램 표를 기억한다.",
+   "sourceIds": [
+    "S-W01-07"
+   ],
+   "asOf": "2026-11-22"
+  },
+  {
+   "id": "W01-I086",
+   "courseId": "pipeline",
+   "type": "mcq",
+   "domain": "D08",
+   "axis": [
+    "industry"
+   ],
+   "cardIds": [
+    "W01-C019",
+    "W01-C023"
+   ],
+   "bloom": "apply",
+   "difficulty": 3,
+   "stem": "허가 기사에서 “누구에게 쓰는 약인지”를 쓸 때 기준은?",
+   "options": [
+    {
+     "id": "a",
+     "text": "해외 언론 보도",
+     "correct": false,
+     "rationale": "1차 자료가 아니다."
+    },
+    {
+     "id": "b",
+     "text": "허가사항(라벨)의 적응증과 대상",
+     "correct": true,
+     "rationale": "정답."
+    },
+    {
+     "id": "c",
+     "text": "회사 보도자료의 기대 적응증",
+     "correct": false,
+     "rationale": "허가 범위보다 넓을 수 있다."
+    },
+    {
+     "id": "d",
+     "text": "임상시험 전체 참여자",
+     "correct": false,
+     "rationale": "허가 대상과 다를 수 있다."
+    }
+   ],
+   "explanation": "허가 범위 밖 사용은 오프라벨이다.",
+   "sourceIds": []
+  },
+  {
+   "id": "W01-I087",
+   "courseId": "pipeline",
+   "type": "mcq",
+   "domain": "D07",
+   "axis": [
+    "science",
+    "media"
+   ],
+   "cardIds": [],
+   "bloom": "analyze",
+   "difficulty": 3,
+   "stem": "“HR 0.75(95% CI 0.60~0.94)”의 뜻으로 맞는 것은?",
+   "options": [
+    {
+     "id": "a",
+     "text": "CI가 넓어 의미가 없다",
+     "correct": false,
+     "rationale": "1을 포함하지 않는다."
+    },
+    {
+     "id": "b",
+     "text": "치료군 사건 발생 속도가 25% 낮고 CI가 1을 넘지 않아 유의하다",
+     "correct": true,
+     "rationale": "정답."
+    },
+    {
+     "id": "c",
+     "text": "환자 75%가 효과를 봤다",
+     "correct": false,
+     "rationale": "HR은 비율이 아니다."
+    },
+    {
+     "id": "d",
+     "text": "사건이 0.75건 줄었다",
+     "correct": false,
+     "rationale": "HR은 건수가 아니다."
+    }
+   ],
+   "explanation": "HR < 1이면 치료군 유리, CI가 1을 포함하는지 본다.",
+   "sourceIds": []
+  },
+  {
+   "id": "W01-I088",
+   "courseId": "pipeline",
+   "type": "mcq",
+   "domain": "D11",
+   "axis": [
+    "industry",
+    "media"
+   ],
+   "cardIds": [
+    "W01-C029"
+   ],
+   "bloom": "understand",
+   "difficulty": 2,
+   "stem": "기술수출 계약에서 판매가 시작된 뒤 매출의 일정 비율로 받는 돈은?",
+   "options": [
+    {
+     "id": "a",
+     "text": "총계약규모",
+     "correct": false,
+     "rationale": "합계 개념이다."
+    },
+    {
+     "id": "b",
+     "text": "로열티",
+     "correct": true,
+     "rationale": "정답."
+    },
+    {
+     "id": "c",
+     "text": "업프론트",
+     "correct": false,
+     "rationale": "계약 직후 받는 돈이다."
+    },
+    {
+     "id": "d",
+     "text": "개발 마일스톤",
+     "correct": false,
+     "rationale": "개발 목표 달성 때 받는다."
+    }
+   ],
+   "explanation": "로열티는 총계약규모에 보통 포함하지 않는다.",
+   "sourceIds": []
+  }
+ ],
+ "dailyReleases": [
+  {
+   "id": "PR-W01-1",
+   "date": "2026-12-07",
+   "company": "가온바이오",
+   "sentences": [
+    {
+     "id": "PR-W01-1-S1",
+     "text": "가온바이오는 항암 후보물질 GB-110의 미국 임상 1상 계획이 FDA 승인을 받았다고 8일 밝혔다.",
+     "flag": "none",
+     "rationale": "사실 진술. 다만 IND는 30일 보류 없음으로 진행되는 절차다."
+    },
+    {
+     "id": "PR-W01-1-S2",
+     "text": "이로써 GB-110은 글로벌 블록버스터 신약으로 가는 9부 능선을 넘었다.",
+     "flag": "red",
+     "category": "임상 승인(IND)을 성공처럼",
+     "rationale": "1상 진입 후 허가 가능성은 업계 평균 8% 안팎이다."
+    },
+    {
+     "id": "PR-W01-1-S3",
+     "text": "GB-110은 쥐 실험에서 종양 크기를 90% 줄였다.",
+     "flag": "red",
+     "category": "동물·세포 결과를 사람 효과처럼",
+     "rationale": "동물 결과는 사람 효과를 보장하지 않는다."
+    },
+    {
+     "id": "PR-W01-1-S4",
+     "text": "1상은 미국 3개 기관에서 고형암 환자 30명을 대상으로 진행된다.",
+     "flag": "none",
+     "rationale": "대상·규모 정보."
+    },
+    {
+     "id": "PR-W01-1-S5",
+     "text": "회사는 2028년 조기 상용화를 목표로 한다.",
+     "flag": "red",
+     "category": "일정 낙관",
+     "rationale": "1상 시작 후 허가까지 평균 10년 안팎이다."
+    },
+    {
+     "id": "PR-W01-1-S6",
+     "text": "GB-110의 표적 시장 규모는 200조 원에 이른다.",
+     "flag": "yellow",
+     "category": "시장 규모 과장",
+     "rationale": "전체 항암 시장을 후보물질 하나에 붙인 숫자일 수 있다."
+    }
+   ],
+   "expertQuestions": [
+    "1상의 1차 평가변수와 용량 증량 설계는?",
+    "동물 실험의 모델과 비교 대상은?",
+    "2028년 목표의 근거가 되는 개발 일정은?"
+   ],
+   "accurateLead": "가온바이오가 항암 후보물질 GB-110의 미국 임상 1상을 시작할 수 있게 됐다. 고형암 환자 30명에게서 안전성과 적정 용량을 확인하는 첫 사람 대상 시험이다."
+  },
+  {
+   "id": "PR-W01-2",
+   "date": "2026-12-08",
+   "company": "한빛제약",
+   "sentences": [
+    {
+     "id": "PR-W01-2-S1",
+     "text": "한빛제약은 당뇨 신약 후보 HB-220의 2상 탑라인 결과를 발표했다.",
+     "flag": "none",
+     "rationale": "사실 진술."
+    },
+    {
+     "id": "PR-W01-2-S2",
+     "text": "HB-220은 12주 투여 뒤 당화혈색소를 위약 대비 유의하게 낮춰 1차 평가변수를 충족했다.",
+     "flag": "none",
+     "rationale": "1차 평가변수 결과. 효과 크기 수치 확인 필요."
+    },
+    {
+     "id": "PR-W01-2-S3",
+     "text": "이번 결과로 HB-220의 효과가 완벽히 입증됐다.",
+     "flag": "red",
+     "category": "단일군·소규모 결과 일반화",
+     "rationale": "2상은 효과 신호 단계로 확증은 3상의 몫이다."
+    },
+    {
+     "id": "PR-W01-2-S4",
+     "text": "투여군에서 중대한 이상사례는 없었다.",
+     "flag": "yellow",
+     "category": "안전성 정보 누락",
+     "rationale": "전체 이상사례율·중단률이 빠졌다."
+    },
+    {
+     "id": "PR-W01-2-S5",
+     "text": "회사는 세부 결과를 내년 학회에서 공개할 예정이다.",
+     "flag": "none",
+     "rationale": "일정 정보."
+    },
+    {
+     "id": "PR-W01-2-S6",
+     "text": "업계에서는 연 매출 1조 원 이상을 기대한다.",
+     "flag": "red",
+     "category": "시장 규모 과장",
+     "rationale": "출처 없는 전망이다."
+    }
+   ],
+   "expertQuestions": [
+    "위약 대비 당화혈색소 차이는 몇 %포인트인가?",
+    "투여군·위약군 각각 몇 명인가?",
+    "이상사례로 중단한 환자는 몇 명인가?"
+   ],
+   "accurateLead": "한빛제약이 당뇨 신약 후보 HB-220의 2상에서 12주 투여 뒤 당화혈색소를 위약보다 유의하게 낮췄다고 밝혔다. 효과 크기와 안전성 세부 자료는 내년 학회에서 공개된다."
+  },
+  {
+   "id": "PR-W01-3",
+   "date": "2026-12-09",
+   "company": "누리바이오",
+   "sentences": [
+    {
+     "id": "PR-W01-3-S1",
+     "text": "누리바이오는 비만 치료 후보물질 NB-330의 미국 IND 승인을 받았다.",
+     "flag": "none",
+     "rationale": "사실 진술."
+    },
+    {
+     "id": "PR-W01-3-S2",
+     "text": "NB-330은 기존 GLP-1 약보다 체중 감소 효과가 두 배 뛰어나다.",
+     "flag": "red",
+     "category": "비교 대상 부재",
+     "rationale": "사람 비교 자료가 없는 단계다."
+    },
+    {
+     "id": "PR-W01-3-S3",
+     "text": "이 결과는 원숭이 실험에서 확인됐다.",
+     "flag": "red",
+     "category": "동물·세포 결과를 사람 효과처럼",
+     "rationale": "동물 결과로 사람 효과를 비교할 수 없다."
+    },
+    {
+     "id": "PR-W01-3-S4",
+     "text": "1상은 건강한 성인 72명을 대상으로 한다.",
+     "flag": "none",
+     "rationale": "대상·규모."
+    },
+    {
+     "id": "PR-W01-3-S5",
+     "text": "NB-330은 세계 최초의 차세대 비만 치료제다.",
+     "flag": "red",
+     "category": "근거 없는 수식어",
+     "rationale": "세계 최초 근거가 없다."
+    },
+    {
+     "id": "PR-W01-3-S6",
+     "text": "연구는 회사 연구소와 국책과제 지원으로 수행됐다.",
+     "flag": "none",
+     "rationale": "자금 출처를 밝혔다."
+    }
+   ],
+   "expertQuestions": [
+    "원숭이 실험의 비교군과 용량은?",
+    "1상의 주요 평가 항목은?",
+    "‘두 배’ 비교의 근거 자료는 공개됐나?"
+   ],
+   "accurateLead": "누리바이오가 비만 치료 후보물질 NB-330의 미국 임상 1상을 시작할 수 있게 됐다. 건강한 성인 72명에게서 안전성을 확인하는 첫 시험으로, 효과는 아직 사람에서 확인되지 않았다."
+  },
+  {
+   "id": "PR-W01-4",
+   "date": "2026-12-10",
+   "company": "다온테라퓨틱스",
+   "sentences": [
+    {
+     "id": "PR-W01-4-S1",
+     "text": "다온테라퓨틱스는 글로벌 제약사에 DT-440의 기술수출 계약을 맺었다고 공시했다.",
+     "flag": "none",
+     "rationale": "사실 진술."
+    },
+    {
+     "id": "PR-W01-4-S2",
+     "text": "총계약규모는 1조 2,000억 원으로 창사 이래 최대다.",
+     "flag": "red",
+     "category": "총계약규모를 확정 수익처럼",
+     "rationale": "계약금 비중을 함께 밝혀야 한다."
+    },
+    {
+     "id": "PR-W01-4-S3",
+     "text": "계약금은 240억 원이다.",
+     "flag": "none",
+     "rationale": "확정 금액 정보. 반환 의무 확인 필요."
+    },
+    {
+     "id": "PR-W01-4-S4",
+     "text": "DT-440은 전임상 단계 후보물질이다.",
+     "flag": "none",
+     "rationale": "단계 정보."
+    },
+    {
+     "id": "PR-W01-4-S5",
+     "text": "이번 계약으로 DT-440의 상업적 성공이 사실상 확정됐다.",
+     "flag": "red",
+     "category": "일정 낙관",
+     "rationale": "전임상 단계 후보물질의 허가 가능성은 낮다."
+    },
+    {
+     "id": "PR-W01-4-S6",
+     "text": "계약 상대방과 세부 조건은 비공개다.",
+     "flag": "yellow",
+     "rationale": "비공개 조건은 해석의 한계로 밝힌다."
+    }
+   ],
+   "expertQuestions": [
+    "계약금 반환 의무가 있는가?",
+    "개발·판매 마일스톤의 조건과 시점은?",
+    "권리 범위(지역·적응증)는?"
+   ],
+   "accurateLead": "다온테라퓨틱스가 전임상 단계 후보물질 DT-440을 글로벌 제약사에 기술수출했다. 계약금은 240억 원이며, 나머지 1조 원대는 개발·판매 단계를 달성해야 받는 조건부 금액이다."
+  },
+  {
+   "id": "PR-W01-5",
+   "date": "2026-12-11",
+   "company": "새봄제약",
+   "sentences": [
+    {
+     "id": "PR-W01-5-S1",
+     "text": "새봄제약은 고혈압 개량신약 SB-550이 식약처 품목허가를 받았다고 밝혔다.",
+     "flag": "none",
+     "rationale": "사실 진술."
+    },
+    {
+     "id": "PR-W01-5-S2",
+     "text": "SB-550은 두 성분을 한 알에 담아 복용 편의를 높였다.",
+     "flag": "none",
+     "rationale": "제품 정보."
+    },
+    {
+     "id": "PR-W01-5-S3",
+     "text": "허가로 환자들의 약값 부담이 크게 줄 전망이다.",
+     "flag": "red",
+     "category": "근거 없는 수식어",
+     "rationale": "허가와 급여는 별개다. 급여 전에는 부담 감소를 단정할 수 없다."
+    },
+    {
+     "id": "PR-W01-5-S4",
+     "text": "회사는 건강보험 급여 신청을 준비 중이다.",
+     "flag": "none",
+     "rationale": "급여 단계 정보."
+    },
+    {
+     "id": "PR-W01-5-S5",
+     "text": "임상 3상에서 기존 병용 투여와 혈압 강하 효과가 같았다.",
+     "flag": "yellow",
+     "category": "통계적 유의성과 임상적 의미 혼동",
+     "rationale": "동등·비열등 설계인지, 허용 한계는 얼마인지 확인한다."
+    },
+    {
+     "id": "PR-W01-5-S6",
+     "text": "SB-550은 연 매출 500억 원의 블록버스터가 될 것이다.",
+     "flag": "red",
+     "category": "시장 규모 과장",
+     "rationale": "근거 없는 전망이다."
+    }
+   ],
+   "expertQuestions": [
+    "3상의 설계(비열등성 여부)와 허용 한계는?",
+    "급여 신청 시기와 예상 가격은?",
+    "기존 병용 처방 대비 환자 이득은 무엇인가?"
+   ],
+   "accurateLead": "새봄제약의 고혈압 복합제 SB-550이 식약처 허가를 받았다. 두 성분을 한 알로 합친 개량신약으로, 건강보험 급여 여부와 가격은 아직 정해지지 않았다."
+  }
+ ],
+ "exams": [
+  {
+   "id": "W01-E1",
+   "kind": "weekly",
+   "title": "W1 주간 미니 시험",
+   "minutes": 25,
+   "passRate": 0.8,
+   "blueprint": [
+    {
+     "domain": "D05",
+     "count": 7
+    },
+    {
+     "domain": "D06",
+     "count": 3
+    },
+    {
+     "domain": "D08",
+     "count": 4
+    },
+    {
+     "domain": "D09",
+     "count": 1
+    },
+    {
+     "domain": "D10",
+     "count": 2
+    },
+    {
+     "domain": "D11",
+     "count": 2
+    },
+    {
+     "domain": "D00",
+     "count": 1
+    }
+   ],
+   "itemIds": [
+    "W01-I061",
+    "W01-I062",
+    "W01-I063",
+    "W01-I064",
+    "W01-I065",
+    "W01-I066",
+    "W01-I067",
+    "W01-I068",
+    "W01-I069",
+    "W01-I070",
+    "W01-I071",
+    "W01-I072",
+    "W01-I073",
+    "W01-I074",
+    "W01-I075",
+    "W01-I076",
+    "W01-I077",
+    "W01-I078",
+    "W01-I079",
+    "W01-I080"
+   ],
+   "note": "시험 전용 문항(연습 문항과 겹치지 않음). 첫 주라 누적 40%는 없다."
+  }
+ ],
+ "glossary": [
+  {
+   "term": "임상시험계획 승인 신청",
+   "en": "Investigational New Drug",
+   "abbr": "IND",
+   "definition": "사람 대상 임상을 시작하려고 내는 신청",
+   "cardId": "W01-C004"
+  },
+  {
+   "term": "신약 허가 신청",
+   "en": "New Drug Application",
+   "abbr": "NDA",
+   "definition": "미국 저분자 신약 판매 허가 신청",
+   "cardId": "W01-C019"
+  },
+  {
+   "term": "생물의약품 허가 신청",
+   "en": "Biologics License Application",
+   "abbr": "BLA",
+   "definition": "미국 생물의약품 판매 허가 신청",
+   "cardId": "W01-C019"
+  },
+  {
+   "term": "제네릭 허가 신청",
+   "en": "Abbreviated New Drug Application",
+   "abbr": "ANDA",
+   "definition": "미국 제네릭의 약식 허가 신청"
+  },
+  {
+   "term": "처방약 사용자 수수료법",
+   "en": "Prescription Drug User Fee Act",
+   "abbr": "PDUFA",
+   "definition": "FDA 심사 목표 기한의 근거 법",
+   "cardId": "W01-C020"
+  },
+  {
+   "term": "보완요구서한",
+   "en": "Complete Response Letter",
+   "abbr": "CRL",
+   "definition": "FDA가 허가하지 않을 때 보완점을 알리는 서한",
+   "cardId": "W01-C021"
+  },
+  {
+   "term": "심사 착수 거부",
+   "en": "Refuse to File",
+   "abbr": "RTF",
+   "definition": "서류 미비로 FDA가 심사를 시작하지 않는 결정"
+  },
+  {
+   "term": "혁신치료제 지정",
+   "en": "Breakthrough Therapy Designation",
+   "abbr": "BTD",
+   "definition": "개발 단계 집중 지원 지정(허가 아님)",
+   "cardId": "W01-C022"
+  },
+  {
+   "term": "패스트트랙 지정",
+   "en": "Fast Track Designation",
+   "abbr": "FTD",
+   "definition": "잦은 협의·순차 제출을 허용하는 지정"
+  },
+  {
+   "term": "가속승인",
+   "en": "Accelerated Approval",
+   "abbr": "AA",
+   "definition": "대리 평가변수로 먼저 허가하고 확증 시험을 요구"
+  },
+  {
+   "term": "희귀의약품 지정",
+   "en": "Orphan Drug Designation",
+   "abbr": "ODD",
+   "definition": "희귀질환 약에 독점 기간·세제 혜택"
+  },
+  {
+   "term": "긴급사용승인",
+   "en": "Emergency Use Authorization",
+   "abbr": "EUA",
+   "definition": "공중보건 비상 때 미국의 임시 사용 허가"
+  },
+  {
+   "term": "미국 식품의약국",
+   "en": "Food and Drug Administration",
+   "abbr": "FDA",
+   "definition": "미국 의약품 규제기관"
+  },
+  {
+   "term": "유럽의약품청",
+   "en": "European Medicines Agency",
+   "abbr": "EMA",
+   "definition": "EU 의약품 평가 기관"
+  },
+  {
+   "term": "약물사용자문위원회",
+   "en": "Committee for Medicinal Products for Human Use",
+   "abbr": "CHMP",
+   "definition": "EMA에서 허가 의견을 내는 위원회",
+   "cardId": "W01-C026"
+  },
+  {
+   "term": "유럽연합 집행위원회",
+   "en": "European Commission",
+   "abbr": "EC",
+   "definition": "CHMP 의견을 바탕으로 EU 허가를 결정",
+   "cardId": "W01-C026"
+  },
+  {
+   "term": "식품의약품안전처",
+   "en": "Ministry of Food and Drug Safety",
+   "abbr": "MFDS",
+   "definition": "한국 의약품 허가 기관",
+   "cardId": "W01-C023"
+  },
+  {
+   "term": "국제의약품규제조화위원회",
+   "en": "International Council for Harmonisation",
+   "abbr": "ICH",
+   "definition": "허가 기준을 국제적으로 맞추는 기구"
+  },
+  {
+   "term": "임상시험 관리기준",
+   "en": "Good Clinical Practice",
+   "abbr": "GCP",
+   "definition": "임상시험 윤리·품질 기준(ICH E6)"
+  },
+  {
+   "term": "비임상시험 관리기준",
+   "en": "Good Laboratory Practice",
+   "abbr": "GLP",
+   "definition": "독성시험 등 비임상시험의 품질 기준",
+   "cardId": "W01-C003"
+  },
+  {
+   "term": "의약품 제조 품질관리기준",
+   "en": "Good Manufacturing Practice",
+   "abbr": "GMP",
+   "definition": "제조 시설·공정 품질 기준"
+  },
+  {
+   "term": "국제공통기술문서",
+   "en": "Common Technical Document",
+   "abbr": "CTD",
+   "definition": "허가 신청 서류의 국제 표준 형식"
+  },
+  {
+   "term": "화학·제조·품질관리",
+   "en": "Chemistry, Manufacturing and Controls",
+   "abbr": "CMC",
+   "definition": "제조·품질에 관한 허가 자료"
+  },
+  {
+   "term": "임상시험수탁기관",
+   "en": "Contract Research Organization",
+   "abbr": "CRO",
+   "definition": "임상시험 운영을 대행",
+   "cardId": "W01-C028"
+  },
+  {
+   "term": "위탁생산기관",
+   "en": "Contract Manufacturing Organization",
+   "abbr": "CMO",
+   "definition": "생산을 위탁받는 회사",
+   "cardId": "W01-C028"
+  },
+  {
+   "term": "위탁개발생산기관",
+   "en": "Contract Development and Manufacturing Organization",
+   "abbr": "CDMO",
+   "definition": "공정 개발부터 생산까지 위탁",
+   "cardId": "W01-C028"
+  },
+  {
+   "term": "임상시험 결과보고서",
+   "en": "Clinical Study Report",
+   "abbr": "CSR",
+   "definition": "임상 결과를 정리한 공식 보고서"
+  },
+  {
+   "term": "연구자 주도 임상시험",
+   "en": "Investigator-Initiated Trial",
+   "abbr": "IIT",
+   "definition": "제약사가 아닌 연구자가 주도하는 임상"
+  },
+  {
+   "term": "사람 첫 투여",
+   "en": "First-in-Human",
+   "abbr": "FIH",
+   "definition": "후보물질을 사람에게 처음 투여하는 시험"
+  },
+  {
+   "term": "최대 내약 용량",
+   "en": "Maximum Tolerated Dose",
+   "abbr": "MTD",
+   "definition": "견딜 수 있는 가장 높은 용량"
+  },
+  {
+   "term": "용량 제한 독성",
+   "en": "Dose-Limiting Toxicity",
+   "abbr": "DLT",
+   "definition": "용량 증량을 멈추게 하는 독성"
+  },
+  {
+   "term": "2상 권장 용량",
+   "en": "Recommended Phase 2 Dose",
+   "abbr": "RP2D",
+   "definition": "1상에서 정한 2상 용량"
+  },
+  {
+   "term": "개념 입증",
+   "en": "Proof of Concept",
+   "abbr": "PoC",
+   "definition": "기전대로 효과 신호를 낸 첫 증거",
+   "cardId": "W01-C017"
+  },
+  {
+   "term": "작용기전",
+   "en": "Mechanism of Action",
+   "abbr": "MoA",
+   "definition": "약이 효과를 내는 방식",
+   "cardId": "W01-C027"
+  },
+  {
+   "term": "표준 치료",
+   "en": "Standard of Care",
+   "abbr": "SoC",
+   "definition": "현재 표준으로 쓰는 치료"
+  },
+  {
+   "term": "이상사례",
+   "en": "Adverse Event",
+   "abbr": "AE",
+   "definition": "투여 중 생긴 바람직하지 않은 사건(인과 무관)"
+  },
+  {
+   "term": "중대한 이상사례",
+   "en": "Serious Adverse Event",
+   "abbr": "SAE",
+   "definition": "사망·입원 등 결과가 중대한 이상사례"
+  },
+  {
+   "term": "이상약물반응",
+   "en": "Adverse Drug Reaction",
+   "abbr": "ADR",
+   "definition": "약과 인과관계가 의심되는 반응"
+  },
+  {
+   "term": "예상하지 못한 중대 이상약물반응",
+   "en": "Suspected Unexpected Serious Adverse Reaction",
+   "abbr": "SUSAR",
+   "definition": "신속 보고 대상"
+  },
+  {
+   "term": "약동학",
+   "en": "Pharmacokinetics",
+   "abbr": "PK",
+   "definition": "몸이 약을 어떻게 처리하나"
+  },
+  {
+   "term": "약력학",
+   "en": "Pharmacodynamics",
+   "abbr": "PD",
+   "definition": "약이 몸에 무엇을 하나"
+  },
+  {
+   "term": "흡수·분포·대사·배설",
+   "en": "Absorption, Distribution, Metabolism, Excretion",
+   "abbr": "ADME",
+   "definition": "PK의 네 과정"
+  },
+  {
+   "term": "최고 혈중농도",
+   "en": "Maximum concentration",
+   "abbr": "Cmax",
+   "definition": "투여 후 가장 높은 농도"
+  },
+  {
+   "term": "최고 농도 도달 시간",
+   "en": "Time to Cmax",
+   "abbr": "Tmax",
+   "definition": "Cmax에 이르는 시간"
+  },
+  {
+   "term": "곡선 아래 면적",
+   "en": "Area Under the Curve",
+   "abbr": "AUC",
+   "definition": "약물 노출 총량"
+  },
+  {
+   "term": "반감기",
+   "en": "Half-life",
+   "abbr": "t½",
+   "definition": "농도가 절반이 되는 시간"
+  },
+  {
+   "term": "객관적 반응률",
+   "en": "Objective Response Rate",
+   "abbr": "ORR",
+   "definition": "종양이 기준 이상 줄어든 환자 비율"
+  },
+  {
+   "term": "완전반응",
+   "en": "Complete Response",
+   "abbr": "CR",
+   "definition": "종양이 영상에서 사라진 상태"
+  },
+  {
+   "term": "부분반응",
+   "en": "Partial Response",
+   "abbr": "PR(반응)",
+   "definition": "종양이 기준 이상 줄어든 상태"
+  },
+  {
+   "term": "무진행생존기간",
+   "en": "Progression-Free Survival",
+   "abbr": "PFS",
+   "definition": "진행 또는 사망 전까지의 기간"
+  },
+  {
+   "term": "전체생존기간",
+   "en": "Overall Survival",
+   "abbr": "OS",
+   "definition": "사망 전까지의 기간"
+  },
+  {
+   "term": "무병생존기간",
+   "en": "Disease-Free Survival",
+   "abbr": "DFS",
+   "definition": "재발 또는 사망 전까지의 기간"
+  },
+  {
+   "term": "반응 지속기간",
+   "en": "Duration of Response",
+   "abbr": "DoR",
+   "definition": "반응이 유지된 기간"
+  },
+  {
+   "term": "위험비",
+   "en": "Hazard Ratio",
+   "abbr": "HR",
+   "definition": "두 군의 사건 발생 속도 비"
+  },
+  {
+   "term": "신뢰구간",
+   "en": "Confidence Interval",
+   "abbr": "CI",
+   "definition": "추정값의 불확실성 범위"
+  },
+  {
+   "term": "상대위험",
+   "en": "Relative Risk",
+   "abbr": "RR",
+   "definition": "두 군의 위험 비"
+  },
+  {
+   "term": "오즈비",
+   "en": "Odds Ratio",
+   "abbr": "OR",
+   "definition": "두 군의 오즈 비"
+  },
+  {
+   "term": "치료필요수",
+   "en": "Number Needed to Treat",
+   "abbr": "NNT",
+   "definition": "1명이 이득을 보려면 치료할 인원"
+  },
+  {
+   "term": "배정 기준 분석",
+   "en": "Intention-to-Treat",
+   "abbr": "ITT",
+   "definition": "무작위 배정한 그대로 분석"
+  },
+  {
+   "term": "계획 준수 분석",
+   "en": "Per-Protocol",
+   "abbr": "PP",
+   "definition": "계획대로 치료받은 사람만 분석"
+  },
+  {
+   "term": "무작위대조시험",
+   "en": "Randomized Controlled Trial",
+   "abbr": "RCT",
+   "definition": "무작위로 나눠 비교하는 시험"
+  },
+  {
+   "term": "실사용 데이터",
+   "en": "Real-World Data",
+   "abbr": "RWD",
+   "definition": "진료 기록·청구 자료 등"
+  },
+  {
+   "term": "실사용 근거",
+   "en": "Real-World Evidence",
+   "abbr": "RWE",
+   "definition": "RWD를 분석한 근거",
+   "cardId": "W01-C025"
+  },
+  {
+   "term": "허가 가능성",
+   "en": "Likelihood of Approval",
+   "abbr": "LOA",
+   "definition": "특정 단계에서 허가까지 갈 확률",
+   "cardId": "W01-C008"
+  },
+  {
+   "term": "신규 분자",
+   "en": "New Molecular Entity",
+   "abbr": "NME",
+   "definition": "처음 허가받는 활성 성분"
+  },
+  {
+   "term": "원료의약품",
+   "en": "Active Pharmaceutical Ingredient",
+   "abbr": "API",
+   "definition": "약효를 내는 원료 성분"
+  },
+  {
+   "term": "항체-약물 접합체",
+   "en": "Antibody-Drug Conjugate",
+   "abbr": "ADC",
+   "definition": "항체에 독성 약물을 붙인 약"
+  },
+  {
+   "term": "약물-항체 비율",
+   "en": "Drug-to-Antibody Ratio",
+   "abbr": "DAR",
+   "definition": "항체 하나에 붙은 약물 수"
+  },
+  {
+   "term": "단일클론항체",
+   "en": "Monoclonal Antibody",
+   "abbr": "mAb",
+   "definition": "하나의 항원 부위에 결합하는 항체"
+  },
+  {
+   "term": "이중특이항체",
+   "en": "Bispecific Antibody",
+   "abbr": "bsAb",
+   "definition": "두 표적에 동시에 결합"
+  },
+  {
+   "term": "키메라 항원 수용체 T세포",
+   "en": "Chimeric Antigen Receptor T cell",
+   "abbr": "CAR-T",
+   "definition": "유전자 조작 T세포 치료제"
+  },
+  {
+   "term": "아데노 연관 바이러스",
+   "en": "Adeno-Associated Virus",
+   "abbr": "AAV",
+   "definition": "유전자치료 전달체"
+  },
+  {
+   "term": "작은 간섭 RNA",
+   "en": "small interfering RNA",
+   "abbr": "siRNA",
+   "definition": "mRNA를 분해해 단백질을 줄인다"
+  },
+  {
+   "term": "안티센스 올리고뉴클레오타이드",
+   "en": "Antisense Oligonucleotide",
+   "abbr": "ASO",
+   "definition": "RNA에 결합해 발현을 조절"
+  },
+  {
+   "term": "표적단백질분해 키메라",
+   "en": "Proteolysis Targeting Chimera",
+   "abbr": "PROTAC",
+   "definition": "표적 단백질을 분해 경로로 보낸다"
+  },
+  {
+   "term": "표적단백질분해",
+   "en": "Targeted Protein Degradation",
+   "abbr": "TPD",
+   "definition": "PROTAC·분자접착제 등의 분야"
+  },
+  {
+   "term": "글루카곤 유사 펩타이드-1",
+   "en": "Glucagon-Like Peptide-1",
+   "abbr": "GLP-1",
+   "definition": "혈당·식욕 조절 호르몬, 비만·당뇨 약 표적"
+  },
+  {
+   "term": "기술수출",
+   "en": "License-out",
+   "abbr": "L/O",
+   "definition": "개발·판매 권리를 다른 회사에 넘김",
+   "cardId": "W01-C029"
+  },
+  {
+   "term": "기술도입",
+   "en": "License-in",
+   "abbr": "L/I",
+   "definition": "다른 회사의 권리를 들여옴"
+  },
+  {
+   "term": "인수합병",
+   "en": "Mergers and Acquisitions",
+   "abbr": "M&A",
+   "definition": "회사를 사거나 합침"
+  },
+  {
+   "term": "순현재가치",
+   "en": "Net Present Value",
+   "abbr": "NPV",
+   "definition": "미래 현금을 현재 가치로 환산한 합"
+  },
+  {
+   "term": "위험조정 순현재가치",
+   "en": "risk-adjusted NPV",
+   "abbr": "rNPV",
+   "definition": "성공 확률을 반영한 NPV"
+  },
+  {
+   "term": "현금흐름할인법",
+   "en": "Discounted Cash Flow",
+   "abbr": "DCF",
+   "definition": "미래 현금흐름을 할인해 가치 평가"
+  },
+  {
+   "term": "기업공개",
+   "en": "Initial Public Offering",
+   "abbr": "IPO",
+   "definition": "주식시장 상장"
+  },
+  {
+   "term": "전환사채",
+   "en": "Convertible Bond",
+   "abbr": "CB",
+   "definition": "주식으로 바꿀 수 있는 채권"
+  },
+  {
+   "term": "신주인수권부사채",
+   "en": "Bond with Warrant",
+   "abbr": "BW",
+   "definition": "새 주식을 살 권리가 붙은 채권"
+  },
+  {
+   "term": "전자공시시스템",
+   "en": "Data Analysis, Retrieval and Transfer System",
+   "abbr": "DART",
+   "definition": "금융감독원 공시 사이트"
+  },
+  {
+   "term": "핵심 오피니언 리더",
+   "en": "Key Opinion Leader",
+   "abbr": "KOL",
+   "definition": "영향력 있는 전문가(이해상충 확인)"
+  },
+  {
+   "term": "미국임상종양학회",
+   "en": "American Society of Clinical Oncology",
+   "abbr": "ASCO",
+   "definition": "대표 항암 학회(매년 6월 전후)"
+  },
+  {
+   "term": "유럽종양내과학회",
+   "en": "European Society for Medical Oncology",
+   "abbr": "ESMO",
+   "definition": "유럽 대표 항암 학회"
+  },
+  {
+   "term": "미국혈액학회",
+   "en": "American Society of Hematology",
+   "abbr": "ASH",
+   "definition": "혈액암·혈액질환 학회(12월)"
+  },
+  {
+   "term": "미국당뇨병학회",
+   "en": "American Diabetes Association",
+   "abbr": "ADA",
+   "definition": "당뇨·비만 연구 발표"
+  },
+  {
+   "term": "건강보험심사평가원",
+   "en": "Health Insurance Review and Assessment Service",
+   "abbr": "HIRA",
+   "definition": "급여 적정성 평가(심평원)"
+  },
+  {
+   "term": "국민건강보험공단",
+   "en": "National Health Insurance Service",
+   "abbr": "NHIS",
+   "definition": "약가 협상·보험 재정(건보공단)"
+  },
+  {
+   "term": "위험분담제",
+   "en": "Risk-Sharing Agreement",
+   "abbr": "RSA",
+   "definition": "불확실성이 큰 신약의 조건부 급여"
+  },
+  {
+   "term": "점증적 비용효과비",
+   "en": "Incremental Cost-Effectiveness Ratio",
+   "abbr": "ICER",
+   "definition": "추가 효과 1단위당 추가 비용"
+  },
+  {
+   "term": "질보정수명",
+   "en": "Quality-Adjusted Life Year",
+   "abbr": "QALY",
+   "definition": "삶의 질을 반영한 생존 연수"
+  },
+  {
+   "term": "미국암연구학회",
+   "en": "American Association for Cancer Research",
+   "abbr": "AACR",
+   "definition": "기초·중개 항암 연구 학회(봄)"
+  },
+  {
+   "term": "인플레이션 감축법",
+   "en": "Inflation Reduction Act",
+   "abbr": "IRA",
+   "definition": "미국 메디케어 약가 협상의 근거 법(2022)"
+  },
+  {
+   "term": "의료기술평가",
+   "en": "Health Technology Assessment",
+   "abbr": "HTA",
+   "definition": "효과·비용을 평가해 급여 판단 지원"
+  }
+ ],
+ "sources": [
+  {
+   "id": "S-W01-01",
+   "title": "Clinical Development Success Rates and Contributing Factors 2011–2020",
+   "publisher": "BIO·Informa Pharma Intelligence·QLS",
+   "date": "2021-02",
+   "type": "other"
+  },
+  {
+   "id": "S-W01-02",
+   "title": "Biopharmaceutical Research & Development: The Process Behind New Medicines",
+   "publisher": "PhRMA",
+   "date": "2015",
+   "type": "other"
+  },
+  {
+   "id": "S-W01-03",
+   "title": "Wouters OJ, McKee M, Luyten J. Estimated Research and Development Investment Needed to Bring a New Medicine to Market, 2009-2018. JAMA 2020;323(9):844-853",
+   "publisher": "JAMA",
+   "date": "2020-03",
+   "type": "paper"
+  },
+  {
+   "id": "S-W01-04",
+   "title": "DiMasi JA, Grabowski HG, Hansen RW. Innovation in the pharmaceutical industry: New estimates of R&D costs. J Health Econ 2016;47:20-33",
+   "publisher": "Journal of Health Economics",
+   "date": "2016",
+   "type": "paper"
+  },
+  {
+   "id": "S-W01-05",
+   "title": "Investigational New Drug (IND) Application / 21 CFR Part 312",
+   "publisher": "U.S. FDA",
+   "type": "regulation"
+  },
+  {
+   "id": "S-W01-06",
+   "title": "PDUFA Reauthorization Performance Goals and Procedures, Fiscal Years 2023 Through 2027",
+   "publisher": "U.S. FDA",
+   "type": "regulation"
+  },
+  {
+   "id": "S-W01-07",
+   "title": "Expedited Programs for Serious Conditions — Drugs and Biologics (Guidance for Industry)",
+   "publisher": "U.S. FDA",
+   "date": "2014",
+   "type": "guideline"
+  },
+  {
+   "id": "S-W01-08",
+   "title": "Authorisation of medicines (centralised procedure)",
+   "publisher": "European Medicines Agency",
+   "type": "official-data"
+  },
+  {
+   "id": "S-W01-09",
+   "title": "의약품 등의 안전에 관한 규칙",
+   "publisher": "식품의약품안전처",
+   "type": "regulation"
+  },
+  {
+   "id": "S-W01-10",
+   "title": "ICH E8(R1) General Considerations for Clinical Studies",
+   "publisher": "ICH",
+   "date": "2021",
+   "type": "guideline"
+  },
+  {
+   "id": "S-W01-11",
+   "title": "국민건강보험 요양급여의 기준에 관한 규칙",
+   "publisher": "보건복지부",
+   "type": "regulation"
+  }
+ ],
+ "review": "draft"
+}

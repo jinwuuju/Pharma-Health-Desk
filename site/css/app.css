@@ -159,3 +159,5 @@ details.row-d .ans{padding:0 16px 14px;color:var(--text2);font-size:.9375rem}
  .tab:hover{background:var(--fill)}
 }
 @media (prefers-reduced-motion:reduce){*,*::before,*::after{transition:none !important;animation:none !important}}
+.pill.warn{background:color-mix(in srgb,var(--orange) 18%,transparent);color:var(--orange)}
+.link-btn{display:block;margin:var(--s2) auto 0;min-height:44px;padding:0 var(--s3);color:var(--accent);font-size:.9375rem}

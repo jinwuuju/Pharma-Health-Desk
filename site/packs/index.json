@@ -1,0 +1,29 @@
+{
+ "note": "앱 기본 탑재 팩 목록(D007·D017). 나 → 기본 콘텐츠 불러오기가 이 순서로 가져온다.",
+ "packs": [
+  {
+   "file": "W00.json",
+   "packId": "W00-diagnostic",
+   "courseId": "pipeline",
+   "version": "2026-11-22.1",
+   "title": "W0 진단평가 문항 풀",
+   "review": "draft"
+  },
+  {
+   "file": "W01.json",
+   "packId": "W01-pipeline-map",
+   "courseId": "pipeline",
+   "version": "2026-11-22.1",
+   "title": "W1 신약개발 전주기 큰 그림 + 약어 100",
+   "review": "draft"
+  },
+  {
+   "file": "stats-001.json",
+   "packId": "HB-REG-001",
+   "courseId": "healthbeat",
+   "version": "2026-11-22.1",
+   "title": "통계 레지스트리 1차 — 렌즈 앵커(기획안 2의 5.1)",
+   "review": "draft"
+  }
+ ]
+}

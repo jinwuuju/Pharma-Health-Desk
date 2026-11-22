@@ -25,7 +25,7 @@
   "D18"
  ],
  "title": "W0 진단평가 문항 풀",
- "description": "초안. 14.5 감수(새 대화) 전. 도메인당 5문항(난이도 1~5)으로 적응형 진단평가의 문항 풀을 이룬다.",
+ "description": "감수 전 초안(D017). 도메인당 5문항(난이도 1~5)으로 적응형 진단평가의 문항 풀을 이룬다.",
  "units": [],
  "lessons": [],
  "cards": [],
@@ -4338,5 +4338,6 @@
    "publisher": "HealthNewsReview.org",
    "type": "other"
   }
- ]
+ ],
+ "review": "draft"
 }

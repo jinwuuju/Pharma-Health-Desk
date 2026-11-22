@@ -7,7 +7,7 @@
     dealRounds: 'dealRound', exams: 'exam', glossary: 'glossary', sources: 'source', entries: 'entry', stats: 'stat',
     plans: 'plan', calendar: 'calendar'
   };
-  var META_KEYS = ['packId', 'version', 'week', 'domains', 'title', 'courseId', 'description', 'kind', 'part'];
+  var META_KEYS = ['packId', 'version', 'week', 'domains', 'title', 'courseId', 'description', 'kind', 'part', 'review'];
   var COURSES = ['pipeline', 'healthbeat'];
   var MAX_MSG = 30;
 
@@ -48,7 +48,7 @@
     var meta = {
       packId: packId, courseId: obj.courseId || null, version: obj.version || '',
       week: typeof obj.week === 'number' ? obj.week : null, title: obj.title || '',
-      domains: Array.isArray(obj.domains) ? obj.domains : [], description: obj.description || ''
+      domains: Array.isArray(obj.domains) ? obj.domains : [], description: obj.description || '', review: typeof obj.review === 'string' ? obj.review : ''
     };
     return { errors: errors, warnings: trimList(warnings), rows: rows, meta: meta };
   }

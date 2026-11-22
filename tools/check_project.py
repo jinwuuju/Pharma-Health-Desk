@@ -28,6 +28,7 @@ REQUIRED = [
     'site/js/packs.js',
     'site/js/app.js',
     'site/packs/sample.json',
+    'site/packs/index.json',
     'tools/smoke/smoke.mjs',
     'tools/smoke/package-lock.json',
 ]

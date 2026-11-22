@@ -1,0 +1,812 @@
+{
+ "packId": "HB-REG-001",
+ "courseId": "healthbeat",
+ "kind": "canon",
+ "version": "2026-11-22.1",
+ "title": "통계 레지스트리 1차 — 렌즈 앵커(기획안 2의 5.1)",
+ "description": "감수 전 초안(D017). 다빈도 통계는 보도로 확인한 값이라 심평원 원자료 대조가 필요하다.",
+ "stats": [
+  {
+   "id": "ST-0001",
+   "courseId": "healthbeat",
+   "label": "사망자 수",
+   "value": 362968,
+   "unit": "명",
+   "population": "전국(주민등록지 기준)",
+   "period": "2025년",
+   "definition": "사망신고서 기초, 한국표준질병·사인분류에 따른 근원 사인 기준. 2025년 발생 사망을 2026년 4월까지 신고분으로 집계한 확정 통계",
+   "sourceId": "SR-0001",
+   "publishedAt": "2026-09-22",
+   "nextRelease": "2027-09(예정, e-나라지표 입력예정일 2027-09-30)",
+   "reviewBy": "2027-09-22",
+   "note": "전년보다 4,399명(1.2%) 증가. 하루 평균 994명.",
+   "tags": [
+    "lens:mortality"
+   ],
+   "history": [
+    {
+     "period": "2024년",
+     "value": 358569
+    }
+   ]
+  },
+  {
+   "id": "ST-0002",
+   "courseId": "healthbeat",
+   "label": "조사망률",
+   "value": 712.6,
+   "unit": "명/인구 10만 명",
+   "population": "전국(주민등록지 기준)",
+   "period": "2025년",
+   "definition": "연간 사망자 수 ÷ 주민등록 연앙인구 × 100,000",
+   "sourceId": "SR-0001",
+   "publishedAt": "2026-09-22",
+   "nextRelease": "2027-09(예정, e-나라지표 입력예정일 2027-09-30)",
+   "reviewBy": "2027-09-22",
+   "note": "고령화 영향으로 늘어도 연령표준화 사망률은 줄 수 있다(ST-0003과 함께 쓴다).",
+   "tags": [
+    "lens:mortality"
+   ],
+   "history": [
+    {
+     "period": "2024년",
+     "value": 702.6
+    }
+   ]
+  },
+  {
+   "id": "ST-0003",
+   "courseId": "healthbeat",
+   "label": "연령표준화 사망률",
+   "value": 285.3,
+   "unit": "명/표준인구 10만 명",
+   "population": "전국(주민등록지 기준)",
+   "period": "2025년",
+   "definition": "2005년 전국 인구를 표준인구로 연령 구조 차이를 보정한 사망률",
+   "sourceId": "SR-0001",
+   "publishedAt": "2026-09-22",
+   "nextRelease": "2027-09(예정, e-나라지표 입력예정일 2027-09-30)",
+   "reviewBy": "2027-09-22",
+   "tags": [
+    "lens:mortality"
+   ],
+   "history": [
+    {
+     "period": "2024년",
+     "value": 294.6
+    }
+   ]
+  },
+  {
+   "id": "ST-0004",
+   "courseId": "healthbeat",
+   "label": "10대 사망원인 순위",
+   "value": "암, 심장 질환, 폐렴, 뇌혈관 질환, 고의적 자해(자살), 알츠하이머병, 당뇨병, 패혈증, 고혈압성 질환, 간 질환",
+   "unit": "순위",
+   "population": "전국(주민등록지 기준)",
+   "period": "2025년",
+   "definition": "사인별 사망률(인구 10만 명당) 순위",
+   "sourceId": "SR-0001",
+   "publishedAt": "2026-09-22",
+   "nextRelease": "2027-09(예정, e-나라지표 입력예정일 2027-09-30)",
+   "reviewBy": "2027-09-22",
+   "note": "전년 대비 패혈증이 8위로 상승, 고혈압성 질환 9위·간 질환 10위로 하락(e-나라지표 SR-0007).",
+   "tags": [
+    "lens:mortality",
+    "anchor"
+   ]
+  },
+  {
+   "id": "ST-0005",
+   "courseId": "healthbeat",
+   "label": "3대 사망원인(암·심장 질환·폐렴)의 사망 비중",
+   "value": 42.7,
+   "unit": "%",
+   "population": "전국(주민등록지 기준)",
+   "period": "2025년",
+   "definition": "사망신고서 기초, 한국표준질병·사인분류에 따른 근원 사인 기준. 2025년 발생 사망을 2026년 4월까지 신고분으로 집계한 확정 통계",
+   "sourceId": "SR-0001",
+   "publishedAt": "2026-09-22",
+   "nextRelease": "2027-09(예정, e-나라지표 입력예정일 2027-09-30)",
+   "reviewBy": "2027-09-22",
+   "tags": [
+    "lens:mortality",
+    "anchor"
+   ]
+  },
+  {
+   "id": "ST-0006",
+   "courseId": "healthbeat",
+   "label": "암 사망률",
+   "value": 177.1,
+   "unit": "명/인구 10만 명",
+   "population": "전국(주민등록지 기준)",
+   "period": "2025년",
+   "definition": "사망신고서 기초, 한국표준질병·사인분류에 따른 근원 사인 기준. 2025년 발생 사망을 2026년 4월까지 신고분으로 집계한 확정 통계",
+   "sourceId": "SR-0001",
+   "publishedAt": "2026-09-22",
+   "nextRelease": "2027-09(예정, e-나라지표 입력예정일 2027-09-30)",
+   "reviewBy": "2027-09-22",
+   "note": "암종별 사망률은 폐암, 간암, 대장암, 췌장암, 위암 순.",
+   "tags": [
+    "lens:mortality",
+    "암"
+   ],
+   "history": [
+    {
+     "period": "2024년",
+     "value": 174.3
+    }
+   ]
+  },
+  {
+   "id": "ST-0007",
+   "courseId": "healthbeat",
+   "label": "전체 사망 중 암 사망 비중",
+   "value": 24.9,
+   "unit": "%",
+   "population": "전국(주민등록지 기준)",
+   "period": "2025년",
+   "definition": "사망신고서 기초, 한국표준질병·사인분류에 따른 근원 사인 기준. 2025년 발생 사망을 2026년 4월까지 신고분으로 집계한 확정 통계",
+   "sourceId": "SR-0001",
+   "publishedAt": "2026-09-22",
+   "nextRelease": "2027-09(예정, e-나라지표 입력예정일 2027-09-30)",
+   "reviewBy": "2027-09-22",
+   "tags": [
+    "lens:mortality",
+    "암"
+   ]
+  },
+  {
+   "id": "ST-0008",
+   "courseId": "healthbeat",
+   "label": "자살 사망자 수",
+   "value": 14144,
+   "unit": "명",
+   "population": "전국(주민등록지 기준)",
+   "period": "2025년",
+   "definition": "사망신고서 기초, 한국표준질병·사인분류에 따른 근원 사인 기준. 2025년 발생 사망을 2026년 4월까지 신고분으로 집계한 확정 통계",
+   "sourceId": "SR-0001",
+   "publishedAt": "2026-09-22",
+   "nextRelease": "2027-09(예정, e-나라지표 입력예정일 2027-09-30)",
+   "reviewBy": "2027-09-22",
+   "note": "보도 시 자살예방 보도준칙을 따른다.",
+   "tags": [
+    "lens:mortality",
+    "자살"
+   ],
+   "history": [
+    {
+     "period": "2024년",
+     "value": 14872
+    }
+   ]
+  },
+  {
+   "id": "ST-0009",
+   "courseId": "healthbeat",
+   "label": "자살률",
+   "value": 27.8,
+   "unit": "명/인구 10만 명",
+   "population": "전국(주민등록지 기준)",
+   "period": "2025년",
+   "definition": "사망신고서 기초, 한국표준질병·사인분류에 따른 근원 사인 기준. 2025년 발생 사망을 2026년 4월까지 신고분으로 집계한 확정 통계",
+   "sourceId": "SR-0001",
+   "publishedAt": "2026-09-22",
+   "nextRelease": "2027-09(예정, e-나라지표 입력예정일 2027-09-30)",
+   "reviewBy": "2027-09-22",
+   "note": "10대 자살률만 전년보다 7.5% 상승. 자살은 10~40대 사망원인 1위.",
+   "tags": [
+    "lens:mortality",
+    "자살"
+   ],
+   "history": [
+    {
+     "period": "2024년",
+     "value": 29.1
+    }
+   ]
+  },
+  {
+   "id": "ST-0010",
+   "courseId": "healthbeat",
+   "label": "OECD 표준인구 기준 연령표준화 자살률",
+   "value": 24.9,
+   "unit": "명/표준인구 10만 명",
+   "population": "전국(주민등록지 기준)",
+   "period": "2025년",
+   "definition": "OECD 표준인구로 연령 구조를 보정한 자살률(국가데이터처 산출)",
+   "sourceId": "SR-0001",
+   "publishedAt": "2026-09-22",
+   "nextRelease": "2027-09(예정, e-나라지표 입력예정일 2027-09-30)",
+   "reviewBy": "2027-09-22",
+   "note": "조자살률(ST-0009)과 정의가 다르다. 같은 기준의 OECD 평균은 10.9명.",
+   "tags": [
+    "lens:mortality",
+    "자살"
+   ]
+  },
+  {
+   "id": "ST-0011",
+   "courseId": "healthbeat",
+   "label": "치매 사망률",
+   "value": 32.0,
+   "unit": "명/인구 10만 명",
+   "population": "전국(주민등록지 기준)",
+   "period": "2025년",
+   "definition": "치매 관련 사인에 의한 사망률. 포함 사인 범위는 원문 확인",
+   "sourceId": "SR-0001",
+   "publishedAt": "2026-09-22",
+   "nextRelease": "2027-09(예정, e-나라지표 입력예정일 2027-09-30)",
+   "reviewBy": "2027-09-22",
+   "note": "전년 대비 9.2% 증가. 여자가 남자의 2.1배.",
+   "tags": [
+    "lens:mortality",
+    "치매"
+   ],
+   "needsVerification": true
+  },
+  {
+   "id": "ST-0012",
+   "courseId": "healthbeat",
+   "label": "80세 이상 사망자 비중",
+   "value": 54.7,
+   "unit": "%",
+   "population": "전국(주민등록지 기준)",
+   "period": "2025년",
+   "definition": "사망신고서 기초, 한국표준질병·사인분류에 따른 근원 사인 기준. 2025년 발생 사망을 2026년 4월까지 신고분으로 집계한 확정 통계",
+   "sourceId": "SR-0001",
+   "publishedAt": "2026-09-22",
+   "nextRelease": "2027-09(예정, e-나라지표 입력예정일 2027-09-30)",
+   "reviewBy": "2027-09-22",
+   "note": "10년 전보다 13.9%p 증가.",
+   "tags": [
+    "lens:mortality"
+   ]
+  },
+  {
+   "id": "ST-0013",
+   "courseId": "healthbeat",
+   "label": "비감염성 질환(만성질환) 사망 비중",
+   "value": 78.8,
+   "unit": "%",
+   "population": "전국(주민등록지 기준)",
+   "period": "2024년",
+   "definition": "WHO 비감염성 질환 분류에 따른 사망 구성비. 원자료는 국가데이터처 2024년 사망원인통계",
+   "sourceId": "SR-0002",
+   "publishedAt": "2025-12-29",
+   "nextRelease": "2026-12(연례 발간, 확인 필요)",
+   "reviewBy": "2026-12-29",
+   "note": "282,716명. 전년 대비 0.7%p 증가. 감염성 질환·모성사망 12.9%, 손상·기타 8.3%.",
+   "tags": [
+    "lens:mortality",
+    "anchor",
+    "만성질환"
+   ]
+  },
+  {
+   "id": "ST-0014",
+   "courseId": "healthbeat",
+   "label": "비감염성 질환(만성질환) 진료비",
+   "value": 90,
+   "unit": "조 원",
+   "population": "건강보험 진료비 전체",
+   "period": "2024년",
+   "definition": "비감염성 질환으로 인한 건강보험 진료비. 원자료는 건보공단·심평원 2024년 건강보험통계",
+   "sourceId": "SR-0002",
+   "publishedAt": "2025-12-29",
+   "nextRelease": "2026-12(연례 발간, 확인 필요)",
+   "reviewBy": "2026-12-29",
+   "tags": [
+    "lens:utilization",
+    "anchor",
+    "만성질환"
+   ]
+  },
+  {
+   "id": "ST-0015",
+   "courseId": "healthbeat",
+   "label": "전체 진료비 중 비감염성 질환 비중",
+   "value": 80.3,
+   "unit": "%",
+   "population": "건강보험 진료비 전체",
+   "period": "2024년",
+   "definition": "비감염성 질환 진료비 ÷ 전체 진료비",
+   "sourceId": "SR-0002",
+   "publishedAt": "2025-12-29",
+   "nextRelease": "2026-12(연례 발간, 확인 필요)",
+   "reviewBy": "2026-12-29",
+   "tags": [
+    "lens:utilization",
+    "anchor",
+    "만성질환"
+   ]
+  },
+  {
+   "id": "ST-0016",
+   "courseId": "healthbeat",
+   "label": "65세 이상 인구 비중",
+   "value": 20.3,
+   "unit": "%",
+   "population": "전체 인구",
+   "period": "2025년",
+   "definition": "65세 이상 인구 ÷ 전체 인구. 원자료는 국가데이터처 2025 고령자 통계",
+   "sourceId": "SR-0002",
+   "publishedAt": "2025-12-29",
+   "nextRelease": "2026-12(연례 발간, 확인 필요)",
+   "reviewBy": "2026-12-29",
+   "note": "1,051만 4천 명. 초고령사회 기준(20%)을 처음 넘었다.",
+   "tags": [
+    "anchor",
+    "고령화"
+   ]
+  },
+  {
+   "id": "ST-0017",
+   "courseId": "healthbeat",
+   "label": "65세 이상 1인당 연평균 진료비",
+   "value": 551,
+   "unit": "만 원",
+   "population": "65세 이상 건강보험 적용 인구",
+   "period": "2024년",
+   "definition": "건강보험 진료비 기준. 원자료는 2024년 건강보험통계",
+   "sourceId": "SR-0002",
+   "publishedAt": "2025-12-29",
+   "nextRelease": "2026-12(연례 발간, 확인 필요)",
+   "reviewBy": "2026-12-29",
+   "note": "전체 인구 1인당 226만 원의 2.4배.",
+   "tags": [
+    "lens:utilization",
+    "고령화"
+   ]
+  },
+  {
+   "id": "ST-0018",
+   "courseId": "healthbeat",
+   "label": "기대수명(2024년 출생아)",
+   "value": 85.7,
+   "unit": "년",
+   "population": "2024년 출생아(남녀 전체)",
+   "period": "2024년",
+   "definition": "국가데이터처 2024년 생명표 기준",
+   "sourceId": "SR-0006",
+   "publishedAt": "2025-12-29",
+   "nextRelease": "2026-12(연례 발간, 확인 필요)",
+   "reviewBy": "2026-12-29",
+   "note": "남자 80.8년, 여자 86.6년. 2025년 생명표 발표 시 갱신.",
+   "tags": [
+    "lens:mortality"
+   ]
+  },
+  {
+   "id": "ST-0019",
+   "courseId": "healthbeat",
+   "label": "순환계통 질환 진료비",
+   "value": 14,
+   "unit": "조 원",
+   "population": "건강보험 진료비",
+   "period": "2024년",
+   "definition": "주요 만성질환 진료비(건강보험통계 기준)",
+   "sourceId": "SR-0006",
+   "publishedAt": "2025-12-29",
+   "nextRelease": "2026-12(연례 발간, 확인 필요)",
+   "reviewBy": "2026-12-29",
+   "note": "전체 진료비의 15.6%. 암 진료비보다 많다.",
+   "tags": [
+    "lens:utilization",
+    "만성질환"
+   ]
+  },
+  {
+   "id": "ST-0020",
+   "courseId": "healthbeat",
+   "label": "암 진료비",
+   "value": 10.7,
+   "unit": "조 원",
+   "population": "건강보험 진료비",
+   "period": "2024년",
+   "definition": "주요 만성질환 진료비(건강보험통계 기준)",
+   "sourceId": "SR-0006",
+   "publishedAt": "2025-12-29",
+   "nextRelease": "2026-12(연례 발간, 확인 필요)",
+   "reviewBy": "2026-12-29",
+   "note": "전체 진료비의 12.0%.",
+   "tags": [
+    "lens:utilization",
+    "암"
+   ]
+  },
+  {
+   "id": "ST-0021",
+   "courseId": "healthbeat",
+   "label": "당뇨병 진료비",
+   "value": 3.7,
+   "unit": "조 원",
+   "population": "건강보험 진료비",
+   "period": "2024년",
+   "definition": "주요 만성질환 진료비(건강보험통계 기준)",
+   "sourceId": "SR-0006",
+   "publishedAt": "2025-12-29",
+   "nextRelease": "2026-12(연례 발간, 확인 필요)",
+   "reviewBy": "2026-12-29",
+   "tags": [
+    "lens:utilization",
+    "당뇨병"
+   ]
+  },
+  {
+   "id": "ST-0022",
+   "courseId": "healthbeat",
+   "label": "외래 다빈도 1위 치은염·치주질환 진료인원",
+   "value": 19972412,
+   "unit": "명",
+   "population": "건강보험 진료 환자",
+   "period": "2025년 진료분",
+   "definition": "건강보험 진료인원(심평원 다빈도 상병 기준). 같은 사람의 중복 처리 기준은 원문 확인 필요",
+   "sourceId": "SR-0003",
+   "publishedAt": "2026-06-08",
+   "nextRelease": "2027-06(예정)",
+   "reviewBy": "2027-06-08",
+   "note": "외래 1위(전년에 이어). 외래 건강보험 의료비도 1위.",
+   "tags": [
+    "lens:utilization",
+    "anchor",
+    "U1"
+   ],
+   "history": [
+    {
+     "period": "2023년 진료분",
+     "value": 18836481
+    },
+    {
+     "period": "2024년 진료분",
+     "value": 19588686
+    }
+   ],
+   "verifiedVia": "언론 보도(SR-0004)로 확인. 심평원 원자료 대조 필요",
+   "needsVerification": true
+  },
+  {
+   "id": "ST-0023",
+   "courseId": "healthbeat",
+   "label": "치은염·치주질환 외래 건강보험 의료비",
+   "value": 26214,
+   "unit": "억 원",
+   "population": "건강보험 진료 환자",
+   "period": "2025년 진료분",
+   "definition": "외래 건강보험 의료비(심평원 다빈도 상병 기준)",
+   "sourceId": "SR-0003",
+   "publishedAt": "2026-06-08",
+   "nextRelease": "2027-06(예정)",
+   "reviewBy": "2027-06-08",
+   "note": "외래 의료비 1위.",
+   "tags": [
+    "lens:utilization",
+    "U1"
+   ],
+   "verifiedVia": "언론 보도(SR-0004)로 확인. 심평원 원자료 대조 필요",
+   "needsVerification": true
+  },
+  {
+   "id": "ST-0024",
+   "courseId": "healthbeat",
+   "label": "급성 기관지염 외래 진료인원",
+   "value": 15886042,
+   "unit": "명",
+   "population": "건강보험 진료 환자",
+   "period": "2025년 진료분",
+   "definition": "건강보험 진료인원(심평원 다빈도 상병 기준). 같은 사람의 중복 처리 기준은 원문 확인 필요",
+   "sourceId": "SR-0003",
+   "publishedAt": "2026-06-08",
+   "nextRelease": "2027-06(예정)",
+   "reviewBy": "2027-06-08",
+   "note": "외래 2위.",
+   "tags": [
+    "lens:utilization",
+    "anchor",
+    "U2"
+   ],
+   "verifiedVia": "언론 보도(SR-0004)로 확인. 심평원 원자료 대조 필요",
+   "needsVerification": true
+  },
+  {
+   "id": "ST-0025",
+   "courseId": "healthbeat",
+   "label": "본태성 고혈압 외래 진료인원",
+   "value": 7492579,
+   "unit": "명",
+   "population": "건강보험 진료 환자",
+   "period": "2025년 진료분",
+   "definition": "건강보험 진료인원(심평원 다빈도 상병 기준). 같은 사람의 중복 처리 기준은 원문 확인 필요",
+   "sourceId": "SR-0003",
+   "publishedAt": "2026-06-08",
+   "nextRelease": "2027-06(예정)",
+   "reviewBy": "2027-06-08",
+   "note": "외래 3위.",
+   "tags": [
+    "lens:utilization",
+    "anchor"
+   ],
+   "verifiedVia": "언론 보도(SR-0004)로 확인. 심평원 원자료 대조 필요",
+   "needsVerification": true
+  },
+  {
+   "id": "ST-0026",
+   "courseId": "healthbeat",
+   "label": "혈관운동성·알레르기성 비염 외래 진료인원",
+   "value": 7243496,
+   "unit": "명",
+   "population": "건강보험 진료 환자",
+   "period": "2025년 진료분",
+   "definition": "건강보험 진료인원(심평원 다빈도 상병 기준). 같은 사람의 중복 처리 기준은 원문 확인 필요",
+   "sourceId": "SR-0003",
+   "publishedAt": "2026-06-08",
+   "nextRelease": "2027-06(예정)",
+   "reviewBy": "2027-06-08",
+   "note": "외래 4위.",
+   "tags": [
+    "lens:utilization",
+    "anchor",
+    "U3"
+   ],
+   "verifiedVia": "언론 보도(SR-0004)로 확인. 심평원 원자료 대조 필요",
+   "needsVerification": true
+  },
+  {
+   "id": "ST-0027",
+   "courseId": "healthbeat",
+   "label": "노년 백내장 입원 환자 수",
+   "value": 352705,
+   "unit": "명",
+   "population": "건강보험 진료 환자",
+   "period": "2025년 진료분",
+   "definition": "건강보험 진료인원(심평원 다빈도 상병 기준). 같은 사람의 중복 처리 기준은 원문 확인 필요",
+   "sourceId": "SR-0003",
+   "publishedAt": "2026-06-08",
+   "nextRelease": "2027-06(예정)",
+   "reviewBy": "2027-06-08",
+   "note": "입원 1위. 매년 4~5% 증가.",
+   "tags": [
+    "lens:utilization",
+    "anchor",
+    "U6"
+   ],
+   "history": [
+    {
+     "period": "2023년 진료분",
+     "value": 320061
+    },
+    {
+     "period": "2024년 진료분",
+     "value": 337270
+    }
+   ],
+   "verifiedVia": "언론 보도(SR-0004)로 확인. 심평원 원자료 대조 필요",
+   "needsVerification": true
+  },
+  {
+   "id": "ST-0028",
+   "courseId": "healthbeat",
+   "label": "노년 백내장 입원 건강보험 의료비",
+   "value": 6139.6,
+   "unit": "억 원",
+   "population": "건강보험 진료 환자",
+   "period": "2025년 진료분",
+   "definition": "입원 건강보험 의료비(심평원 다빈도 상병 기준)",
+   "sourceId": "SR-0003",
+   "publishedAt": "2026-06-08",
+   "nextRelease": "2027-06(예정)",
+   "reviewBy": "2027-06-08",
+   "tags": [
+    "lens:utilization",
+    "U6"
+   ],
+   "verifiedVia": "언론 보도(SR-0004)로 확인. 심평원 원자료 대조 필요",
+   "needsVerification": true
+  },
+  {
+   "id": "ST-0029",
+   "courseId": "healthbeat",
+   "label": "감염성·상세불명 기원의 기타 위장염 및 결장염 입원 환자 수",
+   "value": 267030,
+   "unit": "명",
+   "population": "건강보험 진료 환자",
+   "period": "2025년 진료분",
+   "definition": "건강보험 진료인원(심평원 다빈도 상병 기준). 같은 사람의 중복 처리 기준은 원문 확인 필요",
+   "sourceId": "SR-0003",
+   "publishedAt": "2026-06-08",
+   "nextRelease": "2027-06(예정)",
+   "reviewBy": "2027-06-08",
+   "note": "입원 2위.",
+   "tags": [
+    "lens:utilization",
+    "anchor",
+    "U7"
+   ],
+   "verifiedVia": "언론 보도(SR-0004)로 확인. 심평원 원자료 대조 필요",
+   "needsVerification": true
+  },
+  {
+   "id": "ST-0030",
+   "courseId": "healthbeat",
+   "label": "상세불명 병원체의 폐렴 입원 환자 수",
+   "value": 225346,
+   "unit": "명",
+   "population": "건강보험 진료 환자",
+   "period": "2025년 진료분",
+   "definition": "건강보험 진료인원(심평원 다빈도 상병 기준). 같은 사람의 중복 처리 기준은 원문 확인 필요",
+   "sourceId": "SR-0003",
+   "publishedAt": "2026-06-08",
+   "nextRelease": "2027-06(예정)",
+   "reviewBy": "2027-06-08",
+   "note": "입원 3위.",
+   "tags": [
+    "lens:utilization",
+    "anchor"
+   ],
+   "verifiedVia": "언론 보도(SR-0004)로 확인. 심평원 원자료 대조 필요",
+   "needsVerification": true
+  },
+  {
+   "id": "ST-0031",
+   "courseId": "healthbeat",
+   "label": "알츠하이머성 치매 입원 건강보험 의료비",
+   "value": 19312.4,
+   "unit": "억 원",
+   "population": "건강보험 진료 환자",
+   "period": "2025년 진료분",
+   "definition": "입원 건강보험 의료비(심평원 다빈도 상병 기준)",
+   "sourceId": "SR-0003",
+   "publishedAt": "2026-06-08",
+   "nextRelease": "2027-06(예정)",
+   "reviewBy": "2027-06-08",
+   "note": "입원 의료비 1위.",
+   "tags": [
+    "lens:utilization",
+    "anchor",
+    "치매"
+   ],
+   "verifiedVia": "언론 보도(SR-0004)로 확인. 심평원 원자료 대조 필요",
+   "needsVerification": true
+  },
+  {
+   "id": "ST-0032",
+   "courseId": "healthbeat",
+   "label": "알츠하이머성 치매 입원 환자 수",
+   "value": 132449,
+   "unit": "명",
+   "population": "건강보험 진료 환자",
+   "period": "2025년 진료분",
+   "definition": "건강보험 진료인원(심평원 다빈도 상병 기준). 같은 사람의 중복 처리 기준은 원문 확인 필요",
+   "sourceId": "SR-0003",
+   "publishedAt": "2026-06-08",
+   "nextRelease": "2027-06(예정)",
+   "reviewBy": "2027-06-08",
+   "note": "입원 9위(전년 10위).",
+   "tags": [
+    "lens:utilization",
+    "치매"
+   ],
+   "history": [
+    {
+     "period": "2024년 진료분",
+     "value": 129974
+    }
+   ],
+   "verifiedVia": "언론 보도(SR-0004)로 확인. 심평원 원자료 대조 필요",
+   "needsVerification": true
+  },
+  {
+   "id": "ST-0033",
+   "courseId": "healthbeat",
+   "label": "출산 장소에 따른 생존출생 입원 건수",
+   "value": 214542,
+   "unit": "명",
+   "population": "건강보험 진료 환자",
+   "period": "2025년 진료분",
+   "definition": "건강보험 진료인원(심평원 다빈도 상병 기준). 같은 사람의 중복 처리 기준은 원문 확인 필요",
+   "sourceId": "SR-0003",
+   "publishedAt": "2026-06-08",
+   "nextRelease": "2027-06(예정)",
+   "reviewBy": "2027-06-08",
+   "note": "질병이 아니라 신생아에게 붙는 상병이다. 입원 4위지만 기사에서 입원 질환 4위로 쓰지 않는다.",
+   "tags": [
+    "lens:utilization",
+    "신생아"
+   ],
+   "history": [
+    {
+     "period": "2024년 진료분",
+     "value": 207398
+    }
+   ],
+   "verifiedVia": "언론 보도(SR-0004)로 확인. 심평원 원자료 대조 필요",
+   "needsVerification": true
+  },
+  {
+   "id": "ST-0034",
+   "courseId": "healthbeat",
+   "label": "치아우식 외래 진료인원",
+   "value": 6209018,
+   "unit": "명",
+   "population": "건강보험 진료 환자",
+   "period": "2025년 진료분",
+   "definition": "건강보험 진료인원(심평원 다빈도 상병 기준). 같은 사람의 중복 처리 기준은 원문 확인 필요",
+   "sourceId": "SR-0005",
+   "publishedAt": "2026-06-08",
+   "nextRelease": "2027-06(예정)",
+   "reviewBy": "2027-06-08",
+   "note": "외래 5위. 전년 6,324,980명보다 감소.",
+   "tags": [
+    "lens:utilization",
+    "U1"
+   ],
+   "history": [
+    {
+     "period": "2024년 진료분",
+     "value": 6324980
+    }
+   ],
+   "verifiedVia": "전문지 보도(SR-0005)로 확인. 심평원 원자료 대조 필요",
+   "needsVerification": true
+  }
+ ],
+ "sources": [
+  {
+   "id": "SR-0001",
+   "title": "2025년 사망원인통계 결과",
+   "publisher": "국가데이터처",
+   "url": "https://www.korea.kr/news/policyNewsView.do?newsId=156782877",
+   "date": "2026-09-22",
+   "type": "official-data"
+  },
+  {
+   "id": "SR-0002",
+   "title": "2025 만성질환 현황과 이슈 발간(보도자료)",
+   "publisher": "질병관리청",
+   "url": "https://www.kdca.go.kr/bbs/kdca/42/304172/download.do",
+   "date": "2025-12-29",
+   "type": "official-data"
+  },
+  {
+   "id": "SR-0003",
+   "title": "2025년도 다빈도 질병 통계(보건의료빅데이터개방시스템)",
+   "publisher": "건강보험심사평가원",
+   "date": "2026-06-08",
+   "type": "official-data"
+  },
+  {
+   "id": "SR-0004",
+   "title": "노년 입원 1위는 백내장…매년 4~5% 증가세(심평원 다빈도 질병 통계 보도)",
+   "publisher": "헤럴드경제",
+   "url": "https://biz.heraldcorp.com/article/10765627",
+   "date": "2026-06-08",
+   "type": "news"
+  },
+  {
+   "id": "SR-0005",
+   "title": "국민 5명중 2명 치주질환, 환자 2,000만명 육박(심평원 외래 다빈도 상병 자료 인용)",
+   "publisher": "치과신문",
+   "url": "https://dentalnews.or.kr/mobile/article.html?no=47916",
+   "date": "2026-08-08",
+   "type": "news"
+  },
+  {
+   "id": "SR-0006",
+   "title": "2025 만성질환 현황과 이슈(만성질환 FACT BOOK)",
+   "publisher": "질병관리청",
+   "url": "https://www.kdca.go.kr/bbs/kdca/46/304995/download.do",
+   "date": "2025-12",
+   "type": "official-data"
+  },
+  {
+   "id": "SR-0007",
+   "title": "사망원인별 사망률 추이(e-나라지표)",
+   "publisher": "국가데이터처",
+   "url": "https://www.index.go.kr/unity/potal/main/EachDtlPageDetail.do?idx_cd=1012",
+   "date": "2026-09-28",
+   "type": "official-data"
+  }
+ ],
+ "review": "draft"
+}
