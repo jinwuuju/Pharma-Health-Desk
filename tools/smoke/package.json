@@ -2,8 +2,11 @@
   "name": "phd-smoke",
   "private": true,
   "type": "module",
-  "description": "개발용 브라우저 흉내 검사(jsdom + fake-indexeddb). 배포본(site/)에는 들어가지 않는다. D011.",
-  "scripts": { "test": "node smoke.mjs" },
+  "description": "개발용 검사: 복습 엔진 30일 시뮬레이션(srs-sim) + 브라우저 흉내 검사(jsdom + fake-indexeddb). 배포본(site/)에는 들어가지 않는다. D011.",
+  "scripts": {
+    "test": "node srs-sim.mjs && node smoke.mjs",
+    "sim": "node srs-sim.mjs"
+  },
   "devDependencies": {
     "fake-indexeddb": "^6.0.0",
     "jsdom": "^25.0.0"

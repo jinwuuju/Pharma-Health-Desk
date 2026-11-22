@@ -26,10 +26,16 @@ REQUIRED = [
     'site/js/util.js',
     'site/js/store.js',
     'site/js/packs.js',
+    'site/js/srs.js',
+    'site/js/game.js',
+    'site/js/play.js',
+    'site/js/screens.js',
     'site/js/app.js',
     'site/packs/sample.json',
     'site/packs/index.json',
     'tools/smoke/smoke.mjs',
+    'tools/smoke/srs-sim.mjs',
+    'docs/design/UI-PRINCIPLES.md',
     'tools/smoke/package-lock.json',
 ]
 

@@ -1,8 +1,8 @@
 {
   "name": "진우주 기자 학교",
   "updated": "2026-11-22",
-  "current": "콘텐츠",
-  "next": "M2",
+  "current": "M2",
+  "next": "M3",
   "calendar": [
     {
       "label": "W0 진단평가",
@@ -65,17 +65,26 @@
       "date": "2026-11-22"
     },
     {
+      "id": "게임UI",
+      "title": "게임형 UI/UX",
+      "detail": "홈 캐릭터·취재 버튼·퀘스트·연속일, 지도·도감·나",
+      "status": "done",
+      "n": "2b",
+      "date": "2026-11-22"
+    },
+    {
       "id": "M2",
       "title": "복습 엔진",
-      "detail": "간격 반복·확신도·부하 관리",
-      "status": "next",
-      "n": "3"
+      "detail": "간격 반복·확신도·부하 관리 — 게임의 취재 세션으로",
+      "status": "done",
+      "n": "3",
+      "date": "2026-11-22"
     },
     {
       "id": "M3",
       "title": "레슨 리더",
       "detail": "사전 질문·청크·파인만 박스",
-      "status": "todo",
+      "status": "next",
       "n": "4"
     },
     {
@@ -225,6 +234,11 @@
       "title": "전체 로드맵",
       "desc": "개발·학습·콘텐츠 일정",
       "path": "docs/00-MASTER-ROADMAP.md"
+    },
+    {
+      "title": "UI 원칙 — 게임형",
+      "desc": "애플식 디자인 × 웹게임 로직(D018)",
+      "path": "docs/design/UI-PRINCIPLES.md"
     },
     {
       "title": "기획안 1 — PIPELINE",

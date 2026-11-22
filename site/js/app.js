@@ -1,28 +1,24 @@
-/* 진우주 기자 학교 — 화면(M1 앱 골격). 데이터 변경은 store·packs 모듈을 통해서만 한다. */
+/* 진우주 기자 학교 — 앱 뼈대: 이동·탭·시트·알림·설정·콘텐츠·백업. 게임 화면은 screens.js, 취재는 play.js(D018).
+   데이터 변경은 store·packs·game 모듈을 통해서만 한다. */
 (function () {
   'use strict';
   var PHD = window.PHD;
   var U = PHD.util, S = PHD.store, P = PHD.packs;
   var esc = U.esc;
-  var APP_STEP = 'M1';
+
+  var APP_STEP = 'M2';
   var REPO = 'https://github.com/jinwuuju/Pharma-Health-Desk/blob/main/';
-  var CAL = [
-    { label: 'W0 진단평가', date: '2026-11-30' },
-    { label: 'W1 학습 시작', date: '2026-12-07' }
-  ];
   var TABS = [
-    { id: 'today', label: '오늘' },
-    { id: 'pipeline', label: '파이프라인' },
-    { id: 'review', label: '복습' },
-    { id: 'exam', label: '시험' },
+    { id: 'today', label: '홈' },
+    { id: 'pipeline', label: '지도' },
+    { id: 'review', label: '도감' },
     { id: 'me', label: '나' }
   ];
   var ICONS = {
-    today: `<svg viewBox='0 0 24 24' fill='none' stroke='currentColor' stroke-width='1.8' stroke-linecap='round' aria-hidden='true'><circle cx='12' cy='12' r='4.2'/><path d='M12 2.8v2.1M12 19.1v2.1M2.8 12h2.1M19.1 12h2.1M5.5 5.5L7 7M17 17l1.5 1.5M5.5 18.5L7 17M17 7l1.5-1.5'/></svg>`,
-    pipeline: `<svg viewBox='0 0 24 24' fill='none' stroke='currentColor' stroke-width='2.2' stroke-linecap='round' aria-hidden='true'><path d='M4 6.5h12M4 12h16M4 17.5h8'/></svg>`,
-    review: `<svg viewBox='0 0 24 24' fill='none' stroke='currentColor' stroke-width='1.8' stroke-linejoin='round' stroke-linecap='round' aria-hidden='true'><rect x='7' y='3.5' width='12.5' height='14.5' rx='2.5'/><path d='M4.5 7.5V18a2.5 2.5 0 0 0 2.5 2.5h9'/></svg>`,
-    exam: `<svg viewBox='0 0 24 24' fill='none' stroke='currentColor' stroke-width='1.8' stroke-linecap='round' stroke-linejoin='round' aria-hidden='true'><rect x='5' y='3.5' width='14' height='17' rx='2.5'/><path d='M8.6 12.3l2.3 2.3 4.6-4.8'/></svg>`,
-    me: `<svg viewBox='0 0 24 24' fill='none' stroke='currentColor' stroke-width='1.8' stroke-linecap='round' aria-hidden='true'><circle cx='12' cy='8.6' r='3.8'/><path d='M4.8 20c.9-3.6 3.8-5.6 7.2-5.6s6.3 2 7.2 5.6'/></svg>`,
+    today: `<svg viewBox='0 0 24 24' fill='none' stroke='currentColor' stroke-width='1.9' stroke-linejoin='round' stroke-linecap='round' aria-hidden='true'><path d='M4 10.5L12 4l8 6.5V19a1.5 1.5 0 0 1-1.5 1.5H15v-6H9v6H5.5A1.5 1.5 0 0 1 4 19z'/></svg>`,
+    pipeline: `<svg viewBox='0 0 24 24' fill='none' stroke='currentColor' stroke-width='1.9' stroke-linecap='round' stroke-linejoin='round' aria-hidden='true'><circle cx='6' cy='18' r='2.4'/><circle cx='18' cy='6' r='2.4'/><path d='M8.4 18H15a3 3 0 0 0 0-6H9a3 3 0 0 1 0-6h6.6'/></svg>`,
+    review: `<svg viewBox='0 0 24 24' fill='none' stroke='currentColor' stroke-width='1.9' stroke-linejoin='round' aria-hidden='true'><rect x='3.5' y='3.5' width='7' height='7' rx='2'/><rect x='13.5' y='3.5' width='7' height='7' rx='2'/><rect x='3.5' y='13.5' width='7' height='7' rx='2'/><rect x='13.5' y='13.5' width='7' height='7' rx='2'/></svg>`,
+    me: `<svg viewBox='0 0 24 24' fill='none' stroke='currentColor' stroke-width='1.9' stroke-linecap='round' aria-hidden='true'><circle cx='12' cy='8.6' r='3.8'/><path d='M4.8 20c.9-3.6 3.8-5.6 7.2-5.6s6.3 2 7.2 5.6'/></svg>`,
     tray: `<svg width='44' height='44' viewBox='0 0 24 24' fill='none' stroke='currentColor' stroke-width='1.4' stroke-linejoin='round' aria-hidden='true'><path d='M3.5 13.5l2.2-7.1A2 2 0 0 1 7.6 5h8.8a2 2 0 0 1 1.9 1.4l2.2 7.1v4a2 2 0 0 1-2 2h-13a2 2 0 0 1-2-2z'/><path d='M3.5 13.5h4.6l1.4 2.2h5l1.4-2.2h4.6'/></svg>`
   };
   var STEP_ICON = {
@@ -32,9 +28,8 @@
   };
   STEP_ICON.doing = STEP_ICON.next;
   var STEP_LABEL = { done: '완료', doing: '진행 중', next: '다음', todo: '예정' };
-  var EXAM_LABEL = { diagnostic: '진단평가', weekly: '주간 미니 시험', unit: '단원 시험', L1: 'PBJ L1', L2: 'PBJ L2', L3: 'PBJ L3', oral: '모의 구술' };
 
-  var state = { settings: S.loadSettings(), tab: '', sub: '', token: 0, busy: false, pendingRestore: null, lastFocus: null };
+  var state = { settings: S.loadSettings(), tab: '', sub: '', token: 0, busy: false, pendingRestore: null, lastFocus: null, dexFilter: 'all', cache: {} };
   var toastTimer = null;
 
   function el(id) { return document.getElementById(id); }
@@ -74,12 +69,19 @@
     var h = String(location.hash || '');
     h = h.indexOf('#/') === 0 ? h.slice(2) : '';
     var parts = h.split('/');
+    if (parts[0] === 'exam') { return { tab: 'pipeline', sub: '' }; }   // 시험은 지도의 보스 칸으로 옮김(D018)
     var ok = TABS.some(function (t) { return t.id === parts[0]; });
     return { tab: ok ? parts[0] : 'today', sub: ok ? (parts[1] || '') : '' };
   }
   function go(tab, sub) {
     var h = '#/' + tab + (sub ? '/' + sub : '');
     if (location.hash === h) { route(); } else { location.hash = h; }
+  }
+  function screenFor(tab, sub) {
+    var SC = PHD.screens;
+    if (tab === 'me' && sub === 'settings') { return screenSettings; }
+    if (tab === 'me' && sub === 'dev') { return screenDev; }
+    return { today: SC.home, pipeline: SC.map, review: SC.dex, me: SC.me }[tab] || SC.home;
   }
   function route() {
     var r = parseHash();
@@ -88,15 +90,17 @@
     state.sub = r.sub;
     renderTabbar();
     var token = ++state.token;
-    var screen = SCREENS[state.tab] || screenToday;
+    var screen = screenFor(state.tab, state.sub);
     Promise.resolve().then(screen).then(function (html) {
       if (token !== state.token) { return; }
       el('main').innerHTML = html;
+      el('main').setAttribute('data-screen', state.tab + (state.sub ? '-' + state.sub : ''));
       afterRender();
       if (moved) { window.scrollTo(0, 0); }
     }).catch(fatal);
   }
   function refresh() { route(); }
+
   function renderTabbar() {
     el('tabbar').innerHTML = `<div class='brand'>진우주 기자 학교</div>` + TABS.map(function (t, i) {
       var cur = state.tab === t.id ? ` aria-current='page'` : '';
@@ -104,131 +108,15 @@
     }).join('');
   }
 
-  /* ---------- 화면: 오늘 ---------- */
-  function rings(values) {
-    var defs = [[44, 'var(--ring-review)'], [33, 'var(--ring-new)'], [22, 'var(--ring-apply)']];
-    var out = defs.map(function (d, i) {
-      var r = d[0], c = 2 * Math.PI * r;
-      var v = Math.max(0, Math.min(1, values[i] || 0));
-      var track = `<circle cx='54' cy='54' r='${r}' fill='none' stroke='${d[1]}' stroke-opacity='.18' stroke-width='9'/>`;
-      if (!v) { return track; }
-      return track + `<circle class='fg' cx='54' cy='54' r='${r}' fill='none' stroke='${d[1]}' stroke-width='9' stroke-linecap='round' stroke-dasharray='${c.toFixed(1)}' stroke-dashoffset='${(c * (1 - v)).toFixed(1)}' transform='rotate(-90 54 54)'/>`;
-    }).join('');
-    return `<svg class='ring' width='108' height='108' viewBox='0 0 108 108' role='img' aria-label='오늘의 링: 복습, 신규, 적용'>${out}</svg>`;
-  }
-  function screenToday() {
-    return P.summary().then(function (sum) {
-      var s = state.settings;
-      var today = U.studyDate(s.dayStartHour);
-      var cal = CAL.slice();
-      if (s.interviewDate) { cal.push({ label: '목표 면접일', date: s.interviewDate }); }
-      var nextIdx = -1;
-      var rows = cal.map(function (e, i) {
-        var d = U.daysBetween(today, e.date);
-        if (nextIdx < 0 && d >= 0) { nextIdx = i; }
-        return { e: e, big: d > 0 ? 'D-' + d : (d === 0 ? 'D-DAY' : 'D+' + (-d)) };
-      });
-      if (nextIdx < 0) { nextIdx = rows.length - 1; }
-      var sched = `<div class='list'>` + rows.map(function (r, i) {
-        return `<div class='row'><div class='tx'>${esc(r.e.label)}<span class='sub'>${esc(U.dots(r.e.date))}</span></div><span class='val num${i === nextIdx ? ' accent' : ''}'>${esc(r.big)}</span></div>`;
-      }).join('') + `</div>`;
-      var hero, stats = '';
-      if (sum.packs > 0) {
-        var nx = rows[nextIdx];
-        hero = `<div class='card hero-card'><span class='kicker'>다음 일정 · ${esc(nx.big)}</span><h2>${esc(nx.e.label)}</h2>` +
-          `<p>레슨 ${sum.kinds.lesson}개, 카드 ${sum.kinds.card}장을 미리 볼 수 있습니다.</p>` +
-          `<div class='btn-row'><button type='button' class='btn' data-action='tab' data-tab='pipeline'>레슨 보기</button><button type='button' class='btn secondary' data-action='go-me'>콘텐츠 관리</button></div></div>`;
-        stats = `<div class='section-title'>가져온 콘텐츠</div><div class='card'><div class='stats4'>` +
-          `<div class='stat'><b>${sum.packs}</b><span>팩</span></div>` +
-          `<div class='stat'><b>${sum.kinds.lesson}</b><span>레슨</span></div>` +
-          `<div class='stat'><b>${sum.kinds.card}</b><span>카드</span></div>` +
-          `<div class='stat'><b>${sum.kinds.item}</b><span>문항</span></div></div></div>`;
-      } else {
-        hero = `<div class='card empty'>${ICONS.tray}<h3>아직 콘텐츠가 없습니다</h3><p>기본 콘텐츠(W0 진단평가, W1 전주기 지도, 통계 시드)를 불러오세요. 감수 전 초안입니다.</p>` +
-          `<div class='btn-row'><button type='button' class='btn' data-action='load-builtin'>기본 콘텐츠 불러오기</button><button type='button' class='btn secondary' data-action='import-file'>팩 가져오기</button></div>` +
-          `<button type='button' class='link-btn' data-action='load-sample'>샘플만 보기</button></div>`;
-      }
-      return `<div class='eyebrow'>${esc(U.koDate())}</div><h1 class='large-title'>오늘</h1>` + hero +
-        `<div class='section-title'>오늘의 링</div><div class='card'><div class='rings'>${rings([0, 0, 0])}<div class='ring-legend'>` +
-        `<div><span class='dot' style='background:var(--ring-review)'></span>복습 <b>0</b></div>` +
-        `<div><span class='dot' style='background:var(--ring-new)'></span>신규 <b>0 / ${esc(s.dailyNew)}</b></div>` +
-        `<div><span class='dot' style='background:var(--ring-apply)'></span>적용 <b>0 / 1</b></div>` +
-        `</div></div><p class='note'>오늘의 세션은 설치 단계 8에서 열립니다.</p></div>` +
-        `<div class='section-title'>학습 일정</div>` + sched + stats;
-    });
-  }
-
-  /* ---------- 화면: 파이프라인 ---------- */
-  function lessonRow(l, indent) {
-    return `<div class='row${indent ? ' indent' : ''}'><div class='tx'>${esc(l.data.title || l.id)}<span class='sub'>${esc(l.id)}${l.data.minutes ? ' · ' + esc(l.data.minutes) + '분' : ''}</span></div></div>`;
-  }
-  function screenPipeline() {
-    return Promise.all([S.getAll('packs'), S.getAll('content', 'kind', 'unit'), S.getAll('content', 'kind', 'lesson')]).then(function (res) {
-      var packs = sortPacks(res[0]), units = res[1], lessons = res[2];
-      var head = `<h1 class='large-title'>파이프라인</h1>`;
-      if (!units.length && !lessons.length) {
-        return head + emptyCard('표시할 레슨이 없습니다', '콘텐츠 팩을 가져오면 단원과 레슨이 여기에 나타납니다.', `<button type='button' class='btn secondary' data-action='go-me'>콘텐츠 가져오기</button>`);
-      }
-      var body = packs.map(function (pk) {
-        var pu = units.filter(function (u) { return u.packId === pk.packId; }).sort(function (a, b) { return (a.data.order || 0) - (b.data.order || 0); });
-        var pl = lessons.filter(function (l) { return l.packId === pk.packId; });
-        if (!pu.length && !pl.length) { return ''; }
-        var used = {};
-        var rows = pu.map(function (u) {
-          var ls = (u.data.lessonIds || []).map(function (id) { return pl.filter(function (l) { return l.id === id; })[0]; }).filter(Boolean);
-          ls.forEach(function (l) { used[l.id] = true; });
-          return `<div class='row'><div class='tx'><b>${esc(u.data.title || u.id)}</b><span class='sub'>${esc(u.data.domain || '')} · 레슨 ${ls.length}개</span></div></div>` + ls.map(function (l) { return lessonRow(l, true); }).join('');
-        }).join('');
-        var rest = pl.filter(function (l) { return !used[l.id]; }).map(function (l) { return lessonRow(l, false); }).join('');
-        return `<div class='section-title'>${coursePill(pk.courseId)} ${esc(packLabel(pk))}${reviewPill(pk)}</div><div class='list'>${rows}${rest}</div>`;
-      }).join('');
-      return head + body + `<p class='footnote'>레슨 읽기는 설치 단계 4(M3), 개발 단계 지도와 마스터리 표시는 단계 12(M6)에서 열립니다.</p>`;
-    });
-  }
-
-  /* ---------- 화면: 복습 ---------- */
-  function screenReview() {
-    return S.getAll('content', 'kind', 'card').then(function (cards) {
-      var head = `<h1 class='large-title'>복습</h1>`;
-      if (!cards.length) {
-        return head + emptyCard('복습할 카드가 없습니다', '콘텐츠 팩을 가져오면 카드가 여기에 나타납니다.', `<button type='button' class='btn secondary' data-action='go-me'>콘텐츠 가져오기</button>`);
-      }
-      var list = cards.slice(0, 100).map(function (c) {
-        var d = c.data;
-        var more = (d.why ? '<br><br>왜: ' + esc(d.why) : '') + (d.example ? '<br><br>예: ' + esc(d.example) : '');
-        return `<details class='row-d'><summary><span class='tx'>${esc(d.front || c.id)}</span><span class='chev'>›</span></summary><div class='ans'>${esc(d.back || '')}${more}</div></details>`;
-      }).join('');
-      return head + `<p class='footnote'>간격 반복 복습은 설치 단계 3(M2)에서 열립니다. 지금은 가져온 카드 ${cards.length}장을 미리 볼 수 있습니다. 먼저 떠올린 뒤 눌러서 확인하세요.</p>` +
-        `<div class='section-title'>카드 미리보기</div><div class='list'>${list}</div>` +
-        (cards.length > 100 ? `<p class='footnote'>처음 100장만 표시합니다.</p>` : '');
-    });
-  }
-
-  /* ---------- 화면: 시험 ---------- */
-  function screenExam() {
-    return S.getAll('content', 'kind', 'exam').then(function (exams) {
-      var head = `<h1 class='large-title'>시험</h1>`;
-      var body = exams.length
-        ? `<div class='list'>` + exams.map(function (x) {
-          var d = x.data, pr = Number(d.passRate) || 0;
-          var pass = pr > 1 ? Math.round(pr) : Math.round(pr * 100);
-          var n = Array.isArray(d.itemIds) ? d.itemIds.length + '문항 · ' : '';
-          return `<div class='row'><div class='tx'>${esc(EXAM_LABEL[d.kind] || d.kind || '시험')}<span class='sub'>${esc(x.id)} · ${n}${esc(d.minutes || '?')}분 · 합격 ${pass}%</span></div></div>`;
-        }).join('') + `</div>`
-        : emptyCard('가져온 시험이 없습니다', '진단평가(W0)나 주간 팩을 가져오면 여기에 나타납니다.', '');
-      return head + body + `<p class='footnote'>응시 기능은 설치 단계 16(M9)에서 열립니다.</p>`;
-    });
-  }
-
-  /* ---------- 화면: 나 ---------- */
+  /* ---------- 화면: 설정(나 → 설정) ---------- */
   function seg(key, opts) {
     var cur = String(state.settings[key]);
     return `<div class='seg' role='group'>` + opts.map(function (o) {
       return `<button type='button' data-action='set' data-key='${key}' data-val='${o[0]}' aria-pressed='${cur === String(o[0]) ? 'true' : 'false'}'>${esc(o[1])}</button>`;
     }).join('') + `</div>`;
   }
-  function screenMe() {
-    if (state.sub === 'dev') { return screenDev(); }
+
+  function screenSettings() {
     return S.getAll('packs').then(function (packs) {
       var s = state.settings;
       var packRows = sortPacks(packs).map(function (pk) {
@@ -239,33 +127,39 @@
       }).join('');
       if (!packRows) { packRows = `<div class='row'><div class='tx'><span class='sub'>아직 가져온 팩이 없습니다.</span></div></div>`; }
       var last = s.lastBackupAt ? U.dots(U.seoulDate(new Date(s.lastBackupAt))) : '없음';
-      return `<h1 class='large-title'>나</h1>` +
+      return `<a class='back' href='#/me'>‹ 나</a><h1 class='large-title'>설정</h1>` +
+        `<div class='section-title'>캐릭터</div><div class='list'>` +
+        `<div class='row'><label class='tx' for='set-nick'>이름</label><input id='set-nick' type='text' maxlength='12' data-input='nickname' value='${esc(s.nickname)}' placeholder='진우주'></div>` +
+        `<div class='row'><div class='tx'>효과음</div>${seg('sound', [['true', '켬'], ['false', '끔']])}</div></div>` +
+        `<div class='section-title'>학습</div><div class='list'>` +
+        `<div class='row'><label class='tx' for='set-new'>하루 새 카드</label><input id='set-new' type='number' min='0' max='50' inputmode='numeric' data-input='dailyNew' value='${esc(s.dailyNew)}'></div>` +
+        `<div class='row'><label class='tx' for='set-max'>하루 최대 복습</label><input id='set-max' type='number' min='10' max='500' inputmode='numeric' data-input='maxReviews' value='${esc(s.maxReviews)}'></div>` +
+        `<div class='row'><label class='tx' for='set-interview'>목표 면접일<span class='sub'>핵심 카드를 면접 7~10일 전에 한 번 더</span></label><input id='set-interview' type='date' data-input='interviewDate' value='${esc(s.interviewDate)}'></div>` +
+        `<div class='row'><div class='tx'>입학 시나리오<span class='sub'>A 2027년 9월 · B 2028년 3월</span></div>${seg('scenario', [['A', 'A'], ['B', 'B']])}</div></div>` +
+        `<div class='section-title'>화면</div><div class='list'>` +
+        `<div class='row'><div class='tx'>모드</div>${seg('theme', [['auto', '자동'], ['light', '라이트'], ['dark', '다크']])}</div>` +
+        `<div class='row'><div class='tx'>글자 크기</div>${seg('fontScale', [['0.9', '작게'], ['1', '보통'], ['1.15', '크게']])}</div></div>` +
         `<div class='section-title'>콘텐츠 팩</div><div class='list'>${packRows}` +
-        `<button type='button' class='row action' data-action='load-builtin'>기본 콘텐츠 불러오기·업데이트</button>` + `<button type='button' class='row action' data-action='import-file'>파일에서 팩 가져오기</button>` +
+        `<button type='button' class='row action' data-action='load-builtin'>기본 콘텐츠 불러오기·업데이트</button>` +
+        `<button type='button' class='row action' data-action='import-file'>파일에서 팩 가져오기</button>` +
         `<button type='button' class='row action' data-action='import-paste'>붙여넣어 가져오기</button>` +
         `<button type='button' class='row action' data-action='load-sample'>샘플 팩 불러오기</button></div>` +
-        `<p class='footnote'>같은 id는 새 내용으로 덮어쓰고 학습 기록은 그대로 둡니다. 나눠 받은 파트 파일(part 1·2·3)은 같은 packId로 차례로 가져오면 합쳐집니다.</p>` +
+        `<p class='footnote'>같은 id는 새 내용으로 덮어쓰고 학습 기록은 그대로 둡니다. 파트 파일(part 1·2·3)은 같은 packId로 차례로 가져오면 합쳐집니다.</p>` +
         `<div class='section-title'>데이터</div><div class='list'>` +
         `<button type='button' class='row action' data-action='export'>백업 내보내기</button>` +
         `<button type='button' class='row action' data-action='restore'>백업에서 복원</button>` +
         `<div class='row'><div class='tx'>마지막 백업</div><span class='val'>${esc(last)}</span></div>` +
         `<div class='row'><div class='tx'>저장 공간</div><span class='val' data-fill='usage'>확인 중…</span></div>` +
         `<button type='button' class='row action' data-action='persist'><span class='tx'>이 기기에 영구 저장 요청</span><span class='val' data-fill='persisted'></span></button></div>` +
-        `<p class='footnote'>학습 기록은 이 기기의 브라우저에만 저장됩니다. Mac과 iPhone 사이는 백업 파일로 옮기고, 백업 파일은 공개 저장소가 아닌 곳(예: iCloud Drive)에 보관하세요.</p>` +
-        `<div class='section-title'>설정</div><div class='list'>` +
-        `<div class='row'><div class='tx'>화면</div>${seg('theme', [['auto', '자동'], ['light', '라이트'], ['dark', '다크']])}</div>` +
-        `<div class='row'><div class='tx'>글자 크기</div>${seg('fontScale', [['0.9', '작게'], ['1', '보통'], ['1.15', '크게']])}</div>` +
-        `<div class='row'><div class='tx'>입학 시나리오<span class='sub'>A 2027년 9월 · B 2028년 3월</span></div>${seg('scenario', [['A', 'A'], ['B', 'B']])}</div>` +
-        `<div class='row'><label class='tx' for='set-interview'>목표 면접일</label><input id='set-interview' type='date' data-input='interviewDate' value='${esc(s.interviewDate)}'></div>` +
-        `<div class='row'><label class='tx' for='set-new'>하루 신규 카드</label><input id='set-new' type='number' min='0' max='50' inputmode='numeric' data-input='dailyNew' value='${esc(s.dailyNew)}'></div>` +
-        `<div class='row'><label class='tx' for='set-max'>하루 최대 복습</label><input id='set-max' type='number' min='10' max='500' inputmode='numeric' data-input='maxReviews' value='${esc(s.maxReviews)}'></div></div>` +
+        `<p class='footnote'>학습 기록·캐릭터는 이 기기의 브라우저에만 저장됩니다. Mac과 iPhone 사이는 백업 파일로 옮기고, 백업 파일은 공개 저장소가 아닌 곳(예: iCloud Drive)에 보관하세요.</p>` +
         `<div class='section-title'>앱</div><div class='list'>` +
         `<a class='row' href='#/me/dev'><div class='tx'>개발 현황<span class='sub'>설치 단계와 문서</span></div><span class='chev'>›</span></a>` +
-        `<div class='row'><div class='tx'>버전</div><span class='val'>진우주 기자 학교 · ${APP_STEP} · 저장 스키마 v${S.SCHEMA_VERSION}</span></div>` +
+        `<div class='row'><div class='tx'>버전</div><span class='val'>${APP_STEP} · 저장 스키마 v${S.SCHEMA_VERSION}</span></div>` +
         `<button type='button' class='row danger' data-action='reset'>모든 데이터 지우기</button></div>` +
-        `<p class='footnote'>의학·통계·시장 정보는 검수 전 초안일 수 있습니다. 항목마다 기준일과 출처를 확인하세요. 이 앱은 진단·치료 판단을 위한 것이 아닙니다.</p>`;
+        `<p class='footnote'>의학·통계·시장 정보는 감수 전 초안일 수 있습니다. 항목마다 기준일과 출처를 확인하세요. 이 앱은 진단·치료 판단을 위한 것이 아닙니다.</p>`;
     });
   }
+
   function devRing(done, total) {
     var r = 30, c = 2 * Math.PI * r;
     var off = c * (1 - (total ? done / total : 0));
@@ -274,8 +168,9 @@
       `<circle class='fg' cx='38' cy='38' r='${r}' fill='none' stroke='var(--blue)' stroke-width='9' stroke-linecap='round' stroke-dasharray='${c.toFixed(1)}' stroke-dashoffset='${off.toFixed(1)}' transform='rotate(-90 38 38)'/>` +
       `<text x='38' y='43' text-anchor='middle' font-size='15' font-weight='700' fill='var(--text)'>${done}/${total}</text></svg>`;
   }
+
   function screenDev() {
-    var head = `<a class='back' href='#/me'>‹ 나</a><h1 class='large-title'>개발 현황</h1>`;
+    var head = `<a class='back' href='#/me/settings'>‹ 설정</a><h1 class='large-title'>개발 현황</h1>`;
     return fetch('data/project.json', { cache: 'no-store' }).then(function (r) {
       if (!r.ok) { throw new Error('HTTP ' + r.status); }
       return r.json();
@@ -298,8 +193,6 @@
       return head + `<div class='card'><p>설치 현황을 읽지 못했습니다. 파일을 직접 열면(file://) 읽을 수 없습니다. https://jinwuuju.github.io/Pharma-Health-Desk/ 에서 열어 주세요.</p></div>`;
     });
   }
-
-  var SCREENS = { today: screenToday, pipeline: screenPipeline, review: screenReview, exam: screenExam, me: screenMe };
 
   function afterRender() {
     var usage = document.querySelector('[data-fill=usage]');
@@ -339,7 +232,7 @@
   }
   function fatal(err) {
     var msg = err && err.message ? err.message : String(err);
-    el('main').innerHTML = `<div class='card' style='margin-top:40px'><h2>앱을 열지 못했습니다</h2><p class='note'>${esc(msg)}</p><p class='note'>새로고침해도 같으면 다른 브라우저로 열어 보고, 개발 현황의 문서를 참고하세요.</p></div>`;
+    el('main').innerHTML = `<div class='card' style='margin-top:40px'><h2>앱을 열지 못했습니다</h2><p class='note'>${esc(msg)}</p><p class='note'>새로고침해도 같으면 다른 브라우저로 열어 보세요.</p></div>`;
   }
 
   /* ---------- 가져오기 ---------- */
@@ -392,13 +285,16 @@
       refresh();
     }).then(function () { state.busy = false; });
   }
+  function fetchText(url) {
+    return fetch(url, { cache: 'no-store' }).then(function (r) {
+      if (!r.ok) { throw new Error('HTTP ' + r.status); }
+      return r.text();
+    });
+  }
   function loadSample() {
     if (state.busy) { return; }
     state.busy = true;
-    fetch('packs/sample.json', { cache: 'no-store' }).then(function (r) {
-      if (!r.ok) { throw new Error('HTTP ' + r.status); }
-      return r.text();
-    }).then(function (text) {
+    fetchText('packs/sample.json').then(function (text) {
       return importText(text, '샘플 팩');
     }).then(function (res) {
       showImportResults([res]);
@@ -410,17 +306,11 @@
   function loadBuiltin() {
     if (state.busy) { return; }
     state.busy = true;
-    fetch('packs/index.json', { cache: 'no-store' }).then(function (r) {
-      if (!r.ok) { throw new Error('HTTP ' + r.status); }
-      return r.json();
-    }).then(function (man) {
+    fetchText('packs/index.json').then(function (t) { return JSON.parse(t); }).then(function (man) {
       var list = (man && man.packs) || [], results = [];
       return list.reduce(function (p, e) {
         return p.then(function () {
-          return fetch('packs/' + e.file, { cache: 'no-store' }).then(function (r) {
-            if (!r.ok) { throw new Error('HTTP ' + r.status); }
-            return r.text();
-          }).then(function (text) { return importText(text, e.title || e.file); }).then(function (res) { results.push(res); });
+          return fetchText('packs/' + e.file).then(function (text) { return importText(text, e.title || e.file); }).then(function (res) { results.push(res); });
         });
       }, Promise.resolve()).then(function () { return results; });
     }).then(function (results) {
@@ -490,7 +380,7 @@
     });
   }
   function doReset() {
-    if (!window.confirm('이 기기의 콘텐츠·학습 기록·설정을 모두 지웁니다. 먼저 백업했나요?')) { return; }
+    if (!window.confirm('이 기기의 콘텐츠·학습 기록·캐릭터·설정을 모두 지웁니다. 먼저 백업했나요?')) { return; }
     if (!window.confirm('정말 지울까요? 되돌릴 수 없습니다.')) { return; }
     S.resetAll().then(function () {
       state.settings = S.loadSettings();
@@ -503,25 +393,39 @@
   function setSetting(key, val) {
     if (!key) { return; }
     if (key === 'fontScale') { val = Number(val) || 1; }
+    if (key === 'sound') { val = val === 'true' || val === true; }
     state.settings[key] = val;
     S.saveSettings(state.settings);
     if (key === 'theme') { applyTheme(); }
     if (key === 'fontScale') { applyFont(); }
+    if (key === 'sound' && val) { PHD.game.sfx('good', true); }
     refresh();
   }
 
   /* ---------- 이벤트 ---------- */
+  function startPlay(opts) {
+    closeSheet();
+    PHD.play.start(opts).catch(function (e) { toast('취재를 시작하지 못했습니다: ' + (e && e.message ? e.message : e)); });
+  }
   document.addEventListener('click', function (ev) {
     var t = ev.target && ev.target.closest ? ev.target.closest('[data-action]') : null;
     if (!t) { return; }
+    var SC = PHD.screens;
     switch (t.getAttribute('data-action')) {
       case 'tab': go(t.getAttribute('data-tab')); break;
-      case 'go-me': go('me'); break;
+      case 'go-me': go('me', 'settings'); break;
+      case 'play': startPlay({}); break;
+      case 'play-lesson': startPlay({ ids: (state.cache[t.getAttribute('data-id')] || {}).cardIds || [], title: (state.cache[t.getAttribute('data-id')] || {}).title }); break;
+      case 'extra-new': PHD.game.addExtraNew(U.studyDate(state.settings.dayStartHour), 5).then(function () { startPlay({}); }); break;
+      case 'poke': SC.poke(t); break;
+      case 'node': SC.nodeSheet(t.getAttribute('data-id')); break;
+      case 'dex-card': SC.cardSheet(t.getAttribute('data-id')); break;
+      case 'dex-filter': state.dexFilter = t.getAttribute('data-val') || 'all'; refresh(); break;
       case 'import-file': el('file-pack').click(); break;
       case 'import-paste': openPaste(); break;
       case 'paste-import': pasteImport(); break;
       case 'load-sample': loadSample(); break;
-        case 'load-builtin': loadBuiltin(); break;
+      case 'load-builtin': loadBuiltin(); break;
       case 'delete-pack': deletePack(t.getAttribute('data-id')); break;
       case 'export': doExport(); break;
       case 'restore': el('file-backup').click(); break;
@@ -543,6 +447,7 @@
     var v = t.value;
     if (key === 'dailyNew') { v = U.clampInt(v, 0, 50, 8); }
     if (key === 'maxReviews') { v = U.clampInt(v, 10, 500, 80); }
+    if (key === 'nickname') { v = String(v || '').trim().slice(0, 12); }
     state.settings[key] = v;
     S.saveSettings(state.settings);
     t.value = v;
@@ -550,10 +455,15 @@
   });
   el('sheet').addEventListener('click', function (ev) { if (ev.target === el('sheet')) { closeSheet(); } });
   document.addEventListener('keydown', function (ev) {
+    if (PHD.play && PHD.play.active()) { return; }
     if (ev.key === 'Escape' && !el('sheet').hidden) { closeSheet(); return; }
     var t = ev.target, tag = t && t.tagName;
     if (ev.metaKey || ev.ctrlKey || ev.altKey || !el('sheet').hidden) { return; }
     if (tag === 'INPUT' || tag === 'TEXTAREA' || tag === 'SELECT' || (t && t.isContentEditable)) { return; }
+    if ((ev.key === 'Enter' || ev.key === ' ') && state.tab === 'today' && !state.sub) {
+      var play = document.querySelector('.play-btn[data-action]');
+      if (play) { ev.preventDefault(); play.click(); return; }
+    }
     var n = Number(ev.key);
     if (n >= 1 && n <= TABS.length) { ev.preventDefault(); go(TABS[n - 1].id); }
   });
@@ -562,6 +472,11 @@
     if (mq && mq.addEventListener) { mq.addEventListener('change', applyTheme); }
   }
   window.addEventListener('hashchange', route);
+
+  PHD.app = {
+    settings: function () { return state.settings; }, state: state, refresh: refresh, toast: toast, go: go,
+    openSheet: openSheet, closeSheet: closeSheet, emptyCard: emptyCard, packLabel: packLabel, reviewPill: reviewPill, sortPacks: sortPacks, coursePill: coursePill
+  };
 
   /* ---------- 시작 ---------- */
   applyTheme();
