@@ -2,6 +2,11 @@
 
 > 맨 위가 최신. 형식: 한 일 / 검증한 것 / 검증 못 한 것 / 다음.
 
+## 2026-11-22 — M1 배포 확인
+
+- Actions 실행 44995277648 성공(Check project → Smoke test → Pages 배포).
+- 공개 주소의 index.html·css·js 4개·packs/sample.json·data/project.json 모두 HTTP 200, 저장소 site/ 파일과 바이트 단위로 같음.
+
 ## 2026-11-22 — M1 앱 골격
 
 - 한 일: 시작 화면을 앱 골격으로 교체. `site/index.html` + `css/app.css`(기획안 1의 9.2 토큰, 라이트·다크·자동, 데스크톱은 왼쪽 사이드바) + `js/util.js`·`store.js`·`packs.js`·`app.js`. 하단 탭 5개.
