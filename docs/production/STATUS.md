@@ -2,6 +2,9 @@
 
 > 맨 위가 최신. 형식: 한 일 / 검증한 것 / 검증 못 한 것 / 다음.
 
+## 2026-11-22 — 감수 전 탑재 배포 확인
+- Actions 실행 45002838725 성공. 공개 주소의 index.html·css·packs.js·app.js·packs/index.json·W00·W01·stats-001·project.json 9개 파일 HTTP 200, 저장소와 바이트 단위로 같음.
+
 ## 2026-11-22 — 콘텐츠 감수 전 탑재(D017), 단계 2 완료
 - 한 일: 사용자 지시로 감수를 뒤로 미루고 초안을 바로 앱에 넣음. `drafts/` → `data/`로 옮기고 팩에 `review: draft`. W00·W01·통계 시드를 `site/packs/`에 복사하고 목록 `site/packs/index.json` 추가. 앱: 오늘 빈 화면의 주 버튼을 ‘기본 콘텐츠 불러오기’로(샘플은 ‘샘플만 보기’ 링크), 나 → ‘기본 콘텐츠 불러오기·업데이트’, 팩 목록·파이프라인에 ‘감수 전’ 배지. 감수 대기 목록 `docs/production/REVIEW-QUEUE.md`.
 - 검증한 것: check_project 통과(필수 파일에 packs/index.json 추가). check_pack 4개 파일 오류 0. 스모크 검사 53항목 통과(기본 팩 3개 불러오기, 감수 상태 저장, 감수 전 배지 추가).
