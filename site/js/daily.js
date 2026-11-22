@@ -1,4 +1,4 @@
-/* 진우주 기자 학교 — 오늘의 퍼즐(Wordle형, D019). 하루 한 문제, 모두 같은 문제, 6번 기회, 색 = 단서, 결과 공유.
+/* 진우주 기자 학교 — 오늘의 퍼즐(Wordle형, D019·D020). 하루 한 문제(출석·기록·공유) + 끝나면 ‘한 문제 더’ 연습은 무제한.
    오늘의 진단: 질환을 맞히면 계통·주차·렌즈·검사·치료 칸이 초록(같음)·노랑(일부)·회색(다름)으로 답한다.
    오늘의 숫자: 통계 레지스트리의 숫자를 ±5% 안으로 맞힌다(↑↓와 근접도). */
 (function () {
@@ -48,7 +48,9 @@
         st.stats[k] = st.stats[k] || { played: 0, wins: 0, cur: 0, best: 0, last: '', dist: [0, 0, 0, 0, 0, 0] };
       });
       var n = num(day);
+      st.practice = st.practice || {};
       cache = {
+        pool: pool, stats: stats, cur: null,
         day: day, n: n, dz: dz, byName: byName, st: st,
         dxAns: pool.length ? pool[pickIndex(n, pool.length)] : null,
         numAns: stats.length ? stats[pickIndex(n + 7, stats.length)] : null
@@ -89,9 +91,23 @@
       return `<div class='dx-c ${c.c}${i === 0 ? ' nm' : ''}' style='--d:${i * 70}ms'><span>${esc(c.t)}</span>${c.arrow ? `<b>${c.arrow}</b>` : ''}</div>`;
     }).join('') + `</div>`;
   }
-  function dxScreen() {
+  function target(kind, practice) {
+    var c = cache;
+    if (!practice) { return { s: c.st[kind], ans: kind === 'dx' ? c.dxAns : c.numAns }; }
+    var p = c.st.practice[kind];
+    if (!p) { return { s: null, ans: null }; }
+    var ans = kind === 'dx' ? c.dz.filter(function (d) { return d.id === p.ansId; })[0] : c.stats.filter(function (x) { return x.id === p.ansId; })[0];
+    return { s: p, ans: ans || null };
+  }
+  function title(kind, practice) {
+    var c = cache, name = kind === 'dx' ? '오늘의 진단' : '오늘의 숫자';
+    return practice ? name + ` <span class='pill blue'>연습 ${c.st.practice[kind] ? c.st.practice[kind].n : ''}</span>` : name + ` <span class='num'>#${c.n}</span>`;
+  }
+  function dxScreen(practice) {
     return load().then(function () {
-      var c = cache, s = c.st.dx, ans = c.dxAns;
+      if (practice && !cache.st.practice.dx) { return newPractice('dx', true).then(function () { return dxScreen(true); }); }
+      var c = cache, tg = target('dx', practice), s = tg.s, ans = tg.ans;
+      c.cur = { kind: 'dx', practice: !!practice };
       var back = `<a class='back' href='#/today'>‹ 홈</a>`;
       if (!ans) { return back + A().emptyCard('퍼즐 재료가 없어요', '기본 콘텐츠를 받으면 오늘의 진단이 열립니다.', `<button type='button' class='btn' data-action='load-builtin'>기본 콘텐츠 받기</button>`); }
       var rows = s.guesses.map(function (id) { var g = c.dz.filter(function (d) { return d.id === id; })[0]; return g ? rowHtml(grade(g, ans)) : ''; }).join('');
@@ -101,15 +117,15 @@
       var input = s.done ? '' : `<div class='pz-input' id='pz-input'><input id='dx-in' list='dx-list' autocomplete='off' placeholder='질환 이름 (예: 당뇨병)' aria-label='질환 이름'>` +
         `<button type='button' class='btn' data-action='dx-guess'>확인</button></div><datalist id='dx-list'>${c.dz.map(function (d) { return `<option value='${esc(d.name)}'>`; }).join('')}</datalist>` +
         `<p class='pz-msg' id='pz-msg' aria-live='polite'>${TRIES - s.guesses.length}번 남았어요.</p>`;
-      return back + `<div class='pz-head'><h1 class='large-title'>오늘의 진단 <span class='num'>#${c.n}</span></h1><p>오늘의 질환을 6번 안에 맞히세요. 🟩 같음 · 🟨 일부 같음 · ⬜ 다름 · 주차 ↑↓는 정답이 더 뒤·앞</p></div>` +
+      return back + `<div class='pz-head'><h1 class='large-title'>${title('dx', practice)}</h1><p>${practice ? '연습 문제는 몇 번이든 풀 수 있어요.' : '오늘의 질환을 6번 안에 맞히세요.'} 🟩 같음 · 🟨 일부 같음 · ⬜ 다름 · 주차 ↑↓는 정답이 더 뒤·앞</p></div>` +
         `<div class='dx-board'><div class='dx-row hd'><div>질환</div><div>계통</div><div>주차</div><div>렌즈</div><div>검사</div><div>치료</div></div>${rows}</div>` +
-        hint + input + (s.done ? doneHtml('dx') : '');
+        hint + input + (s.done ? doneHtml('dx', practice) : '');
     });
   }
   function dxGuess() {
-    if (busy || !cache) { return; }
+    if (busy || !cache || !cache.cur) { return; }
     var inp = el('dx-in'), v = inp ? String(inp.value || '').trim() : '';
-    var s = cache.st.dx, ans = cache.dxAns;
+    var tg = target('dx', cache.cur.practice), s = tg.s, ans = tg.ans;
     var g = cache.byName[v];
     if (!g) {
       var lower = v.toLowerCase();
@@ -120,14 +136,16 @@
     s.guesses.push(g.id);
     var win = g.id === ans.id;
     G.sfx(win ? 'easy' : 'flip', A().settings().sound !== false);
-    if (win || s.guesses.length >= TRIES) { finish('dx', win); return; }
+    if (win || s.guesses.length >= TRIES) { finish('dx', win, cache.cur.practice); return; }
     save().then(function () { A().refresh(); });
   }
 
   /* ---------- 오늘의 숫자 ---------- */
-  function numScreen() {
+  function numScreen(practice) {
     return load().then(function () {
-      var c = cache, s = c.st.num, ans = c.numAns;
+      if (practice && !cache.st.practice.num) { return newPractice('num', true).then(function () { return numScreen(true); }); }
+      var c = cache, tg = target('num', practice), s = tg.s, ans = tg.ans;
+      c.cur = { kind: 'num', practice: !!practice };
       var back = `<a class='back' href='#/today'>‹ 홈</a>`;
       if (!ans) { return back + A().emptyCard('퍼즐 재료가 없어요', '통계 레지스트리를 받으면 오늘의 숫자가 열립니다.', `<button type='button' class='btn' data-action='load-builtin'>기본 콘텐츠 받기</button>`); }
       var rows = s.guesses.map(function (v) {
@@ -140,48 +158,73 @@
       var hint = !s.done && misses >= 3 ? `<p class='pz-hint'>💡 힌트: 정수 부분이 <b>${digits}자리</b> 수예요.</p>` : '';
       var input = s.done ? '' : `<div class='pz-input' id='pz-input'><input id='num-in' inputmode='decimal' autocomplete='off' placeholder='숫자 (${esc(ans.unit || '')})' aria-label='숫자'>` +
         `<button type='button' class='btn' data-action='num-guess'>확인</button></div><p class='pz-msg' id='pz-msg' aria-live='polite'>±5% 안이면 정답 · ${TRIES - s.guesses.length}번 남았어요.</p>`;
-      return back + `<div class='pz-head'><h1 class='large-title'>오늘의 숫자 <span class='num'>#${c.n}</span></h1><p>기자는 숫자 감각으로 오보를 막습니다.</p></div>` +
+      return back + `<div class='pz-head'><h1 class='large-title'>${title('num', practice)}</h1><p>기자는 숫자 감각으로 오보를 막습니다.${practice ? ' 연습은 몇 번이든 돼요.' : ''}</p></div>` +
         `<div class='card nm-q'><span class='kicker'>${esc(ans.period || '')} · ${esc(ans.population || '')}</span><h2>${esc(ans.label)}</h2><p class='note'>단위: ${esc(ans.unit || '')}${ans.needsVerification ? ' · 원자료 확인 필요' : ''}</p></div>` +
-        `<div class='nm-board'>${rows}</div>` + hint + input + (s.done ? doneHtml('num') : '');
+        `<div class='nm-board'>${rows}</div>` + hint + input + (s.done ? doneHtml('num', practice) : '');
     });
   }
   function numGuess() {
-    if (busy || !cache) { return; }
+    if (busy || !cache || !cache.cur) { return; }
     var inp = el('num-in');
     var raw = inp ? String(inp.value || '').split(',').join('').split(' ').join('') : '';
     var v = Number(raw);
     if (!raw || isNaN(v)) { shake('숫자를 넣어 주세요.'); return; }
-    var s = cache.st.num, ans = cache.numAns;
+    var tg = target('num', cache.cur.practice), s = tg.s, ans = tg.ans;
     s.guesses.push(v);
     var win = numGrade(v, ans.value).c === 'g';
     G.sfx(win ? 'easy' : 'flip', A().settings().sound !== false);
-    if (win || s.guesses.length >= TRIES) { finish('num', win); return; }
+    if (win || s.guesses.length >= TRIES) { finish('num', win, cache.cur.practice); return; }
     save().then(function () { A().refresh(); });
   }
 
   /* ---------- 끝·공유·통계 ---------- */
-  function finish(kind, win) {
+  function finish(kind, win, practice) {
     busy = true;
-    var c = cache, s = c.st[kind], t = c.st.stats[kind];
+    var c = cache, tg = target(kind, practice), s = tg.s;
     s.done = true; s.win = win;
-    t.played += 1;
-    if (win) {
-      t.wins += 1;
-      t.cur = t.last === R.addDays(c.day, -1) ? t.cur + 1 : 1;
-      t.best = Math.max(t.best, t.cur);
-      t.dist[s.guesses.length - 1] += 1;
-    } else { t.cur = 0; }
-    t.last = win ? c.day : t.last;
-    var id = kind === 'dx' ? c.dxAns.id : c.numAns.id;
-    save().then(function () { return G.discover(kind, id); }).then(function () { return PHD.play.status(); }).then(function (st) {
+    if (!practice) {
+      var t = c.st.stats[kind];
+      t.played += 1;
+      if (win) {
+        t.wins += 1;
+        t.cur = t.last === R.addDays(c.day, -1) ? t.cur + 1 : 1;
+        t.best = Math.max(t.best, t.cur);
+        t.dist[s.guesses.length - 1] += 1;
+      } else { t.cur = 0; }
+      t.last = win ? c.day : t.last;
+    } else {
+      c.st.practiceDone = (c.st.practiceDone || 0) + 1;
+    }
+    var id = tg.ans.id, wasNew = false;
+    save().then(function () { return G.loadDiscover(); }).then(function (d) { wasNew = !d[kind][id]; return G.discover(kind, id); }).then(function () { return PHD.play.status(); }).then(function (st) {
+      if (practice) { return G.addXp(c.day, win ? 3 : 1, wasNew ? 'disc' : null, st.q); }
       return G.addXp(c.day, win ? 5 : 2, 'puzzles', st.q);
     }).then(function (out) {
       busy = false;
       c.lastOut = out;
+      c.lastNew = wasNew;
       G.sfx(win ? 'level' : 'done', A().settings().sound !== false);
       A().refresh();
     }).catch(function (e) { busy = false; A().toast('저장하지 못했습니다: ' + (e && e.message ? e.message : e)); });
   }
+  // 연습 문제: 아직 발견하지 못한 것부터, 오늘의 문제는 빼고.
+  function newPractice(kind, silent) {
+    var c = cache;
+    return G.loadDiscover().then(function (d) {
+      var list = kind === 'dx' ? c.pool : c.stats;
+      var skip = kind === 'dx' ? (c.dxAns && c.dxAns.id) : (c.numAns && c.numAns.id);
+      var prev = c.st.practice[kind] && c.st.practice[kind].ansId;
+      var cand = list.filter(function (x) { return x.id !== skip && x.id !== prev && !d[kind][x.id]; });
+      if (!cand.length) { cand = list.filter(function (x) { return x.id !== skip && x.id !== prev; }); }
+      if (!cand.length) { cand = list; }
+      var ans = cand[Math.floor(Math.random() * cand.length)];
+      var n = (c.st.practiceCount || 0) + 1;
+      c.st.practiceCount = n;
+      c.st.practice[kind] = { ansId: ans.id, guesses: [], done: false, win: false, n: n };
+      return save();
+    }).then(function () { if (!silent) { location.hash = '#/puzzle/' + kind + 'p'; A().refresh(); } });
+  }
+  function more(kind) { if (!cache) { return Promise.resolve(); } return newPractice(kind, false); }
   function shareText(kind) {
     var c = cache, s = c.st[kind];
     var head = '진우주 기자 학교 · ' + (kind === 'dx' ? '오늘의 진단' : '오늘의 숫자') + ' #' + c.n + ' ' + (s.win ? s.guesses.length : 'X') + '/' + TRIES;
@@ -191,16 +234,16 @@
     });
     return [head].concat(lines).join(String.fromCharCode(10));
   }
-  function doneHtml(kind) {
-    var c = cache, s = c.st[kind], t = c.st.stats[kind], out = c.lastOut;
+  function doneHtml(kind, practice) {
+    var c = cache, tg = target(kind, practice), s = tg.s, t = c.st.stats[kind], out = c.lastOut;
     var answer;
     if (kind === 'dx') {
-      var a = c.dxAns;
+      var a = tg.ans;
       answer = `<h2>${esc(a.name)}</h2><p class='disc-def'>계통 <b>${esc(a.system)}</b> · ${a.week ? 'W' + a.week : '확장'} · 렌즈 ${esc(a.lenses.join('·') || '—')}</p>` +
         `<p class='disc-def'>검사: ${esc(a.tests.join(', '))}<br>치료: ${esc(a.treatments.join(', '))}</p>` +
         (a.confusable.length ? `<p class='disc-note'><b>헷갈리는 병</b> ${esc(a.confusable.join(', '))}</p>` : '');
     } else {
-      var n = c.numAns;
+      var n = tg.ans;
       answer = `<h2 class='num'>${esc(fmt(n.value))} <small>${esc(n.unit || '')}</small></h2><p class='disc-def'>${esc(n.label)} · ${esc(n.period || '')}</p>` +
         (n.definition ? `<p class='disc-note'><b>정의</b> ${esc(n.definition)}</p>` : '') +
         (n.note ? `<p class='disc-def'>${esc(n.note)}</p>` : '') + `<p class='note'>공표 ${esc(n.publishedAt || '')}${n.reviewBy ? ' · 재검토 ' + esc(n.reviewBy) : ''}${n.needsVerification ? ' · 원자료 확인 필요' : ''}</p>`;
@@ -210,11 +253,14 @@
       var me = s.win && s.guesses.length === i + 1;
       return `<div class='dist-r'><span>${i + 1}</span><i class='${me ? 'me' : ''}' style='width:${Math.max(8, Math.round(100 * v / max))}%'>${v}</i></div>`;
     }).join('');
-    return `<div class='card pz-done ${s.win ? 'win' : 'lose'}'><span class='disc-k'>${s.win ? '정답! ' + s.guesses.length + '/6' : '오늘은 여기까지 — 정답은'}</span>${answer}` +
+    var head = `<div class='card pz-done ${s.win ? 'win' : 'lose'}'><span class='disc-k'>${s.win ? '정답! ' + s.guesses.length + '/6' : '이번엔 여기까지 — 정답은'}</span>${answer}` +
       `<p class='disc-xp'>${out ? '+' + out.gained + ' XP · ' : ''}카드가 취재 덱에 들어갔어요</p>` +
-      `<div class='btn-row'><button type='button' class='btn' data-action='pz-share' data-kind='${kind}'>결과 복사</button><a class='btn secondary' href='#/today'>홈으로</a></div></div>` +
-      `<div class='section-title'>기록</div><div class='card'><div class='pz-stats'><div><b class='num'>${t.played}</b><span>푼 날</span></div><div><b class='num'>${t.played ? Math.round(100 * t.wins / t.played) : 0}%</b><span>정답률</span></div><div><b class='num'>${t.cur}</b><span>연속</span></div><div><b class='num'>${t.best}</b><span>최고 연속</span></div></div><div class='dist'>${dist}</div></div>` +
-      `<p class='footnote'>내일 새 문제가 열립니다. 감수 전 자료로 만든 퍼즐이에요.</p>`;
+      `<div class='btn-row'><button type='button' class='btn' data-action='pz-more' data-kind='${kind}'>한 문제 더</button>` +
+      (practice ? `<a class='btn secondary' href='#/today'>홈으로</a>` : `<button type='button' class='btn secondary' data-action='pz-share' data-kind='${kind}'>결과 복사</button>`) + `</div></div>`;
+    if (practice) { return head + `<p class='footnote'>연습 문제는 출석·기록과 상관없이 계속 풀 수 있어요. 아직 발견하지 못한 것부터 나옵니다.</p>`; }
+    return head +
+      `<div class='section-title'>오늘의 문제 기록</div><div class='card'><div class='pz-stats'><div><b class='num'>${t.played}</b><span>푼 날</span></div><div><b class='num'>${t.played ? Math.round(100 * t.wins / t.played) : 0}%</b><span>정답률</span></div><div><b class='num'>${t.cur}</b><span>연속</span></div><div><b class='num'>${t.best}</b><span>최고 연속</span></div></div><div class='dist'>${dist}</div></div>` +
+      `<p class='footnote'>오늘의 문제는 내일 새로 열립니다. ‘한 문제 더’로 지금 계속 풀 수 있어요. 감수 전 자료로 만든 퍼즐이에요.</p>`;
   }
   function share(kind) {
     var text = shareText(kind);
@@ -245,5 +291,5 @@
     });
   }
 
-  PHD.daily = { dxScreen: dxScreen, numScreen: numScreen, dxGuess: dxGuess, numGuess: numGuess, share: share, status: status, shareText: shareText, cho: cho };
+  PHD.daily = { dxScreen: dxScreen, numScreen: numScreen, dxGuess: dxGuess, numGuess: numGuess, share: share, status: status, shareText: shareText, cho: cho, more: more };
 })();

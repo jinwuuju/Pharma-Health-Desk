@@ -166,11 +166,11 @@
     });
   }
 
-  /* 발견 기록(D019): 연금술 원소(al)·근거 단계(ev)·오늘의 진단(dx)·오늘의 숫자(num). 발견하면 그 카드가 취재 덱에 들어간다. */
+  /* 발견 기록(D019·D020): 연금술 원소(al)·근거 단계(ev)·오보 함정(tr)·오늘의 진단(dx)·오늘의 숫자(num). 발견하면 그 카드가 취재 덱에 들어간다. */
   function loadDiscover() {
     return S.get('meta', 'discover').then(function (d) {
       d = d || {};
-      return { key: 'discover', al: d.al || {}, ev: d.ev || {}, dx: d.dx || {}, num: d.num || {} };
+      return { key: 'discover', al: d.al || {}, ev: d.ev || {}, tr: d.tr || {}, dx: d.dx || {}, num: d.num || {} };
     });
   }
   function discover(type, id) {
@@ -266,7 +266,7 @@
   function haptic(ms) { try { if (navigator.vibrate) { navigator.vibrate(ms || 8); } } catch (e) { /* 지원 안 함 */ } }
 
   var LINES = {
-    idle: ['오늘은 뭘 발견해 볼까요?', '혈액에 음식을 섞으면… 궁금하지 않아요?', '근거 2048, 메타분석까지 가 봐요.', '떠올리고 뒤집는 것, 그게 전부예요.', '근거부터 챙기는 기자가 오래 갑니다.'],
+    idle: ['오늘은 뭘 발견해 볼까요?', '혈액에 음식을 섞으면… 궁금하지 않아요?', '오보 지뢰찾기, 함정을 피해 기사를 살려 봐요.', '떠올리고 뒤집는 것, 그게 전부예요.', '근거부터 챙기는 기자가 오래 갑니다.'],
     sleep: ['쿨… 오늘의 퍼즐이 기다려요.', '세포랑 세포를 섞으면 뭐가 될까요?'],
     happy: ['오늘 마감 완료! 내일 또 봐요.', '오늘은 데스크가 칭찬하겠는데요.', '한 장 더 보면 내일이 편해져요.'],
     empty: ['취재 카드가 아직 없어요. 받아 올까요?']

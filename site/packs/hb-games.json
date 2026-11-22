@@ -1,11 +1,11 @@
 {
  "packId": "HB-GAME-001",
  "courseId": "healthbeat",
- "version": "2026-11-22.1",
+ "version": "2026-11-22.2",
  "week": 1,
  "review": "draft",
- "title": "HEALTH BEAT 게임 1차 — 인체 연금술·근거 2048·오늘의 진단·오늘의 숫자",
- "description": "코스 2를 게임으로 시작한다(D019). 연금술 64원소·조합 58, 근거 사다리 10단계, 질환 비교 퍼즐(마스터 색인 관계), 통계 카드(레지스트리). 발견하면 카드가 취재 덱에 들어간다.",
+ "title": "HEALTH BEAT 게임 1차 — 인체 연금술·오보 지뢰찾기·오늘의 진단·오늘의 숫자",
+ "description": "코스 2를 게임으로 시작한다(D019·D020). 연금술 64원소·조합 58, 오보 함정 16, 근거 사다리 10단계, 질환 비교 퍼즐(마스터 색인 관계), 통계 카드(레지스트리). 발견하면 카드가 취재 덱에 들어간다.",
  "elements": [
   {
    "id": "HB-AL-cell",
@@ -1099,6 +1099,280 @@
    "icon": "🏛️",
    "def": "근거를 종합하고 이익과 위해를 따져 학회 등이 내놓는 진료 권고. 권고마다 근거 수준과 강도가 붙는다.",
    "note": "지침은 개정된다. 기사에선 발표 연도와 기관을 쓴다."
+  }
+ ],
+ "traps": [
+  {
+   "id": "HB-TR-anecdote",
+   "courseId": "healthbeat",
+   "order": 1,
+   "title": "체험담을 근거로",
+   "icon": "🗣️",
+   "headline": "“○○즙 먹고 3주 만에 혈당 정상” — 독자 제보로 본 효과",
+   "choices": [
+    "한 사람의 경험담을 효과의 근거로 썼다",
+    "혈당 단위를 빠뜨렸다",
+    "기간을 3주로 짧게 잡았다"
+   ],
+   "answer": 0,
+   "why": "체험담은 우연·자연 회복·위약 효과를 가려내지 못한다. 근거 사다리 맨 아래(일화)다.",
+   "level": 1,
+   "evidenceId": "HB-EV-01"
+  },
+  {
+   "id": "HB-TR-mouse",
+   "courseId": "healthbeat",
+   "order": 2,
+   "title": "쥐 실험을 치료 효과로",
+   "icon": "🐭",
+   "headline": "“○○ 성분, 치매 치료 길 열었다” — 생쥐 실험 결과",
+   "choices": [
+    "동물 실험 결과를 사람 치료 효과처럼 썼다",
+    "생쥐 수를 밝히지 않았다",
+    "치매를 질병으로 다뤘다"
+   ],
+   "answer": 0,
+   "why": "세포·동물 결과는 사람에서 재현되지 않는 경우가 많다. 제목부터 ‘동물 실험에서’라고 밝힌다.",
+   "level": 2,
+   "evidenceId": "HB-EV-02"
+  },
+  {
+   "id": "HB-TR-expert",
+   "courseId": "healthbeat",
+   "order": 3,
+   "title": "전문가 한 명의 말만",
+   "icon": "🎓",
+   "headline": "“이 영양제면 면역력 2배” — 한 대학병원 교수",
+   "choices": [
+    "연구 근거 없이 전문가 한 명의 말만 옮겼다",
+    "교수의 소속을 밝혔다",
+    "면역력이라는 단어를 썼다"
+   ],
+   "answer": 0,
+   "why": "전문가 의견은 근거 수준이 낮다. 어떤 연구에 근거했는지 묻고 다른 전문가의 의견도 듣는다.",
+   "level": 3,
+   "evidenceId": "HB-EV-03"
+  },
+  {
+   "id": "HB-TR-coi",
+   "courseId": "healthbeat",
+   "order": 4,
+   "title": "이해관계 숨기기",
+   "icon": "💼",
+   "headline": "“○○ 유산균, 장 건강 개선” — 제조사가 지원한 연구, 기사엔 언급 없음",
+   "choices": [
+    "연구비를 댄 회사(이해관계)를 밝히지 않았다",
+    "유산균 이름을 썼다",
+    "장 건강을 다뤘다"
+   ],
+   "answer": 0,
+   "why": "기업이 지원한 연구는 그 사실을 밝히고, 독립적인 연구가 있는지 함께 본다.",
+   "level": 3,
+   "evidenceId": "HB-EV-03"
+  },
+  {
+   "id": "HB-TR-case",
+   "courseId": "healthbeat",
+   "order": 5,
+   "title": "환자 몇 명으로 일반화",
+   "icon": "📄",
+   "headline": "“신약 투여 환자 3명 모두 호전”",
+   "choices": [
+    "비교군 없는 소수 사례로 효과를 일반화했다",
+    "환자 이름을 가렸다",
+    "신약 이름을 밝혔다"
+   ],
+   "answer": 0,
+   "why": "사례 보고는 새 신호를 알리지만 비교군이 없어 효과를 증명하지 못한다.",
+   "level": 4,
+   "evidenceId": "HB-EV-04"
+  },
+  {
+   "id": "HB-TR-cross",
+   "courseId": "healthbeat",
+   "order": 6,
+   "title": "선후 관계 뒤집기",
+   "icon": "📸",
+   "headline": "“스마트폰 오래 보는 청소년 우울감 높아… 스마트폰이 우울증 부른다” — 설문 조사",
+   "choices": [
+    "한 시점 설문으로 원인과 결과를 단정했다",
+    "청소년을 대상으로 했다",
+    "우울감을 측정했다"
+   ],
+   "answer": 0,
+   "why": "단면 연구는 무엇이 먼저인지 알 수 없다. 우울해서 스마트폰을 더 볼 수도 있다.",
+   "level": 5,
+   "evidenceId": "HB-EV-05"
+  },
+  {
+   "id": "HB-TR-recall",
+   "courseId": "healthbeat",
+   "order": 7,
+   "title": "기억에 기댄 답을 사실로",
+   "icon": "⚖️",
+   "headline": "“폐암 환자들, 과거 ○○를 즐겨 먹었다고 답해… ○○가 폐암 원인”",
+   "choices": [
+    "환자들의 기억에 기댄 비교를 원인 확정처럼 썼다",
+    "폐암 환자를 조사했다",
+    "음식 이름을 밝혔다"
+   ],
+   "answer": 0,
+   "why": "환자-대조군 연구는 회상 편향에 흔들릴 수 있다. ‘연관이 있었다’로 쓴다.",
+   "level": 6,
+   "evidenceId": "HB-EV-06"
+  },
+  {
+   "id": "HB-TR-causal",
+   "courseId": "healthbeat",
+   "order": 8,
+   "title": "연관을 인과로",
+   "icon": "👥",
+   "headline": "“커피 하루 3잔, 사망 위험 낮춘다” — 10만 명 추적 연구",
+   "choices": [
+    "관찰 연구의 연관성을 ‘낮춘다’는 인과로 썼다",
+    "참여자 수를 밝혔다",
+    "커피 잔 수를 구체적으로 썼다"
+   ],
+   "answer": 0,
+   "why": "코호트 연구는 연관성을 보여 줄 뿐이다. 원래 건강한 사람이 커피를 더 마셨을 수도 있다(교란). ‘~와 관련’으로 쓴다.",
+   "level": 7,
+   "evidenceId": "HB-EV-07"
+  },
+  {
+   "id": "HB-TR-relative",
+   "courseId": "healthbeat",
+   "order": 9,
+   "title": "상대 위험만 쓰기",
+   "icon": "📈",
+   "headline": "“○○ 식품, 대장암 위험 18% 높여” — 실제 몇 명이 걸리는지는 없음",
+   "choices": [
+    "상대 위험만 쓰고 실제(절대) 위험을 빠뜨렸다",
+    "암 종류를 밝혔다",
+    "퍼센트를 썼다"
+   ],
+   "answer": 0,
+   "why": "18% 증가가 100명 중 몇 명에서 몇 명이 되는 것인지(절대 위험)를 함께 써야 독자가 크기를 안다.",
+   "level": 7,
+   "evidenceId": "HB-EV-07"
+  },
+  {
+   "id": "HB-TR-surrogate",
+   "courseId": "healthbeat",
+   "order": 10,
+   "title": "대리 지표를 생명 연장으로",
+   "icon": "🎯",
+   "headline": "“신약, 종양 크기 줄여… 생명 연장 기대”",
+   "choices": [
+    "종양 크기 같은 대리 지표를 생존 연장처럼 썼다",
+    "종양을 측정했다",
+    "신약이라고 불렀다"
+   ],
+   "answer": 0,
+   "why": "종양 축소·수치 개선은 대리 지표다. 실제로 더 오래 사는지(전체 생존)는 따로 확인한다.",
+   "level": 8,
+   "evidenceId": "HB-EV-08"
+  },
+  {
+   "id": "HB-TR-abstract",
+   "courseId": "healthbeat",
+   "order": 11,
+   "title": "중간 결과를 ‘입증’으로",
+   "icon": "🧾",
+   "headline": "“○○ 치료제, 효과 입증” — 학회 포스터의 중간 결과",
+   "choices": [
+    "동료 심사 전 중간 결과를 ‘입증’으로 썼다",
+    "학회 이름을 밝혔다",
+    "치료제라고 불렀다"
+   ],
+   "answer": 0,
+   "why": "학회 초록·중간 결과는 바뀔 수 있다. ‘발표했다’로 쓰고 최종 결과와 논문 게재 여부를 확인한다.",
+   "level": 8,
+   "evidenceId": "HB-EV-08"
+  },
+  {
+   "id": "HB-TR-pvalue",
+   "courseId": "healthbeat",
+   "order": 12,
+   "title": "유의하면 효과가 크다?",
+   "icon": "🔢",
+   "headline": "“통계적으로 유의한 차이… 획기적 효과”",
+   "choices": [
+    "통계적 유의성을 효과의 크기로 착각했다",
+    "통계를 언급했다",
+    "차이가 있다고 썼다"
+   ],
+   "answer": 0,
+   "why": "‘유의하다’는 우연일 가능성이 낮다는 뜻이지 효과가 크다는 뜻이 아니다. 효과의 크기를 숫자로 쓴다.",
+   "level": 8,
+   "evidenceId": "HB-EV-08"
+  },
+  {
+   "id": "HB-TR-miracle",
+   "courseId": "healthbeat",
+   "order": 13,
+   "title": "꿈의·기적의 과장",
+   "icon": "✨",
+   "headline": "“부작용 없는 꿈의 항암제”",
+   "choices": [
+    "근거 없는 과장 표현(꿈의·부작용 없는)을 썼다",
+    "항암제라고 불렀다",
+    "따옴표를 썼다"
+   ],
+   "answer": 0,
+   "why": "모든 약에는 부작용과 효과가 없는 환자가 있다. 수식어를 빼고 숫자로 쓴다.",
+   "level": 8,
+   "evidenceId": "HB-EV-08"
+  },
+  {
+   "id": "HB-TR-vaccine",
+   "courseId": "healthbeat",
+   "order": 14,
+   "title": "100% 예방",
+   "icon": "💉",
+   "headline": "“이 백신 맞으면 독감 절대 안 걸린다”",
+   "choices": [
+    "예방 효과를 ‘절대 안 걸린다’로 과장했다",
+    "독감을 다뤘다",
+    "백신 접종을 권했다"
+   ],
+   "answer": 0,
+   "why": "백신 효과는 걸릴 위험이 얼마나 줄었나로 읽는다. 맞아도 걸릴 수 있다.",
+   "level": 8,
+   "evidenceId": "HB-EV-08"
+  },
+  {
+   "id": "HB-TR-meta",
+   "courseId": "healthbeat",
+   "order": 15,
+   "title": "모으기만 하면 확실?",
+   "icon": "📚",
+   "headline": "“연구 20편 메타분석… 효과 확실”",
+   "choices": [
+    "포함된 연구의 질을 따지지 않았다",
+    "연구 수를 밝혔다",
+    "메타분석이라고 썼다"
+   ],
+   "answer": 0,
+   "why": "질 낮은 연구를 모은 메타분석은 결론도 약하다. 포함된 연구의 설계와 결과의 차이(이질성)를 본다.",
+   "level": 9,
+   "evidenceId": "HB-EV-09"
+  },
+  {
+   "id": "HB-TR-guideline",
+   "courseId": "healthbeat",
+   "order": 16,
+   "title": "옛 지침을 지금 권고로",
+   "icon": "🏛️",
+   "headline": "“학회 권고: 콜레스테롤 목표치는 ○○” — 10년 전 지침 인용",
+   "choices": [
+    "개정 전 옛 지침을 현재 권고처럼 썼다",
+    "학회 이름을 밝혔다",
+    "목표치를 숫자로 썼다"
+   ],
+   "answer": 0,
+   "why": "지침은 개정된다. 발표 연도·기관과 최신판인지 확인한다.",
+   "level": 10,
+   "evidenceId": "HB-EV-10"
   }
  ],
  "diseases": [
@@ -4784,6 +5058,326 @@
    "unlock": {
     "type": "ev",
     "id": "HB-EV-10"
+   },
+   "difficulty": 2
+  },
+  {
+   "id": "HB-C-TR-anecdote",
+   "courseId": "healthbeat",
+   "domain": "오보 지뢰찾기",
+   "axis": [
+    "media",
+    "science"
+   ],
+   "tags": [
+    "trap"
+   ],
+   "front": "🚨 “○○즙 먹고 3주 만에 혈당 정상” — 독자 제보로 본 효과 — 이 제목의 문제는?",
+   "back": "체험담을 근거로: 한 사람의 경험담을 효과의 근거로 썼다",
+   "why": "체험담은 우연·자연 회복·위약 효과를 가려내지 못한다. 근거 사다리 맨 아래(일화)다.",
+   "unlock": {
+    "type": "tr",
+    "id": "HB-TR-anecdote"
+   },
+   "difficulty": 2
+  },
+  {
+   "id": "HB-C-TR-mouse",
+   "courseId": "healthbeat",
+   "domain": "오보 지뢰찾기",
+   "axis": [
+    "media",
+    "science"
+   ],
+   "tags": [
+    "trap"
+   ],
+   "front": "🚨 “○○ 성분, 치매 치료 길 열었다” — 생쥐 실험 결과 — 이 제목의 문제는?",
+   "back": "쥐 실험을 치료 효과로: 동물 실험 결과를 사람 치료 효과처럼 썼다",
+   "why": "세포·동물 결과는 사람에서 재현되지 않는 경우가 많다. 제목부터 ‘동물 실험에서’라고 밝힌다.",
+   "unlock": {
+    "type": "tr",
+    "id": "HB-TR-mouse"
+   },
+   "difficulty": 2
+  },
+  {
+   "id": "HB-C-TR-expert",
+   "courseId": "healthbeat",
+   "domain": "오보 지뢰찾기",
+   "axis": [
+    "media",
+    "science"
+   ],
+   "tags": [
+    "trap"
+   ],
+   "front": "🚨 “이 영양제면 면역력 2배” — 한 대학병원 교수 — 이 제목의 문제는?",
+   "back": "전문가 한 명의 말만: 연구 근거 없이 전문가 한 명의 말만 옮겼다",
+   "why": "전문가 의견은 근거 수준이 낮다. 어떤 연구에 근거했는지 묻고 다른 전문가의 의견도 듣는다.",
+   "unlock": {
+    "type": "tr",
+    "id": "HB-TR-expert"
+   },
+   "difficulty": 2
+  },
+  {
+   "id": "HB-C-TR-coi",
+   "courseId": "healthbeat",
+   "domain": "오보 지뢰찾기",
+   "axis": [
+    "media",
+    "science"
+   ],
+   "tags": [
+    "trap"
+   ],
+   "front": "🚨 “○○ 유산균, 장 건강 개선” — 제조사가 지원한 연구, 기사엔 언급 없음 — 이 제목의 문제는?",
+   "back": "이해관계 숨기기: 연구비를 댄 회사(이해관계)를 밝히지 않았다",
+   "why": "기업이 지원한 연구는 그 사실을 밝히고, 독립적인 연구가 있는지 함께 본다.",
+   "unlock": {
+    "type": "tr",
+    "id": "HB-TR-coi"
+   },
+   "difficulty": 2
+  },
+  {
+   "id": "HB-C-TR-case",
+   "courseId": "healthbeat",
+   "domain": "오보 지뢰찾기",
+   "axis": [
+    "media",
+    "science"
+   ],
+   "tags": [
+    "trap"
+   ],
+   "front": "🚨 “신약 투여 환자 3명 모두 호전” — 이 제목의 문제는?",
+   "back": "환자 몇 명으로 일반화: 비교군 없는 소수 사례로 효과를 일반화했다",
+   "why": "사례 보고는 새 신호를 알리지만 비교군이 없어 효과를 증명하지 못한다.",
+   "unlock": {
+    "type": "tr",
+    "id": "HB-TR-case"
+   },
+   "difficulty": 2
+  },
+  {
+   "id": "HB-C-TR-cross",
+   "courseId": "healthbeat",
+   "domain": "오보 지뢰찾기",
+   "axis": [
+    "media",
+    "science"
+   ],
+   "tags": [
+    "trap"
+   ],
+   "front": "🚨 “스마트폰 오래 보는 청소년 우울감 높아… 스마트폰이 우울증 부른다” — 설문 조사 — 이 제목의 문제는?",
+   "back": "선후 관계 뒤집기: 한 시점 설문으로 원인과 결과를 단정했다",
+   "why": "단면 연구는 무엇이 먼저인지 알 수 없다. 우울해서 스마트폰을 더 볼 수도 있다.",
+   "unlock": {
+    "type": "tr",
+    "id": "HB-TR-cross"
+   },
+   "difficulty": 2
+  },
+  {
+   "id": "HB-C-TR-recall",
+   "courseId": "healthbeat",
+   "domain": "오보 지뢰찾기",
+   "axis": [
+    "media",
+    "science"
+   ],
+   "tags": [
+    "trap"
+   ],
+   "front": "🚨 “폐암 환자들, 과거 ○○를 즐겨 먹었다고 답해… ○○가 폐암 원인” — 이 제목의 문제는?",
+   "back": "기억에 기댄 답을 사실로: 환자들의 기억에 기댄 비교를 원인 확정처럼 썼다",
+   "why": "환자-대조군 연구는 회상 편향에 흔들릴 수 있다. ‘연관이 있었다’로 쓴다.",
+   "unlock": {
+    "type": "tr",
+    "id": "HB-TR-recall"
+   },
+   "difficulty": 2
+  },
+  {
+   "id": "HB-C-TR-causal",
+   "courseId": "healthbeat",
+   "domain": "오보 지뢰찾기",
+   "axis": [
+    "media",
+    "science"
+   ],
+   "tags": [
+    "trap"
+   ],
+   "front": "🚨 “커피 하루 3잔, 사망 위험 낮춘다” — 10만 명 추적 연구 — 이 제목의 문제는?",
+   "back": "연관을 인과로: 관찰 연구의 연관성을 ‘낮춘다’는 인과로 썼다",
+   "why": "코호트 연구는 연관성을 보여 줄 뿐이다. 원래 건강한 사람이 커피를 더 마셨을 수도 있다(교란). ‘~와 관련’으로 쓴다.",
+   "unlock": {
+    "type": "tr",
+    "id": "HB-TR-causal"
+   },
+   "difficulty": 2
+  },
+  {
+   "id": "HB-C-TR-relative",
+   "courseId": "healthbeat",
+   "domain": "오보 지뢰찾기",
+   "axis": [
+    "media",
+    "science"
+   ],
+   "tags": [
+    "trap"
+   ],
+   "front": "🚨 “○○ 식품, 대장암 위험 18% 높여” — 실제 몇 명이 걸리는지는 없음 — 이 제목의 문제는?",
+   "back": "상대 위험만 쓰기: 상대 위험만 쓰고 실제(절대) 위험을 빠뜨렸다",
+   "why": "18% 증가가 100명 중 몇 명에서 몇 명이 되는 것인지(절대 위험)를 함께 써야 독자가 크기를 안다.",
+   "unlock": {
+    "type": "tr",
+    "id": "HB-TR-relative"
+   },
+   "difficulty": 2
+  },
+  {
+   "id": "HB-C-TR-surrogate",
+   "courseId": "healthbeat",
+   "domain": "오보 지뢰찾기",
+   "axis": [
+    "media",
+    "science"
+   ],
+   "tags": [
+    "trap"
+   ],
+   "front": "🚨 “신약, 종양 크기 줄여… 생명 연장 기대” — 이 제목의 문제는?",
+   "back": "대리 지표를 생명 연장으로: 종양 크기 같은 대리 지표를 생존 연장처럼 썼다",
+   "why": "종양 축소·수치 개선은 대리 지표다. 실제로 더 오래 사는지(전체 생존)는 따로 확인한다.",
+   "unlock": {
+    "type": "tr",
+    "id": "HB-TR-surrogate"
+   },
+   "difficulty": 2
+  },
+  {
+   "id": "HB-C-TR-abstract",
+   "courseId": "healthbeat",
+   "domain": "오보 지뢰찾기",
+   "axis": [
+    "media",
+    "science"
+   ],
+   "tags": [
+    "trap"
+   ],
+   "front": "🚨 “○○ 치료제, 효과 입증” — 학회 포스터의 중간 결과 — 이 제목의 문제는?",
+   "back": "중간 결과를 ‘입증’으로: 동료 심사 전 중간 결과를 ‘입증’으로 썼다",
+   "why": "학회 초록·중간 결과는 바뀔 수 있다. ‘발표했다’로 쓰고 최종 결과와 논문 게재 여부를 확인한다.",
+   "unlock": {
+    "type": "tr",
+    "id": "HB-TR-abstract"
+   },
+   "difficulty": 2
+  },
+  {
+   "id": "HB-C-TR-pvalue",
+   "courseId": "healthbeat",
+   "domain": "오보 지뢰찾기",
+   "axis": [
+    "media",
+    "science"
+   ],
+   "tags": [
+    "trap"
+   ],
+   "front": "🚨 “통계적으로 유의한 차이… 획기적 효과” — 이 제목의 문제는?",
+   "back": "유의하면 효과가 크다?: 통계적 유의성을 효과의 크기로 착각했다",
+   "why": "‘유의하다’는 우연일 가능성이 낮다는 뜻이지 효과가 크다는 뜻이 아니다. 효과의 크기를 숫자로 쓴다.",
+   "unlock": {
+    "type": "tr",
+    "id": "HB-TR-pvalue"
+   },
+   "difficulty": 2
+  },
+  {
+   "id": "HB-C-TR-miracle",
+   "courseId": "healthbeat",
+   "domain": "오보 지뢰찾기",
+   "axis": [
+    "media",
+    "science"
+   ],
+   "tags": [
+    "trap"
+   ],
+   "front": "🚨 “부작용 없는 꿈의 항암제” — 이 제목의 문제는?",
+   "back": "꿈의·기적의 과장: 근거 없는 과장 표현(꿈의·부작용 없는)을 썼다",
+   "why": "모든 약에는 부작용과 효과가 없는 환자가 있다. 수식어를 빼고 숫자로 쓴다.",
+   "unlock": {
+    "type": "tr",
+    "id": "HB-TR-miracle"
+   },
+   "difficulty": 2
+  },
+  {
+   "id": "HB-C-TR-vaccine",
+   "courseId": "healthbeat",
+   "domain": "오보 지뢰찾기",
+   "axis": [
+    "media",
+    "science"
+   ],
+   "tags": [
+    "trap"
+   ],
+   "front": "🚨 “이 백신 맞으면 독감 절대 안 걸린다” — 이 제목의 문제는?",
+   "back": "100% 예방: 예방 효과를 ‘절대 안 걸린다’로 과장했다",
+   "why": "백신 효과는 걸릴 위험이 얼마나 줄었나로 읽는다. 맞아도 걸릴 수 있다.",
+   "unlock": {
+    "type": "tr",
+    "id": "HB-TR-vaccine"
+   },
+   "difficulty": 2
+  },
+  {
+   "id": "HB-C-TR-meta",
+   "courseId": "healthbeat",
+   "domain": "오보 지뢰찾기",
+   "axis": [
+    "media",
+    "science"
+   ],
+   "tags": [
+    "trap"
+   ],
+   "front": "🚨 “연구 20편 메타분석… 효과 확실” — 이 제목의 문제는?",
+   "back": "모으기만 하면 확실?: 포함된 연구의 질을 따지지 않았다",
+   "why": "질 낮은 연구를 모은 메타분석은 결론도 약하다. 포함된 연구의 설계와 결과의 차이(이질성)를 본다.",
+   "unlock": {
+    "type": "tr",
+    "id": "HB-TR-meta"
+   },
+   "difficulty": 2
+  },
+  {
+   "id": "HB-C-TR-guideline",
+   "courseId": "healthbeat",
+   "domain": "오보 지뢰찾기",
+   "axis": [
+    "media",
+    "science"
+   ],
+   "tags": [
+    "trap"
+   ],
+   "front": "🚨 “학회 권고: 콜레스테롤 목표치는 ○○” — 10년 전 지침 인용 — 이 제목의 문제는?",
+   "back": "옛 지침을 지금 권고로: 개정 전 옛 지침을 현재 권고처럼 썼다",
+   "why": "지침은 개정된다. 발표 연도·기관과 최신판인지 확인한다.",
+   "unlock": {
+    "type": "tr",
+    "id": "HB-TR-guideline"
    },
    "difficulty": 2
   },

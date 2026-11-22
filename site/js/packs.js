@@ -6,7 +6,7 @@
     units: 'unit', lessons: 'lesson', cards: 'card', items: 'item', cases: 'case', dailyReleases: 'dailyRelease',
     dealRounds: 'dealRound', exams: 'exam', glossary: 'glossary', sources: 'source', entries: 'entry', stats: 'stat',
     plans: 'plan', calendar: 'calendar',
-    elements: 'element', recipes: 'recipe', evidence: 'evidence', diseases: 'disease'
+    elements: 'element', recipes: 'recipe', evidence: 'evidence', traps: 'trap', diseases: 'disease'
   };
   var META_KEYS = ['packId', 'version', 'week', 'domains', 'title', 'courseId', 'description', 'kind', 'part', 'review'];
   var COURSES = ['pipeline', 'healthbeat'];

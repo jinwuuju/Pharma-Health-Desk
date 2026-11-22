@@ -6,12 +6,12 @@
   var U = PHD.util, S = PHD.store, P = PHD.packs;
   var esc = U.esc;
 
-  var APP_STEP = 'M2·게임 3종';
+  var APP_STEP = 'M2·게임 3종(지뢰찾기)';
   var REPO = 'https://github.com/jinwuuju/Pharma-Health-Desk/blob/main/';
   var TABS = [
     { id: 'today', label: '홈' },
     { id: 'discover', label: '발견' },
-    { id: 'evidence', label: '근거' },
+    { id: 'evidence', label: '지뢰찾기' },
     { id: 'review', label: '도감' },
     { id: 'me', label: '나' }
   ];
@@ -85,8 +85,8 @@
     var SC = PHD.screens;
     if (tab === 'me' && sub === 'settings') { return screenSettings; }
     if (tab === 'me' && sub === 'dev') { return screenDev; }
-    if (tab === 'puzzle') { return sub === 'num' ? PHD.daily.numScreen : PHD.daily.dxScreen; }
-    return { today: SC.home, discover: PHD.alchemy.screen, evidence: PHD.g2048.screen, pipeline: SC.map, review: SC.dex, me: SC.me }[tab] || SC.home;
+    if (tab === 'puzzle') { return { num: function () { return PHD.daily.numScreen(false); }, nump: function () { return PHD.daily.numScreen(true); }, dxp: function () { return PHD.daily.dxScreen(true); } }[sub] || function () { return PHD.daily.dxScreen(false); }; }
+    return { today: SC.home, discover: PHD.alchemy.screen, evidence: PHD.mines.screen, pipeline: SC.map, review: SC.dex, me: SC.me }[tab] || SC.home;
   }
   function route() {
     var r = parseHash();
@@ -456,9 +456,13 @@
       case 'al-hint': PHD.alchemy.hint(); break;
       case 'al-info': PHD.alchemy.info(t.getAttribute('data-id')); break;
       case 'al-continue': PHD.alchemy.after(); break;
-      case 'g-new': PHD.g2048.newGame(); break;
-      case 'g-level': PHD.g2048.levelInfo(t.getAttribute('data-n')); break;
-      case 'g-continue': PHD.g2048.after(); break;
+      case 'ms-cell': PHD.mines.tap(t.getAttribute('data-i')); break;
+      case 'ms-answer': PHD.mines.answer(t.getAttribute('data-k')); break;
+      case 'ms-continue': PHD.mines.cont(); break;
+      case 'ms-new': PHD.mines.newGame(); break;
+      case 'ms-mode': PHD.mines.setMode(t.getAttribute('data-val')); break;
+      case 'ms-level': PHD.mines.setLevel(t.getAttribute('data-val')); break;
+      case 'pz-more': closeSheet(); PHD.daily.more(t.getAttribute('data-kind')); break;
       case 'dx-guess': PHD.daily.dxGuess(); break;
       case 'num-guess': PHD.daily.numGuess(); break;
       case 'pz-share': PHD.daily.share(t.getAttribute('data-kind')); break;
@@ -504,7 +508,7 @@
     var t = ev.target, tag = t && t.tagName;
     if (ev.key === 'Enter' && t && (t.id === 'dx-in' || t.id === 'num-in')) { ev.preventDefault(); if (t.id === 'dx-in') { PHD.daily.dxGuess(); } else { PHD.daily.numGuess(); } return; }
     if (ev.key === 'Enter' && !el('sheet').hidden) {
-      var cont = el('sheet').querySelector('[data-action=al-continue],[data-action=g-continue]');
+      var cont = el('sheet').querySelector('[data-action=al-continue],[data-action=ms-continue]');
       if (cont) { ev.preventDefault(); cont.click(); return; }
     }
     if (ev.metaKey || ev.ctrlKey || ev.altKey || !el('sheet').hidden) { return; }

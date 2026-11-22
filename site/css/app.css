@@ -390,8 +390,8 @@ button.row:active,a.row:active{background:var(--fill)}
 .ptile:active{transform:scale(.97)}
 
 /* 인체 연금술 */
-.al-top,.g-top{display:flex;align-items:center;justify-content:space-between;gap:8px}
-.al-top .large-title,.g-top .large-title{margin-bottom:4px}
+.al-top{display:flex;align-items:center;justify-content:space-between;gap:8px}
+.al-top .large-title{margin-bottom:4px}
 .hint-btn{border:0;cursor:pointer;color:var(--text)}
 .al-count{display:flex;align-items:center;gap:8px;margin:0 4px 14px}
 .al-count b{font-size:1.75rem;font-weight:800;letter-spacing:-.02em}
@@ -428,35 +428,51 @@ button.row:active,a.row:active{background:var(--fill)}
 .disc-xp{font-size:.8125rem;font-weight:700;color:var(--green);margin-top:10px}
 .disc-up{font-size:1rem;font-weight:800;color:#8A5A00;background:linear-gradient(135deg,#FFE066,#FFB800);border-radius:14px;padding:10px;margin-top:10px}
 
-/* 근거 2048 */
-.g-scores{display:flex;gap:6px}
-.g-scores div{min-width:64px;padding:6px 10px;border-radius:12px;background:var(--card);box-shadow:var(--shadow);text-align:center}
-.g-scores span{display:block;font-size:.625rem;font-weight:700;color:var(--text2);letter-spacing:.04em}
-.g-scores b{font-size:1.0625rem;font-weight:800}
+/* 오보 지뢰찾기(D020) */
+.ms-level{flex:0 0 auto}
+.ms-bar{display:flex;align-items:center;justify-content:space-between;gap:8px;margin:0 0 10px}
+.ms-chip{display:inline-flex;align-items:center;gap:4px;height:34px;padding:0 12px;border-radius:999px;background:var(--card);box-shadow:var(--shadow);font-size:.875rem;font-weight:700}
+.ms-hearts{font-size:1rem;letter-spacing:1px}
+.ms-face{width:48px;height:48px;border-radius:50%;background:var(--card);box-shadow:var(--shadow);font-size:1.625rem;display:flex;align-items:center;justify-content:center}
+.ms-face:active{transform:scale(.92)}
+.ms-board{display:grid;grid-template-columns:repeat(var(--cols,8),1fr);gap:3px;padding:6px;border-radius:18px;background:color-mix(in srgb,var(--gray) 26%,var(--bg));user-select:none;-webkit-user-select:none;-webkit-touch-callout:none;touch-action:manipulation}
+.mc{aspect-ratio:1;border-radius:8px;display:flex;align-items:center;justify-content:center;font-size:1.0625rem;font-weight:800;background:linear-gradient(180deg,color-mix(in srgb,var(--card) 92%,#fff),color-mix(in srgb,var(--gray) 10%,var(--card)));box-shadow:0 2px 0 color-mix(in srgb,var(--gray) 45%,transparent);color:var(--text);transition:transform .1s var(--ease)}
+.mc:active{transform:scale(.9)}
+.mc.op{background:color-mix(in srgb,var(--gray) 8%,var(--bg));box-shadow:none;animation:cell-open .18s var(--ease)}
+.mc.fl{font-size:1rem}
+.mc.ok{background:color-mix(in srgb,var(--green) 22%,var(--card));box-shadow:none}
+.mc.bad,.mc.mine{background:color-mix(in srgb,var(--red) 22%,var(--card));box-shadow:none}
+.mc.n1{color:var(--blue)}
+.mc.n2{color:var(--green)}
+.mc.n3{color:var(--red)}
+.mc.n4{color:var(--indigo)}
+.mc.n5{color:var(--orange)}
+.mc.n6{color:var(--teal)}
+.mc.n7{color:var(--text)}
+.mc.n8{color:var(--gray)}
+.ms-mode{margin-top:10px}
+.ms-mode button{min-height:40px;font-size:.9375rem}
+.trap{text-align:center;padding:4px 2px 0}
+.trap-k{display:inline-block;font-size:.8125rem;font-weight:800;padding:5px 12px;border-radius:999px;background:color-mix(in srgb,var(--red) 16%,transparent);color:var(--red)}
+.trap-k.ok{background:color-mix(in srgb,var(--green) 18%,transparent);color:var(--green)}
+.trap-head{margin:14px 2px 6px;padding:16px;border-radius:16px;background:var(--card);box-shadow:var(--shadow);font-size:1.0625rem;font-weight:700;line-height:1.5;text-align:left;border-left:4px solid var(--red)}
+.trap-q{font-size:.9375rem;font-weight:700;color:var(--text2);margin:10px 0}
+.trap-choices{display:flex;flex-direction:column;gap:8px}
+.tc{min-height:52px;padding:10px 14px;border-radius:14px;background:var(--card);box-shadow:var(--shadow);font-size:.9375rem;font-weight:600;text-align:left;line-height:1.4}
+.tc:active{transform:scale(.98)}
+.trap h2{font-size:1.375rem;margin:12px 0 6px}
+.trap-ans{font-size:.9375rem;line-height:1.5;margin:6px 4px}
+.trap-ans b{color:var(--green);margin-right:6px}
+.disc-k.grey{background:var(--fill);color:var(--text2)}
+.ms-stars{display:flex;justify-content:center;gap:6px;margin:12px 0 4px;font-size:2.25rem}
+.ms-stars i{font-style:normal;color:var(--fill)}
+.ms-stars i.on{color:var(--gold);animation:pop-in .5s var(--spring) both}
+.ms-stars i.on:nth-child(2){animation-delay:.1s}
+.ms-stars i.on:nth-child(3){animation-delay:.2s}
+.disc h2 small{font-size:.875rem;color:var(--orange)}
 .g-goal{font-size:.875rem;color:var(--text2);margin:0 4px 10px}
 .g-goal b{color:var(--text)}
-.ladder{display:grid;grid-template-columns:repeat(10,1fr);gap:4px;margin-bottom:12px}
-.rung{aspect-ratio:1;border-radius:10px;background:var(--fill);color:var(--text3);font-size:.75rem;font-weight:800;display:flex;align-items:center;justify-content:center}
-.rung.on{background:var(--card);box-shadow:var(--shadow);color:var(--text);font-size:1rem}
-.board{display:grid;grid-template-columns:repeat(4,1fr);gap:8px;padding:8px;border-radius:22px;background:color-mix(in srgb,var(--gray) 22%,var(--bg));touch-action:none;user-select:none;-webkit-user-select:none;outline:none}
-.cell{aspect-ratio:1;border-radius:14px;background:color-mix(in srgb,var(--gray) 14%,var(--card))}
-.t{width:100%;height:100%;border-radius:14px;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:2px;padding:4px;text-align:center;color:#fff;box-shadow:0 2px 0 rgba(0,0,0,.12)}
-.t i{font-style:normal;font-size:1.5rem;line-height:1}
-.t b{font-size:.6875rem;font-weight:800;line-height:1.15;word-break:keep-all}
-.t.born{animation:pop-in .22s var(--spring)}
-.t.merged{animation:merge .26s var(--spring)}
-.t.l1{background:#C7C7CC;color:#1C1C1E}
-.t.l2{background:#A2C4F0;color:#0B2545}
-.t.l3{background:#7FB3F5}
-.t.l4{background:#5AC8FA}
-.t.l5{background:#30B0C7}
-.t.l6{background:#34C759}
-.t.l7{background:#5856D6}
-.t.l8{background:#AF52DE}
-.t.l9{background:linear-gradient(135deg,#FFD60A,#FF9F0A);color:#3D2600}
-.t.l10{background:linear-gradient(135deg,#FF375F,#FF9F0A)}
-.g-foot{display:flex;align-items:center;justify-content:space-between;margin:8px 6px 0;font-size:.8125rem;color:var(--text3)}
-.g-foot .link-btn{margin:0}
+@keyframes cell-open{from{transform:scale(.85);opacity:.4}to{transform:none;opacity:1}}
 
 /* 오늘의 퍼즐 */
 .pz-head p{font-size:.875rem;color:var(--text2);margin:-4px 4px 12px;line-height:1.5}

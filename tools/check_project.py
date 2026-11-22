@@ -30,7 +30,7 @@ REQUIRED = [
     'site/js/game.js',
     'site/js/play.js',
     'site/js/alchemy.js',
-    'site/js/g2048.js',
+    'site/js/mines.js',
     'site/js/daily.js',
     'site/js/screens.js',
     'site/js/app.js',
