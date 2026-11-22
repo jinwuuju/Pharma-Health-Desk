@@ -10,7 +10,7 @@
   var W0_START = '2026-11-30';
   var WEEKDAY = ['일', '월', '화', '수', '목', '금', '토'];
   var EXAM_LABEL = { diagnostic: '진단평가', weekly: '주간 미니 시험', unit: '단원 시험', L1: 'PBJ L1', L2: 'PBJ L2', L3: 'PBJ L3', oral: '모의 구술' };
-  var UNLOCK_WHERE = { al: ['인체 연금술', 'discover'], ev: ['오보찾기', 'evidence'], tr: ['오보찾기', 'evidence'], dx: ['오늘의 진단', 'puzzle/dxp'], num: ['오늘의 숫자', 'puzzle/nump'] };
+  var UNLOCK_WHERE = { al: ['인체 연금술', 'discover'], ev: ['오락실', 'evidence'], tr: ['오락실', 'evidence'], ty: ['오락실 타자 게임', 'evidence/typing'], dx: ['오늘의 진단', 'puzzle/dxp'], num: ['오늘의 숫자', 'puzzle/nump'] };
   var ICON = {
     check: `<svg viewBox='0 0 24 24' aria-hidden='true'><path d='M6 12.5l4 4 8-9' fill='none' stroke='currentColor' stroke-width='2.8' stroke-linecap='round' stroke-linejoin='round'/></svg>`,
     book: `<svg viewBox='0 0 24 24' aria-hidden='true'><path d='M5 5.5A1.5 1.5 0 0 1 6.5 4H18v14H6.5A1.5 1.5 0 0 0 5 19.5zM5 19.5A1.5 1.5 0 0 0 6.5 21H18' fill='none' stroke='currentColor' stroke-width='2' stroke-linejoin='round'/></svg>`,
@@ -93,7 +93,7 @@
       } else {
         mood = 'happy';
         bubble = G.line('happy', log.xp);
-        action = `<button type='button' class='play-btn' data-action='go' data-to='evidence'>오보찾기 한 판<span>오늘의 게임: ${esc(PHD.arcade.todayGame().name)} · 더 할 수 있어요</span></button>`;
+        action = `<button type='button' class='play-btn' data-action='go' data-to='evidence'>오락실 한 판<span>오늘의 게임: ${esc(PHD.arcade.todayGame().name)} · 더 할 수 있어요</span></button>`;
       }
       if (stx.reduced) { extra += `<p class='quest-note warn'>복습이 몰려 오늘 새 카드를 절반으로 줄였어요.</p>`; }
       var tiles = sum.packs ? `<div class='ptiles'>${puzzleTile('dx', dl.dx, dl.n)}${puzzleTile('num', dl.num, dl.n)}</div>` : '';
@@ -307,7 +307,7 @@
         `<a class='row' href='#/me/settings'><div class='tx'>설정<span class='sub'>캐릭터 이름 · 코스 · 학습량 · 콘텐츠 팩 · 백업</span></div><span class='chev'>›</span></a>` +
         `<a class='row' href='#/me/dev'><div class='tx'>개발 현황</div><span class='chev'>›</span></a></div>`;
       return profile + stats + courses + gear + heat + links +
-        `<p class='footnote'>XP는 학습 행동에만: 복습 1장 1, 새 카드·새 발견·함정 해체 2, 콤보 10마다 +2, 특종(무작위 8%) 2배, 오늘의 퍼즐 정답 5(도전 2)·연습 3(도전 1), 오보찾기 게임은 맞힌 만큼, 퀘스트 3개 +10. 출석은 하루 한 번, 학습은 무제한.</p>`;
+        `<p class='footnote'>XP는 학습 행동에만: 복습 1장 1, 새 카드·새 발견·함정 해체 2, 콤보 10마다 +2, 특종(무작위 8%) 2배, 오늘의 퍼즐 정답 5(도전 2)·연습 3(도전 1), 오락실 게임은 맞힌 만큼, 퀘스트 3개 +10. 출석은 하루 한 번, 학습은 무제한.</p>`;
     });
   }
 

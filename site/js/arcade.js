@@ -1,5 +1,5 @@
-/* 진우주 기자 학교 — 오보찾기 오락실(D021). 같은 문제 은행을 클래식 게임 5종으로 돌려 가며 푼다(안 질리게).
-   허브 · 오답 노트 · 퀴즈쇼(백만장자형 12단계, 찬스 3개) · 짝 맞추기(기억력 카드). 속보 러시는 rush.js, 스네이크는 snake.js, 지뢰찾기는 mines.js. */
+/* 진우주 기자 학교 — 오락실(D021·D022). 같은 문제 은행을 클래식 게임 8종으로 돌려 가며 푼다(안 질리게).
+   허브 · 오답 노트 · 퀴즈쇼(백만장자형) · 짝 맞추기 여기에. 지뢰찾기 mines.js, 속보 러시 rush.js, 스네이크 snake.js, 틀린 그림 찾기 spot.js, 타자 게임 typing.js, 카드 배틀 cards.js. */
 (function () {
   'use strict';
   var PHD = window.PHD;
@@ -9,8 +9,11 @@
     { id: 'mines', name: '지뢰찾기', icon: '💣', desc: '숫자로 함정을 피하고, 밟으면 4지선다로 해체', best: function (b) { return b != null ? '최고 ' + clock(b) : ''; } },
     { id: 'show', name: '퀴즈쇼', icon: '🎤', desc: '12단계 사다리, 찬스 3개로 올해의 기자상까지', best: function (b) { return b != null ? '최고 ' + b + '단계' : ''; } },
     { id: 'rush', name: '속보 러시', icon: '⚡', desc: '90초, 문장마다 정확·오보를 스와이프', best: function (b) { return b != null ? '최고 ' + b + '점' : ''; } },
-    { id: 'memory', name: '짝 맞추기', icon: '🃏', desc: '오보 유형과 제목을 짝지어 뒤집기', best: function (b) { return b != null ? '최소 ' + b + '번' : ''; } },
-    { id: 'snake', name: '스네이크', icon: '🐍', desc: '정답 글자를 먹고 길어져라', best: function (b) { return b != null ? '최고 ' + b + '점' : ''; } }
+    { id: 'memory', name: '짝 맞추기', icon: '🀄', desc: '오보 유형과 제목을 짝지어 뒤집기', best: function (b) { return b != null ? '최소 ' + b + '번' : ''; } },
+    { id: 'snake', name: '스네이크', icon: '🐍', desc: '정답 글자를 먹고 길어져라', best: function (b) { return b != null ? '최고 ' + b + '점' : ''; } },
+    { id: 'spot', name: '틀린 그림 찾기', icon: '🔍', desc: '교정지에서 오보 제목의 틀린 곳을 탭', best: function (b) { return b != null ? '최고 ' + b + '점' : ''; } },
+    { id: 'typing', name: '타자 게임', icon: '⌨️', desc: '떨어지는 뜻풀이를 정확한 용어로 터뜨리기', best: function (b) { return b != null ? '최고 ' + b + '점' : ''; } },
+    { id: 'cards', name: '카드 배틀', icon: '🎴', desc: '확신만큼 칩을 걸고 답 카드 고르기', best: function (b) { return b != null ? '최고 ' + b + '칩' : ''; } }
   ];
   var LADDER = ['수습 1주', '수습 3개월', '1년차', '2년차', '3년차', '5년차', '전문기자', '차장', '부장', '부국장', '편집국장', '올해의 기자상'];
   var SAFE = [3, 7];
@@ -21,14 +24,14 @@
   function sound() { return A().settings().sound !== false; }
   function clock(sec) { return Math.floor(sec / 60) + ':' + (sec % 60 < 10 ? '0' : '') + (sec % 60); }
   function todayGame() { return GAMES[((R.diffDays('2026-11-22', U.studyDate(A().settings().dayStartHour)) % GAMES.length) + GAMES.length) % GAMES.length]; }
-  function back() { return `<a class='back' href='#/evidence'>‹ 오보찾기</a>`; }
+  function back() { return `<a class='back' href='#/evidence'>‹ 오락실</a>`; }
 
   /* ---------- 허브 ---------- */
   function hub() {
     Q = PHD.quiz;
     return Promise.all([Q.load(), G.loadDiscover()]).then(function (res) {
       var bank = res[0], disc = res[1];
-      if (!bank.length) { return `<h1 class='large-title'>오보찾기</h1>` + A().emptyCard('문항이 아직 없어요', '기본 콘텐츠를 받으면 오보찾기 게임이 열립니다.', `<button type='button' class='btn' data-action='load-builtin'>기본 콘텐츠 받기</button>`); }
+      if (!bank.length) { return `<h1 class='large-title'>오락실</h1>` + A().emptyCard('문항이 아직 없어요', '기본 콘텐츠를 받으면 오락실 게임이 열립니다.', `<button type='button' class='btn' data-action='load-builtin'>기본 콘텐츠 받기</button>`); }
       var st = Q.state();
       var found = bank.filter(function (b) { return disc.tr[b.id]; }).length;
       var cats = Object.keys(Q.CATS).map(function (c) {
@@ -42,13 +45,13 @@
         var b = g.best(st.best[g.id]);
         return `<button type='button' class='gtile${g.id === tg.id ? ' today' : ''}' data-action='go' data-to='evidence/${g.id}'><i>${g.icon}</i><b>${esc(g.name)}</b><span>${esc(b || g.desc)}</span></button>`;
       }).join('');
-      return `<h1 class='large-title'>오보찾기</h1>` +
+      return `<h1 class='large-title'>오락실</h1>` +
         `<div class='ob-hero' data-action='go' data-to='evidence/${tg.id}'><span class='ob-k'>오늘의 게임</span><i>${tg.icon}</i><b>${esc(tg.name)}</b><p>${esc(tg.desc)}</p>` +
         `<button type='button' class='play-btn' data-action='go' data-to='evidence/${tg.id}'>플레이<span>문항 ${bank.length}개를 돌려 가며 출제</span></button></div>` +
         `<div class='gtiles'>${tiles}</div>` +
-        `<div class='section-title'>오보 유형 ${found}/${bank.length} 발견 · 분야별 맞힌 문항</div><div class='card cats'>${cats}</div>` +
+        `<div class='section-title'>오보 문항 ${found}/${bank.length} 발견 · 분야별 맞힌 문항</div><div class='card cats'>${cats}</div>` +
         `<div class='list' style='margin-top:12px'><a class='row' href='#/evidence/notes'><div class='tx'>오답 노트<span class='sub'>최근 틀린 문항 ${st.wrong.length}개 — 해설 다시 보기</span></div><span class='chev'>›</span></a></div>` +
-        `<p class='footnote'>게임마다 형식만 다르고 문항은 같습니다. 처음 보는 문항과 틀렸던 문항이 먼저 나와요. 감수 전 초안입니다.</p>`;
+        `<p class='footnote'>게임 8종, 형식만 다르고 문항은 같습니다(타자 게임은 용어). 처음 보는 문항과 틀렸던 문항이 먼저 나와요. 감수 전 초안입니다.</p>`;
     });
   }
   function notes() {
@@ -266,6 +269,9 @@
     if (sub === 'rush') { return PHD.rush.screen(); }
     if (sub === 'memory') { return memScreen(); }
     if (sub === 'snake') { return PHD.snake.screen(); }
+    if (sub === 'spot') { return PHD.spot.screen(); }
+    if (sub === 'typing') { return PHD.typing.screen(); }
+    if (sub === 'cards') { return PHD.cards.screen(); }
     if (sub === 'notes') { return notes(); }
     return hub();
   }

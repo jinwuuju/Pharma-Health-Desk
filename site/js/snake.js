@@ -1,4 +1,4 @@
-/* 진우주 기자 학교 — 오보찾기: 스네이크(D021). 위에 문항, 판에는 A·B·C·D 먹이. 정답 글자를 먹으면 길어지고 빨라진다.
+/* 진우주 기자 학교 — 오락실: 스네이크(D021). 위에 문항, 판에는 A·B·C·D 먹이. 정답 글자를 먹으면 길어지고 빨라진다.
    틀린 글자를 먹거나 벽·몸에 부딪히면 ❤️ −1(3개). 틀리면 잠깐 멈추고 해설을 보여 준다. 방향키·WASD·스와이프·방향 버튼. */
 (function () {
   'use strict';
@@ -12,7 +12,7 @@
   function A() { return PHD.app; }
   function el(id) { return document.getElementById(id); }
   function sound() { return A().settings().sound !== false; }
-  function back() { return `<a class='back' href='#/evidence'>‹ 오보찾기</a>`; }
+  function back() { return `<a class='back' href='#/evidence'>‹ 오락실</a>`; }
   function Q() { return PHD.quiz; }
 
   function fresh() { return { phase: 'ready', snake: [], dir: { x: 1, y: 0 }, next: { x: 1, y: 0 }, grow: 0, foods: [], item: null, order: [], score: 0, hearts: HEARTS, results: [], msg: '', xpText: '', wrongK: null }; }

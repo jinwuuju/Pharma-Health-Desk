@@ -1,4 +1,4 @@
-/* 진우주 기자 학교 — 오보찾기: 지뢰찾기(D020·D021). 함정은 오보찾기 문제 은행(quiz.js)의 4지선다 문항.
+/* 진우주 기자 학교 — 오락실: 지뢰찾기(D020·D021). 함정은 오락실 문제 은행(quiz.js)의 4지선다 문항.
    규칙은 고전 지뢰찾기 그대로: 숫자 = 주변 8칸의 함정 수, 깃발, 첫 칸은 늘 안전, 숫자 칸을 다시 누르면 주변을 한꺼번에 연다.
    함정(지뢰)은 기사 속 오보 유형이다. 밟으면 4지선다 — 맞히면 해체, 틀리면 ❤️ 하나를 잃는다. 해설은 선지마다. */
 (function () {
@@ -240,7 +240,7 @@
   function screen() {
     return load().then(function () {
       if (!traps.length) {
-        return `<a class='back' href='#/evidence'>‹ 오보찾기</a><h1 class='large-title'>지뢰찾기</h1>` + A().emptyCard('함정 자료가 아직 없어요', '기본 콘텐츠를 받으면 시작할 수 있어요.', `<button type='button' class='btn' data-action='load-builtin'>기본 콘텐츠 받기</button>`);
+        return `<a class='back' href='#/evidence'>‹ 오락실</a><h1 class='large-title'>지뢰찾기</h1>` + A().emptyCard('함정 자료가 아직 없어요', '기본 콘텐츠를 받으면 시작할 수 있어요.', `<button type='button' class='btn' data-action='load-builtin'>기본 콘텐츠 받기</button>`);
       }
       var lv = L();
       var known = traps.filter(function (t) { return disc.tr[t.id]; }).length;
@@ -248,7 +248,7 @@
         return `<button type='button' data-action='ms-level' data-val='${k}' aria-pressed='${st.level === k ? 'true' : 'false'}'>${LEVELS[k].name}</button>`;
       }).join('') + `</div>`;
       var modeSeg = `<div class='seg wide ms-mode' role='group'><button type='button' data-action='ms-mode' data-val='open' aria-pressed='${mode === 'open' ? 'true' : 'false'}'>⛏️ 열기</button><button type='button' data-action='ms-mode' data-val='flag' aria-pressed='${mode === 'flag' ? 'true' : 'false'}'>🚩 깃발</button></div>`;
-      return `<a class='back' href='#/evidence'>‹ 오보찾기</a><div class='al-top'><h1 class='large-title'>지뢰찾기</h1>${seg}</div>` +
+      return `<a class='back' href='#/evidence'>‹ 오락실</a><div class='al-top'><h1 class='large-title'>지뢰찾기</h1>${seg}</div>` +
         `<p class='g-goal'>함정 ${lv.mines}개를 피해 기사를 살리세요. 알게 된 오보 유형 <b class='num'>${known}</b>/${traps.length}</p>` +
         `<div class='ms-bar'><span class='ms-chip' title='남은 함정'>🚨 <b class='num' id='ms-left'>${remaining()}</b></span><span id='ms-hearts' class='ms-hearts'>${hearts()}</span>` +
         `<button type='button' class='ms-face' id='ms-face' data-action='ms-new' aria-label='새 판'>${face()}</button><span class='ms-chip'>⏱ <b class='num' id='ms-time'>${clock(st.started ? secs() : 0)}</b></span></div>` +

@@ -1,12 +1,12 @@
 #!/usr/bin/env python3
-# 코스 2(HEALTH BEAT) 게임 팩 생성기(D019·D020·D021). 원본: 이 파일의 연금술·오보 함정·근거 사다리 정의 + data/canon/master-index.json + data/registry/stats-001.json
+# 코스 2(HEALTH BEAT) 게임 팩 생성기(D019~D022). 원본: 이 파일의 연금술·오보 함정·근거 사다리 정의 + data/canon/master-index.json + data/registry/stats-001.json
 # 출력: data/packs/healthbeat/HB-GAME-001.json, site/packs/hb-games.json, site/packs/index.json 갱신. 감수 전(review: draft).
 import json, os, re, sys
 sys.path.insert(0, os.path.dirname(os.path.abspath(__file__)))
 import hb_ohbo_bank as OB
 
 ROOT = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
-VERSION = '2026-11-22.3'
+VERSION = '2026-11-22.4'
 PACK_ID = 'HB-GAME-001'
 
 # ---------- 인체 연금술(Little Alchemy형) ----------
@@ -155,14 +155,24 @@ def build():
         tr = {'id': tid, 'courseId': 'healthbeat', 'order': n, 'cat': it['cat'], 'catName': OB.CATS[it['cat']], 'lv': it['lv'],
               'title': it['title'], 'icon': it['icon'], 'headline': it['head'], 'short': it['short'], 'q': '이 문장의 가장 큰 문제는?',
               'choices': choices, 'answer': 0, 'fix': it['fix'], 'tip': it['tip'], 'ox': ox}
+        spot = OB.SPOT.get(it['id'])
+        if spot:
+            assert spot in it['head'], (it['id'], spot)
+            tr['spot'] = spot
         if it['ev']:
             tr['level'] = it['ev']
             tr['evidenceId'] = 'HB-EV-%02d' % it['ev']
         traps.append(tr)
-        cards.append({'id': 'HB-C-TR-' + it['id'], 'courseId': 'healthbeat', 'domain': '오보찾기 · ' + OB.CATS[it['cat']], 'axis': ['media', 'science'], 'tags': ['trap', it['cat']],
+        cards.append({'id': 'HB-C-TR-' + it['id'], 'courseId': 'healthbeat', 'domain': '오락실 · ' + OB.CATS[it['cat']], 'axis': ['media', 'science'], 'tags': ['trap', it['cat']],
                       'front': '🚨 {} — 이 문장의 가장 큰 문제는?'.format(it['head']), 'back': '{} — {}. 고쳐 쓰면: {}'.format(it['title'], it['ch'][0][0], it['fix']),
                       'why': it['tip'], 'unlock': {'type': 'tr', 'id': tid}, 'difficulty': it['lv']})
-    print('오보찾기 문항', len(traps), '· 정답이 가장 긴 선지', rank_longest)
+    print('오락실 문항', len(traps), '· 정답이 가장 긴 선지', rank_longest, '· 틀린 곳 지정', sum(1 for t in traps if t.get('spot')))
+    typing = []
+    for n, (tid, ans, alts, cue, why) in enumerate(OB.TY, start=1):
+        typing.append({'id': 'HB-TY-' + tid, 'courseId': 'healthbeat', 'order': n, 'answer': ans, 'alts': alts, 'cue': cue, 'why': why})
+        cards.append({'id': 'HB-C-TY-' + tid, 'courseId': 'healthbeat', 'domain': '오락실 · 용어', 'axis': ['media', 'science'], 'tags': ['term'],
+                      'front': '⌨️ ‘{}’ — 이것을 뜻하는 정확한 용어는?'.format(cue), 'back': '{} — {}'.format(ans, why),
+                      'unlock': {'type': 'ty', 'id': 'HB-TY-' + tid}, 'difficulty': 2})
     diseases = []
     for r in idx:
         if r.get('type') != 'disease':
@@ -197,9 +207,9 @@ def build():
         cards.append(card)
     pack = {
         'packId': PACK_ID, 'courseId': 'healthbeat', 'version': VERSION, 'week': 1, 'review': 'draft',
-        'title': 'HEALTH BEAT 게임 1차 — 인체 연금술·오보찾기·오늘의 진단·오늘의 숫자',
-        'description': '코스 2를 게임으로 시작한다(D019·D020·D021). 연금술 64원소·조합 58, 오보찾기 문항 59(4지선다·해설·O/X), 근거 사다리 10단계, 질환 비교 퍼즐(마스터 색인 관계), 통계 카드(레지스트리). 발견하면 카드가 취재 덱에 들어간다.',
-        'elements': elements, 'recipes': recipes, 'evidence': evidence, 'traps': traps, 'diseases': diseases, 'cards': cards,
+        'title': 'HEALTH BEAT 게임 1차 — 인체 연금술·오락실·오늘의 진단·오늘의 숫자',
+        'description': '코스 2를 게임으로 시작한다(D019·D020·D021). 연금술 64원소·조합 58, 오락실 문항 59(4지선다·해설·O/X·틀린 곳)·용어 38, 근거 사다리 10단계, 질환 비교 퍼즐(마스터 색인 관계), 통계 카드(레지스트리). 발견하면 카드가 취재 덱에 들어간다.',
+        'elements': elements, 'recipes': recipes, 'evidence': evidence, 'traps': traps, 'typing': typing, 'diseases': diseases, 'cards': cards,
     }
     return pack
 
@@ -218,7 +228,7 @@ def main():
     with open(ipath, 'w', encoding='utf-8') as fh:
         fh.write(json.dumps(man, ensure_ascii=False, indent=1) + chr(10))
     c = {}
-    for k in ('elements', 'recipes', 'evidence', 'traps', 'diseases', 'cards'):
+    for k in ('elements', 'recipes', 'evidence', 'traps', 'typing', 'diseases', 'cards'):
         c[k] = len(pack[k])
     print('HB-GAME-001', c)
     tiers = {}

@@ -6,12 +6,12 @@
   var U = PHD.util, S = PHD.store, P = PHD.packs;
   var esc = U.esc;
 
-  var APP_STEP = 'M2·오보찾기 5종';
+  var APP_STEP = 'M2·오락실 8종';
   var REPO = 'https://github.com/jinwuuju/Pharma-Health-Desk/blob/main/';
   var TABS = [
     { id: 'today', label: '홈' },
     { id: 'discover', label: '발견' },
-    { id: 'evidence', label: '오보찾기' },
+    { id: 'evidence', label: '오락실' },
     { id: 'review', label: '도감' },
     { id: 'me', label: '나' }
   ];
@@ -471,6 +471,16 @@
       case 'sn-start': PHD.snake.start(); break;
       case 'sn-dir': PHD.snake.turn(t.getAttribute('data-val')); break;
       case 'sn-cont': PHD.snake.cont(); break;
+      case 'sp-start': PHD.spot.start(); break;
+      case 'sp-tap': PHD.spot.tap(t.getAttribute('data-i')); break;
+      case 'sp-next': PHD.spot.next(); break;
+      case 'ty-start': PHD.typing.start(); break;
+      case 'ty-submit': PHD.typing.submit(); break;
+      case 'cb-start': PHD.cards.start(); break;
+      case 'cb-pick': PHD.cards.pick(t.getAttribute('data-k')); break;
+      case 'cb-bet': PHD.cards.bet(t.getAttribute('data-val')); break;
+      case 'cb-go': PHD.cards.go(); break;
+      case 'cb-next': PHD.cards.next(); break;
       case 'ms-cell': PHD.mines.tap(t.getAttribute('data-i')); break;
       case 'ms-answer': PHD.mines.answer(t.getAttribute('data-k')); break;
       case 'ms-continue': PHD.mines.cont(); break;

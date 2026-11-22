@@ -1,11 +1,11 @@
 {
  "packId": "HB-GAME-001",
  "courseId": "healthbeat",
- "version": "2026-11-22.3",
+ "version": "2026-11-22.4",
  "week": 1,
  "review": "draft",
- "title": "HEALTH BEAT 게임 1차 — 인체 연금술·오보찾기·오늘의 진단·오늘의 숫자",
- "description": "코스 2를 게임으로 시작한다(D019·D020·D021). 연금술 64원소·조합 58, 오보찾기 문항 59(4지선다·해설·O/X), 근거 사다리 10단계, 질환 비교 퍼즐(마스터 색인 관계), 통계 카드(레지스트리). 발견하면 카드가 취재 덱에 들어간다.",
+ "title": "HEALTH BEAT 게임 1차 — 인체 연금술·오락실·오늘의 진단·오늘의 숫자",
+ "description": "코스 2를 게임으로 시작한다(D019·D020·D021). 연금술 64원소·조합 58, 오락실 문항 59(4지선다·해설·O/X·틀린 곳)·용어 38, 근거 사다리 10단계, 질환 비교 퍼즐(마스터 색인 관계), 통계 카드(레지스트리). 발견하면 카드가 취재 덱에 들어간다.",
  "elements": [
   {
    "id": "HB-AL-cell",
@@ -1147,6 +1147,7 @@
      "why": "체험담은 취재의 출발점일 뿐이다. 같은 주장을 검증한 비교 연구가 있는지부터 찾는다."
     }
    ],
+   "spot": "제보로 본 효과",
    "level": 1,
    "evidenceId": "HB-EV-01"
   },
@@ -1195,6 +1196,7 @@
      "why": "제목에 ‘동물 실험’ ‘세포 실험’을 밝히고, 사람 임상까지 몇 단계가 남았는지 쓴다."
     }
    ],
+   "spot": "치료 길 열었다",
    "level": 2,
    "evidenceId": "HB-EV-02"
   },
@@ -1243,6 +1245,7 @@
      "why": "전문가 인용은 ‘누가 말했나’보다 ‘무엇에 근거했나’를 먼저 묻는다."
     }
    ],
+   "spot": "한 대학병원 교수",
    "level": 3,
    "evidenceId": "HB-EV-03"
   },
@@ -1291,6 +1294,7 @@
      "why": "논문의 ‘이해관계(COI)’와 ‘연구비 지원’ 항목을 꼭 읽는다."
     }
    ],
+   "spot": "기사엔 언급 없음",
    "level": 3,
    "evidenceId": "HB-EV-03"
   },
@@ -1339,6 +1343,7 @@
      "why": "‘n명’이 몇 명인지, 비교군이 있었는지 두 가지를 먼저 확인한다."
     }
    ],
+   "spot": "정복 눈앞",
    "level": 4,
    "evidenceId": "HB-EV-04"
   },
@@ -1387,6 +1392,7 @@
      "why": "‘설문’ ‘한 시점’이 보이면 원인·결과 표현을 쓰지 않는다."
     }
    ],
+   "spot": "스마트폰이 우울증 부른다",
    "level": 5,
    "evidenceId": "HB-EV-05"
   },
@@ -1435,6 +1441,7 @@
      "why": "환자-대조군 연구는 ‘~와 관련’까지만. 흡연 같은 교란 요인을 보정했는지 본다."
     }
    ],
+   "spot": "○○가 폐암 원인",
    "level": 6,
    "evidenceId": "HB-EV-06"
   },
@@ -1488,6 +1495,7 @@
      "why": "무작위 대조 시험은 인과 표현이 가능하다. 상대 위험임을 함께 밝히면 된다."
     }
    ],
+   "spot": "낮춘다",
    "level": 7,
    "evidenceId": "HB-EV-07"
   },
@@ -1536,6 +1544,7 @@
      "why": "자료가 ‘나라·지역 평균’이면 개인 건강 효과로 쓰지 않는다."
     }
    ],
+   "spot": "초콜릿이 두뇌 키운다",
    "level": 5,
    "evidenceId": "HB-EV-05"
   },
@@ -1583,7 +1592,8 @@
      "a": true,
      "why": "연구 대상(나라·나이·성별·질환 단계)이 기사 독자와 같은지 확인한다."
     }
-   ]
+   ],
+   "spot": "한국인도 똑같이 효과"
   },
   {
    "id": "HB-TR-relative",
@@ -1635,6 +1645,7 @@
      "why": "10→12명은 20% 상대 증가, 절대로는 1만 명당 2명(0.02%p) 증가다."
     }
    ],
+   "spot": "18% 높여",
    "level": 7,
    "evidenceId": "HB-EV-07"
   },
@@ -1692,7 +1703,8 @@
      "a": false,
      "why": "2%→1%는 1%p 감소, 상대적으로는 50% 감소다."
     }
-   ]
+   ],
+   "spot": "2% 감소"
   },
   {
    "id": "HB-TR-prevalence",
@@ -1743,7 +1755,8 @@
      "a": true,
      "why": "유병률은 발생과 유병 기간에 함께 좌우된다."
     }
-   ]
+   ],
+   "spot": "새로 걸린 사람 크게 늘어"
   },
   {
    "id": "HB-TR-fatality",
@@ -1789,7 +1802,8 @@
      "a": true,
      "why": "치명률(확진자 중 사망) ≠ 사망률(인구 중 사망). 분모를 먼저 확인한다."
     }
-   ]
+   ],
+   "spot": "사망률 10%"
   },
   {
    "id": "HB-TR-agestd",
@@ -1835,7 +1849,8 @@
      "a": true,
      "why": "해마다·지역끼리 비교할 땐 조사망률 대신 연령표준화 사망률을 본다."
     }
-   ]
+   ],
+   "spot": "암 치료 수준 뒷걸음"
   },
   {
    "id": "HB-TR-median",
@@ -1881,7 +1896,8 @@
      "a": true,
      "why": "‘평균’이 보이면 분포가 치우쳤는지 묻고, 중앙값을 함께 요청한다."
     }
-   ]
+   ],
+   "spot": "대부분 한 달은 입원"
   },
   {
    "id": "HB-TR-copay",
@@ -1927,7 +1943,8 @@
      "a": true,
      "why": "‘진료비’는 건보 부담+본인부담 합계. 환자 부담은 ‘본인부담금’ 통계를 따로 찾는다."
     }
-   ]
+   ],
+   "spot": "환자 부담 눈덩이"
   },
   {
    "id": "HB-TR-hr",
@@ -1973,7 +1990,8 @@
      "a": true,
      "why": "비율(HR·OR·RR)의 95% 신뢰구간이 1을 포함하면 ‘차이가 확인되지 않았다’고 쓴다."
     }
-   ]
+   ],
+   "spot": "사망 위험 30% 줄여"
   },
   {
    "id": "HB-TR-pvalue",
@@ -2025,6 +2043,7 @@
      "why": "p값은 효과가 없다고 가정했을 때 이 정도 결과가 나올 확률이다. 결과가 참일 확률이 아니다."
     }
    ],
+   "spot": "획기적 효과",
    "level": 8,
    "evidenceId": "HB-EV-08"
   },
@@ -2077,7 +2096,8 @@
      "a": true,
      "why": "위양성 약 100명, 진양성 약 1명이 나온다."
     }
-   ]
+   ],
+   "spot": "사실상 확진"
   },
   {
    "id": "HB-TR-survival",
@@ -2123,7 +2143,8 @@
      "a": true,
      "why": "상대생존율은 ‘같은 나이 일반인과 비교한 생존’이라 100%를 넘기도 한다."
     }
-   ]
+   ],
+   "spot": "걸려도 다 낫는 암"
   },
   {
    "id": "HB-TR-visits",
@@ -2169,7 +2190,8 @@
      "a": true,
      "why": "‘진료인원’은 진단받고 진료비가 청구된 사람. 숨은 환자·검진 확대·인식 변화를 함께 본다."
     }
-   ]
+   ],
+   "spot": "청년 우울증 대유행"
   },
   {
    "id": "HB-TR-survey",
@@ -2215,7 +2237,8 @@
      "a": true,
      "why": "차이가 오차범위 안이면 ‘오차범위 내’라고 쓰고 우열을 단정하지 않는다."
     }
-   ]
+   ],
+   "spot": "A가 더 많아"
   },
   {
    "id": "HB-TR-unit",
@@ -2261,7 +2284,8 @@
      "a": true,
      "why": "혈당·콜레스테롤은 나라마다 단위(mg/dL·mmol/L)가 다르다. 환산해 쓴다."
     }
-   ]
+   ],
+   "spot": "국내 기준과 달라"
   },
   {
    "id": "HB-TR-surrogate",
@@ -2308,6 +2332,7 @@
      "why": "1차 평가변수가 무엇인지(전체 생존? 무진행 생존? 반응률?) 먼저 확인한다."
     }
    ],
+   "spot": "생명 연장 기대",
    "level": 8,
    "evidenceId": "HB-EV-08"
   },
@@ -2356,6 +2381,7 @@
      "why": "보도자료의 ‘효과 확인’이 1차 평가변수 결과인지 꼭 확인한다."
     }
    ],
+   "spot": "효과 확인",
    "level": 8,
    "evidenceId": "HB-EV-08"
   },
@@ -2404,6 +2430,7 @@
      "why": "‘하위군’ ‘사후 분석’이 보이면 전체 결과를 먼저 쓰고, 하위군은 가설로 다룬다."
     }
    ],
+   "spot": "효과 탁월",
    "level": 8,
    "evidenceId": "HB-EV-08"
   },
@@ -2452,6 +2479,7 @@
      "why": "시험이 우월성인지 비열등성인지 먼저 본다. 비열등이면 장점(복용 편의·가격)이 무엇인지 쓴다."
     }
    ],
+   "spot": "기존 약보다 효과 뛰어나",
    "level": 8,
    "evidenceId": "HB-EV-08"
   },
@@ -2500,6 +2528,7 @@
      "why": "‘기존보다 낫다’는 같은 시험 안의 대조군과 비교했을 때만 쓴다."
     }
    ],
+   "spot": "기존 치료보다 확실히 우수",
    "level": 8,
    "evidenceId": "HB-EV-08"
   },
@@ -2548,6 +2577,7 @@
      "why": "학회 초록·포스터·프리프린트는 ‘발표’. ‘입증’ ‘확인’은 피한다."
     }
    ],
+   "spot": "효과 입증",
    "level": 8,
    "evidenceId": "HB-EV-08"
   },
@@ -2595,7 +2625,8 @@
      "a": true,
      "why": "medRxiv·bioRxiv는 프리프린트. ‘검증 전’임을 제목이나 첫 문단에 밝힌다."
     }
-   ]
+   ],
+   "spot": "치료 효과 확인"
   },
   {
    "id": "HB-TR-topline",
@@ -2641,7 +2672,8 @@
      "a": true,
      "why": "회사 발표는 따옴표와 출처로. 상세 결과 공개 시점(학회·논문)을 함께 쓴다."
     }
-   ]
+   ],
+   "spot": "임상 성공"
   },
   {
    "id": "HB-TR-placebo",
@@ -2688,6 +2720,7 @@
      "why": "‘먹은 사람의 몇 %가 좋아졌다’보다 ‘위약·기존 치료보다 얼마나 더’를 쓴다."
     }
    ],
+   "spot": "70% 통증 감소",
    "level": 8,
    "evidenceId": "HB-EV-08"
   },
@@ -2735,7 +2768,8 @@
      "a": true,
      "why": "‘효과 ○%’는 상대 위험 감소. 실제로 걸리는 사람 수는 유행 규모(기저 위험)에 달렸다."
     }
-   ]
+   ],
+   "spot": "100명 중 5명은 걸린다는 뜻"
   },
   {
    "id": "HB-TR-efficacy",
@@ -2781,7 +2815,8 @@
      "a": true,
      "why": "‘효능(efficacy)’은 시험 조건, ‘효과(effectiveness)’는 실제 진료. 둘을 구분한다."
     }
-   ]
+   ],
+   "spot": "실제 병원에서도 90% 효과"
   },
   {
    "id": "HB-TR-phase1fda",
@@ -2827,7 +2862,8 @@
      "a": true,
      "why": "단계(1상→2상→3상→허가)와 남은 기간을 독자가 알게 쓴다."
     }
-   ]
+   ],
+   "spot": "미국 시장 진출 눈앞"
   },
   {
    "id": "HB-TR-licensing",
@@ -2873,7 +2909,8 @@
      "a": true,
      "why": "계약금(반환 의무 여부)·단계별 기술료·로열티를 나눠 쓴다. 권리 반환 사례도 많다."
     }
-   ]
+   ],
+   "spot": "1조 원 수익 확보"
   },
   {
    "id": "HB-TR-approval",
@@ -2919,7 +2956,8 @@
      "a": true,
      "why": "허가(식약처) → 급여 평가(심평원) → 약가 협상(건보공단) → 고시(복지부). 어느 단계인지 쓴다."
     }
-   ]
+   ],
+   "spot": "내일부터 건강보험으로 싸게 처방"
   },
   {
    "id": "HB-TR-hff",
@@ -2970,7 +3008,8 @@
      "a": true,
      "why": "예: 칼슘·비타민D의 ‘골다공증 발생 위험 감소에 도움’. 인정 문구 그대로만 쓸 수 있다."
     }
-   ]
+   ],
+   "spot": "당뇨 예방 효과"
   },
   {
    "id": "HB-TR-stemcell",
@@ -3016,7 +3055,8 @@
      "a": true,
      "why": "허가 범위(적응증)와 근거 수준을 확인하고, 특정 의료기관 홍보가 되지 않게 쓴다."
     }
-   ]
+   ],
+   "spot": "연골 재생 효과"
   },
   {
    "id": "HB-TR-iarc",
@@ -3062,7 +3102,8 @@
      "a": true,
      "why": "IARC 분류는 ‘근거가 얼마나 확실한가’. 위험의 크기(얼마나 먹으면 얼마나)는 따로 쓴다."
     }
-   ]
+   ],
+   "spot": "담배만큼 위험"
   },
   {
    "id": "HB-TR-first",
@@ -3108,7 +3149,8 @@
      "a": true,
      "why": "최초·최대·유일은 출처 인용으로 처리하거나 직접 확인한다."
     }
-   ]
+   ],
+   "spot": "세계 최초"
   },
   {
    "id": "HB-TR-remission",
@@ -3154,7 +3196,8 @@
      "a": true,
      "why": "관해·무병 생존·완치는 뜻이 다르다. 의료진이 쓴 표현을 그대로 확인한다."
     }
-   ]
+   ],
+   "spot": "완치 판정"
   },
   {
    "id": "HB-TR-sideeffect",
@@ -3200,7 +3243,8 @@
      "a": true,
      "why": "보고 건수는 ‘얼마나 많이 쓰였나’와 함께. 많이 팔린 약일수록 보고도 많다."
     }
-   ]
+   ],
+   "spot": "위험한 약"
   },
   {
    "id": "HB-TR-adverse",
@@ -3251,7 +3295,8 @@
      "a": true,
      "why": "신고는 인과와 무관하게 접수된다. 접종 규모·자연 발생률과 비교해야 한다."
     }
-   ]
+   ],
+   "spot": "백신 부작용으로 사망"
   },
   {
    "id": "HB-TR-immunity",
@@ -3297,7 +3342,8 @@
      "a": true,
      "why": "‘면역력’ ‘혈관 청소’ ‘해독’ 같은 말은 무엇을 측정했는지 묻는다."
     }
-   ]
+   ],
+   "spot": "감기 안 걸린다"
   },
   {
    "id": "HB-TR-genetic",
@@ -3343,7 +3389,8 @@
      "a": true,
      "why": "위험 ‘○배’는 기저 확률과 함께. ‘운명·확정’ 같은 결정론적 표현을 피한다."
     }
-   ]
+   ],
+   "spot": "암 걸릴 운명"
   },
   {
    "id": "HB-TR-miracle",
@@ -3390,6 +3437,7 @@
      "why": "‘꿈의·기적의·획기적·부작용 없는·완치’는 쓰기 전에 근거 수치를 다시 확인한다."
     }
    ],
+   "spot": "부작용 없는 꿈의",
    "level": 8,
    "evidenceId": "HB-EV-08"
   },
@@ -3438,6 +3486,7 @@
      "why": "예방 효과는 해마다·연령마다 다르다. ‘얼마나 줄이나’로 쓴다."
     }
    ],
+   "spot": "절대 안 걸린다",
    "level": 8,
    "evidenceId": "HB-EV-08"
   },
@@ -3485,7 +3534,8 @@
      "a": true,
      "why": "제목에 ‘자살’과 방법을 쓰지 않고 상담 전화 109 같은 도움 정보를 싣는다(자살보도 권고기준 3.0)."
     }
-   ]
+   ],
+   "spot": "방법은 ○○"
   },
   {
    "id": "HB-TR-stigma",
@@ -3531,7 +3581,8 @@
      "a": true,
      "why": "‘○○ 환자’ ‘○○가 있는 사람’처럼 사람을 앞세우고, 비하·혐오 표현을 피한다."
     }
-   ]
+   ],
+   "spot": "사회 골칫거리"
   },
   {
    "id": "HB-TR-privacy",
@@ -3577,7 +3628,8 @@
      "a": true,
      "why": "감염병 보도준칙: 확진자 신상·거주지를 특정하지 말고 공식 발표 범위를 지킨다."
     }
-   ]
+   ],
+   "spot": "○○아파트 50대"
   },
   {
    "id": "HB-TR-fear",
@@ -3623,7 +3675,8 @@
      "a": true,
      "why": "위험을 쓸 땐 근거 수준(확실·가능성·제한적)을 함께 밝히고 ‘공포·경고’를 아낀다."
     }
-   ]
+   ],
+   "spot": "뇌종양 공포"
   },
   {
    "id": "HB-TR-natural",
@@ -3669,7 +3722,8 @@
      "a": true,
      "why": "‘천연·자연·무첨가’는 안전을 보장하지 않는다. 몸의 해독은 간·콩팥이 한다."
     }
-   ]
+   ],
+   "spot": "부작용 걱정 없는"
   },
   {
    "id": "HB-TR-quote",
@@ -3715,7 +3769,8 @@
      "a": true,
      "why": "제목 따옴표는 발언 원문 그대로. 요약하려면 따옴표를 빼고 쓴다."
     }
-   ]
+   ],
+   "spot": "‘이 약 먹으면 암 걸린다’"
   },
   {
    "id": "HB-TR-guideline",
@@ -3762,6 +3817,7 @@
      "why": "지침을 인용할 땐 발표 기관·연도·판(개정판)을 쓴다."
     }
    ],
+   "spot": "10년 전 지침 인용",
    "level": 10,
    "evidenceId": "HB-EV-10"
   },
@@ -3810,6 +3866,7 @@
      "why": "메타분석은 ‘무엇을 모았나’가 결론을 좌우한다. 포함 연구 설계와 근거 수준을 확인한다."
     }
    ],
+   "spot": "효과 확실",
    "level": 9,
    "evidenceId": "HB-EV-09"
   },
@@ -3857,7 +3914,8 @@
      "a": true,
      "why": "숫자마다 ‘언제 기준인가’를 붙인다. 진료 연도·사망 연도·발표일을 구분한다."
     }
-   ]
+   ],
+   "spot": "올해"
   },
   {
    "id": "HB-TR-intl",
@@ -3903,7 +3961,403 @@
      "a": true,
      "why": "국제 비교는 정의·측정 방식(실측/자가 보고)·연령 표준화를 확인한다."
     }
-   ]
+   ],
+   "spot": "한국인은 비만 걱정 없어"
+  }
+ ],
+ "typing": [
+  {
+   "id": "HB-TY-cfr",
+   "courseId": "healthbeat",
+   "order": 1,
+   "answer": "치명률",
+   "alts": [
+    "치사율"
+   ],
+   "cue": "확진자 가운데 사망한 비율",
+   "why": "인구 전체가 분모인 사망률과 다르다."
+  },
+  {
+   "id": "HB-TY-mortality",
+   "courseId": "healthbeat",
+   "order": 2,
+   "answer": "사망률",
+   "alts": [],
+   "cue": "인구 10만 명당 한 해 사망자 수",
+   "why": "분모가 인구 전체다."
+  },
+  {
+   "id": "HB-TY-prev",
+   "courseId": "healthbeat",
+   "order": 3,
+   "answer": "유병률",
+   "alts": [],
+   "cue": "지금 병을 가진 사람의 비율",
+   "why": "새 환자는 발생률로 본다."
+  },
+  {
+   "id": "HB-TY-inc",
+   "courseId": "healthbeat",
+   "order": 4,
+   "answer": "발생률",
+   "alts": [
+    "발병률"
+   ],
+   "cue": "일정 기간 새로 병이 생긴 비율",
+   "why": "유병률과 구분한다."
+  },
+  {
+   "id": "HB-TY-asmr",
+   "courseId": "healthbeat",
+   "order": 5,
+   "answer": "연령표준화 사망률",
+   "alts": [],
+   "cue": "나이 구조 차이를 없앤 사망률",
+   "why": "해마다·지역끼리 비교할 때 쓴다."
+  },
+  {
+   "id": "HB-TY-median",
+   "courseId": "healthbeat",
+   "order": 6,
+   "answer": "중앙값",
+   "alts": [
+    "중위값"
+   ],
+   "cue": "크기순으로 놓았을 때 한가운데 값",
+   "why": "치우친 분포에서 ‘보통’을 보여 준다."
+  },
+  {
+   "id": "HB-TY-copay",
+   "courseId": "healthbeat",
+   "order": 7,
+   "answer": "본인부담금",
+   "alts": [
+    "본인부담"
+   ],
+   "cue": "진료비 중 환자가 직접 내는 돈",
+   "why": "진료비 통계에는 건보 부담분도 들어 있다."
+  },
+  {
+   "id": "HB-TY-pp",
+   "courseId": "healthbeat",
+   "order": 8,
+   "answer": "퍼센트포인트",
+   "alts": [
+    "%p",
+    "pp",
+    "퍼센트 포인트"
+   ],
+   "cue": "비율과 비율의 단순한 차이 단위",
+   "why": "20%→18%는 2%p 감소다."
+  },
+  {
+   "id": "HB-TY-rr",
+   "courseId": "healthbeat",
+   "order": 9,
+   "answer": "상대 위험",
+   "alts": [
+    "상대위험도"
+   ],
+   "cue": "노출군 위험 ÷ 비노출군 위험",
+   "why": "크기는 절대 위험과 함께 판단한다."
+  },
+  {
+   "id": "HB-TY-ar",
+   "courseId": "healthbeat",
+   "order": 10,
+   "answer": "절대 위험",
+   "alts": [],
+   "cue": "실제로 병이 생기는 사람의 비율",
+   "why": "상대 위험과 짝지어 쓴다."
+  },
+  {
+   "id": "HB-TY-ci",
+   "courseId": "healthbeat",
+   "order": 11,
+   "answer": "신뢰구간",
+   "alts": [],
+   "cue": "추정값이 있을 법한 범위",
+   "why": "비율의 신뢰구간이 1을 포함하면 차이가 확인되지 않은 것이다."
+  },
+  {
+   "id": "HB-TY-placebo",
+   "courseId": "healthbeat",
+   "order": 12,
+   "answer": "위약",
+   "alts": [
+    "플라시보",
+    "가짜약"
+   ],
+   "cue": "약효 성분이 없는 가짜 약",
+   "why": "위약과의 차이가 진짜 효과다."
+  },
+  {
+   "id": "HB-TY-surrogate",
+   "courseId": "healthbeat",
+   "order": 13,
+   "answer": "대리 지표",
+   "alts": [
+    "대리표지자"
+   ],
+   "cue": "생존 대신 재는 종양 크기 같은 지표",
+   "why": "실제로 더 오래 사는지는 따로 본다."
+  },
+  {
+   "id": "HB-TY-primary",
+   "courseId": "healthbeat",
+   "order": 14,
+   "answer": "1차 평가변수",
+   "alts": [
+    "일차평가변수",
+    "주평가변수"
+   ],
+   "cue": "시험 성패를 가르는 미리 정한 지표",
+   "why": "2차 지표만 좋으면 실패한 시험이다."
+  },
+  {
+   "id": "HB-TY-subgroup",
+   "courseId": "healthbeat",
+   "order": 15,
+   "answer": "하위군 분석",
+   "alts": [
+    "하위집단분석"
+   ],
+   "cue": "참여자를 쪼개서 다시 본 분석",
+   "why": "가설을 만드는 단계다."
+  },
+  {
+   "id": "HB-TY-noninf",
+   "courseId": "healthbeat",
+   "order": 16,
+   "answer": "비열등성",
+   "alts": [
+    "비열등"
+   ],
+   "cue": "기존보다 크게 못하지 않음을 보이는 설계",
+   "why": "‘더 낫다’는 뜻이 아니다."
+  },
+  {
+   "id": "HB-TY-singlearm",
+   "courseId": "healthbeat",
+   "order": 17,
+   "answer": "단일군 시험",
+   "alts": [
+    "단일군"
+   ],
+   "cue": "대조군 없이 한 집단만 치료한 시험",
+   "why": "우열을 비교할 수 없다."
+  },
+  {
+   "id": "HB-TY-preprint",
+   "courseId": "healthbeat",
+   "order": 18,
+   "answer": "프리프린트",
+   "alts": [],
+   "cue": "동료 심사 전에 공개한 논문",
+   "why": "결론이 바뀌거나 철회될 수 있다."
+  },
+  {
+   "id": "HB-TY-ae",
+   "courseId": "healthbeat",
+   "order": 19,
+   "answer": "이상사례",
+   "alts": [],
+   "cue": "인과와 상관없이 투약·접종 뒤 생긴 일",
+   "why": "인과 가능성이 있으면 이상반응이다."
+  },
+  {
+   "id": "HB-TY-adr",
+   "courseId": "healthbeat",
+   "order": 20,
+   "answer": "이상반응",
+   "alts": [
+    "약물이상반응"
+   ],
+   "cue": "약과 인과 가능성이 있는 해로운 반응",
+   "why": "이상사례 가운데 인과성이 있는 것."
+  },
+  {
+   "id": "HB-TY-cr",
+   "courseId": "healthbeat",
+   "order": 21,
+   "answer": "완전관해",
+   "alts": [],
+   "cue": "검사에서 암이 보이지 않는 상태",
+   "why": "재발 가능성이 남아 완치와 다르다."
+  },
+  {
+   "id": "HB-TY-rsr",
+   "courseId": "healthbeat",
+   "order": 22,
+   "answer": "상대생존율",
+   "alts": [],
+   "cue": "같은 나이 일반인 대비 환자의 생존 비율",
+   "why": "100%를 넘기도 한다."
+  },
+  {
+   "id": "HB-TY-ppv",
+   "courseId": "healthbeat",
+   "order": 23,
+   "answer": "양성예측도",
+   "alts": [],
+   "cue": "양성 판정 가운데 진짜 환자의 비율",
+   "why": "유병률이 낮으면 크게 떨어진다."
+  },
+  {
+   "id": "HB-TY-moe",
+   "courseId": "healthbeat",
+   "order": 24,
+   "answer": "오차범위",
+   "alts": [
+    "표본오차"
+   ],
+   "cue": "표본 조사 결과가 흔들릴 수 있는 폭",
+   "why": "차이가 이 안이면 우열을 가리지 않는다."
+  },
+  {
+   "id": "HB-TY-confound",
+   "courseId": "healthbeat",
+   "order": 25,
+   "answer": "교란 변수",
+   "alts": [
+    "교란요인"
+   ],
+   "cue": "원인·결과 둘 다에 영향을 줘 착시를 만드는 것",
+   "why": "관찰 연구에서 꼭 확인한다."
+  },
+  {
+   "id": "HB-TY-recall",
+   "courseId": "healthbeat",
+   "order": 26,
+   "answer": "회상 편향",
+   "alts": [],
+   "cue": "과거 기억에 기대 답해 생기는 치우침",
+   "why": "환자-대조군 연구의 약점이다."
+  },
+  {
+   "id": "HB-TY-ecol",
+   "courseId": "healthbeat",
+   "order": 27,
+   "answer": "생태학적 오류",
+   "alts": [],
+   "cue": "집단 평균의 관계를 개인에게 적용하는 잘못",
+   "why": "나라 단위 자료에서 흔하다."
+  },
+  {
+   "id": "HB-TY-cohort",
+   "courseId": "healthbeat",
+   "order": 28,
+   "answer": "코호트 연구",
+   "alts": [
+    "코호트"
+   ],
+   "cue": "노출 집단을 시간에 따라 추적하는 연구",
+   "why": "연관을 보여 주지만 인과 단정은 못 한다."
+  },
+  {
+   "id": "HB-TY-casectrl",
+   "courseId": "healthbeat",
+   "order": 29,
+   "answer": "환자-대조군 연구",
+   "alts": [
+    "환자대조군"
+   ],
+   "cue": "환자와 비환자의 과거 노출을 비교하는 연구",
+   "why": "드문 병에 유리하다."
+  },
+  {
+   "id": "HB-TY-rct",
+   "courseId": "healthbeat",
+   "order": 30,
+   "answer": "무작위 대조 시험",
+   "alts": [
+    "rct",
+    "무작위배정임상시험"
+   ],
+   "cue": "참여자를 무작위로 나눠 비교하는 시험",
+   "why": "인과를 보기에 가장 강한 단일 연구다."
+  },
+  {
+   "id": "HB-TY-meta",
+   "courseId": "healthbeat",
+   "order": 31,
+   "answer": "메타분석",
+   "alts": [],
+   "cue": "여러 연구 결과를 통계로 합친 분석",
+   "why": "포함 연구의 질이 결론을 좌우한다."
+  },
+  {
+   "id": "HB-TY-upfront",
+   "courseId": "healthbeat",
+   "order": 32,
+   "answer": "계약금",
+   "alts": [
+    "선급금",
+    "업프론트"
+   ],
+   "cue": "기술수출 계약 때 바로 받는 돈",
+   "why": "총액과 나눠 쓴다."
+  },
+  {
+   "id": "HB-TY-milestone",
+   "courseId": "healthbeat",
+   "order": 33,
+   "answer": "마일스톤",
+   "alts": [
+    "단계별 기술료"
+   ],
+   "cue": "개발 단계를 넘을 때 받는 조건부 돈",
+   "why": "못 받을 수도 있다."
+  },
+  {
+   "id": "HB-TY-approval",
+   "courseId": "healthbeat",
+   "order": 34,
+   "answer": "품목허가",
+   "alts": [],
+   "cue": "식약처가 의약품 판매를 허락하는 것",
+   "why": "건강보험 급여와 다르다."
+  },
+  {
+   "id": "HB-TY-reimb",
+   "courseId": "healthbeat",
+   "order": 35,
+   "answer": "급여",
+   "alts": [
+    "보험급여",
+    "건강보험급여"
+   ],
+   "cue": "건강보험이 비용 일부를 내주는 것",
+   "why": "허가 뒤 별도 심사를 거친다."
+  },
+  {
+   "id": "HB-TY-visits",
+   "courseId": "healthbeat",
+   "order": 36,
+   "answer": "진료인원",
+   "alts": [],
+   "cue": "그 병으로 진료비가 청구된 사람 수",
+   "why": "유병자 수와 다르다."
+  },
+  {
+   "id": "HB-TY-efficacy",
+   "courseId": "healthbeat",
+   "order": 37,
+   "answer": "효능",
+   "alts": [],
+   "cue": "통제된 시험 조건에서의 약효",
+   "why": "실제 진료의 효과와 구분한다."
+  },
+  {
+   "id": "HB-TY-ind",
+   "courseId": "healthbeat",
+   "order": 38,
+   "answer": "임상시험계획",
+   "alts": [
+    "ind"
+   ],
+   "cue": "사람 대상 시험을 시작하려 내는 신청",
+   "why": "판매 허가가 아니다."
   }
  ],
  "diseases": [
@@ -7595,7 +8049,7 @@
   {
    "id": "HB-C-TR-anecdote",
    "courseId": "healthbeat",
-   "domain": "오보찾기 · 연구 설계",
+   "domain": "오락실 · 연구 설계",
    "axis": [
     "media",
     "science"
@@ -7616,7 +8070,7 @@
   {
    "id": "HB-C-TR-mouse",
    "courseId": "healthbeat",
-   "domain": "오보찾기 · 연구 설계",
+   "domain": "오락실 · 연구 설계",
    "axis": [
     "media",
     "science"
@@ -7637,7 +8091,7 @@
   {
    "id": "HB-C-TR-expert",
    "courseId": "healthbeat",
-   "domain": "오보찾기 · 연구 설계",
+   "domain": "오락실 · 연구 설계",
    "axis": [
     "media",
     "science"
@@ -7658,7 +8112,7 @@
   {
    "id": "HB-C-TR-coi",
    "courseId": "healthbeat",
-   "domain": "오보찾기 · 표현·윤리",
+   "domain": "오락실 · 표현·윤리",
    "axis": [
     "media",
     "science"
@@ -7679,7 +8133,7 @@
   {
    "id": "HB-C-TR-case",
    "courseId": "healthbeat",
-   "domain": "오보찾기 · 연구 설계",
+   "domain": "오락실 · 연구 설계",
    "axis": [
     "media",
     "science"
@@ -7700,7 +8154,7 @@
   {
    "id": "HB-C-TR-cross",
    "courseId": "healthbeat",
-   "domain": "오보찾기 · 연구 설계",
+   "domain": "오락실 · 연구 설계",
    "axis": [
     "media",
     "science"
@@ -7721,7 +8175,7 @@
   {
    "id": "HB-C-TR-recall",
    "courseId": "healthbeat",
-   "domain": "오보찾기 · 연구 설계",
+   "domain": "오락실 · 연구 설계",
    "axis": [
     "media",
     "science"
@@ -7742,7 +8196,7 @@
   {
    "id": "HB-C-TR-causal",
    "courseId": "healthbeat",
-   "domain": "오보찾기 · 연구 설계",
+   "domain": "오락실 · 연구 설계",
    "axis": [
     "media",
     "science"
@@ -7763,7 +8217,7 @@
   {
    "id": "HB-C-TR-ecological",
    "courseId": "healthbeat",
-   "domain": "오보찾기 · 연구 설계",
+   "domain": "오락실 · 연구 설계",
    "axis": [
     "media",
     "science"
@@ -7784,7 +8238,7 @@
   {
    "id": "HB-C-TR-translate",
    "courseId": "healthbeat",
-   "domain": "오보찾기 · 연구 설계",
+   "domain": "오락실 · 연구 설계",
    "axis": [
     "media",
     "science"
@@ -7805,7 +8259,7 @@
   {
    "id": "HB-C-TR-relative",
    "courseId": "healthbeat",
-   "domain": "오보찾기 · 숫자·통계",
+   "domain": "오락실 · 숫자·통계",
    "axis": [
     "media",
     "science"
@@ -7826,7 +8280,7 @@
   {
    "id": "HB-C-TR-percentp",
    "courseId": "healthbeat",
-   "domain": "오보찾기 · 숫자·통계",
+   "domain": "오락실 · 숫자·통계",
    "axis": [
     "media",
     "science"
@@ -7847,7 +8301,7 @@
   {
    "id": "HB-C-TR-prevalence",
    "courseId": "healthbeat",
-   "domain": "오보찾기 · 숫자·통계",
+   "domain": "오락실 · 숫자·통계",
    "axis": [
     "media",
     "science"
@@ -7868,7 +8322,7 @@
   {
    "id": "HB-C-TR-fatality",
    "courseId": "healthbeat",
-   "domain": "오보찾기 · 숫자·통계",
+   "domain": "오락실 · 숫자·통계",
    "axis": [
     "media",
     "science"
@@ -7889,7 +8343,7 @@
   {
    "id": "HB-C-TR-agestd",
    "courseId": "healthbeat",
-   "domain": "오보찾기 · 숫자·통계",
+   "domain": "오락실 · 숫자·통계",
    "axis": [
     "media",
     "science"
@@ -7910,7 +8364,7 @@
   {
    "id": "HB-C-TR-median",
    "courseId": "healthbeat",
-   "domain": "오보찾기 · 숫자·통계",
+   "domain": "오락실 · 숫자·통계",
    "axis": [
     "media",
     "science"
@@ -7931,7 +8385,7 @@
   {
    "id": "HB-C-TR-copay",
    "courseId": "healthbeat",
-   "domain": "오보찾기 · 숫자·통계",
+   "domain": "오락실 · 숫자·통계",
    "axis": [
     "media",
     "science"
@@ -7952,7 +8406,7 @@
   {
    "id": "HB-C-TR-hr",
    "courseId": "healthbeat",
-   "domain": "오보찾기 · 숫자·통계",
+   "domain": "오락실 · 숫자·통계",
    "axis": [
     "media",
     "science"
@@ -7973,7 +8427,7 @@
   {
    "id": "HB-C-TR-pvalue",
    "courseId": "healthbeat",
-   "domain": "오보찾기 · 숫자·통계",
+   "domain": "오락실 · 숫자·통계",
    "axis": [
     "media",
     "science"
@@ -7994,7 +8448,7 @@
   {
    "id": "HB-C-TR-baserate",
    "courseId": "healthbeat",
-   "domain": "오보찾기 · 숫자·통계",
+   "domain": "오락실 · 숫자·통계",
    "axis": [
     "media",
     "science"
@@ -8015,7 +8469,7 @@
   {
    "id": "HB-C-TR-survival",
    "courseId": "healthbeat",
-   "domain": "오보찾기 · 숫자·통계",
+   "domain": "오락실 · 숫자·통계",
    "axis": [
     "media",
     "science"
@@ -8036,7 +8490,7 @@
   {
    "id": "HB-C-TR-visits",
    "courseId": "healthbeat",
-   "domain": "오보찾기 · 숫자·통계",
+   "domain": "오락실 · 숫자·통계",
    "axis": [
     "media",
     "science"
@@ -8057,7 +8511,7 @@
   {
    "id": "HB-C-TR-survey",
    "courseId": "healthbeat",
-   "domain": "오보찾기 · 숫자·통계",
+   "domain": "오락실 · 숫자·통계",
    "axis": [
     "media",
     "science"
@@ -8078,7 +8532,7 @@
   {
    "id": "HB-C-TR-unit",
    "courseId": "healthbeat",
-   "domain": "오보찾기 · 숫자·통계",
+   "domain": "오락실 · 숫자·통계",
    "axis": [
     "media",
     "science"
@@ -8099,7 +8553,7 @@
   {
    "id": "HB-C-TR-surrogate",
    "courseId": "healthbeat",
-   "domain": "오보찾기 · 임상·신약",
+   "domain": "오락실 · 임상·신약",
    "axis": [
     "media",
     "science"
@@ -8120,7 +8574,7 @@
   {
    "id": "HB-C-TR-primary",
    "courseId": "healthbeat",
-   "domain": "오보찾기 · 임상·신약",
+   "domain": "오락실 · 임상·신약",
    "axis": [
     "media",
     "science"
@@ -8141,7 +8595,7 @@
   {
    "id": "HB-C-TR-subgroup",
    "courseId": "healthbeat",
-   "domain": "오보찾기 · 임상·신약",
+   "domain": "오락실 · 임상·신약",
    "axis": [
     "media",
     "science"
@@ -8162,7 +8616,7 @@
   {
    "id": "HB-C-TR-noninferior",
    "courseId": "healthbeat",
-   "domain": "오보찾기 · 임상·신약",
+   "domain": "오락실 · 임상·신약",
    "axis": [
     "media",
     "science"
@@ -8183,7 +8637,7 @@
   {
    "id": "HB-C-TR-singlearm",
    "courseId": "healthbeat",
-   "domain": "오보찾기 · 임상·신약",
+   "domain": "오락실 · 임상·신약",
    "axis": [
     "media",
     "science"
@@ -8204,7 +8658,7 @@
   {
    "id": "HB-C-TR-abstract",
    "courseId": "healthbeat",
-   "domain": "오보찾기 · 임상·신약",
+   "domain": "오락실 · 임상·신약",
    "axis": [
     "media",
     "science"
@@ -8225,7 +8679,7 @@
   {
    "id": "HB-C-TR-preprint",
    "courseId": "healthbeat",
-   "domain": "오보찾기 · 임상·신약",
+   "domain": "오락실 · 임상·신약",
    "axis": [
     "media",
     "science"
@@ -8246,7 +8700,7 @@
   {
    "id": "HB-C-TR-topline",
    "courseId": "healthbeat",
-   "domain": "오보찾기 · 임상·신약",
+   "domain": "오락실 · 임상·신약",
    "axis": [
     "media",
     "science"
@@ -8267,7 +8721,7 @@
   {
    "id": "HB-C-TR-placebo",
    "courseId": "healthbeat",
-   "domain": "오보찾기 · 임상·신약",
+   "domain": "오락실 · 임상·신약",
    "axis": [
     "media",
     "science"
@@ -8288,7 +8742,7 @@
   {
    "id": "HB-C-TR-vaccine95",
    "courseId": "healthbeat",
-   "domain": "오보찾기 · 임상·신약",
+   "domain": "오락실 · 임상·신약",
    "axis": [
     "media",
     "science"
@@ -8309,7 +8763,7 @@
   {
    "id": "HB-C-TR-efficacy",
    "courseId": "healthbeat",
-   "domain": "오보찾기 · 임상·신약",
+   "domain": "오락실 · 임상·신약",
    "axis": [
     "media",
     "science"
@@ -8330,7 +8784,7 @@
   {
    "id": "HB-C-TR-phase1fda",
    "courseId": "healthbeat",
-   "domain": "오보찾기 · 허가·제도",
+   "domain": "오락실 · 허가·제도",
    "axis": [
     "media",
     "science"
@@ -8351,7 +8805,7 @@
   {
    "id": "HB-C-TR-licensing",
    "courseId": "healthbeat",
-   "domain": "오보찾기 · 허가·제도",
+   "domain": "오락실 · 허가·제도",
    "axis": [
     "media",
     "science"
@@ -8372,7 +8826,7 @@
   {
    "id": "HB-C-TR-approval",
    "courseId": "healthbeat",
-   "domain": "오보찾기 · 허가·제도",
+   "domain": "오락실 · 허가·제도",
    "axis": [
     "media",
     "science"
@@ -8393,7 +8847,7 @@
   {
    "id": "HB-C-TR-hff",
    "courseId": "healthbeat",
-   "domain": "오보찾기 · 허가·제도",
+   "domain": "오락실 · 허가·제도",
    "axis": [
     "media",
     "science"
@@ -8414,7 +8868,7 @@
   {
    "id": "HB-C-TR-stemcell",
    "courseId": "healthbeat",
-   "domain": "오보찾기 · 허가·제도",
+   "domain": "오락실 · 허가·제도",
    "axis": [
     "media",
     "science"
@@ -8435,7 +8889,7 @@
   {
    "id": "HB-C-TR-iarc",
    "courseId": "healthbeat",
-   "domain": "오보찾기 · 허가·제도",
+   "domain": "오락실 · 허가·제도",
    "axis": [
     "media",
     "science"
@@ -8456,7 +8910,7 @@
   {
    "id": "HB-C-TR-first",
    "courseId": "healthbeat",
-   "domain": "오보찾기 · 허가·제도",
+   "domain": "오락실 · 허가·제도",
    "axis": [
     "media",
     "science"
@@ -8477,7 +8931,7 @@
   {
    "id": "HB-C-TR-remission",
    "courseId": "healthbeat",
-   "domain": "오보찾기 · 의학 용어",
+   "domain": "오락실 · 의학 용어",
    "axis": [
     "media",
     "science"
@@ -8498,7 +8952,7 @@
   {
    "id": "HB-C-TR-sideeffect",
    "courseId": "healthbeat",
-   "domain": "오보찾기 · 의학 용어",
+   "domain": "오락실 · 의학 용어",
    "axis": [
     "media",
     "science"
@@ -8519,7 +8973,7 @@
   {
    "id": "HB-C-TR-adverse",
    "courseId": "healthbeat",
-   "domain": "오보찾기 · 의학 용어",
+   "domain": "오락실 · 의학 용어",
    "axis": [
     "media",
     "science"
@@ -8540,7 +8994,7 @@
   {
    "id": "HB-C-TR-immunity",
    "courseId": "healthbeat",
-   "domain": "오보찾기 · 의학 용어",
+   "domain": "오락실 · 의학 용어",
    "axis": [
     "media",
     "science"
@@ -8561,7 +9015,7 @@
   {
    "id": "HB-C-TR-genetic",
    "courseId": "healthbeat",
-   "domain": "오보찾기 · 의학 용어",
+   "domain": "오락실 · 의학 용어",
    "axis": [
     "media",
     "science"
@@ -8582,7 +9036,7 @@
   {
    "id": "HB-C-TR-miracle",
    "courseId": "healthbeat",
-   "domain": "오보찾기 · 표현·윤리",
+   "domain": "오락실 · 표현·윤리",
    "axis": [
     "media",
     "science"
@@ -8603,7 +9057,7 @@
   {
    "id": "HB-C-TR-vaccine",
    "courseId": "healthbeat",
-   "domain": "오보찾기 · 표현·윤리",
+   "domain": "오락실 · 표현·윤리",
    "axis": [
     "media",
     "science"
@@ -8624,7 +9078,7 @@
   {
    "id": "HB-C-TR-suicide",
    "courseId": "healthbeat",
-   "domain": "오보찾기 · 표현·윤리",
+   "domain": "오락실 · 표현·윤리",
    "axis": [
     "media",
     "science"
@@ -8645,7 +9099,7 @@
   {
    "id": "HB-C-TR-stigma",
    "courseId": "healthbeat",
-   "domain": "오보찾기 · 표현·윤리",
+   "domain": "오락실 · 표현·윤리",
    "axis": [
     "media",
     "science"
@@ -8666,7 +9120,7 @@
   {
    "id": "HB-C-TR-privacy",
    "courseId": "healthbeat",
-   "domain": "오보찾기 · 표현·윤리",
+   "domain": "오락실 · 표현·윤리",
    "axis": [
     "media",
     "science"
@@ -8687,7 +9141,7 @@
   {
    "id": "HB-C-TR-fear",
    "courseId": "healthbeat",
-   "domain": "오보찾기 · 표현·윤리",
+   "domain": "오락실 · 표현·윤리",
    "axis": [
     "media",
     "science"
@@ -8708,7 +9162,7 @@
   {
    "id": "HB-C-TR-natural",
    "courseId": "healthbeat",
-   "domain": "오보찾기 · 표현·윤리",
+   "domain": "오락실 · 표현·윤리",
    "axis": [
     "media",
     "science"
@@ -8729,7 +9183,7 @@
   {
    "id": "HB-C-TR-quote",
    "courseId": "healthbeat",
-   "domain": "오보찾기 · 표현·윤리",
+   "domain": "오락실 · 표현·윤리",
    "axis": [
     "media",
     "science"
@@ -8750,7 +9204,7 @@
   {
    "id": "HB-C-TR-guideline",
    "courseId": "healthbeat",
-   "domain": "오보찾기 · 출처·시점",
+   "domain": "오락실 · 출처·시점",
    "axis": [
     "media",
     "science"
@@ -8771,7 +9225,7 @@
   {
    "id": "HB-C-TR-meta",
    "courseId": "healthbeat",
-   "domain": "오보찾기 · 출처·시점",
+   "domain": "오락실 · 출처·시점",
    "axis": [
     "media",
     "science"
@@ -8792,7 +9246,7 @@
   {
    "id": "HB-C-TR-baseyear",
    "courseId": "healthbeat",
-   "domain": "오보찾기 · 출처·시점",
+   "domain": "오락실 · 출처·시점",
    "axis": [
     "media",
     "science"
@@ -8813,7 +9267,7 @@
   {
    "id": "HB-C-TR-intl",
    "courseId": "healthbeat",
-   "domain": "오보찾기 · 출처·시점",
+   "domain": "오락실 · 출처·시점",
    "axis": [
     "media",
     "science"
@@ -8830,6 +9284,728 @@
     "id": "HB-TR-intl"
    },
    "difficulty": 3
+  },
+  {
+   "id": "HB-C-TY-cfr",
+   "courseId": "healthbeat",
+   "domain": "오락실 · 용어",
+   "axis": [
+    "media",
+    "science"
+   ],
+   "tags": [
+    "term"
+   ],
+   "front": "⌨️ ‘확진자 가운데 사망한 비율’ — 이것을 뜻하는 정확한 용어는?",
+   "back": "치명률 — 인구 전체가 분모인 사망률과 다르다.",
+   "unlock": {
+    "type": "ty",
+    "id": "HB-TY-cfr"
+   },
+   "difficulty": 2
+  },
+  {
+   "id": "HB-C-TY-mortality",
+   "courseId": "healthbeat",
+   "domain": "오락실 · 용어",
+   "axis": [
+    "media",
+    "science"
+   ],
+   "tags": [
+    "term"
+   ],
+   "front": "⌨️ ‘인구 10만 명당 한 해 사망자 수’ — 이것을 뜻하는 정확한 용어는?",
+   "back": "사망률 — 분모가 인구 전체다.",
+   "unlock": {
+    "type": "ty",
+    "id": "HB-TY-mortality"
+   },
+   "difficulty": 2
+  },
+  {
+   "id": "HB-C-TY-prev",
+   "courseId": "healthbeat",
+   "domain": "오락실 · 용어",
+   "axis": [
+    "media",
+    "science"
+   ],
+   "tags": [
+    "term"
+   ],
+   "front": "⌨️ ‘지금 병을 가진 사람의 비율’ — 이것을 뜻하는 정확한 용어는?",
+   "back": "유병률 — 새 환자는 발생률로 본다.",
+   "unlock": {
+    "type": "ty",
+    "id": "HB-TY-prev"
+   },
+   "difficulty": 2
+  },
+  {
+   "id": "HB-C-TY-inc",
+   "courseId": "healthbeat",
+   "domain": "오락실 · 용어",
+   "axis": [
+    "media",
+    "science"
+   ],
+   "tags": [
+    "term"
+   ],
+   "front": "⌨️ ‘일정 기간 새로 병이 생긴 비율’ — 이것을 뜻하는 정확한 용어는?",
+   "back": "발생률 — 유병률과 구분한다.",
+   "unlock": {
+    "type": "ty",
+    "id": "HB-TY-inc"
+   },
+   "difficulty": 2
+  },
+  {
+   "id": "HB-C-TY-asmr",
+   "courseId": "healthbeat",
+   "domain": "오락실 · 용어",
+   "axis": [
+    "media",
+    "science"
+   ],
+   "tags": [
+    "term"
+   ],
+   "front": "⌨️ ‘나이 구조 차이를 없앤 사망률’ — 이것을 뜻하는 정확한 용어는?",
+   "back": "연령표준화 사망률 — 해마다·지역끼리 비교할 때 쓴다.",
+   "unlock": {
+    "type": "ty",
+    "id": "HB-TY-asmr"
+   },
+   "difficulty": 2
+  },
+  {
+   "id": "HB-C-TY-median",
+   "courseId": "healthbeat",
+   "domain": "오락실 · 용어",
+   "axis": [
+    "media",
+    "science"
+   ],
+   "tags": [
+    "term"
+   ],
+   "front": "⌨️ ‘크기순으로 놓았을 때 한가운데 값’ — 이것을 뜻하는 정확한 용어는?",
+   "back": "중앙값 — 치우친 분포에서 ‘보통’을 보여 준다.",
+   "unlock": {
+    "type": "ty",
+    "id": "HB-TY-median"
+   },
+   "difficulty": 2
+  },
+  {
+   "id": "HB-C-TY-copay",
+   "courseId": "healthbeat",
+   "domain": "오락실 · 용어",
+   "axis": [
+    "media",
+    "science"
+   ],
+   "tags": [
+    "term"
+   ],
+   "front": "⌨️ ‘진료비 중 환자가 직접 내는 돈’ — 이것을 뜻하는 정확한 용어는?",
+   "back": "본인부담금 — 진료비 통계에는 건보 부담분도 들어 있다.",
+   "unlock": {
+    "type": "ty",
+    "id": "HB-TY-copay"
+   },
+   "difficulty": 2
+  },
+  {
+   "id": "HB-C-TY-pp",
+   "courseId": "healthbeat",
+   "domain": "오락실 · 용어",
+   "axis": [
+    "media",
+    "science"
+   ],
+   "tags": [
+    "term"
+   ],
+   "front": "⌨️ ‘비율과 비율의 단순한 차이 단위’ — 이것을 뜻하는 정확한 용어는?",
+   "back": "퍼센트포인트 — 20%→18%는 2%p 감소다.",
+   "unlock": {
+    "type": "ty",
+    "id": "HB-TY-pp"
+   },
+   "difficulty": 2
+  },
+  {
+   "id": "HB-C-TY-rr",
+   "courseId": "healthbeat",
+   "domain": "오락실 · 용어",
+   "axis": [
+    "media",
+    "science"
+   ],
+   "tags": [
+    "term"
+   ],
+   "front": "⌨️ ‘노출군 위험 ÷ 비노출군 위험’ — 이것을 뜻하는 정확한 용어는?",
+   "back": "상대 위험 — 크기는 절대 위험과 함께 판단한다.",
+   "unlock": {
+    "type": "ty",
+    "id": "HB-TY-rr"
+   },
+   "difficulty": 2
+  },
+  {
+   "id": "HB-C-TY-ar",
+   "courseId": "healthbeat",
+   "domain": "오락실 · 용어",
+   "axis": [
+    "media",
+    "science"
+   ],
+   "tags": [
+    "term"
+   ],
+   "front": "⌨️ ‘실제로 병이 생기는 사람의 비율’ — 이것을 뜻하는 정확한 용어는?",
+   "back": "절대 위험 — 상대 위험과 짝지어 쓴다.",
+   "unlock": {
+    "type": "ty",
+    "id": "HB-TY-ar"
+   },
+   "difficulty": 2
+  },
+  {
+   "id": "HB-C-TY-ci",
+   "courseId": "healthbeat",
+   "domain": "오락실 · 용어",
+   "axis": [
+    "media",
+    "science"
+   ],
+   "tags": [
+    "term"
+   ],
+   "front": "⌨️ ‘추정값이 있을 법한 범위’ — 이것을 뜻하는 정확한 용어는?",
+   "back": "신뢰구간 — 비율의 신뢰구간이 1을 포함하면 차이가 확인되지 않은 것이다.",
+   "unlock": {
+    "type": "ty",
+    "id": "HB-TY-ci"
+   },
+   "difficulty": 2
+  },
+  {
+   "id": "HB-C-TY-placebo",
+   "courseId": "healthbeat",
+   "domain": "오락실 · 용어",
+   "axis": [
+    "media",
+    "science"
+   ],
+   "tags": [
+    "term"
+   ],
+   "front": "⌨️ ‘약효 성분이 없는 가짜 약’ — 이것을 뜻하는 정확한 용어는?",
+   "back": "위약 — 위약과의 차이가 진짜 효과다.",
+   "unlock": {
+    "type": "ty",
+    "id": "HB-TY-placebo"
+   },
+   "difficulty": 2
+  },
+  {
+   "id": "HB-C-TY-surrogate",
+   "courseId": "healthbeat",
+   "domain": "오락실 · 용어",
+   "axis": [
+    "media",
+    "science"
+   ],
+   "tags": [
+    "term"
+   ],
+   "front": "⌨️ ‘생존 대신 재는 종양 크기 같은 지표’ — 이것을 뜻하는 정확한 용어는?",
+   "back": "대리 지표 — 실제로 더 오래 사는지는 따로 본다.",
+   "unlock": {
+    "type": "ty",
+    "id": "HB-TY-surrogate"
+   },
+   "difficulty": 2
+  },
+  {
+   "id": "HB-C-TY-primary",
+   "courseId": "healthbeat",
+   "domain": "오락실 · 용어",
+   "axis": [
+    "media",
+    "science"
+   ],
+   "tags": [
+    "term"
+   ],
+   "front": "⌨️ ‘시험 성패를 가르는 미리 정한 지표’ — 이것을 뜻하는 정확한 용어는?",
+   "back": "1차 평가변수 — 2차 지표만 좋으면 실패한 시험이다.",
+   "unlock": {
+    "type": "ty",
+    "id": "HB-TY-primary"
+   },
+   "difficulty": 2
+  },
+  {
+   "id": "HB-C-TY-subgroup",
+   "courseId": "healthbeat",
+   "domain": "오락실 · 용어",
+   "axis": [
+    "media",
+    "science"
+   ],
+   "tags": [
+    "term"
+   ],
+   "front": "⌨️ ‘참여자를 쪼개서 다시 본 분석’ — 이것을 뜻하는 정확한 용어는?",
+   "back": "하위군 분석 — 가설을 만드는 단계다.",
+   "unlock": {
+    "type": "ty",
+    "id": "HB-TY-subgroup"
+   },
+   "difficulty": 2
+  },
+  {
+   "id": "HB-C-TY-noninf",
+   "courseId": "healthbeat",
+   "domain": "오락실 · 용어",
+   "axis": [
+    "media",
+    "science"
+   ],
+   "tags": [
+    "term"
+   ],
+   "front": "⌨️ ‘기존보다 크게 못하지 않음을 보이는 설계’ — 이것을 뜻하는 정확한 용어는?",
+   "back": "비열등성 — ‘더 낫다’는 뜻이 아니다.",
+   "unlock": {
+    "type": "ty",
+    "id": "HB-TY-noninf"
+   },
+   "difficulty": 2
+  },
+  {
+   "id": "HB-C-TY-singlearm",
+   "courseId": "healthbeat",
+   "domain": "오락실 · 용어",
+   "axis": [
+    "media",
+    "science"
+   ],
+   "tags": [
+    "term"
+   ],
+   "front": "⌨️ ‘대조군 없이 한 집단만 치료한 시험’ — 이것을 뜻하는 정확한 용어는?",
+   "back": "단일군 시험 — 우열을 비교할 수 없다.",
+   "unlock": {
+    "type": "ty",
+    "id": "HB-TY-singlearm"
+   },
+   "difficulty": 2
+  },
+  {
+   "id": "HB-C-TY-preprint",
+   "courseId": "healthbeat",
+   "domain": "오락실 · 용어",
+   "axis": [
+    "media",
+    "science"
+   ],
+   "tags": [
+    "term"
+   ],
+   "front": "⌨️ ‘동료 심사 전에 공개한 논문’ — 이것을 뜻하는 정확한 용어는?",
+   "back": "프리프린트 — 결론이 바뀌거나 철회될 수 있다.",
+   "unlock": {
+    "type": "ty",
+    "id": "HB-TY-preprint"
+   },
+   "difficulty": 2
+  },
+  {
+   "id": "HB-C-TY-ae",
+   "courseId": "healthbeat",
+   "domain": "오락실 · 용어",
+   "axis": [
+    "media",
+    "science"
+   ],
+   "tags": [
+    "term"
+   ],
+   "front": "⌨️ ‘인과와 상관없이 투약·접종 뒤 생긴 일’ — 이것을 뜻하는 정확한 용어는?",
+   "back": "이상사례 — 인과 가능성이 있으면 이상반응이다.",
+   "unlock": {
+    "type": "ty",
+    "id": "HB-TY-ae"
+   },
+   "difficulty": 2
+  },
+  {
+   "id": "HB-C-TY-adr",
+   "courseId": "healthbeat",
+   "domain": "오락실 · 용어",
+   "axis": [
+    "media",
+    "science"
+   ],
+   "tags": [
+    "term"
+   ],
+   "front": "⌨️ ‘약과 인과 가능성이 있는 해로운 반응’ — 이것을 뜻하는 정확한 용어는?",
+   "back": "이상반응 — 이상사례 가운데 인과성이 있는 것.",
+   "unlock": {
+    "type": "ty",
+    "id": "HB-TY-adr"
+   },
+   "difficulty": 2
+  },
+  {
+   "id": "HB-C-TY-cr",
+   "courseId": "healthbeat",
+   "domain": "오락실 · 용어",
+   "axis": [
+    "media",
+    "science"
+   ],
+   "tags": [
+    "term"
+   ],
+   "front": "⌨️ ‘검사에서 암이 보이지 않는 상태’ — 이것을 뜻하는 정확한 용어는?",
+   "back": "완전관해 — 재발 가능성이 남아 완치와 다르다.",
+   "unlock": {
+    "type": "ty",
+    "id": "HB-TY-cr"
+   },
+   "difficulty": 2
+  },
+  {
+   "id": "HB-C-TY-rsr",
+   "courseId": "healthbeat",
+   "domain": "오락실 · 용어",
+   "axis": [
+    "media",
+    "science"
+   ],
+   "tags": [
+    "term"
+   ],
+   "front": "⌨️ ‘같은 나이 일반인 대비 환자의 생존 비율’ — 이것을 뜻하는 정확한 용어는?",
+   "back": "상대생존율 — 100%를 넘기도 한다.",
+   "unlock": {
+    "type": "ty",
+    "id": "HB-TY-rsr"
+   },
+   "difficulty": 2
+  },
+  {
+   "id": "HB-C-TY-ppv",
+   "courseId": "healthbeat",
+   "domain": "오락실 · 용어",
+   "axis": [
+    "media",
+    "science"
+   ],
+   "tags": [
+    "term"
+   ],
+   "front": "⌨️ ‘양성 판정 가운데 진짜 환자의 비율’ — 이것을 뜻하는 정확한 용어는?",
+   "back": "양성예측도 — 유병률이 낮으면 크게 떨어진다.",
+   "unlock": {
+    "type": "ty",
+    "id": "HB-TY-ppv"
+   },
+   "difficulty": 2
+  },
+  {
+   "id": "HB-C-TY-moe",
+   "courseId": "healthbeat",
+   "domain": "오락실 · 용어",
+   "axis": [
+    "media",
+    "science"
+   ],
+   "tags": [
+    "term"
+   ],
+   "front": "⌨️ ‘표본 조사 결과가 흔들릴 수 있는 폭’ — 이것을 뜻하는 정확한 용어는?",
+   "back": "오차범위 — 차이가 이 안이면 우열을 가리지 않는다.",
+   "unlock": {
+    "type": "ty",
+    "id": "HB-TY-moe"
+   },
+   "difficulty": 2
+  },
+  {
+   "id": "HB-C-TY-confound",
+   "courseId": "healthbeat",
+   "domain": "오락실 · 용어",
+   "axis": [
+    "media",
+    "science"
+   ],
+   "tags": [
+    "term"
+   ],
+   "front": "⌨️ ‘원인·결과 둘 다에 영향을 줘 착시를 만드는 것’ — 이것을 뜻하는 정확한 용어는?",
+   "back": "교란 변수 — 관찰 연구에서 꼭 확인한다.",
+   "unlock": {
+    "type": "ty",
+    "id": "HB-TY-confound"
+   },
+   "difficulty": 2
+  },
+  {
+   "id": "HB-C-TY-recall",
+   "courseId": "healthbeat",
+   "domain": "오락실 · 용어",
+   "axis": [
+    "media",
+    "science"
+   ],
+   "tags": [
+    "term"
+   ],
+   "front": "⌨️ ‘과거 기억에 기대 답해 생기는 치우침’ — 이것을 뜻하는 정확한 용어는?",
+   "back": "회상 편향 — 환자-대조군 연구의 약점이다.",
+   "unlock": {
+    "type": "ty",
+    "id": "HB-TY-recall"
+   },
+   "difficulty": 2
+  },
+  {
+   "id": "HB-C-TY-ecol",
+   "courseId": "healthbeat",
+   "domain": "오락실 · 용어",
+   "axis": [
+    "media",
+    "science"
+   ],
+   "tags": [
+    "term"
+   ],
+   "front": "⌨️ ‘집단 평균의 관계를 개인에게 적용하는 잘못’ — 이것을 뜻하는 정확한 용어는?",
+   "back": "생태학적 오류 — 나라 단위 자료에서 흔하다.",
+   "unlock": {
+    "type": "ty",
+    "id": "HB-TY-ecol"
+   },
+   "difficulty": 2
+  },
+  {
+   "id": "HB-C-TY-cohort",
+   "courseId": "healthbeat",
+   "domain": "오락실 · 용어",
+   "axis": [
+    "media",
+    "science"
+   ],
+   "tags": [
+    "term"
+   ],
+   "front": "⌨️ ‘노출 집단을 시간에 따라 추적하는 연구’ — 이것을 뜻하는 정확한 용어는?",
+   "back": "코호트 연구 — 연관을 보여 주지만 인과 단정은 못 한다.",
+   "unlock": {
+    "type": "ty",
+    "id": "HB-TY-cohort"
+   },
+   "difficulty": 2
+  },
+  {
+   "id": "HB-C-TY-casectrl",
+   "courseId": "healthbeat",
+   "domain": "오락실 · 용어",
+   "axis": [
+    "media",
+    "science"
+   ],
+   "tags": [
+    "term"
+   ],
+   "front": "⌨️ ‘환자와 비환자의 과거 노출을 비교하는 연구’ — 이것을 뜻하는 정확한 용어는?",
+   "back": "환자-대조군 연구 — 드문 병에 유리하다.",
+   "unlock": {
+    "type": "ty",
+    "id": "HB-TY-casectrl"
+   },
+   "difficulty": 2
+  },
+  {
+   "id": "HB-C-TY-rct",
+   "courseId": "healthbeat",
+   "domain": "오락실 · 용어",
+   "axis": [
+    "media",
+    "science"
+   ],
+   "tags": [
+    "term"
+   ],
+   "front": "⌨️ ‘참여자를 무작위로 나눠 비교하는 시험’ — 이것을 뜻하는 정확한 용어는?",
+   "back": "무작위 대조 시험 — 인과를 보기에 가장 강한 단일 연구다.",
+   "unlock": {
+    "type": "ty",
+    "id": "HB-TY-rct"
+   },
+   "difficulty": 2
+  },
+  {
+   "id": "HB-C-TY-meta",
+   "courseId": "healthbeat",
+   "domain": "오락실 · 용어",
+   "axis": [
+    "media",
+    "science"
+   ],
+   "tags": [
+    "term"
+   ],
+   "front": "⌨️ ‘여러 연구 결과를 통계로 합친 분석’ — 이것을 뜻하는 정확한 용어는?",
+   "back": "메타분석 — 포함 연구의 질이 결론을 좌우한다.",
+   "unlock": {
+    "type": "ty",
+    "id": "HB-TY-meta"
+   },
+   "difficulty": 2
+  },
+  {
+   "id": "HB-C-TY-upfront",
+   "courseId": "healthbeat",
+   "domain": "오락실 · 용어",
+   "axis": [
+    "media",
+    "science"
+   ],
+   "tags": [
+    "term"
+   ],
+   "front": "⌨️ ‘기술수출 계약 때 바로 받는 돈’ — 이것을 뜻하는 정확한 용어는?",
+   "back": "계약금 — 총액과 나눠 쓴다.",
+   "unlock": {
+    "type": "ty",
+    "id": "HB-TY-upfront"
+   },
+   "difficulty": 2
+  },
+  {
+   "id": "HB-C-TY-milestone",
+   "courseId": "healthbeat",
+   "domain": "오락실 · 용어",
+   "axis": [
+    "media",
+    "science"
+   ],
+   "tags": [
+    "term"
+   ],
+   "front": "⌨️ ‘개발 단계를 넘을 때 받는 조건부 돈’ — 이것을 뜻하는 정확한 용어는?",
+   "back": "마일스톤 — 못 받을 수도 있다.",
+   "unlock": {
+    "type": "ty",
+    "id": "HB-TY-milestone"
+   },
+   "difficulty": 2
+  },
+  {
+   "id": "HB-C-TY-approval",
+   "courseId": "healthbeat",
+   "domain": "오락실 · 용어",
+   "axis": [
+    "media",
+    "science"
+   ],
+   "tags": [
+    "term"
+   ],
+   "front": "⌨️ ‘식약처가 의약품 판매를 허락하는 것’ — 이것을 뜻하는 정확한 용어는?",
+   "back": "품목허가 — 건강보험 급여와 다르다.",
+   "unlock": {
+    "type": "ty",
+    "id": "HB-TY-approval"
+   },
+   "difficulty": 2
+  },
+  {
+   "id": "HB-C-TY-reimb",
+   "courseId": "healthbeat",
+   "domain": "오락실 · 용어",
+   "axis": [
+    "media",
+    "science"
+   ],
+   "tags": [
+    "term"
+   ],
+   "front": "⌨️ ‘건강보험이 비용 일부를 내주는 것’ — 이것을 뜻하는 정확한 용어는?",
+   "back": "급여 — 허가 뒤 별도 심사를 거친다.",
+   "unlock": {
+    "type": "ty",
+    "id": "HB-TY-reimb"
+   },
+   "difficulty": 2
+  },
+  {
+   "id": "HB-C-TY-visits",
+   "courseId": "healthbeat",
+   "domain": "오락실 · 용어",
+   "axis": [
+    "media",
+    "science"
+   ],
+   "tags": [
+    "term"
+   ],
+   "front": "⌨️ ‘그 병으로 진료비가 청구된 사람 수’ — 이것을 뜻하는 정확한 용어는?",
+   "back": "진료인원 — 유병자 수와 다르다.",
+   "unlock": {
+    "type": "ty",
+    "id": "HB-TY-visits"
+   },
+   "difficulty": 2
+  },
+  {
+   "id": "HB-C-TY-efficacy",
+   "courseId": "healthbeat",
+   "domain": "오락실 · 용어",
+   "axis": [
+    "media",
+    "science"
+   ],
+   "tags": [
+    "term"
+   ],
+   "front": "⌨️ ‘통제된 시험 조건에서의 약효’ — 이것을 뜻하는 정확한 용어는?",
+   "back": "효능 — 실제 진료의 효과와 구분한다.",
+   "unlock": {
+    "type": "ty",
+    "id": "HB-TY-efficacy"
+   },
+   "difficulty": 2
+  },
+  {
+   "id": "HB-C-TY-ind",
+   "courseId": "healthbeat",
+   "domain": "오락실 · 용어",
+   "axis": [
+    "media",
+    "science"
+   ],
+   "tags": [
+    "term"
+   ],
+   "front": "⌨️ ‘사람 대상 시험을 시작하려 내는 신청’ — 이것을 뜻하는 정확한 용어는?",
+   "back": "임상시험계획 — 판매 허가가 아니다.",
+   "unlock": {
+    "type": "ty",
+    "id": "HB-TY-ind"
+   },
+   "difficulty": 2
   },
   {
    "id": "HB-C-DX-0001",

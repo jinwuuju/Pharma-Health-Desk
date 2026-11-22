@@ -69,13 +69,13 @@ const setInput = (id, v) => { const i = doc.getElementById(id); i.value = v; i.d
 const today = () => w.PHD.util.studyDate(4);
 
 console.log('0. 스크립트 순서');
-check(order.join(',') === 'util.js,store.js,packs.js,srs.js,game.js,play.js,alchemy.js,quiz.js,mines.js,arcade.js,rush.js,snake.js,daily.js,screens.js,app.js', 'index.html 스크립트 15개 ' + order.join(','));
+check(order.join(',') === 'util.js,store.js,packs.js,srs.js,game.js,play.js,alchemy.js,quiz.js,mines.js,arcade.js,rush.js,snake.js,spot.js,typing.js,cards.js,daily.js,screens.js,app.js', 'index.html 스크립트 18개 ' + order.join(','));
 
 console.log('1. 첫 화면(게임 홈)');
 check(await until(() => doc.querySelector('.stage .char')), '홈에 캐릭터');
 check(await until(() => main().indexOf('취재 카드가 아직 없어요') >= 0), '빈 상태 말풍선');
 check(!!doc.querySelector('.play-btn[data-action=load-builtin]'), '빈 상태 주 행동 = 기본 콘텐츠 받기');
-check(doc.querySelectorAll('.tab').length === 5 && doc.getElementById('tabbar').textContent.indexOf('발견') >= 0 && doc.getElementById('tabbar').textContent.indexOf('오보찾기') >= 0, '탭 5개(홈·발견·오보찾기·도감·나)');
+check(doc.querySelectorAll('.tab').length === 5 && doc.getElementById('tabbar').textContent.indexOf('발견') >= 0 && doc.getElementById('tabbar').textContent.indexOf('오락실') >= 0, '탭 5개(홈·발견·오락실·도감·나)');
 check(doc.title === '진우주 기자 학교', '앱 이름');
 check(main().indexOf('HEALTH BEAT') >= 0 && main().indexOf('수습기자') >= 0, '코스 2 표시·수습기자');
 
@@ -109,7 +109,7 @@ console.log('5. 게임 빈 상태');
 await nav('#/discover');
 check(await until(() => main().indexOf('연금술 재료가 아직 없어요') >= 0), '발견: 재료 없음 안내');
 await nav('#/evidence');
-check(await until(() => main().indexOf('문항이 아직 없어요') >= 0), '오보찾기: 빈 상태');
+check(await until(() => main().indexOf('문항이 아직 없어요') >= 0), '오락실: 빈 상태');
 await nav('#/puzzle/dx');
 check(await until(() => main().indexOf('퍼즐 재료가 없어요') >= 0), '오늘의 진단: 빈 상태');
 
@@ -157,7 +157,7 @@ console.log('9. 기본 콘텐츠(코스 2 게임 팩 포함)');
 doc.querySelector('[data-action=load-builtin]').click();
 check(await until(async () => !!(await S.get('packs', 'HB-GAME-001')) && !!(await S.get('packs', 'W01-pipeline-map')) && !!(await S.get('packs', 'HB-REG-001')), 6000), '기본 팩 4개(HB 게임·통계·W00·W01)');
 const hb = await S.get('packs', 'HB-GAME-001');
-check(hb.courseId === 'healthbeat' && hb.counts.element === 64 && hb.counts.recipe === 58 && hb.counts.evidence === 10 && hb.counts.trap === 59 && hb.counts.disease === 119 && hb.counts.card === 279, 'HB 게임 팩: 원소 64·조합 58·근거 10·오보찾기 59·질환 119·카드 279');
+check(hb.courseId === 'healthbeat' && hb.counts.element === 64 && hb.counts.recipe === 58 && hb.counts.evidence === 10 && hb.counts.trap === 59 && hb.counts.typeterm === 38 && hb.counts.disease === 119 && hb.counts.card === 317, 'HB 게임 팩: 원소 64·조합 58·근거 10·문항 59·용어 38·질환 119·카드 317');
 const man = JSON.parse(fs.readFileSync(path.join(site, 'packs', 'index.json'), 'utf8'));
 check(man.packs[0].packId === 'HB-GAME-001', '기본 팩 목록 첫 줄이 코스 2');
 let shc = doc.querySelector('[data-action=sheet-close]'); if (shc) { shc.click(); }
@@ -172,7 +172,7 @@ check(main().indexOf('HEALTH BEAT W1') >= 0, '다음 일정 = HEALTH BEAT W1');
 key('2');
 check(await until(() => w.location.hash.indexOf('discover') >= 0), '숫자 키 2 → 발견');
 key('3');
-check(await until(() => w.location.hash.indexOf('evidence') >= 0), '숫자 키 3 → 오보찾기');
+check(await until(() => w.location.hash.indexOf('evidence') >= 0), '숫자 키 3 → 오락실');
 key('1');
 check(await until(() => w.location.hash.indexOf('today') >= 0 && doc.querySelectorAll('.tab kbd').length === 5), '숫자 키 1 → 홈');
 
@@ -250,9 +250,9 @@ await until(() => doc.querySelector("[data-action=ms-mode][data-val='open'][aria
 doc.querySelector("[data-action=ms-level][data-val='mid']").click();
 check(await until(() => doc.querySelectorAll('#ms-board .mc').length === 88), '기자 난이도 8×11');
 
-console.log('12b. 오보찾기 허브(D021)');
+console.log('12b. 오락실 허브(D021·D022)');
 await nav('#/evidence');
-check(await until(() => doc.querySelectorAll('.gtile').length === 5 && doc.querySelector('.ob-hero')), '게임 5종 타일·오늘의 게임');
+check(await until(() => doc.querySelectorAll('.gtile').length === 8 && doc.querySelector('.ob-hero') && main().indexOf('오락실') >= 0), '오락실: 게임 8종 타일·오늘의 게임');
 check(doc.querySelectorAll('.cat-r').length === 7 && main().indexOf('오답 노트') >= 0, '분야 7개 진행·오답 노트');
 check(!doc.body.classList.contains('in-game'), '허브에선 탭바 보임');
 const bank = w.PHD.quiz.bank();
@@ -342,6 +342,69 @@ doc.querySelector('[data-action=sheet-close]').click();
 await nav('#/today');
 check(await until(() => !doc.body.classList.contains('in-game')), '게임을 나오면 탭바 복귀');
 
+console.log('12g. 틀린 그림 찾기(교정지)');
+await nav('#/evidence/spot');
+check(await until(() => doc.querySelector('[data-action=sp-start]')), '시작 화면');
+doc.querySelector('[data-action=sp-start]').click();
+check(await until(() => doc.querySelectorAll('.paper .pt[data-action=sp-tap]').length >= 4), '교정지: 낱말마다 탭');
+const sp = () => w.PHD.spot.state();
+const hitI = () => sp().toks.findIndex((t) => t.hit);
+const missI = () => sp().toks.findIndex((t) => !t.hit && !t.dash);
+check(w.PHD.quiz.bank().every((it) => it.spot && it.headline.indexOf(it.spot) >= 0), '문항 59개 모두 틀린 곳이 문장 안에');
+doc.querySelector("[data-action=sp-tap][data-i='" + missI() + "']").click();
+check(await until(() => sp().hearts === 2 && doc.querySelector('.pt.miss')), '엉뚱한 곳 → ❤️ −1·줄 긋기');
+doc.querySelector("[data-action=sp-tap][data-i='" + hitI() + "']").click();
+check(await until(() => sp().phase === 'found' && doc.querySelector('.pt.circled') && main().indexOf('고쳐 쓰면') >= 0), '틀린 곳 → 빨간 동그라미·고쳐 쓰기');
+doc.querySelector('[data-action=sp-next]').click();
+check(await until(() => sp().idx === 1 && sp().phase === 'run'), '다음 문장');
+w.PHD.spot._timeout();
+check(await until(() => sp().hearts === 1 && main().indexOf('시간 초과') >= 0), '시간 초과 → ❤️ −1·정답 공개');
+doc.querySelector('[data-action=sp-next]').click();
+await until(() => sp().phase === 'run');
+doc.querySelector("[data-action=sp-tap][data-i='" + missI() + "']").click();
+await until(() => sp().phase === 'found');
+doc.querySelector('[data-action=sp-next]').click();
+check(await until(() => sp().phase === 'over' && main().indexOf('교정 끝') >= 0), '❤️ 0 → 교정 끝·이번 교정지 목록');
+
+console.log('12h. 타자 게임(산성비)');
+await nav('#/evidence/typing');
+check(await until(() => doc.querySelector('[data-action=ty-start]')), '시작 화면');
+doc.querySelector('[data-action=ty-start]').click(); w.PHD.typing._stop();
+const ty = () => w.PHD.typing.state();
+check(await until(() => doc.querySelectorAll('#ty-field .ty-drop').length === 1 && doc.getElementById('ty-in')), '뜻풀이 하나가 떨어짐·입력칸');
+const t0 = ty().drops[0].term;
+const inp = doc.getElementById('ty-in');
+inp.value = t0.answer; inp.dispatchEvent(new w.Event('input', { bubbles: true }));
+check(ty().score === 10 && ty().hits.length === 1 && inp.value === '', '정확한 용어 → 터짐·10점');
+const t1 = ty().drops[0].term;
+inp.value = (t1.alts && t1.alts[0]) || t1.answer.split(' ').join(''); inp.dispatchEvent(new w.Event('input', { bubbles: true }));
+check(ty().hits.length === 2, '띄어쓰기 차이·다른 표기도 인정');
+inp.value = '아무말'; doc.querySelector('[data-action=ty-submit]').click();
+check(ty().hits.length === 2 && inp.classList.contains('shake'), '틀린 입력 → 흔들림');
+for (let i = 0; i < 4 && ty().phase === 'run'; i++) { w.PHD.typing._step(20000); }
+check(await until(() => ty().phase === 'over' && main().indexOf('놓친 용어') >= 0), '바닥에 3번 닿으면 끝·놓친 용어 해설');
+check(await until(async () => Object.keys((await G.loadDiscover()).ty).length >= 3), '만난 용어 카드 열림');
+
+console.log('12i. 카드 배틀(확신 베팅)');
+await nav('#/evidence/cards');
+check(await until(() => doc.querySelector('[data-action=cb-start]')), '시작 화면');
+doc.querySelector('[data-action=cb-start]').click();
+check(await until(() => doc.querySelectorAll('.pc').length === 4 && doc.querySelectorAll('.chip-b').length === 4), '답 카드 4장·칩 4종');
+check(doc.querySelector('[data-action=cb-go]').disabled, '카드를 고르기 전엔 못 건다');
+doc.querySelector(".pc[data-k='0']").click();
+doc.querySelector(".chip-b[data-val='50']").click();
+doc.querySelector('[data-action=cb-go]').click();
+const cb = () => w.PHD.cards.state();
+check(await until(() => cb().chips === 150 && doc.querySelector('.cb-res.ok') && doc.querySelector('.pc.win')), '맞히면 건 만큼 딴다(100→150)');
+doc.querySelector('[data-action=cb-next]').click();
+await until(() => cb().phase === 'pick');
+doc.querySelector(".pc[data-k='1']").click();
+doc.querySelector(".chip-b[data-val='-1']").click();
+doc.querySelector('[data-action=cb-go]').click();
+check(await until(() => cb().chips === 0 && doc.querySelector('.cb-res.bad')), '올인 후 틀리면 0칩');
+doc.querySelector('[data-action=cb-next]').click();
+check(await until(() => cb().phase === 'over' && main().indexOf('파산') >= 0 && main().indexOf('확신 보정') >= 0), '파산·확신 보정 결과');
+
 console.log('13. 오늘의 진단(Wordle형)');
 await nav('#/today');
 check(await until(() => doc.querySelector('.play-btn[data-action=play]') && doc.querySelector(`.ptile[data-to='puzzle/dx']`)), '발견 카드가 생기면 주 행동은 취재, 퍼즐은 타일로');
@@ -398,7 +461,7 @@ await nav('#/today');
 check(await until(() => doc.querySelector('.play-btn[data-action=play]')), '발견한 카드가 생기면 홈 주 행동 = 취재');
 const deck1 = await PL.loadDeck();
 const dsc = await G.loadDiscover();
-const nDisc = ['al', 'ev', 'tr', 'dx', 'num'].reduce((a, k) => a + Object.keys(dsc[k]).length, 0);
+const nDisc = ['al', 'ev', 'tr', 'ty', 'dx', 'num'].reduce((a, k) => a + Object.keys(dsc[k]).length, 0);
 check(deck1.cards.length === nDisc && deck1.cards.every((c) => c.courseId === 'healthbeat'), '취재 덱 = 게임에서 발견한 코스 2 카드 ' + nDisc + '장');
 key('Enter');
 check(await until(() => !playBox().hidden && doc.querySelector('.pl-q')), '취재 시작');
@@ -415,7 +478,7 @@ check((await G.load(today())).game.streak === 1, '연속 1일');
 key('Enter');
 check(await until(() => playBox().hidden), '결과 닫기');
 await nav('#/review');
-check(await until(() => doc.querySelectorAll('.tile').length === 279 && doc.querySelectorAll('.tile:not(.unseen)').length === nDisc), '도감 ' + nDisc + '/279 열림');
+check(await until(() => doc.querySelectorAll('.tile').length === 317 && doc.querySelectorAll('.tile:not(.unseen)').length === nDisc), '도감 ' + nDisc + '/317 열림');
 doc.querySelector('.tile.unseen').click();
 check(await until(() => doc.getElementById('sheet').textContent.indexOf('발견하면 열립니다') >= 0), '미발견 카드: 어디서 열리는지 안내');
 doc.querySelector('#sheet [data-action=go]').click();

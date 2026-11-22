@@ -1,4 +1,4 @@
-/* 진우주 기자 학교 — 오보찾기: 속보 러시(D021, Puzzle Rush형). 90초 안에 문장마다 ‘정확’(→) 또는 ‘오보’(←).
+/* 진우주 기자 학교 — 오락실: 속보 러시(D021, Puzzle Rush형). 90초 안에 문장마다 ‘정확’(→) 또는 ‘오보’(←).
    세 번 틀리면 끝. 문장은 문제 은행의 오보 문장·고쳐 쓴 문장·추가 O/X에서 반반으로. 끝나면 오답 노트. */
 (function () {
   'use strict';
@@ -11,7 +11,7 @@
   function A() { return PHD.app; }
   function el(id) { return document.getElementById(id); }
   function sound() { return A().settings().sound !== false; }
-  function back() { return `<a class='back' href='#/evidence'>‹ 오보찾기</a>`; }
+  function back() { return `<a class='back' href='#/evidence'>‹ 오락실</a>`; }
 
   function fresh() { return { phase: 'ready', queue: [], cur: null, score: 0, streak: 0, bestStreak: 0, strikes: 0, t0: 0, left: DUR, answered: [], wrong: [], xpText: '' }; }
   function refill() { st.queue = st.queue.concat(PHD.quiz.statements(20)); }

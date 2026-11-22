@@ -667,3 +667,59 @@ body.in-game .main{padding-bottom:calc(env(safe-area-inset-bottom) + 28px)}
 .sn-pad [data-val=down]{grid-column:2;grid-row:2}
 .sn-pad [data-val=right]{grid-column:3;grid-row:2}
 @media (prefers-reduced-motion:reduce){*,*::before,*::after{transition:none !important;animation:none !important}}
+
+/* ===================== 오락실 추가 3종(D022) ===================== */
+/* 틀린 그림 찾기(교정지) */
+.paper{margin-top:10px;padding:18px 18px 20px;border-radius:6px 22px 22px 22px;background:#FFFDF6;color:#1C1C1E;box-shadow:0 2px 0 rgba(0,0,0,.05),0 12px 28px rgba(0,0,0,.1);background-image:linear-gradient(transparent 31px,rgba(10,132,255,.08) 32px);background-size:100% 32px}
+html[data-theme=dark] .paper{background-color:#2A2822;color:#F2F2F7}
+@media (prefers-color-scheme: dark){html:not([data-theme=light]) .paper{background-color:#2A2822;color:#F2F2F7}}
+.paper-k{display:block;font-size:.6875rem;font-weight:800;letter-spacing:.04em;color:#C0392B;margin-bottom:6px}
+.paper-h{font-family:'Apple SD Gothic Neo','Noto Serif KR',serif;font-size:1.3125rem;font-weight:800;line-height:1.75;word-break:keep-all}
+.pt{display:inline;padding:2px 3px;margin:0 -1px;border-radius:6px;font:inherit;color:inherit;background:none;cursor:pointer;position:relative;transition:background .12s}
+.pt:hover{background:rgba(10,132,255,.1)}
+.pt:active{background:rgba(10,132,255,.2)}
+.pt.dash{cursor:default;color:var(--text3)}
+.pt.miss{color:var(--text3);text-decoration:line-through;animation:shake .3s ease-in-out}
+.pt.circled{color:#D62828;background:none}
+.pt.circled::after{content:'';position:absolute;left:-6px;right:-6px;top:-4px;bottom:-4px;border:3px solid #FF3B30;border-radius:50%;animation:circle-in .45s var(--spring) both}
+.paper.done .pt:not(.circled){opacity:.55}
+.sp-hint{text-align:center;font-size:.8125rem;color:var(--text2);margin-top:12px}
+.sp-ans{margin-top:14px;text-align:left}
+.sp-ans h2{font-size:1.25rem;font-weight:800;margin:8px 2px 6px}
+@keyframes circle-in{0%{transform:scale(1.6) rotate(-20deg);opacity:0}100%{transform:none;opacity:1}}
+/* 타자 게임 */
+.ty-field{position:relative;height:min(46vh,340px);margin-top:10px;border-radius:20px;overflow:hidden;background:linear-gradient(180deg,color-mix(in srgb,var(--blue) 10%,var(--card)),var(--card) 70%,color-mix(in srgb,var(--red) 12%,var(--card)));box-shadow:var(--shadow)}
+.ty-field::after{content:'';position:absolute;left:0;right:0;bottom:0;height:6px;background:linear-gradient(90deg,#FF375F,#FF9F0A)}
+.ty-drop{position:absolute;max-width:44%;padding:7px 11px;border-radius:14px;background:var(--card);box-shadow:0 4px 12px rgba(0,0,0,.12);font-size:.8125rem;font-weight:700;line-height:1.35;word-break:keep-all;transition:top .05s linear}
+.ty-drop::before{content:'💧';margin-right:4px}
+.ty-drop.low{background:color-mix(in srgb,var(--red) 14%,var(--card));color:var(--red)}
+.ty-pop{position:absolute;font-weight:800;color:var(--green);font-size:.9375rem;animation:pop-up .9s var(--ease) forwards;pointer-events:none}
+.ty-miss{min-height:22px;margin:8px 4px 0;font-size:.8125rem;color:var(--text2)}
+.ty-miss b{color:var(--red)}
+.ty .pz-input input.shake{animation:shake .3s ease-in-out}
+/* 카드 배틀 */
+.pc-q{position:relative;margin-top:10px;padding:16px 16px 14px;border-radius:20px;background:linear-gradient(160deg,#1C3D2E,#0F2A1F);color:#fff;box-shadow:0 10px 24px rgba(0,0,0,.18)}
+.pc-q .qz-cat{color:rgba(255,255,255,.65)}
+.pc-q p{font-size:1.0625rem;font-weight:800;line-height:1.5;margin-top:6px}
+.pc-q-k{display:block;margin-top:8px;font-size:.75rem;font-weight:700;color:#FFD60A}
+.pc-hand{display:grid;grid-template-columns:1fr 1fr;gap:8px;margin-top:10px;perspective:900px}
+.pc{position:relative;display:flex;flex-direction:column;align-items:flex-start;gap:6px;min-height:112px;padding:10px 12px 12px;border-radius:14px;background:#FFFFFF;color:#1C1C1E;box-shadow:0 1px 0 rgba(0,0,0,.08),0 6px 14px rgba(0,0,0,.08);border:1px solid rgba(0,0,0,.08);text-align:left;transition:transform .18s var(--spring),box-shadow .18s}
+.pc-c{display:flex;align-items:center;gap:3px;font-size:1rem;font-weight:800}
+.pc-c i{font-style:normal}
+.pc.h .pc-c,.pc.d .pc-c{color:#D62828}
+.pc-t{font-size:.8125rem;font-weight:600;line-height:1.4}
+.pc.sel{transform:translateY(-6px);box-shadow:0 0 0 3px var(--blue),0 12px 22px rgba(0,0,0,.14)}
+.pc.win{animation:card-flip .45s var(--ease);box-shadow:0 0 0 3px #34C759,0 12px 22px rgba(0,0,0,.14)}
+.pc.lose{animation:shake .35s ease-in-out;box-shadow:0 0 0 3px #FF3B30;opacity:.85}
+.pc:disabled{cursor:default}
+.cb-bets{display:grid;grid-template-columns:repeat(4,1fr);gap:8px;margin-top:12px}
+.chip-b{height:52px;border-radius:50%;aspect-ratio:1;justify-self:center;width:52px;background:radial-gradient(circle at 50% 40%,#FFE066,#FFB800);color:#5A3B00;font-weight:800;font-size:.875rem;box-shadow:0 3px 0 #C98A00;border:3px dashed rgba(255,255,255,.6)}
+.chip-b.on{transform:translateY(-4px) scale(1.06);box-shadow:0 0 0 3px var(--blue),0 3px 0 #C98A00}
+.chip-b:disabled{opacity:.3}
+.cb-res{margin:12px 0 4px;text-align:center;font-size:1.75rem;font-weight:800;animation:pop-in .4s var(--spring)}
+.cb-res.ok{color:var(--green)}
+.cb-res.bad{color:var(--red)}
+.cb-chips b{color:#B8860B}
+.cb-cal{grid-template-columns:1fr 1fr}
+.cb-cal span{display:block;margin-top:2px}
+@media (prefers-reduced-motion:reduce){*,*::before,*::after{transition:none !important;animation:none !important}}
