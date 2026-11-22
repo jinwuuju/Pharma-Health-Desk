@@ -170,6 +170,15 @@ const w00 = await S.get('packs', 'W00-diagnostic');
 check(!w00 || (w00.counts && w00.counts.item === 95 && w00.counts.exam === 1), 'W00 진단평가 문항 95 · 시험 1 저장');
 const reg = await S.get('packs', 'HB-REG-001');
 check(!reg || (reg.courseId === 'healthbeat' && reg.counts && reg.counts.stat === 34), '통계 시드 34건이 코스 2로 저장');
+console.log('12. 오늘 화면 정돈·키보드 이동(D016)');
+await nav('#/today');
+check(await until(() => doc.querySelector('[data-action=tab][data-tab=pipeline].btn')), '콘텐츠가 있으면 오늘 화면에 주 행동 버튼(레슨 보기)');
+check(main().indexOf('학습 일정') >= 0 && !!doc.querySelector('.row .val.accent'), '학습 일정 목록과 가장 가까운 일정 강조');
+doc.dispatchEvent(new w.KeyboardEvent('keydown', { key: '2', bubbles: true }));
+check(await until(() => w.location.hash.indexOf('pipeline') >= 0), '숫자 키 2로 파이프라인 탭 이동');
+doc.dispatchEvent(new w.KeyboardEvent('keydown', { key: '1', bubbles: true }));
+check(await until(() => w.location.hash.indexOf('today') >= 0), '숫자 키 1로 오늘 탭 이동');
+check(doc.querySelectorAll('.tab kbd').length === 5, '탭마다 단축키 표시');
 await wait(100);
 check(pageErrors.length === 0, '페이지 오류 없음' + (pageErrors.length ? ': ' + pageErrors.join(' | ') : ''));
 if (failures.length) { console.log('스모크 검사 실패 ' + failures.length + '건'); process.exit(1); }

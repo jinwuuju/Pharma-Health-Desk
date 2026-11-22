@@ -140,3 +140,22 @@ details.row-d .ans{padding:0 16px 14px;color:var(--text2);font-size:.9375rem}
 @keyframes sheet-up{from{transform:translateY(24px);opacity:0}to{transform:none;opacity:1}}
 .ring .fg{transition:stroke-dashoffset .8s cubic-bezier(.2,.8,.2,1)}
 @media (prefers-reduced-motion: reduce){.sheet{animation:none}.toast{transition:none}.ring .fg{transition:none}details.row-d .chev{transition:none}}
+
+/* 2a UI 정돈(D016): 한 화면 한 행동, 의미 있는 색만, 키보드 우선, 큰 숫자 요약 */
+:root{--s1:4px;--s2:8px;--s3:12px;--s4:16px;--s5:24px;--s6:32px;--accent:var(--blue);--ease:cubic-bezier(.2,.8,.2,1)}
+.num,.stat b,.row .val{font-variant-numeric:tabular-nums}
+.row .val.accent{color:var(--accent);font-weight:600}
+.kicker{display:block;font-size:.8125rem;font-weight:600;color:var(--accent);margin-bottom:var(--s1)}
+.hero-card h2{font-size:1.375rem;line-height:1.3;font-weight:700;letter-spacing:-.01em}
+.hero-card p{color:var(--text2);font-size:.9375rem;margin-top:var(--s1)}
+.card + .section-title,.list + .section-title{margin-top:var(--s6)}
+.kbd{display:none}
+.btn,.tab,.seg button,button.row,a.row{transition:transform .12s var(--ease),background-color .15s,filter .15s}
+.btn:active{transform:scale(.98)}
+@media (hover:hover){.btn:hover{filter:brightness(1.06)} button.row:hover,a.row:hover,details.row-d summary:hover{background:var(--fill)} .tab:hover{color:var(--text)}}
+@media (min-width:1024px){
+ .kbd{display:inline-block;margin-left:auto;font:500 .6875rem/1 ui-monospace,SFMono-Regular,Menlo,monospace;color:var(--text3);border:.5px solid var(--sep);border-radius:5px;padding:3px 6px}
+ .tab[aria-current=page] .kbd{color:var(--text2)}
+ .tab:hover{background:var(--fill)}
+}
+@media (prefers-reduced-motion:reduce){*,*::before,*::after{transition:none !important;animation:none !important}}

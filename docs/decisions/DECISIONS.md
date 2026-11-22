@@ -50,3 +50,7 @@ O1(로그인·학교)은 XP가 생기는 M5 다음(8a), O3(소통)는 작업실 
 - 통계 레지스트리 파일은 StatRecord 배열 대신 CanonPack 모양(`packId`, `courseId`, `stats`, `sources`)으로 둔다. 출처를 같은 파일에 두어 sourceId를 검사할 수 있고, 지금 앱에서도 가져올 수 있다.
 - 마스터 색인은 기획대로 배열로 두고(앱 가져오기는 단계 5부터), 행에 `target`(v1.0·v2.0)과 `group`(S1~S6, U1~U12)을 더한다. 계획 링크는 `관계유형:주소` 문자열.
 
+## D016 UI 원칙 (2026-11-22)
+- 애플 HIG를 기본으로 하고, 간결·효율 UI로 성공한 Wordle·Duolingo·Linear·Lichess·Monkeytype에서 원칙을 가져온다. 규칙 9개는 `docs/design/UI-PRINCIPLES.md`.
+- 화면마다 주 행동 하나, 색은 의미에만, 숫자 키 탭 이동. 새 화면은 이 규칙으로 만들고, 스모크 검사에 해당 항목을 더한다.
+

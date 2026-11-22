@@ -2,7 +2,7 @@
   "name": "진우주 기자 학교",
   "updated": "2026-11-22",
   "current": "콘텐츠",
-  "next": "UI/UX",
+  "next": "감수 → M2",
   "calendar": [
     {
       "label": "W0 진단평가",
@@ -59,8 +59,9 @@
       "id": "UI",
       "title": "UI/UX 정돈",
       "detail": "애플식 기준 + 간결·효율 UI 성공 사례 5개",
-      "status": "todo",
-      "n": "2a"
+      "status": "done",
+      "n": "2a",
+      "date": "2026-11-22"
     },
     {
       "id": "M2",

@@ -97,9 +97,9 @@
   }
   function refresh() { route(); }
   function renderTabbar() {
-    el('tabbar').innerHTML = `<div class='brand'>진우주 기자 학교</div>` + TABS.map(function (t) {
+    el('tabbar').innerHTML = `<div class='brand'>진우주 기자 학교</div>` + TABS.map(function (t, i) {
       var cur = state.tab === t.id ? ` aria-current='page'` : '';
-      return `<button type='button' class='tab' data-action='tab' data-tab='${t.id}'${cur}>${ICONS[t.id]}<span>${t.label}</span></button>`;
+      return `<button type='button' class='tab' data-action='tab' data-tab='${t.id}'${cur} title='${t.label} (${i + 1})'>${ICONS[t.id]}<span>${t.label}</span><kbd class='kbd' aria-hidden='true'>${i + 1}</kbd></button>`;
     }).join('');
   }
 
@@ -121,28 +121,38 @@
       var today = U.studyDate(s.dayStartHour);
       var cal = CAL.slice();
       if (s.interviewDate) { cal.push({ label: '목표 면접일', date: s.interviewDate }); }
-      var dd = cal.map(function (e) {
+      var nextIdx = -1;
+      var rows = cal.map(function (e, i) {
         var d = U.daysBetween(today, e.date);
-        var big = d > 0 ? 'D-' + d : (d === 0 ? 'D-DAY' : 'D+' + (-d));
-        return `<div class='card stat'><b>${esc(big)}</b><span>${esc(e.label)} · ${esc(U.dots(e.date.slice(5)))}</span></div>`;
-      }).join('');
-      var content = sum.packs > 0
-        ? `<div class='card'><div class='stats4'>` +
+        if (nextIdx < 0 && d >= 0) { nextIdx = i; }
+        return { e: e, big: d > 0 ? 'D-' + d : (d === 0 ? 'D-DAY' : 'D+' + (-d)) };
+      });
+      if (nextIdx < 0) { nextIdx = rows.length - 1; }
+      var sched = `<div class='list'>` + rows.map(function (r, i) {
+        return `<div class='row'><div class='tx'>${esc(r.e.label)}<span class='sub'>${esc(U.dots(r.e.date))}</span></div><span class='val num${i === nextIdx ? ' accent' : ''}'>${esc(r.big)}</span></div>`;
+      }).join('') + `</div>`;
+      var hero, stats = '';
+      if (sum.packs > 0) {
+        var nx = rows[nextIdx];
+        hero = `<div class='card hero-card'><span class='kicker'>다음 일정 · ${esc(nx.big)}</span><h2>${esc(nx.e.label)}</h2>` +
+          `<p>레슨 ${sum.kinds.lesson}개, 카드 ${sum.kinds.card}장을 미리 볼 수 있습니다.</p>` +
+          `<div class='btn-row'><button type='button' class='btn' data-action='tab' data-tab='pipeline'>레슨 보기</button><button type='button' class='btn secondary' data-action='go-me'>콘텐츠 관리</button></div></div>`;
+        stats = `<div class='section-title'>가져온 콘텐츠</div><div class='card'><div class='stats4'>` +
           `<div class='stat'><b>${sum.packs}</b><span>팩</span></div>` +
           `<div class='stat'><b>${sum.kinds.lesson}</b><span>레슨</span></div>` +
           `<div class='stat'><b>${sum.kinds.card}</b><span>카드</span></div>` +
-          `<div class='stat'><b>${sum.kinds.item}</b><span>문항</span></div>` +
-          `</div><div class='btn-row'><button type='button' class='btn secondary' data-action='go-me'>콘텐츠 관리</button></div></div>`
-        : emptyCard('아직 콘텐츠가 없습니다', '샘플 팩으로 동작을 확인하거나, AI로 만든 콘텐츠 팩(JSON)을 가져오세요.',
+          `<div class='stat'><b>${sum.kinds.item}</b><span>문항</span></div></div></div>`;
+      } else {
+        hero = emptyCard('아직 콘텐츠가 없습니다', '샘플 팩으로 동작을 확인하거나, AI로 만든 콘텐츠 팩(JSON)을 가져오세요.',
           `<button type='button' class='btn' data-action='load-sample'>샘플 불러오기</button><button type='button' class='btn secondary' data-action='import-file'>팩 가져오기</button>`);
-      return `<div class='eyebrow'>진우주 기자 학교 · ${esc(U.koDate())}</div><h1 class='large-title'>오늘</h1>` +
-        `<div class='card'><div class='rings'>${rings([0, 0, 0])}<div class='ring-legend'>` +
+      }
+      return `<div class='eyebrow'>${esc(U.koDate())}</div><h1 class='large-title'>오늘</h1>` + hero +
+        `<div class='section-title'>오늘의 링</div><div class='card'><div class='rings'>${rings([0, 0, 0])}<div class='ring-legend'>` +
         `<div><span class='dot' style='background:var(--ring-review)'></span>복습 <b>0</b></div>` +
         `<div><span class='dot' style='background:var(--ring-new)'></span>신규 <b>0 / ${esc(s.dailyNew)}</b></div>` +
         `<div><span class='dot' style='background:var(--ring-apply)'></span>적용 <b>0 / 1</b></div>` +
-        `</div></div><p class='note'>오늘의 세션은 설치 단계 8(M5)에서 열립니다. 지금은 콘텐츠 가져오기와 백업을 준비할 수 있습니다.</p></div>` +
-        `<div class='section-title'>학습 일정</div><div class='grid2'>${dd}</div>` +
-        `<div class='section-title'>가져온 콘텐츠</div>${content}`;
+        `</div></div><p class='note'>오늘의 세션은 설치 단계 8에서 열립니다.</p></div>` +
+        `<div class='section-title'>학습 일정</div>` + sched + stats;
     });
   }
 
@@ -513,7 +523,14 @@
     toast('저장했습니다.');
   });
   el('sheet').addEventListener('click', function (ev) { if (ev.target === el('sheet')) { closeSheet(); } });
-  document.addEventListener('keydown', function (ev) { if (ev.key === 'Escape' && !el('sheet').hidden) { closeSheet(); } });
+  document.addEventListener('keydown', function (ev) {
+    if (ev.key === 'Escape' && !el('sheet').hidden) { closeSheet(); return; }
+    var t = ev.target, tag = t && t.tagName;
+    if (ev.metaKey || ev.ctrlKey || ev.altKey || !el('sheet').hidden) { return; }
+    if (tag === 'INPUT' || tag === 'TEXTAREA' || tag === 'SELECT' || (t && t.isContentEditable)) { return; }
+    var n = Number(ev.key);
+    if (n >= 1 && n <= TABS.length) { ev.preventDefault(); go(TABS[n - 1].id); }
+  });
   if (window.matchMedia) {
     var mq = window.matchMedia('(prefers-color-scheme: dark)');
     if (mq && mq.addEventListener) { mq.addEventListener('change', applyTheme); }
