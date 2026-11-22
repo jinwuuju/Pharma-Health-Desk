@@ -6,18 +6,22 @@
   var U = PHD.util, S = PHD.store, P = PHD.packs;
   var esc = U.esc;
 
-  var APP_STEP = 'M2';
+  var APP_STEP = 'M2·게임 3종';
   var REPO = 'https://github.com/jinwuuju/Pharma-Health-Desk/blob/main/';
   var TABS = [
     { id: 'today', label: '홈' },
-    { id: 'pipeline', label: '지도' },
+    { id: 'discover', label: '발견' },
+    { id: 'evidence', label: '근거' },
     { id: 'review', label: '도감' },
     { id: 'me', label: '나' }
   ];
+  var HIDDEN = { pipeline: 'me', puzzle: 'today' };   // 탭 밖 화면 → 강조할 탭
   var ICONS = {
     today: `<svg viewBox='0 0 24 24' fill='none' stroke='currentColor' stroke-width='1.9' stroke-linejoin='round' stroke-linecap='round' aria-hidden='true'><path d='M4 10.5L12 4l8 6.5V19a1.5 1.5 0 0 1-1.5 1.5H15v-6H9v6H5.5A1.5 1.5 0 0 1 4 19z'/></svg>`,
     pipeline: `<svg viewBox='0 0 24 24' fill='none' stroke='currentColor' stroke-width='1.9' stroke-linecap='round' stroke-linejoin='round' aria-hidden='true'><circle cx='6' cy='18' r='2.4'/><circle cx='18' cy='6' r='2.4'/><path d='M8.4 18H15a3 3 0 0 0 0-6H9a3 3 0 0 1 0-6h6.6'/></svg>`,
-    review: `<svg viewBox='0 0 24 24' fill='none' stroke='currentColor' stroke-width='1.9' stroke-linejoin='round' aria-hidden='true'><rect x='3.5' y='3.5' width='7' height='7' rx='2'/><rect x='13.5' y='3.5' width='7' height='7' rx='2'/><rect x='3.5' y='13.5' width='7' height='7' rx='2'/><rect x='13.5' y='13.5' width='7' height='7' rx='2'/></svg>`,
+    discover: `<svg viewBox='0 0 24 24' fill='none' stroke='currentColor' stroke-width='1.9' stroke-linejoin='round' stroke-linecap='round' aria-hidden='true'><path d='M9.5 3.5h5M10.5 3.5v5.2L5.2 17.6A2 2 0 0 0 6.9 20.5h10.2a2 2 0 0 0 1.7-2.9L13.5 8.7V3.5'/><path d='M7.6 14h8.8'/></svg>`,
+    evidence: `<svg viewBox='0 0 24 24' fill='none' stroke='currentColor' stroke-width='1.9' stroke-linejoin='round' aria-hidden='true'><rect x='3.5' y='3.5' width='7' height='7' rx='2'/><rect x='13.5' y='3.5' width='7' height='7' rx='2'/><rect x='3.5' y='13.5' width='7' height='7' rx='2'/><rect x='13.5' y='13.5' width='7' height='7' rx='2' fill='currentColor'/></svg>`,
+    review: `<svg viewBox='0 0 24 24' fill='none' stroke='currentColor' stroke-width='1.9' stroke-linejoin='round' stroke-linecap='round' aria-hidden='true'><rect x='7' y='3.5' width='12.5' height='14.5' rx='2.5'/><path d='M4.5 7.5V18a2.5 2.5 0 0 0 2.5 2.5h9'/></svg>`,
     me: `<svg viewBox='0 0 24 24' fill='none' stroke='currentColor' stroke-width='1.9' stroke-linecap='round' aria-hidden='true'><circle cx='12' cy='8.6' r='3.8'/><path d='M4.8 20c.9-3.6 3.8-5.6 7.2-5.6s6.3 2 7.2 5.6'/></svg>`,
     tray: `<svg width='44' height='44' viewBox='0 0 24 24' fill='none' stroke='currentColor' stroke-width='1.4' stroke-linejoin='round' aria-hidden='true'><path d='M3.5 13.5l2.2-7.1A2 2 0 0 1 7.6 5h8.8a2 2 0 0 1 1.9 1.4l2.2 7.1v4a2 2 0 0 1-2 2h-13a2 2 0 0 1-2-2z'/><path d='M3.5 13.5h4.6l1.4 2.2h5l1.4-2.2h4.6'/></svg>`
   };
@@ -69,8 +73,8 @@
     var h = String(location.hash || '');
     h = h.indexOf('#/') === 0 ? h.slice(2) : '';
     var parts = h.split('/');
-    if (parts[0] === 'exam') { return { tab: 'pipeline', sub: '' }; }   // 시험은 지도의 보스 칸으로 옮김(D018)
-    var ok = TABS.some(function (t) { return t.id === parts[0]; });
+    if (parts[0] === 'exam') { return { tab: 'pipeline', sub: '' }; }   // 시험은 PIPELINE 지도의 보스 칸(D018)
+    var ok = !!HIDDEN[parts[0]] || TABS.some(function (t) { return t.id === parts[0]; });
     return { tab: ok ? parts[0] : 'today', sub: ok ? (parts[1] || '') : '' };
   }
   function go(tab, sub) {
@@ -81,7 +85,8 @@
     var SC = PHD.screens;
     if (tab === 'me' && sub === 'settings') { return screenSettings; }
     if (tab === 'me' && sub === 'dev') { return screenDev; }
-    return { today: SC.home, pipeline: SC.map, review: SC.dex, me: SC.me }[tab] || SC.home;
+    if (tab === 'puzzle') { return sub === 'num' ? PHD.daily.numScreen : PHD.daily.dxScreen; }
+    return { today: SC.home, discover: PHD.alchemy.screen, evidence: PHD.g2048.screen, pipeline: SC.map, review: SC.dex, me: SC.me }[tab] || SC.home;
   }
   function route() {
     var r = parseHash();
@@ -103,7 +108,7 @@
 
   function renderTabbar() {
     el('tabbar').innerHTML = `<div class='brand'>진우주 기자 학교</div>` + TABS.map(function (t, i) {
-      var cur = state.tab === t.id ? ` aria-current='page'` : '';
+      var cur = (HIDDEN[state.tab] || state.tab) === t.id ? ` aria-current='page'` : '';
       return `<button type='button' class='tab' data-action='tab' data-tab='${t.id}'${cur} title='${t.label} (${i + 1})'>${ICONS[t.id]}<span>${t.label}</span><kbd class='kbd' aria-hidden='true'>${i + 1}</kbd></button>`;
     }).join('');
   }
@@ -131,6 +136,8 @@
         `<div class='section-title'>캐릭터</div><div class='list'>` +
         `<div class='row'><label class='tx' for='set-nick'>이름</label><input id='set-nick' type='text' maxlength='12' data-input='nickname' value='${esc(s.nickname)}' placeholder='진우주'></div>` +
         `<div class='row'><div class='tx'>효과음</div>${seg('sound', [['true', '켬'], ['false', '끔']])}</div></div>` +
+        `<div class='section-title'>코스</div><div class='list'>` +
+        `<div class='row'><div class='tx'>PIPELINE(코스 1)<span class='sub'>HEALTH BEAT를 먼저 마친 뒤 여세요. 열면 코스 1 카드도 취재에 섞입니다.</span></div>${seg('pipelineOpen', [['false', '잠금'], ['true', '열기']])}</div></div>` +
         `<div class='section-title'>학습</div><div class='list'>` +
         `<div class='row'><label class='tx' for='set-new'>하루 새 카드</label><input id='set-new' type='number' min='0' max='50' inputmode='numeric' data-input='dailyNew' value='${esc(s.dailyNew)}'></div>` +
         `<div class='row'><label class='tx' for='set-max'>하루 최대 복습</label><input id='set-max' type='number' min='10' max='500' inputmode='numeric' data-input='maxReviews' value='${esc(s.maxReviews)}'></div>` +
@@ -306,6 +313,8 @@
   function loadBuiltin() {
     if (state.busy) { return; }
     state.busy = true;
+    state.settings.skipPacks = [];
+    S.saveSettings(state.settings);
     fetchText('packs/index.json').then(function (t) { return JSON.parse(t); }).then(function (man) {
       var list = (man && man.packs) || [], results = [];
       return list.reduce(function (p, e) {
@@ -320,9 +329,32 @@
       toast('기본 콘텐츠를 읽지 못했습니다. 배포 주소에서 열었는지 확인하세요.');
     }).then(function () { state.busy = false; });
   }
+  // 앱을 열 때 기본 팩 목록에서 빠졌거나 버전이 바뀐 팩을 조용히 받는다(D019). 사용자가 지운 팩은 건너뛴다.
+  function autoUpdate(force) {
+    if (location.protocol === 'file:' || (state.settings.autoUpdate === false && !force)) { return Promise.resolve(0); }
+    state.updating = true;
+    var skip = state.settings.skipPacks || [];
+    return fetchText('packs/index.json').then(function (t) { return JSON.parse(t); }).then(function (man) {
+      return S.getAll('packs').then(function (installed) {
+        var have = {};
+        installed.forEach(function (pk) { have[pk.packId] = pk.version; });
+        var todo = ((man && man.packs) || []).filter(function (e) { return have[e.packId] !== e.version && skip.indexOf(e.packId) < 0; });
+        return todo.reduce(function (p, e) {
+          return p.then(function () { return fetchText('packs/' + e.file).then(function (text) { return importText(text, e.title || e.file); }); });
+        }, Promise.resolve()).then(function () { return todo.length; });
+      });
+    }).then(function (n) {
+      state.updating = false;
+      if (n) { toast('새 콘텐츠 ' + n + '개를 받았어요.'); refresh(); }
+      return n;
+    }).catch(function () { state.updating = false; refresh(); return 0; });
+  }
+
   function deletePack(packId) {
     if (!packId) { return; }
     if (!window.confirm(packId + ' 팩의 콘텐츠를 지웁니다. 학습 기록은 남습니다. 계속할까요?')) { return; }
+    state.settings.skipPacks = (state.settings.skipPacks || []).filter(function (x) { return x !== packId; }).concat([packId]);
+    S.saveSettings(state.settings);
     P.deletePack(packId).then(function (n) {
       toast('삭제했습니다 (' + n + '개 항목)');
       refresh();
@@ -393,7 +425,7 @@
   function setSetting(key, val) {
     if (!key) { return; }
     if (key === 'fontScale') { val = Number(val) || 1; }
-    if (key === 'sound') { val = val === 'true' || val === true; }
+    if (key === 'sound' || key === 'pipelineOpen') { val = val === 'true' || val === true; }
     state.settings[key] = val;
     S.saveSettings(state.settings);
     if (key === 'theme') { applyTheme(); }
@@ -418,6 +450,18 @@
       case 'play-lesson': startPlay({ ids: (state.cache[t.getAttribute('data-id')] || {}).cardIds || [], title: (state.cache[t.getAttribute('data-id')] || {}).title }); break;
       case 'extra-new': PHD.game.addExtraNew(U.studyDate(state.settings.dayStartHour), 5).then(function () { startPlay({}); }); break;
       case 'poke': SC.poke(t); break;
+      case 'go': closeSheet(); location.hash = '#/' + t.getAttribute('data-to'); break;
+      case 'al-pick': PHD.alchemy.pick(t.getAttribute('data-id')); break;
+      case 'al-slot': PHD.alchemy.clearSlot(t.getAttribute('data-i')); break;
+      case 'al-hint': PHD.alchemy.hint(); break;
+      case 'al-info': PHD.alchemy.info(t.getAttribute('data-id')); break;
+      case 'al-continue': PHD.alchemy.after(); break;
+      case 'g-new': PHD.g2048.newGame(); break;
+      case 'g-level': PHD.g2048.levelInfo(t.getAttribute('data-n')); break;
+      case 'g-continue': PHD.g2048.after(); break;
+      case 'dx-guess': PHD.daily.dxGuess(); break;
+      case 'num-guess': PHD.daily.numGuess(); break;
+      case 'pz-share': PHD.daily.share(t.getAttribute('data-kind')); break;
       case 'node': SC.nodeSheet(t.getAttribute('data-id')); break;
       case 'dex-card': SC.cardSheet(t.getAttribute('data-id')); break;
       case 'dex-filter': state.dexFilter = t.getAttribute('data-val') || 'all'; refresh(); break;
@@ -458,6 +502,11 @@
     if (PHD.play && PHD.play.active()) { return; }
     if (ev.key === 'Escape' && !el('sheet').hidden) { closeSheet(); return; }
     var t = ev.target, tag = t && t.tagName;
+    if (ev.key === 'Enter' && t && (t.id === 'dx-in' || t.id === 'num-in')) { ev.preventDefault(); if (t.id === 'dx-in') { PHD.daily.dxGuess(); } else { PHD.daily.numGuess(); } return; }
+    if (ev.key === 'Enter' && !el('sheet').hidden) {
+      var cont = el('sheet').querySelector('[data-action=al-continue],[data-action=g-continue]');
+      if (cont) { ev.preventDefault(); cont.click(); return; }
+    }
     if (ev.metaKey || ev.ctrlKey || ev.altKey || !el('sheet').hidden) { return; }
     if (tag === 'INPUT' || tag === 'TEXTAREA' || tag === 'SELECT' || (t && t.isContentEditable)) { return; }
     if ((ev.key === 'Enter' || ev.key === ' ') && state.tab === 'today' && !state.sub) {
@@ -475,12 +524,12 @@
 
   PHD.app = {
     settings: function () { return state.settings; }, state: state, refresh: refresh, toast: toast, go: go,
-    openSheet: openSheet, closeSheet: closeSheet, emptyCard: emptyCard, packLabel: packLabel, reviewPill: reviewPill, sortPacks: sortPacks, coursePill: coursePill
+    openSheet: openSheet, closeSheet: closeSheet, emptyCard: emptyCard, autoUpdate: autoUpdate, packLabel: packLabel, reviewPill: reviewPill, sortPacks: sortPacks, coursePill: coursePill
   };
 
   /* ---------- 시작 ---------- */
   applyTheme();
   applyFont();
   renderTabbar();
-  S.open().then(route).catch(fatal);
+  S.open().then(function () { route(); return autoUpdate(); }).catch(fatal);
 })();

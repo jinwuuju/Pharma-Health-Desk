@@ -1,6 +1,22 @@
 {
- "note": "앱 기본 탑재 팩 목록(D007·D017). 나 → 기본 콘텐츠 불러오기가 이 순서로 가져온다.",
+ "note": "앱 기본 탑재 팩 목록(D007·D017·D019). 코스 2(HEALTH BEAT) 먼저. 앱이 열릴 때 빠졌거나 버전이 바뀐 팩을 자동으로 받는다.",
  "packs": [
+  {
+   "file": "hb-games.json",
+   "packId": "HB-GAME-001",
+   "courseId": "healthbeat",
+   "version": "2026-11-22.1",
+   "title": "HEALTH BEAT 게임 1차 — 인체 연금술·근거 2048·오늘의 진단·오늘의 숫자",
+   "review": "draft"
+  },
+  {
+   "file": "stats-001.json",
+   "packId": "HB-REG-001",
+   "courseId": "healthbeat",
+   "version": "2026-11-22.1",
+   "title": "통계 레지스트리 1차 — 렌즈 앵커(기획안 2의 5.1)",
+   "review": "draft"
+  },
   {
    "file": "W00.json",
    "packId": "W00-diagnostic",
@@ -15,14 +31,6 @@
    "courseId": "pipeline",
    "version": "2026-11-22.1",
    "title": "W1 신약개발 전주기 큰 그림 + 약어 100",
-   "review": "draft"
-  },
-  {
-   "file": "stats-001.json",
-   "packId": "HB-REG-001",
-   "courseId": "healthbeat",
-   "version": "2026-11-22.1",
-   "title": "통계 레지스트리 1차 — 렌즈 앵커(기획안 2의 5.1)",
    "review": "draft"
   }
  ]

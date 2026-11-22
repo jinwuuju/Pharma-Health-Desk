@@ -18,7 +18,8 @@
 - 완료: M0 기반(저장소·문서·검사·자동 배포), M1 앱 골격(탭 5개·디자인 토큰·라이트/다크·IndexedDB 저장·팩 가져오기·백업/복원·샘플 팩·설정, 설치 현황은 나 → 개발 현황). 주소 https://jinwuuju.github.io/Pharma-Health-Desk/
 - 완료: 단계 2 첫 콘텐츠(W00·W01·통계 시드·마스터 색인, 감수 전 탑재 D017), 단계 2a UI/UX 정돈(D016, `docs/design/UI-PRINCIPLES.md`).
 - 완료: 단계 2b 게임형 UI/UX + 단계 3 M2 복습 엔진(D018). 화면은 웹게임 구조(탭 4개 홈·지도·도감·나, 캐릭터·취재 버튼·퀘스트·연속일), 설계는 `docs/design/UI-PRINCIPLES.md`. 새 화면·기능은 이 구조와 규칙을 따른다.
-- 다음: NEXT-STEPS 단계 4 = M3 레슨 리더(지도의 레슨 칸에서 열기). 콘텐츠는 감수 없이 계속 만들어 넣고, 전부 만든 뒤 일괄 감수(`docs/production/REVIEW-QUEUE.md`).
+- 완료: 단계 2c 게임 3종 + 코스 2 먼저(D019). Wordle·2048·Little Alchemy 2를 모방한 오늘의 진단/숫자·근거 2048·인체 연금술, 탭 5개(홈·발견·근거·도감·나). **코스 2(HEALTH BEAT)가 먼저이고 PIPELINE은 잠김**(설정 pipelineOpen). 게임 팩은 `tools/build_hb_games.py`로 생성.
+- 다음: NEXT-STEPS 단계 4 = M3 레슨 리더(코스 2 항목부터, 게임에서 발견한 원소·질환에서 열기). 콘텐츠는 감수 없이 계속 만들어 넣고, 전부 만든 뒤 일괄 감수(`docs/production/REVIEW-QUEUE.md`).
 - 배포: 2026-11-22 오후 사용자 지시로 push를 보류했다가 같은 날 push 지시로 재개했다. 기본은 3절대로 단계마다 push·배포 확인.
 - 계획 추가: 온라인 학교(Google 로그인·동료 리그·소통) — [기획안 3](docs/plans/03-ONLINE-SCHOOL.md), 설치 단계 8a·13a·14a(D013·D014). O1은 사용자가 Firebase 준비(기획안 3의 7절)를 마쳐야 시작할 수 있다.
 - 학습 일정: W0 진단평가 2026-11-30 주, W1 2026-12-07 시작(두 코스 공통 달력).
@@ -45,11 +46,11 @@
 ## 5. 코드 구조 (D003~D007)
 
 - 빌드 도구 없음. `site/index.html`에서 시작하고, 커지면 `site/js/*.js`(일반 script 태그, ES 모듈 의존 없이)와 `site/css/app.css`로 나눈다. file:// 로 열어도 핵심 기능이 동작해야 한다.
-- 현재 파일(D010·D018, 불러오는 순서): `site/js/util.js`(날짜·이스케이프·파일) · `store.js`(IndexedDB·설정·백업, DB_VERSION·SCHEMA_VERSION) · `packs.js`(팩 검사·가져오기) · `srs.js`(복습 엔진, 순수 함수) · `game.js`(XP·레벨·연속일·퀘스트·캐릭터 SVG·효과음) · `play.js`(취재 플레이어) · `screens.js`(홈·지도·도감·나) · `app.js`(이동·탭·시트·설정·콘텐츠·백업, 마지막에 시작). `site/css/app.css`(토큰·게임 화면). 화면은 store·packs·game을 통해서만 데이터를 바꾼다.
+- 현재 파일(D010·D018, 불러오는 순서): `site/js/util.js`(날짜·이스케이프·파일) · `store.js`(IndexedDB·설정·백업, DB_VERSION·SCHEMA_VERSION) · `packs.js`(팩 검사·가져오기) · `srs.js`(복습 엔진, 순수 함수) · `game.js`(XP·레벨·연속일·퀘스트·캐릭터 SVG·효과음) · `play.js`(취재 플레이어) · `alchemy.js`(인체 연금술) · `g2048.js`(근거 2048) · `daily.js`(오늘의 진단·숫자) · `screens.js`(홈·도감·나·PIPELINE 지도) · `app.js`(이동·탭·시트·설정·콘텐츠·백업, 마지막에 시작). `site/css/app.css`(토큰·게임 화면). 화면은 store·packs·game을 통해서만 데이터를 바꾼다.
 - 외부 CDN·외부 이미지·외부 폰트 금지(오프라인 동작, 저작권). 아이콘은 인라인 SVG로 직접 그린다.
 - 저장: 학습 기록·콘텐츠는 IndexedDB, 설정만 localStorage. 저장 스키마에 schemaVersion, 바뀌면 마이그레이션 함수. 백업 JSON 내보내기·가져오기 필수. 기존 사용자 기록을 지우는 변경 금지.
 - 한 앱 두 코스(D005): 모든 데이터에 courseId('pipeline' | 'healthbeat').
-- 콘텐츠: 원본은 `data/`, 앱 기본 탑재본은 `site/packs/`로 복사(D007).
+- 콘텐츠: 원본은 `data/`, 앱 기본 탑재본은 `site/packs/`로 복사(D007). 기본 팩 목록 `site/packs/index.json`의 버전이 바뀌면 앱이 열릴 때 자동으로 받는다(D019).
 - 사용자 입력과 콘텐츠 문자열은 반드시 HTML 이스케이프.
 - 디자인: 기획안 1의 9장(Apple HIG 스타일 토큰), 코스 2 차이는 기획안 2의 12장, 화면 구조와 규칙은 `docs/design/UI-PRINCIPLES.md`(D018, 웹게임 로직 × 애플식).
 

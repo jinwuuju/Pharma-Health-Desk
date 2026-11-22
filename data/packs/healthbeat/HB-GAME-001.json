@@ -1,0 +1,7745 @@
+{
+ "packId": "HB-GAME-001",
+ "courseId": "healthbeat",
+ "version": "2026-11-22.1",
+ "week": 1,
+ "review": "draft",
+ "title": "HEALTH BEAT 게임 1차 — 인체 연금술·근거 2048·오늘의 진단·오늘의 숫자",
+ "description": "코스 2를 게임으로 시작한다(D019). 연금술 64원소·조합 58, 근거 사다리 10단계, 질환 비교 퍼즐(마스터 색인 관계), 통계 카드(레지스트리). 발견하면 카드가 취재 덱에 들어간다.",
+ "elements": [
+  {
+   "id": "HB-AL-cell",
+   "courseId": "healthbeat",
+   "name": "세포",
+   "icon": "🔬",
+   "base": true,
+   "order": 0,
+   "def": "생명의 기본 단위. 사람 몸은 수십조 개의 세포로 이루어져 있다."
+  },
+  {
+   "id": "HB-AL-blood",
+   "courseId": "healthbeat",
+   "name": "혈액",
+   "icon": "🩸",
+   "base": true,
+   "order": 1,
+   "def": "혈장(액체)과 적혈구·백혈구·혈소판으로 이루어져 산소·영양·노폐물을 나른다."
+  },
+  {
+   "id": "HB-AL-air",
+   "courseId": "healthbeat",
+   "name": "공기",
+   "icon": "💨",
+   "base": true,
+   "order": 2,
+   "def": "숨 쉴 때 들이마시는 기체. 몸이 쓰는 것은 그중 약 21%를 차지하는 산소다."
+  },
+  {
+   "id": "HB-AL-food",
+   "courseId": "healthbeat",
+   "name": "음식",
+   "icon": "🍚",
+   "base": true,
+   "order": 3,
+   "def": "몸의 연료이자 재료. 소화되어 포도당·지방산·아미노산 등으로 흡수된다."
+  },
+  {
+   "id": "HB-AL-signal",
+   "courseId": "healthbeat",
+   "name": "신호",
+   "icon": "⚡",
+   "base": true,
+   "order": 4,
+   "def": "세포끼리 정보를 주고받는 수단. 신경의 전기 신호와 호르몬 같은 화학 신호가 있다."
+  },
+  {
+   "id": "HB-AL-time",
+   "courseId": "healthbeat",
+   "name": "시간",
+   "icon": "⏳",
+   "base": true,
+   "order": 5,
+   "def": "나이가 들고 노출이 쌓이는 것. 만성질환과 노화를 이해하는 핵심 재료다."
+  },
+  {
+   "id": "HB-AL-tissue",
+   "courseId": "healthbeat",
+   "name": "조직",
+   "icon": "🧩",
+   "base": false,
+   "order": 6,
+   "def": "비슷한 세포가 모여 같은 일을 하는 무리. 상피·결합·근육·신경 조직 네 가지로 나눈다."
+  },
+  {
+   "id": "HB-AL-organ",
+   "courseId": "healthbeat",
+   "name": "장기",
+   "icon": "",
+   "base": false,
+   "order": 7,
+   "def": "여러 조직이 모여 한 가지 일을 맡는 구조. 의학 용어로는 ‘기관(器官)’이라고 한다.",
+   "note": "‘기관(器官)’은 숨길인 ‘기관(氣管)’과 소리가 같아 기사에서 헷갈리기 쉽다."
+  },
+  {
+   "id": "HB-AL-system",
+   "courseId": "healthbeat",
+   "name": "계통",
+   "icon": "🗂️",
+   "base": false,
+   "order": 8,
+   "def": "같은 목적을 위해 함께 일하는 장기 묶음. 순환계·호흡계처럼 ‘~계(계통)’로 부른다.",
+   "note": "통계에선 ‘순환계통 질환’처럼 질병 분류의 큰 묶음 이름으로도 쓰인다."
+  },
+  {
+   "id": "HB-AL-heart",
+   "courseId": "healthbeat",
+   "name": "심장",
+   "icon": "🫀",
+   "base": false,
+   "order": 9,
+   "def": "혈액을 온몸으로 뿜어내는 근육 펌프. 안정 시 1분에 60~100번 뛴다."
+  },
+  {
+   "id": "HB-AL-lung",
+   "courseId": "healthbeat",
+   "name": "폐",
+   "icon": "🫁",
+   "base": false,
+   "order": 10,
+   "def": "들이마신 공기의 산소를 혈액에 넘기고 이산화탄소를 내보내는 장기. 이 교환은 폐포에서 일어난다."
+  },
+  {
+   "id": "HB-AL-stomach",
+   "courseId": "healthbeat",
+   "name": "위",
+   "icon": "",
+   "base": false,
+   "order": 11,
+   "def": "음식을 잠시 담아 두고 위산과 소화 효소로 잘게 부수는 주머니 모양의 소화 기관."
+  },
+  {
+   "id": "HB-AL-brain",
+   "courseId": "healthbeat",
+   "name": "뇌",
+   "icon": "🧠",
+   "base": false,
+   "order": 12,
+   "def": "신경 신호를 모아 판단하고 몸 전체를 조절하는 중추 기관."
+  },
+  {
+   "id": "HB-AL-vessel",
+   "courseId": "healthbeat",
+   "name": "혈관",
+   "icon": "",
+   "base": false,
+   "order": 13,
+   "def": "혈액이 지나는 관. 심장에서 나가는 동맥, 돌아오는 정맥, 그 사이의 모세혈관이 있다."
+  },
+  {
+   "id": "HB-AL-circ",
+   "courseId": "healthbeat",
+   "name": "순환계",
+   "icon": "",
+   "base": false,
+   "order": 14,
+   "def": "심장·혈관·혈액이 온몸에 산소와 영양을 나르고 노폐물을 거두는 계통.",
+   "note": "2025년 사망원인 2위 심장 질환, 4위 뇌혈관 질환이 모두 이 계통의 병이다."
+  },
+  {
+   "id": "HB-AL-resp",
+   "courseId": "healthbeat",
+   "name": "호흡계",
+   "icon": "",
+   "base": false,
+   "order": 15,
+   "def": "코·인두·후두·기관·기관지·폐로 이어져 산소를 들이고 이산화탄소를 내보내는 계통."
+  },
+  {
+   "id": "HB-AL-digest",
+   "courseId": "healthbeat",
+   "name": "소화계",
+   "icon": "",
+   "base": false,
+   "order": 16,
+   "def": "입에서 항문까지 이어진 소화관과 간·쓸개·췌장이 음식을 분해·흡수하는 계통."
+  },
+  {
+   "id": "HB-AL-nerve",
+   "courseId": "healthbeat",
+   "name": "신경계",
+   "icon": "",
+   "base": false,
+   "order": 17,
+   "def": "뇌·척수(중추)와 온몸의 신경(말초)이 전기 신호로 감각·운동·자율 기능을 조절하는 계통."
+  },
+  {
+   "id": "HB-AL-alcohol",
+   "courseId": "healthbeat",
+   "name": "술",
+   "icon": "🍺",
+   "base": false,
+   "order": 18,
+   "def": "곡물·과일의 당이 효모에 의해 발효되어 생긴 에탄올이 든 음료.",
+   "note": "국제암연구소(IARC)는 알코올 음료를 1군 발암물질로 분류한다."
+  },
+  {
+   "id": "HB-AL-liver",
+   "courseId": "healthbeat",
+   "name": "간",
+   "icon": "",
+   "base": false,
+   "order": 19,
+   "def": "알코올·약물 같은 물질을 분해(대사)하고 영양을 저장하는, 몸 안에서 가장 큰 장기."
+  },
+  {
+   "id": "HB-AL-metab",
+   "courseId": "healthbeat",
+   "name": "대사",
+   "icon": "",
+   "base": false,
+   "order": 20,
+   "def": "세포가 영양소에서 에너지를 꺼내 쓰고 몸의 재료를 만드는 화학 반응 전체."
+  },
+  {
+   "id": "HB-AL-waste",
+   "courseId": "healthbeat",
+   "name": "노폐물",
+   "icon": "",
+   "base": false,
+   "order": 21,
+   "def": "대사 뒤에 남는 쓸모없는 물질. 단백질이 분해되며 생기는 요소, 근육에서 나오는 크레아티닌 등이 있다."
+  },
+  {
+   "id": "HB-AL-kidney",
+   "courseId": "healthbeat",
+   "name": "콩팥",
+   "icon": "🫘",
+   "base": false,
+   "order": 22,
+   "def": "혈액을 걸러 노폐물과 남는 물을 소변으로 내보내는 장기(신장). 혈압·전해질 조절도 맡는다.",
+   "note": "콩팥 기능은 혈액 크레아티닌으로 계산한 사구체여과율(eGFR)로 흔히 표시한다."
+  },
+  {
+   "id": "HB-AL-hormone",
+   "courseId": "healthbeat",
+   "name": "호르몬",
+   "icon": "",
+   "base": false,
+   "order": 23,
+   "def": "내분비샘에서 나와 혈액을 타고 멀리 있는 장기에 전달되는 화학 신호 물질."
+  },
+  {
+   "id": "HB-AL-insulin",
+   "courseId": "healthbeat",
+   "name": "인슐린",
+   "icon": "💉",
+   "base": false,
+   "order": 24,
+   "def": "식사 뒤 췌장에서 나와 혈액의 포도당을 세포 안으로 들여보내 혈당을 낮추는 호르몬."
+  },
+  {
+   "id": "HB-AL-glucose",
+   "courseId": "healthbeat",
+   "name": "혈당",
+   "icon": "🍬",
+   "base": false,
+   "order": 25,
+   "def": "혈액 속 포도당 농도. 공복 혈당은 100mg/dL 미만이 정상이다."
+  },
+  {
+   "id": "HB-AL-diabetes",
+   "courseId": "healthbeat",
+   "name": "당뇨병",
+   "icon": "",
+   "base": false,
+   "order": 26,
+   "def": "인슐린이 부족하거나 잘 듣지 않아 혈당이 높은 상태가 계속되는 병. 공복 혈당 126mg/dL 이상 등으로 진단한다.",
+   "note": "국내 환자 대부분은 2형이다. 1형과 2형은 원인이 달라 구분해 쓴다."
+  },
+  {
+   "id": "HB-AL-fat",
+   "courseId": "healthbeat",
+   "name": "지방",
+   "icon": "🧈",
+   "base": false,
+   "order": 27,
+   "def": "같은 무게에서 에너지가 가장 많은 영양소(1g당 9kcal). 쓰고 남은 에너지는 지방 조직에 저장된다."
+  },
+  {
+   "id": "HB-AL-obesity",
+   "courseId": "healthbeat",
+   "name": "비만",
+   "icon": "",
+   "base": false,
+   "order": 28,
+   "def": "몸에 지방이 지나치게 쌓인 상태. 국내 기준은 체질량지수(BMI) 25 이상이다.",
+   "note": "WHO 기준은 BMI 30 이상이라, 나라 간 비만율을 비교할 땐 기준부터 확인한다."
+  },
+  {
+   "id": "HB-AL-athero",
+   "courseId": "healthbeat",
+   "name": "죽상경화",
+   "icon": "",
+   "base": false,
+   "order": 29,
+   "def": "혈관 벽에 콜레스테롤 등이 쌓여 동맥이 좁아지고 딱딱해지는 변화. 흔히 동맥경화라고 부른다."
+  },
+  {
+   "id": "HB-AL-mi",
+   "courseId": "healthbeat",
+   "name": "심근경색",
+   "icon": "",
+   "base": false,
+   "order": 30,
+   "def": "심장 근육에 피를 대는 관상동맥이 막혀 근육이 죽는 응급 질환.",
+   "note": "갑자기 심한 가슴 통증이 이어지면 바로 119에 연락하도록 기사에 대처법을 함께 쓴다."
+  },
+  {
+   "id": "HB-AL-infarct",
+   "courseId": "healthbeat",
+   "name": "뇌경색",
+   "icon": "",
+   "base": false,
+   "order": 31,
+   "def": "뇌혈관이 막혀 뇌 조직이 손상되는 뇌졸중. 뇌졸중 가운데 가장 흔한 형태다."
+  },
+  {
+   "id": "HB-AL-bp",
+   "courseId": "healthbeat",
+   "name": "혈압",
+   "icon": "",
+   "base": false,
+   "order": 32,
+   "def": "혈액이 혈관 벽을 미는 압력. ‘120/80mmHg’처럼 수축기/이완기로 적는다."
+  },
+  {
+   "id": "HB-AL-htn",
+   "courseId": "healthbeat",
+   "name": "고혈압",
+   "icon": "",
+   "base": false,
+   "order": 33,
+   "def": "혈압이 높은 상태가 계속되는 병. 국내 진단 기준은 140/90mmHg 이상이다.",
+   "note": "미국 지침은 130/80mmHg부터 고혈압으로 본다. 기준이 다르면 유병률도 달라진다."
+  },
+  {
+   "id": "HB-AL-microbe",
+   "courseId": "healthbeat",
+   "name": "미생물",
+   "icon": "🦠",
+   "base": false,
+   "order": 34,
+   "def": "눈에 보이지 않을 만큼 작은 생물. 세균·곰팡이 등이며, 바이러스도 흔히 함께 묶어 부른다."
+  },
+  {
+   "id": "HB-AL-infect",
+   "courseId": "healthbeat",
+   "name": "감염",
+   "icon": "",
+   "base": false,
+   "order": 35,
+   "def": "병원체가 몸에 들어와 자리 잡고 늘어나는 것. 증상이 없는 감염도 있다."
+  },
+  {
+   "id": "HB-AL-pneumonia",
+   "courseId": "healthbeat",
+   "name": "폐렴",
+   "icon": "",
+   "base": false,
+   "order": 36,
+   "def": "폐에 생긴 염증. 대개 세균·바이러스 감염이 원인이다.",
+   "note": "2025년 국내 사망원인 3위. 고령층에서 특히 위험하다."
+  },
+  {
+   "id": "HB-AL-hepatitis",
+   "courseId": "healthbeat",
+   "name": "간염",
+   "icon": "",
+   "base": false,
+   "order": 37,
+   "def": "간에 생긴 염증. B형·C형 간염 바이러스, 술, 약물 등이 원인이다."
+  },
+  {
+   "id": "HB-AL-cirrhosis",
+   "courseId": "healthbeat",
+   "name": "간경변",
+   "icon": "",
+   "base": false,
+   "order": 38,
+   "def": "오랜 손상으로 간에 흉터 조직이 생기고 굳어 기능이 떨어진 상태."
+  },
+  {
+   "id": "HB-AL-fattyliver",
+   "courseId": "healthbeat",
+   "name": "지방간",
+   "icon": "",
+   "base": false,
+   "order": 39,
+   "def": "간세포에 지방이 지나치게 쌓인 상태. 술 때문인 것과 대사 이상 때문인 것으로 나눈다."
+  },
+  {
+   "id": "HB-AL-cells",
+   "courseId": "healthbeat",
+   "name": "혈구",
+   "icon": "",
+   "base": false,
+   "order": 40,
+   "def": "혈액 속 세포. 산소를 나르는 적혈구, 몸을 지키는 백혈구, 피를 멈추게 하는 혈소판."
+  },
+  {
+   "id": "HB-AL-immune",
+   "courseId": "healthbeat",
+   "name": "면역",
+   "icon": "🛡️",
+   "base": false,
+   "order": 41,
+   "def": "몸이 병원체 같은 침입자를 알아보고 물리치는 방어 체계. 한 번 만난 적을 기억하기도 한다."
+  },
+  {
+   "id": "HB-AL-vaccine",
+   "courseId": "healthbeat",
+   "name": "백신",
+   "icon": "",
+   "base": false,
+   "order": 42,
+   "def": "병원체를 약하게 하거나 그 일부만 보여 줘 면역 기억을 미리 만드는 약.",
+   "note": "효과(예방률)는 ‘걸릴 위험이 얼마나 줄었나’로 읽는다. ‘100% 예방’으로 쓰지 않는다."
+  },
+  {
+   "id": "HB-AL-inflam",
+   "courseId": "healthbeat",
+   "name": "염증",
+   "icon": "🔥",
+   "base": false,
+   "order": 43,
+   "def": "손상·감염에 대한 몸의 방어 반응. 붉어짐·열감·부기·통증이 나타난다."
+  },
+  {
+   "id": "HB-AL-drug",
+   "courseId": "healthbeat",
+   "name": "약",
+   "icon": "💊",
+   "base": false,
+   "order": 44,
+   "def": "몸의 신호나 대사에 작용해 기능을 바꾸려고 쓰는 물질.",
+   "note": "같은 성분도 용량·대상에 따라 효과와 부작용이 달라 ‘효과 있다’만 쓰지 않는다."
+  },
+  {
+   "id": "HB-AL-abx",
+   "courseId": "healthbeat",
+   "name": "항생제",
+   "icon": "",
+   "base": false,
+   "order": 45,
+   "def": "세균을 죽이거나 자라지 못하게 하는 약.",
+   "note": "감기 같은 바이러스 감염에는 듣지 않는다."
+  },
+  {
+   "id": "HB-AL-amr",
+   "courseId": "healthbeat",
+   "name": "항생제 내성",
+   "icon": "",
+   "base": false,
+   "order": 46,
+   "def": "항생제를 남용하거나 잘못 쓰면 살아남은 세균이 퍼져 약이 듣지 않게 되는 현상."
+  },
+  {
+   "id": "HB-AL-aging",
+   "courseId": "healthbeat",
+   "name": "노화",
+   "icon": "",
+   "base": false,
+   "order": 47,
+   "def": "세포와 조직의 기능이 시간이 지나며 서서히 떨어지는 과정. 그 자체는 병이 아니다."
+  },
+  {
+   "id": "HB-AL-gene",
+   "courseId": "healthbeat",
+   "name": "유전자",
+   "icon": "🧬",
+   "base": false,
+   "order": 48,
+   "def": "단백질을 만드는 설계 정보. 세포핵 속 DNA에 담겨 있다."
+  },
+  {
+   "id": "HB-AL-mutation",
+   "courseId": "healthbeat",
+   "name": "돌연변이",
+   "icon": "",
+   "base": false,
+   "order": 49,
+   "def": "DNA 정보가 바뀌는 것. 나이·흡연·자외선 등으로 쌓이며, 모두 병을 일으키지는 않는다."
+  },
+  {
+   "id": "HB-AL-cancer",
+   "courseId": "healthbeat",
+   "name": "암",
+   "icon": "",
+   "base": false,
+   "order": 50,
+   "def": "세포가 통제를 벗어나 계속 늘어나고 다른 곳으로 퍼지는 병.",
+   "note": "2025년 국내 사망원인 1위다."
+  },
+  {
+   "id": "HB-AL-lungca",
+   "courseId": "healthbeat",
+   "name": "폐암",
+   "icon": "",
+   "base": false,
+   "order": 51,
+   "def": "폐에 생긴 암. 국내 암 사망 1위이며 흡연이 가장 큰 위험 요인이다."
+  },
+  {
+   "id": "HB-AL-liverca",
+   "courseId": "healthbeat",
+   "name": "간암",
+   "icon": "",
+   "base": false,
+   "order": 52,
+   "def": "간에 생긴 암. B형·C형 간염과 간경변이 주요 위험 요인이다."
+  },
+  {
+   "id": "HB-AL-gastricca",
+   "courseId": "healthbeat",
+   "name": "위암",
+   "icon": "",
+   "base": false,
+   "order": 53,
+   "def": "위에 생긴 암. 국가암검진은 40세 이상에게 2년마다 위내시경 검사를 권한다."
+  },
+  {
+   "id": "HB-AL-habit",
+   "courseId": "healthbeat",
+   "name": "습관",
+   "icon": "",
+   "base": false,
+   "order": 54,
+   "def": "반복으로 굳어진 행동. 건강에서는 흡연·음주·운동·식사 습관이 핵심이다."
+  },
+  {
+   "id": "HB-AL-smoking",
+   "courseId": "healthbeat",
+   "name": "흡연",
+   "icon": "🚬",
+   "base": false,
+   "order": 55,
+   "def": "담배 연기를 들이마시는 것. 폐암·심혈관질환·COPD의 주요 위험 요인이다."
+  },
+  {
+   "id": "HB-AL-copd",
+   "courseId": "healthbeat",
+   "name": "COPD",
+   "icon": "",
+   "base": false,
+   "order": 56,
+   "def": "주로 흡연 탓에 기도와 폐가 손상돼 숨길이 계속 좁아지는 병(만성폐쇄성폐질환)."
+  },
+  {
+   "id": "HB-AL-exercise",
+   "courseId": "healthbeat",
+   "name": "운동",
+   "icon": "🏃",
+   "base": false,
+   "order": 57,
+   "def": "심장과 근육을 쓰는 신체 활동.",
+   "note": "WHO는 성인에게 주 150~300분의 중강도 유산소 활동을 권한다."
+  },
+  {
+   "id": "HB-AL-hemorrhage",
+   "courseId": "healthbeat",
+   "name": "뇌출혈",
+   "icon": "",
+   "base": false,
+   "order": 58,
+   "def": "뇌혈관이 터져 뇌 안에 피가 고이는 뇌졸중. 고혈압이 가장 큰 위험 요인이다."
+  },
+  {
+   "id": "HB-AL-dementia",
+   "courseId": "healthbeat",
+   "name": "치매",
+   "icon": "",
+   "base": false,
+   "order": 59,
+   "def": "기억력 등 인지 기능이 떨어져 일상생활이 어려워진 상태. 알츠하이머병이 가장 흔한 원인이다.",
+   "note": "정상 노화와 다르다. ‘나이 들면 다 치매’라고 쓰지 않는다."
+  },
+  {
+   "id": "HB-AL-bpdrug",
+   "courseId": "healthbeat",
+   "name": "혈압약",
+   "icon": "",
+   "base": false,
+   "order": 60,
+   "def": "혈압을 낮추는 약. 이뇨제·칼슘 통로 차단제·ACE 억제제 등 여러 계열이 있다."
+  },
+  {
+   "id": "HB-AL-dmdrug",
+   "courseId": "healthbeat",
+   "name": "당뇨병 약",
+   "icon": "",
+   "base": false,
+   "order": 61,
+   "def": "혈당을 낮추는 약. 2형 당뇨병에선 메트포르민이 대표적인 첫 약이다."
+  },
+  {
+   "id": "HB-AL-chemo",
+   "courseId": "healthbeat",
+   "name": "항암제",
+   "icon": "",
+   "base": false,
+   "order": 62,
+   "def": "암세포를 죽이거나 자라지 못하게 하는 약. 세포독성·표적·면역항암제로 나눈다."
+  },
+  {
+   "id": "HB-AL-io",
+   "courseId": "healthbeat",
+   "name": "면역항암제",
+   "icon": "",
+   "base": false,
+   "order": 63,
+   "def": "면역세포가 암을 다시 공격하도록 브레이크를 풀어 주는 약(예: PD-1 억제제).",
+   "note": "모든 환자에게 듣지는 않는다. ‘꿈의 항암제’ 같은 표현은 피한다."
+  }
+ ],
+ "recipes": [
+  {
+   "id": "HB-RC-tissue",
+   "courseId": "healthbeat",
+   "a": "HB-AL-cell",
+   "b": "HB-AL-cell",
+   "result": "HB-AL-tissue"
+  },
+  {
+   "id": "HB-RC-organ",
+   "courseId": "healthbeat",
+   "a": "HB-AL-tissue",
+   "b": "HB-AL-tissue",
+   "result": "HB-AL-organ"
+  },
+  {
+   "id": "HB-RC-system",
+   "courseId": "healthbeat",
+   "a": "HB-AL-organ",
+   "b": "HB-AL-organ",
+   "result": "HB-AL-system"
+  },
+  {
+   "id": "HB-RC-heart",
+   "courseId": "healthbeat",
+   "a": "HB-AL-organ",
+   "b": "HB-AL-blood",
+   "result": "HB-AL-heart"
+  },
+  {
+   "id": "HB-RC-lung",
+   "courseId": "healthbeat",
+   "a": "HB-AL-organ",
+   "b": "HB-AL-air",
+   "result": "HB-AL-lung"
+  },
+  {
+   "id": "HB-RC-stomach",
+   "courseId": "healthbeat",
+   "a": "HB-AL-organ",
+   "b": "HB-AL-food",
+   "result": "HB-AL-stomach"
+  },
+  {
+   "id": "HB-RC-brain",
+   "courseId": "healthbeat",
+   "a": "HB-AL-organ",
+   "b": "HB-AL-signal",
+   "result": "HB-AL-brain"
+  },
+  {
+   "id": "HB-RC-vessel",
+   "courseId": "healthbeat",
+   "a": "HB-AL-tissue",
+   "b": "HB-AL-blood",
+   "result": "HB-AL-vessel"
+  },
+  {
+   "id": "HB-RC-circ",
+   "courseId": "healthbeat",
+   "a": "HB-AL-heart",
+   "b": "HB-AL-vessel",
+   "result": "HB-AL-circ"
+  },
+  {
+   "id": "HB-RC-resp",
+   "courseId": "healthbeat",
+   "a": "HB-AL-lung",
+   "b": "HB-AL-air",
+   "result": "HB-AL-resp"
+  },
+  {
+   "id": "HB-RC-digest",
+   "courseId": "healthbeat",
+   "a": "HB-AL-stomach",
+   "b": "HB-AL-food",
+   "result": "HB-AL-digest"
+  },
+  {
+   "id": "HB-RC-nerve",
+   "courseId": "healthbeat",
+   "a": "HB-AL-brain",
+   "b": "HB-AL-signal",
+   "result": "HB-AL-nerve"
+  },
+  {
+   "id": "HB-RC-alcohol",
+   "courseId": "healthbeat",
+   "a": "HB-AL-food",
+   "b": "HB-AL-time",
+   "result": "HB-AL-alcohol"
+  },
+  {
+   "id": "HB-RC-liver",
+   "courseId": "healthbeat",
+   "a": "HB-AL-organ",
+   "b": "HB-AL-alcohol",
+   "result": "HB-AL-liver"
+  },
+  {
+   "id": "HB-RC-metab",
+   "courseId": "healthbeat",
+   "a": "HB-AL-cell",
+   "b": "HB-AL-food",
+   "result": "HB-AL-metab"
+  },
+  {
+   "id": "HB-RC-waste",
+   "courseId": "healthbeat",
+   "a": "HB-AL-metab",
+   "b": "HB-AL-blood",
+   "result": "HB-AL-waste"
+  },
+  {
+   "id": "HB-RC-kidney",
+   "courseId": "healthbeat",
+   "a": "HB-AL-waste",
+   "b": "HB-AL-organ",
+   "result": "HB-AL-kidney"
+  },
+  {
+   "id": "HB-RC-hormone",
+   "courseId": "healthbeat",
+   "a": "HB-AL-signal",
+   "b": "HB-AL-blood",
+   "result": "HB-AL-hormone"
+  },
+  {
+   "id": "HB-RC-insulin",
+   "courseId": "healthbeat",
+   "a": "HB-AL-hormone",
+   "b": "HB-AL-food",
+   "result": "HB-AL-insulin"
+  },
+  {
+   "id": "HB-RC-glucose",
+   "courseId": "healthbeat",
+   "a": "HB-AL-food",
+   "b": "HB-AL-blood",
+   "result": "HB-AL-glucose"
+  },
+  {
+   "id": "HB-RC-diabetes",
+   "courseId": "healthbeat",
+   "a": "HB-AL-glucose",
+   "b": "HB-AL-time",
+   "result": "HB-AL-diabetes"
+  },
+  {
+   "id": "HB-RC-fat",
+   "courseId": "healthbeat",
+   "a": "HB-AL-food",
+   "b": "HB-AL-food",
+   "result": "HB-AL-fat"
+  },
+  {
+   "id": "HB-RC-obesity",
+   "courseId": "healthbeat",
+   "a": "HB-AL-fat",
+   "b": "HB-AL-time",
+   "result": "HB-AL-obesity"
+  },
+  {
+   "id": "HB-RC-athero",
+   "courseId": "healthbeat",
+   "a": "HB-AL-vessel",
+   "b": "HB-AL-fat",
+   "result": "HB-AL-athero"
+  },
+  {
+   "id": "HB-RC-mi",
+   "courseId": "healthbeat",
+   "a": "HB-AL-athero",
+   "b": "HB-AL-heart",
+   "result": "HB-AL-mi"
+  },
+  {
+   "id": "HB-RC-infarct",
+   "courseId": "healthbeat",
+   "a": "HB-AL-athero",
+   "b": "HB-AL-brain",
+   "result": "HB-AL-infarct"
+  },
+  {
+   "id": "HB-RC-bp",
+   "courseId": "healthbeat",
+   "a": "HB-AL-blood",
+   "b": "HB-AL-vessel",
+   "result": "HB-AL-bp"
+  },
+  {
+   "id": "HB-RC-htn",
+   "courseId": "healthbeat",
+   "a": "HB-AL-bp",
+   "b": "HB-AL-time",
+   "result": "HB-AL-htn"
+  },
+  {
+   "id": "HB-RC-microbe",
+   "courseId": "healthbeat",
+   "a": "HB-AL-cell",
+   "b": "HB-AL-air",
+   "result": "HB-AL-microbe"
+  },
+  {
+   "id": "HB-RC-infect",
+   "courseId": "healthbeat",
+   "a": "HB-AL-microbe",
+   "b": "HB-AL-blood",
+   "result": "HB-AL-infect"
+  },
+  {
+   "id": "HB-RC-pneumonia",
+   "courseId": "healthbeat",
+   "a": "HB-AL-infect",
+   "b": "HB-AL-lung",
+   "result": "HB-AL-pneumonia"
+  },
+  {
+   "id": "HB-RC-hepatitis",
+   "courseId": "healthbeat",
+   "a": "HB-AL-infect",
+   "b": "HB-AL-liver",
+   "result": "HB-AL-hepatitis"
+  },
+  {
+   "id": "HB-RC-cirrhosis",
+   "courseId": "healthbeat",
+   "a": "HB-AL-hepatitis",
+   "b": "HB-AL-time",
+   "result": "HB-AL-cirrhosis"
+  },
+  {
+   "id": "HB-RC-fattyliver",
+   "courseId": "healthbeat",
+   "a": "HB-AL-fat",
+   "b": "HB-AL-liver",
+   "result": "HB-AL-fattyliver"
+  },
+  {
+   "id": "HB-RC-cells",
+   "courseId": "healthbeat",
+   "a": "HB-AL-blood",
+   "b": "HB-AL-cell",
+   "result": "HB-AL-cells"
+  },
+  {
+   "id": "HB-RC-immune",
+   "courseId": "healthbeat",
+   "a": "HB-AL-cells",
+   "b": "HB-AL-microbe",
+   "result": "HB-AL-immune"
+  },
+  {
+   "id": "HB-RC-vaccine",
+   "courseId": "healthbeat",
+   "a": "HB-AL-immune",
+   "b": "HB-AL-microbe",
+   "result": "HB-AL-vaccine"
+  },
+  {
+   "id": "HB-RC-inflam",
+   "courseId": "healthbeat",
+   "a": "HB-AL-immune",
+   "b": "HB-AL-tissue",
+   "result": "HB-AL-inflam"
+  },
+  {
+   "id": "HB-RC-drug",
+   "courseId": "healthbeat",
+   "a": "HB-AL-metab",
+   "b": "HB-AL-signal",
+   "result": "HB-AL-drug"
+  },
+  {
+   "id": "HB-RC-abx",
+   "courseId": "healthbeat",
+   "a": "HB-AL-drug",
+   "b": "HB-AL-microbe",
+   "result": "HB-AL-abx"
+  },
+  {
+   "id": "HB-RC-amr",
+   "courseId": "healthbeat",
+   "a": "HB-AL-abx",
+   "b": "HB-AL-time",
+   "result": "HB-AL-amr"
+  },
+  {
+   "id": "HB-RC-aging",
+   "courseId": "healthbeat",
+   "a": "HB-AL-cell",
+   "b": "HB-AL-time",
+   "result": "HB-AL-aging"
+  },
+  {
+   "id": "HB-RC-gene",
+   "courseId": "healthbeat",
+   "a": "HB-AL-cell",
+   "b": "HB-AL-signal",
+   "result": "HB-AL-gene"
+  },
+  {
+   "id": "HB-RC-mutation",
+   "courseId": "healthbeat",
+   "a": "HB-AL-gene",
+   "b": "HB-AL-time",
+   "result": "HB-AL-mutation"
+  },
+  {
+   "id": "HB-RC-cancer",
+   "courseId": "healthbeat",
+   "a": "HB-AL-mutation",
+   "b": "HB-AL-cell",
+   "result": "HB-AL-cancer"
+  },
+  {
+   "id": "HB-RC-lungca",
+   "courseId": "healthbeat",
+   "a": "HB-AL-cancer",
+   "b": "HB-AL-lung",
+   "result": "HB-AL-lungca"
+  },
+  {
+   "id": "HB-RC-liverca",
+   "courseId": "healthbeat",
+   "a": "HB-AL-cancer",
+   "b": "HB-AL-liver",
+   "result": "HB-AL-liverca"
+  },
+  {
+   "id": "HB-RC-gastricca",
+   "courseId": "healthbeat",
+   "a": "HB-AL-cancer",
+   "b": "HB-AL-stomach",
+   "result": "HB-AL-gastricca"
+  },
+  {
+   "id": "HB-RC-habit",
+   "courseId": "healthbeat",
+   "a": "HB-AL-nerve",
+   "b": "HB-AL-time",
+   "result": "HB-AL-habit"
+  },
+  {
+   "id": "HB-RC-smoking",
+   "courseId": "healthbeat",
+   "a": "HB-AL-habit",
+   "b": "HB-AL-air",
+   "result": "HB-AL-smoking"
+  },
+  {
+   "id": "HB-RC-copd",
+   "courseId": "healthbeat",
+   "a": "HB-AL-smoking",
+   "b": "HB-AL-lung",
+   "result": "HB-AL-copd"
+  },
+  {
+   "id": "HB-RC-exercise",
+   "courseId": "healthbeat",
+   "a": "HB-AL-habit",
+   "b": "HB-AL-heart",
+   "result": "HB-AL-exercise"
+  },
+  {
+   "id": "HB-RC-hemorrhage",
+   "courseId": "healthbeat",
+   "a": "HB-AL-htn",
+   "b": "HB-AL-brain",
+   "result": "HB-AL-hemorrhage"
+  },
+  {
+   "id": "HB-RC-dementia",
+   "courseId": "healthbeat",
+   "a": "HB-AL-brain",
+   "b": "HB-AL-aging",
+   "result": "HB-AL-dementia"
+  },
+  {
+   "id": "HB-RC-bpdrug",
+   "courseId": "healthbeat",
+   "a": "HB-AL-drug",
+   "b": "HB-AL-htn",
+   "result": "HB-AL-bpdrug"
+  },
+  {
+   "id": "HB-RC-dmdrug",
+   "courseId": "healthbeat",
+   "a": "HB-AL-drug",
+   "b": "HB-AL-diabetes",
+   "result": "HB-AL-dmdrug"
+  },
+  {
+   "id": "HB-RC-chemo",
+   "courseId": "healthbeat",
+   "a": "HB-AL-drug",
+   "b": "HB-AL-cancer",
+   "result": "HB-AL-chemo"
+  },
+  {
+   "id": "HB-RC-io",
+   "courseId": "healthbeat",
+   "a": "HB-AL-immune",
+   "b": "HB-AL-cancer",
+   "result": "HB-AL-io"
+  }
+ ],
+ "evidence": [
+  {
+   "id": "HB-EV-01",
+   "courseId": "healthbeat",
+   "level": 1,
+   "name": "일화",
+   "icon": "🗣️",
+   "def": "한 사람의 경험담(‘먹고 나았다’). 우연·자연 회복·위약 효과를 걸러 내지 못한다.",
+   "note": "체험담은 근거가 아니라 취재의 출발점이다."
+  },
+  {
+   "id": "HB-EV-02",
+   "courseId": "healthbeat",
+   "level": 2,
+   "name": "세포·동물 실험",
+   "icon": "🐭",
+   "def": "실험실의 세포나 동물에서 본 결과. 원리를 보여 주지만 사람에게 그대로 들어맞지 않는 경우가 많다.",
+   "note": "‘쥐에서 효과’를 ‘치료 효과’로 쓰지 않는다."
+  },
+  {
+   "id": "HB-EV-03",
+   "courseId": "healthbeat",
+   "level": 3,
+   "name": "전문가 의견",
+   "icon": "🎓",
+   "def": "자료 분석 없이 경험과 이론에 기댄 견해. 근거 수준으로는 낮은 편이다.",
+   "note": "전문가의 말도 어떤 연구에 근거했는지 묻는다."
+  },
+  {
+   "id": "HB-EV-04",
+   "courseId": "healthbeat",
+   "level": 4,
+   "name": "사례 보고",
+   "icon": "📄",
+   "def": "환자 한 명이나 몇 명의 특이한 경과를 자세히 기록한 보고. 새 질병·부작용의 첫 신호가 된다.",
+   "note": "비교군이 없어 효과를 증명하지 못한다."
+  },
+  {
+   "id": "HB-EV-05",
+   "courseId": "healthbeat",
+   "level": 5,
+   "name": "단면 연구",
+   "icon": "📸",
+   "def": "한 시점에 여러 사람을 조사해 질병과 요인의 관계를 보는 연구(설문·검진 자료 등).",
+   "note": "원인과 결과의 선후를 알 수 없다."
+  },
+  {
+   "id": "HB-EV-06",
+   "courseId": "healthbeat",
+   "level": 6,
+   "name": "환자-대조군 연구",
+   "icon": "⚖️",
+   "def": "병이 있는 사람과 없는 사람의 과거 노출을 비교하는 연구. 드문 병을 연구할 때 유리하다.",
+   "note": "기억에 기댄 답(회상 편향)에 주의한다."
+  },
+  {
+   "id": "HB-EV-07",
+   "courseId": "healthbeat",
+   "level": 7,
+   "name": "코호트 연구",
+   "icon": "👥",
+   "def": "노출된 집단과 아닌 집단을 시간에 따라 따라가며 병이 생기는지 보는 연구.",
+   "note": "연관성은 보여도 인과를 단정하지 못한다. 교란 변수를 확인한다."
+  },
+  {
+   "id": "HB-EV-08",
+   "courseId": "healthbeat",
+   "level": 8,
+   "name": "무작위 대조 시험",
+   "icon": "🎲",
+   "def": "참여자를 무작위로 나눠 한쪽만 치료하고 결과를 비교하는 연구(RCT). 인과를 보기에 가장 강한 단일 연구 설계다.",
+   "note": "대상·기간·평가 지표가 기사 속 주장과 맞는지 본다."
+  },
+  {
+   "id": "HB-EV-09",
+   "courseId": "healthbeat",
+   "level": 9,
+   "name": "메타분석",
+   "icon": "📚",
+   "def": "같은 질문을 다룬 연구를 빠짐없이 모아 질을 평가하고(체계적 문헌고찰), 결과를 통계적으로 합친 연구.",
+   "note": "질 낮은 연구를 모으면 결론도 약하다."
+  },
+  {
+   "id": "HB-EV-10",
+   "courseId": "healthbeat",
+   "level": 10,
+   "name": "진료지침",
+   "icon": "🏛️",
+   "def": "근거를 종합하고 이익과 위해를 따져 학회 등이 내놓는 진료 권고. 권고마다 근거 수준과 강도가 붙는다.",
+   "note": "지침은 개정된다. 기사에선 발표 연도와 기관을 쓴다."
+  }
+ ],
+ "diseases": [
+  {
+   "id": "HB-DZ-0001",
+   "courseId": "healthbeat",
+   "name": "비만",
+   "full": "비만",
+   "tier": "S",
+   "system": "내분비·대사계",
+   "week": 12,
+   "lenses": [
+    "사망",
+    "진료",
+    "뉴스"
+   ],
+   "tests": [
+    "BMI·허리둘레",
+    "지질 검사"
+   ],
+   "treatments": [
+    "비만 약 계열",
+    "비만대사수술"
+   ],
+   "confusable": [
+    "대사증후군"
+   ]
+  },
+  {
+   "id": "HB-DZ-0002",
+   "courseId": "healthbeat",
+   "name": "당뇨병",
+   "full": "당뇨병",
+   "tier": "S",
+   "system": "내분비·대사계",
+   "week": 11,
+   "lenses": [
+    "사망",
+    "진료",
+    "뉴스"
+   ],
+   "tests": [
+    "공복혈당",
+    "당화혈색소"
+   ],
+   "treatments": [
+    "당뇨 약 계열",
+    "인슐린"
+   ],
+   "confusable": [
+    "대사증후군"
+   ]
+  },
+  {
+   "id": "HB-DZ-0003",
+   "courseId": "healthbeat",
+   "name": "치매",
+   "full": "치매",
+   "tier": "S",
+   "system": "신경계",
+   "week": 17,
+   "lenses": [
+    "사망",
+    "진료",
+    "뉴스"
+   ],
+   "tests": [
+    "인지기능 선별검사",
+    "아밀로이드 PET"
+   ],
+   "treatments": [
+    "치매 치료제",
+    "재활"
+   ],
+   "confusable": [
+    "경도인지장애",
+    "파킨슨병"
+   ]
+  },
+  {
+   "id": "HB-DZ-0004",
+   "courseId": "healthbeat",
+   "name": "암",
+   "full": "암(총론)",
+   "tier": "S",
+   "system": "기타",
+   "week": 15,
+   "lenses": [
+    "사망",
+    "진료",
+    "뉴스"
+   ],
+   "tests": [
+    "종양표지자",
+    "유전자 검사"
+   ],
+   "treatments": [
+    "세포독성 항암제",
+    "면역관문억제제"
+   ],
+   "confusable": []
+  },
+  {
+   "id": "HB-DZ-0005",
+   "courseId": "healthbeat",
+   "name": "심뇌혈관질환",
+   "full": "심뇌혈관질환",
+   "tier": "S",
+   "system": "순환계",
+   "week": 10,
+   "lenses": [
+    "사망",
+    "진료",
+    "뉴스"
+   ],
+   "tests": [
+    "혈압",
+    "지질 검사"
+   ],
+   "treatments": [
+    "고혈압 약 계열",
+    "항혈소판제·항응고제"
+   ],
+   "confusable": []
+  },
+  {
+   "id": "HB-DZ-0006",
+   "courseId": "healthbeat",
+   "name": "정신건강과 자살",
+   "full": "정신건강과 자살",
+   "tier": "S",
+   "system": "신경계",
+   "week": 18,
+   "lenses": [
+    "사망",
+    "뉴스"
+   ],
+   "tests": [
+    "우울·불안 선별검사"
+   ],
+   "treatments": [
+    "항우울제",
+    "심리치료"
+   ],
+   "confusable": []
+  },
+  {
+   "id": "HB-DZ-0007",
+   "courseId": "healthbeat",
+   "name": "고혈압",
+   "full": "고혈압",
+   "tier": "A",
+   "system": "순환계",
+   "week": 10,
+   "lenses": [
+    "사망",
+    "진료"
+   ],
+   "tests": [
+    "혈압",
+    "심전도"
+   ],
+   "treatments": [
+    "고혈압 약 계열"
+   ],
+   "confusable": [
+    "이상지질혈증"
+   ]
+  },
+  {
+   "id": "HB-DZ-0008",
+   "courseId": "healthbeat",
+   "name": "이상지질혈증",
+   "full": "이상지질혈증",
+   "tier": "A",
+   "system": "순환계",
+   "week": 10,
+   "lenses": [
+    "진료",
+    "뉴스"
+   ],
+   "tests": [
+    "지질 검사",
+    "경동맥 초음파"
+   ],
+   "treatments": [
+    "지질 강하제 계열"
+   ],
+   "confusable": [
+    "고혈압"
+   ]
+  },
+  {
+   "id": "HB-DZ-0009",
+   "courseId": "healthbeat",
+   "name": "2형 당뇨병",
+   "full": "2형 당뇨병",
+   "tier": "A",
+   "system": "내분비·대사계",
+   "week": 11,
+   "lenses": [
+    "사망",
+    "진료",
+    "뉴스"
+   ],
+   "tests": [
+    "당화혈색소",
+    "경구당부하검사"
+   ],
+   "treatments": [
+    "당뇨 약 계열",
+    "인슐린"
+   ],
+   "confusable": [
+    "1형 당뇨병"
+   ]
+  },
+  {
+   "id": "HB-DZ-0010",
+   "courseId": "healthbeat",
+   "name": "1형 당뇨병",
+   "full": "1형 당뇨병",
+   "tier": "A",
+   "system": "내분비·대사계",
+   "week": 11,
+   "lenses": [
+    "뉴스"
+   ],
+   "tests": [
+    "당화혈색소",
+    "공복혈당"
+   ],
+   "treatments": [
+    "인슐린"
+   ],
+   "confusable": [
+    "2형 당뇨병"
+   ]
+  },
+  {
+   "id": "HB-DZ-0011",
+   "courseId": "healthbeat",
+   "name": "대사증후군",
+   "full": "대사증후군",
+   "tier": "A",
+   "system": "내분비·대사계",
+   "week": 12,
+   "lenses": [
+    "진료",
+    "뉴스"
+   ],
+   "tests": [
+    "BMI·허리둘레",
+    "지질 검사"
+   ],
+   "treatments": [
+    "고혈압 약 계열",
+    "지질 강하제 계열"
+   ],
+   "confusable": [
+    "비만",
+    "당뇨병"
+   ]
+  },
+  {
+   "id": "HB-DZ-0012",
+   "courseId": "healthbeat",
+   "name": "허혈성 심질환",
+   "full": "허혈성 심질환(협심증·심근경색)",
+   "tier": "A",
+   "system": "순환계",
+   "week": 13,
+   "lenses": [
+    "사망",
+    "진료",
+    "뉴스"
+   ],
+   "tests": [
+    "심전도",
+    "관상동맥 CT"
+   ],
+   "treatments": [
+    "관상동맥 중재술·우회술",
+    "항혈소판제·항응고제"
+   ],
+   "confusable": [
+    "심부전"
+   ]
+  },
+  {
+   "id": "HB-DZ-0013",
+   "courseId": "healthbeat",
+   "name": "심부전",
+   "full": "심부전",
+   "tier": "A",
+   "system": "순환계",
+   "week": 13,
+   "lenses": [
+    "사망",
+    "진료"
+   ],
+   "tests": [
+    "심초음파",
+    "심전도"
+   ],
+   "treatments": [
+    "심부전 약 계열",
+    "재활"
+   ],
+   "confusable": [
+    "허혈성 심질환",
+    "심방세동"
+   ]
+  },
+  {
+   "id": "HB-DZ-0014",
+   "courseId": "healthbeat",
+   "name": "심방세동",
+   "full": "심방세동",
+   "tier": "A",
+   "system": "순환계",
+   "week": 13,
+   "lenses": [
+    "사망",
+    "뉴스"
+   ],
+   "tests": [
+    "심전도",
+    "심초음파"
+   ],
+   "treatments": [
+    "항혈소판제·항응고제",
+    "항부정맥제·심율동 치료"
+   ],
+   "confusable": [
+    "심부전"
+   ]
+  },
+  {
+   "id": "HB-DZ-0015",
+   "courseId": "healthbeat",
+   "name": "뇌경색",
+   "full": "뇌경색",
+   "tier": "A",
+   "system": "신경계",
+   "week": 14,
+   "lenses": [
+    "사망",
+    "진료",
+    "뉴스"
+   ],
+   "tests": [
+    "뇌 MRI·MRA",
+    "경동맥 초음파"
+   ],
+   "treatments": [
+    "혈전용해·혈전제거술",
+    "항혈소판제·항응고제"
+   ],
+   "confusable": [
+    "뇌출혈",
+    "두통·편두통·어지럼증"
+   ]
+  },
+  {
+   "id": "HB-DZ-0016",
+   "courseId": "healthbeat",
+   "name": "뇌출혈",
+   "full": "뇌출혈",
+   "tier": "A",
+   "system": "신경계",
+   "week": 14,
+   "lenses": [
+    "사망",
+    "뉴스"
+   ],
+   "tests": [
+    "뇌 MRI·MRA",
+    "혈압"
+   ],
+   "treatments": [
+    "재활",
+    "고혈압 약 계열"
+   ],
+   "confusable": [
+    "뇌경색"
+   ]
+  },
+  {
+   "id": "HB-DZ-0017",
+   "courseId": "healthbeat",
+   "name": "만성콩팥병",
+   "full": "만성콩팥병",
+   "tier": "A",
+   "system": "비뇨계",
+   "week": 21,
+   "lenses": [
+    "사망",
+    "진료"
+   ],
+   "tests": [
+    "신기능 검사",
+    "소변검사"
+   ],
+   "treatments": [
+    "투석·신장이식",
+    "고혈압 약 계열"
+   ],
+   "confusable": []
+  },
+  {
+   "id": "HB-DZ-0018",
+   "courseId": "healthbeat",
+   "name": "폐암",
+   "full": "폐암",
+   "tier": "A",
+   "system": "호흡계",
+   "week": 16,
+   "lenses": [
+    "사망",
+    "뉴스"
+   ],
+   "tests": [
+    "저선량 폐 CT",
+    "동반진단"
+   ],
+   "treatments": [
+    "표적치료제",
+    "면역관문억제제"
+   ],
+   "confusable": []
+  },
+  {
+   "id": "HB-DZ-0019",
+   "courseId": "healthbeat",
+   "name": "위암",
+   "full": "위암",
+   "tier": "A",
+   "system": "소화계",
+   "week": 16,
+   "lenses": [
+    "사망",
+    "진료",
+    "뉴스"
+   ],
+   "tests": [
+    "위내시경",
+    "종양표지자"
+   ],
+   "treatments": [
+    "암 수술",
+    "세포독성 항암제"
+   ],
+   "confusable": []
+  },
+  {
+   "id": "HB-DZ-0020",
+   "courseId": "healthbeat",
+   "name": "대장암",
+   "full": "대장암",
+   "tier": "A",
+   "system": "소화계",
+   "week": 16,
+   "lenses": [
+    "사망",
+    "진료",
+    "뉴스"
+   ],
+   "tests": [
+    "대장내시경",
+    "대변잠혈검사"
+   ],
+   "treatments": [
+    "암 수술",
+    "세포독성 항암제"
+   ],
+   "confusable": []
+  },
+  {
+   "id": "HB-DZ-0021",
+   "courseId": "healthbeat",
+   "name": "간암",
+   "full": "간암",
+   "tier": "A",
+   "system": "소화계",
+   "week": 16,
+   "lenses": [
+    "사망",
+    "뉴스"
+   ],
+   "tests": [
+    "간기능 검사",
+    "종양표지자"
+   ],
+   "treatments": [
+    "암 수술",
+    "표적치료제"
+   ],
+   "confusable": []
+  },
+  {
+   "id": "HB-DZ-0022",
+   "courseId": "healthbeat",
+   "name": "갑상선암",
+   "full": "갑상선암",
+   "tier": "A",
+   "system": "내분비·대사계",
+   "week": 16,
+   "lenses": [
+    "진료",
+    "뉴스"
+   ],
+   "tests": [
+    "갑상선 기능 검사",
+    "유전자 검사",
+    "초음파"
+   ],
+   "treatments": [
+    "암 수술",
+    "갑상선 약"
+   ],
+   "confusable": [
+    "갑상선 질환"
+   ]
+  },
+  {
+   "id": "HB-DZ-0023",
+   "courseId": "healthbeat",
+   "name": "유방암",
+   "full": "유방암",
+   "tier": "A",
+   "system": "생식계",
+   "week": 16,
+   "lenses": [
+    "사망",
+    "진료",
+    "뉴스"
+   ],
+   "tests": [
+    "유방촬영",
+    "유전자 검사"
+   ],
+   "treatments": [
+    "암 수술",
+    "표적치료제"
+   ],
+   "confusable": []
+  },
+  {
+   "id": "HB-DZ-0024",
+   "courseId": "healthbeat",
+   "name": "전립선암",
+   "full": "전립선암",
+   "tier": "A",
+   "system": "생식계",
+   "week": 16,
+   "lenses": [
+    "사망",
+    "뉴스"
+   ],
+   "tests": [
+    "종양표지자",
+    "유전자 검사"
+   ],
+   "treatments": [
+    "암 수술",
+    "방사선치료"
+   ],
+   "confusable": [
+    "전립선비대증"
+   ]
+  },
+  {
+   "id": "HB-DZ-0025",
+   "courseId": "healthbeat",
+   "name": "췌장암",
+   "full": "췌장암",
+   "tier": "A",
+   "system": "소화계",
+   "week": 16,
+   "lenses": [
+    "사망",
+    "뉴스"
+   ],
+   "tests": [
+    "종양표지자",
+    "유전자 검사"
+   ],
+   "treatments": [
+    "세포독성 항암제",
+    "암 수술"
+   ],
+   "confusable": []
+  },
+  {
+   "id": "HB-DZ-0026",
+   "courseId": "healthbeat",
+   "name": "자궁경부암",
+   "full": "자궁경부암",
+   "tier": "A",
+   "system": "생식계",
+   "week": 16,
+   "lenses": [
+    "뉴스"
+   ],
+   "tests": [
+    "자궁경부세포검사·HPV 검사"
+   ],
+   "treatments": [
+    "암 수술",
+    "방사선치료"
+   ],
+   "confusable": []
+  },
+  {
+   "id": "HB-DZ-0027",
+   "courseId": "healthbeat",
+   "name": "알츠하이머병",
+   "full": "알츠하이머병",
+   "tier": "A",
+   "system": "신경계",
+   "week": 17,
+   "lenses": [
+    "사망",
+    "진료",
+    "뉴스"
+   ],
+   "tests": [
+    "아밀로이드 PET",
+    "치매 혈액 바이오마커"
+   ],
+   "treatments": [
+    "치매 치료제",
+    "재활"
+   ],
+   "confusable": [
+    "혈관성 치매"
+   ]
+  },
+  {
+   "id": "HB-DZ-0028",
+   "courseId": "healthbeat",
+   "name": "혈관성 치매",
+   "full": "혈관성 치매",
+   "tier": "A",
+   "system": "신경계",
+   "week": 17,
+   "lenses": [
+    "사망",
+    "진료"
+   ],
+   "tests": [
+    "뇌 MRI·MRA",
+    "인지기능 선별검사"
+   ],
+   "treatments": [
+    "치매 치료제",
+    "고혈압 약 계열"
+   ],
+   "confusable": [
+    "알츠하이머병"
+   ]
+  },
+  {
+   "id": "HB-DZ-0029",
+   "courseId": "healthbeat",
+   "name": "경도인지장애",
+   "full": "경도인지장애",
+   "tier": "A",
+   "system": "신경계",
+   "week": 17,
+   "lenses": [
+    "진료",
+    "뉴스"
+   ],
+   "tests": [
+    "인지기능 선별검사",
+    "치매 혈액 바이오마커"
+   ],
+   "treatments": [
+    "치매 치료제",
+    "재활"
+   ],
+   "confusable": [
+    "치매"
+   ]
+  },
+  {
+   "id": "HB-DZ-0030",
+   "courseId": "healthbeat",
+   "name": "파킨슨병",
+   "full": "파킨슨병",
+   "tier": "A",
+   "system": "신경계",
+   "week": 17,
+   "lenses": [
+    "진료",
+    "뉴스"
+   ],
+   "tests": [
+    "뇌 MRI·MRA"
+   ],
+   "treatments": [
+    "뇌자극 치료",
+    "재활"
+   ],
+   "confusable": [
+    "치매"
+   ]
+  },
+  {
+   "id": "HB-DZ-0031",
+   "courseId": "healthbeat",
+   "name": "우울증",
+   "full": "우울증",
+   "tier": "A",
+   "system": "신경계",
+   "week": 18,
+   "lenses": [
+    "사망",
+    "진료",
+    "뉴스"
+   ],
+   "tests": [
+    "우울·불안 선별검사"
+   ],
+   "treatments": [
+    "항우울제",
+    "심리치료"
+   ],
+   "confusable": [
+    "양극성장애",
+    "불안장애",
+    "알코올사용장애"
+   ]
+  },
+  {
+   "id": "HB-DZ-0032",
+   "courseId": "healthbeat",
+   "name": "불안장애",
+   "full": "불안장애",
+   "tier": "A",
+   "system": "신경계",
+   "week": 18,
+   "lenses": [
+    "진료",
+    "뉴스"
+   ],
+   "tests": [
+    "우울·불안 선별검사"
+   ],
+   "treatments": [
+    "항우울제",
+    "심리치료"
+   ],
+   "confusable": [
+    "우울증"
+   ]
+  },
+  {
+   "id": "HB-DZ-0033",
+   "courseId": "healthbeat",
+   "name": "조현병",
+   "full": "조현병",
+   "tier": "A",
+   "system": "신경계",
+   "week": 18,
+   "lenses": [
+    "뉴스"
+   ],
+   "tests": [],
+   "treatments": [
+    "항정신병약",
+    "심리치료"
+   ],
+   "confusable": [
+    "양극성장애"
+   ]
+  },
+  {
+   "id": "HB-DZ-0034",
+   "courseId": "healthbeat",
+   "name": "알코올사용장애",
+   "full": "알코올사용장애",
+   "tier": "A",
+   "system": "신경계",
+   "week": 18,
+   "lenses": [
+    "사망",
+    "뉴스"
+   ],
+   "tests": [
+    "간기능 검사"
+   ],
+   "treatments": [
+    "심리치료"
+   ],
+   "confusable": [
+    "우울증"
+   ]
+  },
+  {
+   "id": "HB-DZ-0035",
+   "courseId": "healthbeat",
+   "name": "COPD",
+   "full": "COPD",
+   "tier": "A",
+   "system": "호흡계",
+   "week": 19,
+   "lenses": [
+    "사망",
+    "진료"
+   ],
+   "tests": [
+    "폐기능 검사",
+    "흉부 X선"
+   ],
+   "treatments": [
+    "흡입제",
+    "금연 치료"
+   ],
+   "confusable": [
+    "천식"
+   ]
+  },
+  {
+   "id": "HB-DZ-0036",
+   "courseId": "healthbeat",
+   "name": "천식",
+   "full": "천식",
+   "tier": "A",
+   "system": "호흡계",
+   "week": 19,
+   "lenses": [
+    "진료",
+    "뉴스"
+   ],
+   "tests": [
+    "폐기능 검사"
+   ],
+   "treatments": [
+    "흡입제",
+    "생물학적제제"
+   ],
+   "confusable": [
+    "COPD"
+   ]
+  },
+  {
+   "id": "HB-DZ-0037",
+   "courseId": "healthbeat",
+   "name": "폐렴",
+   "full": "폐렴",
+   "tier": "A",
+   "system": "호흡계",
+   "week": 19,
+   "lenses": [
+    "사망",
+    "진료",
+    "뉴스"
+   ],
+   "tests": [
+    "흉부 X선",
+    "CRP"
+   ],
+   "treatments": [
+    "항생제",
+    "백신 플랫폼"
+   ],
+   "confusable": [
+    "급성 상기도감염·급성 기관지염·급성 편도염",
+    "결핵",
+    "패혈증"
+   ]
+  },
+  {
+   "id": "HB-DZ-0038",
+   "courseId": "healthbeat",
+   "name": "결핵",
+   "full": "결핵",
+   "tier": "A",
+   "system": "호흡계",
+   "week": 19,
+   "lenses": [
+    "뉴스"
+   ],
+   "tests": [
+    "결핵 검사",
+    "흉부 X선"
+   ],
+   "treatments": [
+    "항생제"
+   ],
+   "confusable": [
+    "폐렴"
+   ]
+  },
+  {
+   "id": "HB-DZ-0039",
+   "courseId": "healthbeat",
+   "name": "인플루엔자",
+   "full": "인플루엔자",
+   "tier": "A",
+   "system": "호흡계",
+   "week": 3,
+   "lenses": [
+    "진료",
+    "뉴스"
+   ],
+   "tests": [
+    "PCR·신속항원검사"
+   ],
+   "treatments": [
+    "항바이러스제",
+    "백신 플랫폼"
+   ],
+   "confusable": [
+    "급성 상기도감염·급성 기관지염·급성 편도염",
+    "코로나19"
+   ]
+  },
+  {
+   "id": "HB-DZ-0040",
+   "courseId": "healthbeat",
+   "name": "코로나19",
+   "full": "코로나19",
+   "tier": "A",
+   "system": "호흡계",
+   "week": 19,
+   "lenses": [
+    "사망",
+    "뉴스"
+   ],
+   "tests": [
+    "PCR·신속항원검사"
+   ],
+   "treatments": [
+    "항바이러스제",
+    "백신 플랫폼"
+   ],
+   "confusable": [
+    "인플루엔자"
+   ]
+  },
+  {
+   "id": "HB-DZ-0041",
+   "courseId": "healthbeat",
+   "name": "대상포진",
+   "full": "대상포진",
+   "tier": "A",
+   "system": "외피·감각계",
+   "week": 23,
+   "lenses": [
+    "진료",
+    "뉴스"
+   ],
+   "tests": [],
+   "treatments": [
+    "항바이러스제",
+    "백신 플랫폼"
+   ],
+   "confusable": [
+    "피부염·두드러기·아토피피부염"
+   ]
+  },
+  {
+   "id": "HB-DZ-0042",
+   "courseId": "healthbeat",
+   "name": "패혈증",
+   "full": "패혈증",
+   "tier": "A",
+   "system": "면역·림프계",
+   "week": 20,
+   "lenses": [
+    "사망"
+   ],
+   "tests": [
+    "CRP",
+    "일반혈액검사"
+   ],
+   "treatments": [
+    "항생제"
+   ],
+   "confusable": [
+    "폐렴"
+   ]
+  },
+  {
+   "id": "HB-DZ-0043",
+   "courseId": "healthbeat",
+   "name": "바이러스 간염",
+   "full": "바이러스 간염(B·C)",
+   "tier": "A",
+   "system": "소화계",
+   "week": 21,
+   "lenses": [
+    "사망",
+    "뉴스"
+   ],
+   "tests": [
+    "간기능 검사"
+   ],
+   "treatments": [
+    "항바이러스제"
+   ],
+   "confusable": [
+    "대사이상 지방간질환"
+   ]
+  },
+  {
+   "id": "HB-DZ-0044",
+   "courseId": "healthbeat",
+   "name": "대사이상 지방간질환",
+   "full": "대사이상 지방간질환",
+   "tier": "A",
+   "system": "소화계",
+   "week": 21,
+   "lenses": [
+    "진료",
+    "뉴스"
+   ],
+   "tests": [
+    "간기능 검사",
+    "초음파"
+   ],
+   "treatments": [
+    "비만 약 계열"
+   ],
+   "confusable": [
+    "바이러스 간염"
+   ]
+  },
+  {
+   "id": "HB-DZ-0045",
+   "courseId": "healthbeat",
+   "name": "골다공증",
+   "full": "골다공증",
+   "tier": "A",
+   "system": "근골격계",
+   "week": 22,
+   "lenses": [
+    "진료",
+    "뉴스"
+   ],
+   "tests": [
+    "골밀도 검사"
+   ],
+   "treatments": [
+    "골다공증 약"
+   ],
+   "confusable": [
+    "골관절염"
+   ]
+  },
+  {
+   "id": "HB-DZ-0046",
+   "courseId": "healthbeat",
+   "name": "골관절염",
+   "full": "골관절염(무릎관절증)",
+   "tier": "A",
+   "system": "근골격계",
+   "week": 14,
+   "lenses": [
+    "진료"
+   ],
+   "tests": [
+    "근골격 영상"
+   ],
+   "treatments": [
+    "관절 주사 치료",
+    "재활"
+   ],
+   "confusable": [
+    "류마티스관절염",
+    "골다공증",
+    "척추질환"
+   ]
+  },
+  {
+   "id": "HB-DZ-0047",
+   "courseId": "healthbeat",
+   "name": "근감소증",
+   "full": "근감소증",
+   "tier": "A",
+   "system": "근골격계",
+   "week": 22,
+   "lenses": [
+    "뉴스"
+   ],
+   "tests": [
+    "근골격 영상"
+   ],
+   "treatments": [
+    "재활"
+   ],
+   "confusable": []
+  },
+  {
+   "id": "HB-DZ-0048",
+   "courseId": "healthbeat",
+   "name": "치은염·치주질환·치아우식",
+   "full": "치은염·치주질환·치아우식",
+   "tier": "A",
+   "system": "소화계",
+   "week": 9,
+   "lenses": [
+    "진료"
+   ],
+   "tests": [
+    "구강검진"
+   ],
+   "treatments": [
+    "치주 치료·임플란트"
+   ],
+   "confusable": []
+  },
+  {
+   "id": "HB-DZ-0049",
+   "courseId": "healthbeat",
+   "name": "급성 상기도감염·급성 기관지염·급성 편도염",
+   "full": "급성 상기도감염·급성 기관지염·급성 편도염",
+   "tier": "A",
+   "system": "호흡계",
+   "week": 1,
+   "lenses": [
+    "진료"
+   ],
+   "tests": [
+    "PCR·신속항원검사"
+   ],
+   "treatments": [
+    "항생제",
+    "진통제"
+   ],
+   "confusable": [
+    "인플루엔자",
+    "폐렴",
+    "알레르기 비염·부비동염"
+   ]
+  },
+  {
+   "id": "HB-DZ-0050",
+   "courseId": "healthbeat",
+   "name": "알레르기 비염·부비동염",
+   "full": "알레르기 비염·부비동염",
+   "tier": "A",
+   "system": "호흡계",
+   "week": 19,
+   "lenses": [
+    "진료"
+   ],
+   "tests": [
+    "알레르기 검사"
+   ],
+   "treatments": [
+    "항히스타민제",
+    "알레르기 면역치료"
+   ],
+   "confusable": [
+    "급성 상기도감염·급성 기관지염·급성 편도염"
+   ]
+  },
+  {
+   "id": "HB-DZ-0051",
+   "courseId": "healthbeat",
+   "name": "위염·기능성 소화불량·헬리코박터 감염",
+   "full": "위염·기능성 소화불량·헬리코박터 감염",
+   "tier": "A",
+   "system": "소화계",
+   "week": 5,
+   "lenses": [
+    "진료",
+    "뉴스"
+   ],
+   "tests": [
+    "위내시경"
+   ],
+   "treatments": [
+    "위산 억제제",
+    "헬리코박터 제균 치료"
+   ],
+   "confusable": [
+    "위식도역류질환"
+   ]
+  },
+  {
+   "id": "HB-DZ-0052",
+   "courseId": "healthbeat",
+   "name": "위식도역류질환",
+   "full": "위식도역류질환",
+   "tier": "A",
+   "system": "소화계",
+   "week": 10,
+   "lenses": [
+    "진료"
+   ],
+   "tests": [
+    "위내시경"
+   ],
+   "treatments": [
+    "위산 억제제"
+   ],
+   "confusable": [
+    "위염·기능성 소화불량·헬리코박터 감염"
+   ]
+  },
+  {
+   "id": "HB-DZ-0053",
+   "courseId": "healthbeat",
+   "name": "노년 백내장",
+   "full": "노년 백내장",
+   "tier": "A",
+   "system": "외피·감각계",
+   "week": 16,
+   "lenses": [
+    "진료",
+    "뉴스"
+   ],
+   "tests": [
+    "안저·안압 검사"
+   ],
+   "treatments": [
+    "백내장 수술·인공수정체"
+   ],
+   "confusable": [
+    "녹내장"
+   ]
+  },
+  {
+   "id": "HB-DZ-0054",
+   "courseId": "healthbeat",
+   "name": "감염성 위장염·식중독",
+   "full": "감염성 위장염·식중독",
+   "tier": "A",
+   "system": "소화계",
+   "week": 11,
+   "lenses": [
+    "진료"
+   ],
+   "tests": [
+    "PCR·신속항원검사"
+   ],
+   "treatments": [
+    "항생제"
+   ],
+   "confusable": [
+    "과민성 장증후군"
+   ]
+  },
+  {
+   "id": "HB-DZ-0055",
+   "courseId": "healthbeat",
+   "name": "척추질환",
+   "full": "척추질환(요통·추간판장애·척추관협착증)",
+   "tier": "A",
+   "system": "근골격계",
+   "week": 12,
+   "lenses": [
+    "진료"
+   ],
+   "tests": [
+    "근골격 영상"
+   ],
+   "treatments": [
+    "재활",
+    "관절 주사 치료"
+   ],
+   "confusable": [
+    "골관절염"
+   ]
+  },
+  {
+   "id": "HB-DZ-0056",
+   "courseId": "healthbeat",
+   "name": "어깨 질환",
+   "full": "어깨 질환(오십견·회전근개 질환)",
+   "tier": "A",
+   "system": "근골격계",
+   "week": 13,
+   "lenses": [
+    "진료"
+   ],
+   "tests": [
+    "근골격 영상"
+   ],
+   "treatments": [
+    "재활",
+    "관절 주사 치료"
+   ],
+   "confusable": []
+  },
+  {
+   "id": "HB-DZ-0057",
+   "courseId": "healthbeat",
+   "name": "갑상선 질환",
+   "full": "갑상선 질환(기능저하·항진·결절)",
+   "tier": "A",
+   "system": "내분비·대사계",
+   "week": 6,
+   "lenses": [
+    "진료"
+   ],
+   "tests": [
+    "갑상선 기능 검사",
+    "초음파"
+   ],
+   "treatments": [
+    "갑상선 약"
+   ],
+   "confusable": [
+    "갑상선암"
+   ]
+  },
+  {
+   "id": "HB-DZ-0058",
+   "courseId": "healthbeat",
+   "name": "두통·편두통·어지럼증",
+   "full": "두통·편두통·어지럼증",
+   "tier": "A",
+   "system": "신경계",
+   "week": 7,
+   "lenses": [
+    "진료",
+    "뉴스"
+   ],
+   "tests": [
+    "뇌 MRI·MRA"
+   ],
+   "treatments": [
+    "편두통 약",
+    "진통제"
+   ],
+   "confusable": [
+    "뇌경색"
+   ]
+  },
+  {
+   "id": "HB-DZ-0059",
+   "courseId": "healthbeat",
+   "name": "피부염·두드러기·아토피피부염",
+   "full": "피부염·두드러기·아토피피부염",
+   "tier": "A",
+   "system": "외피·감각계",
+   "week": 15,
+   "lenses": [
+    "진료",
+    "뉴스"
+   ],
+   "tests": [
+    "알레르기 검사"
+   ],
+   "treatments": [
+    "스테로이드",
+    "생물학적제제"
+   ],
+   "confusable": [
+    "건선",
+    "대상포진"
+   ]
+  },
+  {
+   "id": "HB-DZ-0060",
+   "courseId": "healthbeat",
+   "name": "혈액암",
+   "full": "혈액암(백혈병·림프종·다발골수종)",
+   "tier": "B",
+   "system": "면역·림프계",
+   "week": 16,
+   "lenses": [
+    "뉴스"
+   ],
+   "tests": [
+    "일반혈액검사"
+   ],
+   "treatments": [
+    "세포치료",
+    "세포독성 항암제"
+   ],
+   "confusable": []
+  },
+  {
+   "id": "HB-DZ-0061",
+   "courseId": "healthbeat",
+   "name": "신장암·방광암",
+   "full": "신장암·방광암",
+   "tier": "B",
+   "system": "비뇨계",
+   "week": null,
+   "lenses": [
+    "뉴스"
+   ],
+   "tests": [
+    "소변검사"
+   ],
+   "treatments": [
+    "암 수술"
+   ],
+   "confusable": []
+  },
+  {
+   "id": "HB-DZ-0062",
+   "courseId": "healthbeat",
+   "name": "난소암·자궁내막암",
+   "full": "난소암·자궁내막암",
+   "tier": "B",
+   "system": "생식계",
+   "week": null,
+   "lenses": [
+    "뉴스"
+   ],
+   "tests": [],
+   "treatments": [
+    "암 수술"
+   ],
+   "confusable": []
+  },
+  {
+   "id": "HB-DZ-0063",
+   "courseId": "healthbeat",
+   "name": "류마티스관절염",
+   "full": "류마티스관절염",
+   "tier": "B",
+   "system": "근골격계",
+   "week": 22,
+   "lenses": [
+    "진료"
+   ],
+   "tests": [
+    "CRP"
+   ],
+   "treatments": [
+    "생물학적제제",
+    "JAK 억제제"
+   ],
+   "confusable": [
+    "골관절염"
+   ]
+  },
+  {
+   "id": "HB-DZ-0064",
+   "courseId": "healthbeat",
+   "name": "통풍",
+   "full": "통풍",
+   "tier": "B",
+   "system": "근골격계",
+   "week": 22,
+   "lenses": [
+    "진료"
+   ],
+   "tests": [],
+   "treatments": [],
+   "confusable": []
+  },
+  {
+   "id": "HB-DZ-0065",
+   "courseId": "healthbeat",
+   "name": "강직성척추염",
+   "full": "강직성척추염",
+   "tier": "B",
+   "system": "근골격계",
+   "week": 23,
+   "lenses": [
+    "뉴스"
+   ],
+   "tests": [],
+   "treatments": [
+    "생물학적제제"
+   ],
+   "confusable": []
+  },
+  {
+   "id": "HB-DZ-0066",
+   "courseId": "healthbeat",
+   "name": "전신홍반루푸스",
+   "full": "전신홍반루푸스",
+   "tier": "B",
+   "system": "면역·림프계",
+   "week": 23,
+   "lenses": [
+    "뉴스"
+   ],
+   "tests": [],
+   "treatments": [
+    "스테로이드"
+   ],
+   "confusable": []
+  },
+  {
+   "id": "HB-DZ-0067",
+   "courseId": "healthbeat",
+   "name": "건선",
+   "full": "건선",
+   "tier": "B",
+   "system": "외피·감각계",
+   "week": 23,
+   "lenses": [
+    "뉴스"
+   ],
+   "tests": [],
+   "treatments": [
+    "생물학적제제",
+    "JAK 억제제"
+   ],
+   "confusable": [
+    "피부염·두드러기·아토피피부염"
+   ]
+  },
+  {
+   "id": "HB-DZ-0068",
+   "courseId": "healthbeat",
+   "name": "탈모증",
+   "full": "탈모증(원형·안드로겐성)",
+   "tier": "B",
+   "system": "외피·감각계",
+   "week": 24,
+   "lenses": [
+    "진료",
+    "뉴스"
+   ],
+   "tests": [],
+   "treatments": [],
+   "confusable": []
+  },
+  {
+   "id": "HB-DZ-0069",
+   "courseId": "healthbeat",
+   "name": "염증성 장질환",
+   "full": "염증성 장질환",
+   "tier": "B",
+   "system": "소화계",
+   "week": 21,
+   "lenses": [
+    "뉴스"
+   ],
+   "tests": [
+    "대장내시경"
+   ],
+   "treatments": [
+    "생물학적제제",
+    "JAK 억제제"
+   ],
+   "confusable": [
+    "과민성 장증후군"
+   ]
+  },
+  {
+   "id": "HB-DZ-0070",
+   "courseId": "healthbeat",
+   "name": "과민성 장증후군",
+   "full": "과민성 장증후군",
+   "tier": "B",
+   "system": "소화계",
+   "week": 21,
+   "lenses": [
+    "진료"
+   ],
+   "tests": [],
+   "treatments": [],
+   "confusable": [
+    "염증성 장질환",
+    "감염성 위장염·식중독"
+   ]
+  },
+  {
+   "id": "HB-DZ-0071",
+   "courseId": "healthbeat",
+   "name": "변비·치핵",
+   "full": "변비·치핵",
+   "tier": "B",
+   "system": "소화계",
+   "week": 22,
+   "lenses": [
+    "진료"
+   ],
+   "tests": [],
+   "treatments": [],
+   "confusable": []
+  },
+  {
+   "id": "HB-DZ-0072",
+   "courseId": "healthbeat",
+   "name": "담석증·담낭염",
+   "full": "담석증·담낭염",
+   "tier": "B",
+   "system": "소화계",
+   "week": null,
+   "lenses": [
+    "진료"
+   ],
+   "tests": [],
+   "treatments": [],
+   "confusable": []
+  },
+  {
+   "id": "HB-DZ-0073",
+   "courseId": "healthbeat",
+   "name": "췌장염",
+   "full": "췌장염",
+   "tier": "B",
+   "system": "소화계",
+   "week": null,
+   "lenses": [
+    "진료"
+   ],
+   "tests": [],
+   "treatments": [],
+   "confusable": []
+  },
+  {
+   "id": "HB-DZ-0074",
+   "courseId": "healthbeat",
+   "name": "방광염·요로감염",
+   "full": "방광염·요로감염",
+   "tier": "B",
+   "system": "비뇨계",
+   "week": 20,
+   "lenses": [
+    "진료"
+   ],
+   "tests": [
+    "소변검사"
+   ],
+   "treatments": [
+    "항생제"
+   ],
+   "confusable": []
+  },
+  {
+   "id": "HB-DZ-0075",
+   "courseId": "healthbeat",
+   "name": "전립선비대증",
+   "full": "전립선비대증",
+   "tier": "B",
+   "system": "생식계",
+   "week": 21,
+   "lenses": [
+    "진료"
+   ],
+   "tests": [],
+   "treatments": [],
+   "confusable": [
+    "전립선암"
+   ]
+  },
+  {
+   "id": "HB-DZ-0076",
+   "courseId": "healthbeat",
+   "name": "과민성 방광·요실금",
+   "full": "과민성 방광·요실금",
+   "tier": "B",
+   "system": "비뇨계",
+   "week": 21,
+   "lenses": [
+    "진료"
+   ],
+   "tests": [],
+   "treatments": [],
+   "confusable": []
+  },
+  {
+   "id": "HB-DZ-0077",
+   "courseId": "healthbeat",
+   "name": "녹내장",
+   "full": "녹내장",
+   "tier": "B",
+   "system": "외피·감각계",
+   "week": 23,
+   "lenses": [
+    "진료"
+   ],
+   "tests": [
+    "안저·안압 검사"
+   ],
+   "treatments": [],
+   "confusable": [
+    "노년 백내장"
+   ]
+  },
+  {
+   "id": "HB-DZ-0078",
+   "courseId": "healthbeat",
+   "name": "황반변성",
+   "full": "황반변성",
+   "tier": "B",
+   "system": "외피·감각계",
+   "week": 23,
+   "lenses": [
+    "진료",
+    "뉴스"
+   ],
+   "tests": [
+    "안저·안압 검사"
+   ],
+   "treatments": [
+    "생물학적제제"
+   ],
+   "confusable": []
+  },
+  {
+   "id": "HB-DZ-0079",
+   "courseId": "healthbeat",
+   "name": "안구건조증·결막염",
+   "full": "안구건조증·결막염",
+   "tier": "B",
+   "system": "외피·감각계",
+   "week": 17,
+   "lenses": [
+    "진료"
+   ],
+   "tests": [],
+   "treatments": [],
+   "confusable": []
+  },
+  {
+   "id": "HB-DZ-0080",
+   "courseId": "healthbeat",
+   "name": "당뇨망막병증",
+   "full": "당뇨망막병증",
+   "tier": "B",
+   "system": "외피·감각계",
+   "week": 11,
+   "lenses": [
+    "진료"
+   ],
+   "tests": [
+    "안저·안압 검사"
+   ],
+   "treatments": [],
+   "confusable": []
+  },
+  {
+   "id": "HB-DZ-0081",
+   "courseId": "healthbeat",
+   "name": "난청·이명",
+   "full": "난청·이명",
+   "tier": "B",
+   "system": "외피·감각계",
+   "week": 26,
+   "lenses": [
+    "진료"
+   ],
+   "tests": [
+    "청력 검사"
+   ],
+   "treatments": [],
+   "confusable": []
+  },
+  {
+   "id": "HB-DZ-0082",
+   "courseId": "healthbeat",
+   "name": "중이염",
+   "full": "중이염",
+   "tier": "B",
+   "system": "외피·감각계",
+   "week": 26,
+   "lenses": [
+    "진료"
+   ],
+   "tests": [],
+   "treatments": [
+    "항생제"
+   ],
+   "confusable": []
+  },
+  {
+   "id": "HB-DZ-0083",
+   "courseId": "healthbeat",
+   "name": "ADHD",
+   "full": "ADHD",
+   "tier": "B",
+   "system": "신경계",
+   "week": 18,
+   "lenses": [
+    "진료",
+    "뉴스"
+   ],
+   "tests": [],
+   "treatments": [
+    "ADHD 약물"
+   ],
+   "confusable": []
+  },
+  {
+   "id": "HB-DZ-0084",
+   "courseId": "healthbeat",
+   "name": "양극성장애",
+   "full": "양극성장애",
+   "tier": "B",
+   "system": "신경계",
+   "week": 18,
+   "lenses": [
+    "뉴스"
+   ],
+   "tests": [],
+   "treatments": [
+    "기분안정제"
+   ],
+   "confusable": [
+    "우울증",
+    "조현병"
+   ]
+  },
+  {
+   "id": "HB-DZ-0085",
+   "courseId": "healthbeat",
+   "name": "불면증·수면무호흡증",
+   "full": "불면증·수면무호흡증",
+   "tier": "B",
+   "system": "신경계",
+   "week": 18,
+   "lenses": [
+    "진료"
+   ],
+   "tests": [
+    "수면다원검사"
+   ],
+   "treatments": [
+    "수면제"
+   ],
+   "confusable": []
+  },
+  {
+   "id": "HB-DZ-0086",
+   "courseId": "healthbeat",
+   "name": "자폐스펙트럼장애",
+   "full": "자폐스펙트럼장애",
+   "tier": "B",
+   "system": "신경계",
+   "week": null,
+   "lenses": [
+    "뉴스"
+   ],
+   "tests": [],
+   "treatments": [],
+   "confusable": []
+  },
+  {
+   "id": "HB-DZ-0087",
+   "courseId": "healthbeat",
+   "name": "섭식장애",
+   "full": "섭식장애",
+   "tier": "B",
+   "system": "신경계",
+   "week": null,
+   "lenses": [
+    "뉴스"
+   ],
+   "tests": [],
+   "treatments": [
+    "심리치료"
+   ],
+   "confusable": []
+  },
+  {
+   "id": "HB-DZ-0088",
+   "courseId": "healthbeat",
+   "name": "뇌전증",
+   "full": "뇌전증",
+   "tier": "B",
+   "system": "신경계",
+   "week": null,
+   "lenses": [
+    "뉴스"
+   ],
+   "tests": [],
+   "treatments": [],
+   "confusable": []
+  },
+  {
+   "id": "HB-DZ-0089",
+   "courseId": "healthbeat",
+   "name": "다발성경화증",
+   "full": "다발성경화증",
+   "tier": "B",
+   "system": "신경계",
+   "week": null,
+   "lenses": [
+    "뉴스"
+   ],
+   "tests": [],
+   "treatments": [],
+   "confusable": []
+  },
+  {
+   "id": "HB-DZ-0090",
+   "courseId": "healthbeat",
+   "name": "근위축성측삭경화증",
+   "full": "근위축성측삭경화증",
+   "tier": "B",
+   "system": "신경계",
+   "week": null,
+   "lenses": [
+    "뉴스"
+   ],
+   "tests": [],
+   "treatments": [],
+   "confusable": []
+  },
+  {
+   "id": "HB-DZ-0091",
+   "courseId": "healthbeat",
+   "name": "철결핍빈혈",
+   "full": "철결핍빈혈",
+   "tier": "B",
+   "system": "순환계",
+   "week": 25,
+   "lenses": [
+    "진료"
+   ],
+   "tests": [
+    "일반혈액검사"
+   ],
+   "treatments": [],
+   "confusable": []
+  },
+  {
+   "id": "HB-DZ-0092",
+   "courseId": "healthbeat",
+   "name": "고관절 골절",
+   "full": "고관절 골절",
+   "tier": "B",
+   "system": "근골격계",
+   "week": 22,
+   "lenses": [
+    "사망",
+    "뉴스"
+   ],
+   "tests": [
+    "골밀도 검사"
+   ],
+   "treatments": [
+    "재활"
+   ],
+   "confusable": []
+  },
+  {
+   "id": "HB-DZ-0093",
+   "courseId": "healthbeat",
+   "name": "난임",
+   "full": "난임",
+   "tier": "B",
+   "system": "생식계",
+   "week": 23,
+   "lenses": [
+    "뉴스"
+   ],
+   "tests": [],
+   "treatments": [],
+   "confusable": []
+  },
+  {
+   "id": "HB-DZ-0094",
+   "courseId": "healthbeat",
+   "name": "자궁내막증",
+   "full": "자궁내막증",
+   "tier": "B",
+   "system": "생식계",
+   "week": 23,
+   "lenses": [
+    "진료"
+   ],
+   "tests": [],
+   "treatments": [],
+   "confusable": []
+  },
+  {
+   "id": "HB-DZ-0095",
+   "courseId": "healthbeat",
+   "name": "갱년기 증후군",
+   "full": "갱년기 증후군",
+   "tier": "B",
+   "system": "생식계",
+   "week": 23,
+   "lenses": [
+    "진료",
+    "뉴스"
+   ],
+   "tests": [],
+   "treatments": [],
+   "confusable": []
+  },
+  {
+   "id": "HB-DZ-0096",
+   "courseId": "healthbeat",
+   "name": "HIV 감염",
+   "full": "HIV 감염",
+   "tier": "B",
+   "system": "면역·림프계",
+   "week": null,
+   "lenses": [
+    "뉴스"
+   ],
+   "tests": [],
+   "treatments": [
+    "항바이러스제"
+   ],
+   "confusable": []
+  },
+  {
+   "id": "HB-DZ-0097",
+   "courseId": "healthbeat",
+   "name": "성매개감염",
+   "full": "성매개감염",
+   "tier": "B",
+   "system": "생식계",
+   "week": null,
+   "lenses": [
+    "뉴스"
+   ],
+   "tests": [],
+   "treatments": [
+    "항생제"
+   ],
+   "confusable": []
+  },
+  {
+   "id": "HB-DZ-0098",
+   "courseId": "healthbeat",
+   "name": "소아 호흡기·장 감염",
+   "full": "소아 호흡기·장 감염(RSV·수족구 등)",
+   "tier": "B",
+   "system": "호흡계",
+   "week": 23,
+   "lenses": [
+    "진료"
+   ],
+   "tests": [
+    "PCR·신속항원검사"
+   ],
+   "treatments": [],
+   "confusable": []
+  },
+  {
+   "id": "HB-DZ-0099",
+   "courseId": "healthbeat",
+   "name": "홍역·백일해",
+   "full": "홍역·백일해",
+   "tier": "B",
+   "system": "호흡계",
+   "week": 20,
+   "lenses": [
+    "뉴스"
+   ],
+   "tests": [],
+   "treatments": [
+    "백신 플랫폼"
+   ],
+   "confusable": []
+  },
+  {
+   "id": "HB-DZ-0100",
+   "courseId": "healthbeat",
+   "name": "엠폭스",
+   "full": "엠폭스",
+   "tier": "B",
+   "system": "외피·감각계",
+   "week": null,
+   "lenses": [
+    "뉴스"
+   ],
+   "tests": [],
+   "treatments": [],
+   "confusable": []
+  },
+  {
+   "id": "HB-DZ-0101",
+   "courseId": "healthbeat",
+   "name": "해외유입 감염",
+   "full": "해외유입 감염(뎅기·말라리아)",
+   "tier": "B",
+   "system": "면역·림프계",
+   "week": null,
+   "lenses": [
+    "뉴스"
+   ],
+   "tests": [],
+   "treatments": [],
+   "confusable": []
+  },
+  {
+   "id": "HB-DZ-0102",
+   "courseId": "healthbeat",
+   "name": "폭염·한랭질환",
+   "full": "폭염·한랭질환",
+   "tier": "B",
+   "system": "외피·감각계",
+   "week": 20,
+   "lenses": [
+    "뉴스"
+   ],
+   "tests": [],
+   "treatments": [],
+   "confusable": []
+  },
+  {
+   "id": "HB-DZ-0103",
+   "courseId": "healthbeat",
+   "name": "미세먼지 관련 건강 영향",
+   "full": "미세먼지 관련 건강 영향",
+   "tier": "B",
+   "system": "호흡계",
+   "week": 4,
+   "lenses": [
+    "뉴스"
+   ],
+   "tests": [],
+   "treatments": [],
+   "confusable": []
+  },
+  {
+   "id": "HB-DZ-0104",
+   "courseId": "healthbeat",
+   "name": "손상",
+   "full": "손상(낙상·교통)",
+   "tier": "B",
+   "system": "근골격계",
+   "week": 22,
+   "lenses": [
+    "사망"
+   ],
+   "tests": [],
+   "treatments": [
+    "재활"
+   ],
+   "confusable": []
+  },
+  {
+   "id": "HB-DZ-0105",
+   "courseId": "healthbeat",
+   "name": "마약류 의존·중독",
+   "full": "마약류 의존·중독",
+   "tier": "B",
+   "system": "신경계",
+   "week": 18,
+   "lenses": [
+    "뉴스"
+   ],
+   "tests": [],
+   "treatments": [],
+   "confusable": []
+  },
+  {
+   "id": "HB-DZ-0106",
+   "courseId": "healthbeat",
+   "name": "니코틴 의존·전자담배",
+   "full": "니코틴 의존·전자담배",
+   "tier": "B",
+   "system": "호흡계",
+   "week": 4,
+   "lenses": [
+    "뉴스"
+   ],
+   "tests": [],
+   "treatments": [
+    "금연 치료"
+   ],
+   "confusable": []
+  },
+  {
+   "id": "HB-DZ-0107",
+   "courseId": "healthbeat",
+   "name": "척수성근위축증",
+   "full": "척수성근위축증",
+   "tier": "C",
+   "system": "신경계",
+   "week": null,
+   "lenses": [
+    "뉴스"
+   ],
+   "tests": [],
+   "treatments": [
+    "유전자·세포치료"
+   ],
+   "confusable": []
+  },
+  {
+   "id": "HB-DZ-0108",
+   "courseId": "healthbeat",
+   "name": "혈우병",
+   "full": "혈우병",
+   "tier": "C",
+   "system": "순환계",
+   "week": null,
+   "lenses": [
+    "뉴스"
+   ],
+   "tests": [],
+   "treatments": [
+    "유전자·세포치료"
+   ],
+   "confusable": []
+  },
+  {
+   "id": "HB-DZ-0109",
+   "courseId": "healthbeat",
+   "name": "파브리병",
+   "full": "파브리병",
+   "tier": "C",
+   "system": "내분비·대사계",
+   "week": null,
+   "lenses": [
+    "뉴스"
+   ],
+   "tests": [],
+   "treatments": [],
+   "confusable": []
+  },
+  {
+   "id": "HB-DZ-0110",
+   "courseId": "healthbeat",
+   "name": "고셔병",
+   "full": "고셔병",
+   "tier": "C",
+   "system": "내분비·대사계",
+   "week": null,
+   "lenses": [
+    "뉴스"
+   ],
+   "tests": [],
+   "treatments": [],
+   "confusable": []
+  },
+  {
+   "id": "HB-DZ-0111",
+   "courseId": "healthbeat",
+   "name": "듀센 근이영양증",
+   "full": "듀센 근이영양증",
+   "tier": "C",
+   "system": "근골격계",
+   "week": null,
+   "lenses": [
+    "뉴스"
+   ],
+   "tests": [],
+   "treatments": [
+    "유전자·세포치료"
+   ],
+   "confusable": []
+  },
+  {
+   "id": "HB-DZ-0112",
+   "courseId": "healthbeat",
+   "name": "헌팅턴병",
+   "full": "헌팅턴병",
+   "tier": "C",
+   "system": "신경계",
+   "week": null,
+   "lenses": [
+    "뉴스"
+   ],
+   "tests": [],
+   "treatments": [],
+   "confusable": []
+  },
+  {
+   "id": "HB-DZ-0113",
+   "courseId": "healthbeat",
+   "name": "발작성 야간 혈색소뇨증",
+   "full": "발작성 야간 혈색소뇨증",
+   "tier": "C",
+   "system": "순환계",
+   "week": null,
+   "lenses": [
+    "뉴스"
+   ],
+   "tests": [],
+   "treatments": [
+    "생물학적제제"
+   ],
+   "confusable": []
+  },
+  {
+   "id": "HB-DZ-0114",
+   "courseId": "healthbeat",
+   "name": "특발성 폐섬유증",
+   "full": "특발성 폐섬유증",
+   "tier": "C",
+   "system": "호흡계",
+   "week": null,
+   "lenses": [
+    "뉴스"
+   ],
+   "tests": [],
+   "treatments": [],
+   "confusable": []
+  },
+  {
+   "id": "HB-DZ-0115",
+   "courseId": "healthbeat",
+   "name": "아밀로이드증",
+   "full": "아밀로이드증",
+   "tier": "C",
+   "system": "순환계",
+   "week": null,
+   "lenses": [
+    "뉴스"
+   ],
+   "tests": [],
+   "treatments": [],
+   "confusable": []
+  },
+  {
+   "id": "HB-DZ-0116",
+   "courseId": "healthbeat",
+   "name": "시신경척수염",
+   "full": "시신경척수염",
+   "tier": "C",
+   "system": "신경계",
+   "week": null,
+   "lenses": [
+    "뉴스"
+   ],
+   "tests": [],
+   "treatments": [
+    "생물학적제제"
+   ],
+   "confusable": []
+  },
+  {
+   "id": "HB-DZ-0117",
+   "courseId": "healthbeat",
+   "name": "중증 근무력증",
+   "full": "중증 근무력증",
+   "tier": "C",
+   "system": "신경계",
+   "week": null,
+   "lenses": [
+    "뉴스"
+   ],
+   "tests": [],
+   "treatments": [
+    "생물학적제제"
+   ],
+   "confusable": []
+  },
+  {
+   "id": "HB-DZ-0118",
+   "courseId": "healthbeat",
+   "name": "원발성 담즙성 담관염",
+   "full": "원발성 담즙성 담관염",
+   "tier": "C",
+   "system": "소화계",
+   "week": null,
+   "lenses": [
+    "뉴스"
+   ],
+   "tests": [],
+   "treatments": [],
+   "confusable": []
+  },
+  {
+   "id": "HB-DZ-0119",
+   "courseId": "healthbeat",
+   "name": "소아 희귀 암",
+   "full": "소아 희귀 암",
+   "tier": "C",
+   "system": "면역·림프계",
+   "week": null,
+   "lenses": [
+    "뉴스"
+   ],
+   "tests": [],
+   "treatments": [
+    "세포치료"
+   ],
+   "confusable": []
+  }
+ ],
+ "cards": [
+  {
+   "id": "HB-C-AL-tissue",
+   "courseId": "healthbeat",
+   "domain": "인체 연금술",
+   "axis": [
+    "science"
+   ],
+   "tags": [
+    "W01",
+    "alchemy"
+   ],
+   "front": "🔬 세포 + 🔬 세포 = ?",
+   "back": "조직 — 비슷한 세포가 모여 같은 일을 하는 무리. 상피·결합·근육·신경 조직 네 가지로 나눈다.",
+   "unlock": {
+    "type": "al",
+    "id": "HB-AL-tissue"
+   },
+   "difficulty": 1
+  },
+  {
+   "id": "HB-C-AL-organ",
+   "courseId": "healthbeat",
+   "domain": "인체 연금술",
+   "axis": [
+    "science"
+   ],
+   "tags": [
+    "W01",
+    "alchemy"
+   ],
+   "front": "🧩 조직 + 🧩 조직 = ?",
+   "back": "장기 — 여러 조직이 모여 한 가지 일을 맡는 구조. 의학 용어로는 ‘기관(器官)’이라고 한다.",
+   "unlock": {
+    "type": "al",
+    "id": "HB-AL-organ"
+   },
+   "difficulty": 1,
+   "why": "‘기관(器官)’은 숨길인 ‘기관(氣管)’과 소리가 같아 기사에서 헷갈리기 쉽다."
+  },
+  {
+   "id": "HB-C-AL-system",
+   "courseId": "healthbeat",
+   "domain": "인체 연금술",
+   "axis": [
+    "science"
+   ],
+   "tags": [
+    "W01",
+    "alchemy"
+   ],
+   "front": "◻︎ 장기 + ◻︎ 장기 = ?",
+   "back": "계통 — 같은 목적을 위해 함께 일하는 장기 묶음. 순환계·호흡계처럼 ‘~계(계통)’로 부른다.",
+   "unlock": {
+    "type": "al",
+    "id": "HB-AL-system"
+   },
+   "difficulty": 1,
+   "why": "통계에선 ‘순환계통 질환’처럼 질병 분류의 큰 묶음 이름으로도 쓰인다."
+  },
+  {
+   "id": "HB-C-AL-heart",
+   "courseId": "healthbeat",
+   "domain": "인체 연금술",
+   "axis": [
+    "science"
+   ],
+   "tags": [
+    "W01",
+    "alchemy"
+   ],
+   "front": "◻︎ 장기 + 🩸 혈액 = ?",
+   "back": "심장 — 혈액을 온몸으로 뿜어내는 근육 펌프. 안정 시 1분에 60~100번 뛴다.",
+   "unlock": {
+    "type": "al",
+    "id": "HB-AL-heart"
+   },
+   "difficulty": 1
+  },
+  {
+   "id": "HB-C-AL-lung",
+   "courseId": "healthbeat",
+   "domain": "인체 연금술",
+   "axis": [
+    "science"
+   ],
+   "tags": [
+    "W01",
+    "alchemy"
+   ],
+   "front": "◻︎ 장기 + 💨 공기 = ?",
+   "back": "폐 — 들이마신 공기의 산소를 혈액에 넘기고 이산화탄소를 내보내는 장기. 이 교환은 폐포에서 일어난다.",
+   "unlock": {
+    "type": "al",
+    "id": "HB-AL-lung"
+   },
+   "difficulty": 1
+  },
+  {
+   "id": "HB-C-AL-stomach",
+   "courseId": "healthbeat",
+   "domain": "인체 연금술",
+   "axis": [
+    "science"
+   ],
+   "tags": [
+    "W01",
+    "alchemy"
+   ],
+   "front": "◻︎ 장기 + 🍚 음식 = ?",
+   "back": "위 — 음식을 잠시 담아 두고 위산과 소화 효소로 잘게 부수는 주머니 모양의 소화 기관.",
+   "unlock": {
+    "type": "al",
+    "id": "HB-AL-stomach"
+   },
+   "difficulty": 1
+  },
+  {
+   "id": "HB-C-AL-brain",
+   "courseId": "healthbeat",
+   "domain": "인체 연금술",
+   "axis": [
+    "science"
+   ],
+   "tags": [
+    "W01",
+    "alchemy"
+   ],
+   "front": "◻︎ 장기 + ⚡ 신호 = ?",
+   "back": "뇌 — 신경 신호를 모아 판단하고 몸 전체를 조절하는 중추 기관.",
+   "unlock": {
+    "type": "al",
+    "id": "HB-AL-brain"
+   },
+   "difficulty": 1
+  },
+  {
+   "id": "HB-C-AL-vessel",
+   "courseId": "healthbeat",
+   "domain": "인체 연금술",
+   "axis": [
+    "science"
+   ],
+   "tags": [
+    "W01",
+    "alchemy"
+   ],
+   "front": "🧩 조직 + 🩸 혈액 = ?",
+   "back": "혈관 — 혈액이 지나는 관. 심장에서 나가는 동맥, 돌아오는 정맥, 그 사이의 모세혈관이 있다.",
+   "unlock": {
+    "type": "al",
+    "id": "HB-AL-vessel"
+   },
+   "difficulty": 1
+  },
+  {
+   "id": "HB-C-AL-circ",
+   "courseId": "healthbeat",
+   "domain": "인체 연금술",
+   "axis": [
+    "science"
+   ],
+   "tags": [
+    "W01",
+    "alchemy"
+   ],
+   "front": "🫀 심장 + ◻︎ 혈관 = ?",
+   "back": "순환계 — 심장·혈관·혈액이 온몸에 산소와 영양을 나르고 노폐물을 거두는 계통.",
+   "unlock": {
+    "type": "al",
+    "id": "HB-AL-circ"
+   },
+   "difficulty": 1,
+   "why": "2025년 사망원인 2위 심장 질환, 4위 뇌혈관 질환이 모두 이 계통의 병이다."
+  },
+  {
+   "id": "HB-C-AL-resp",
+   "courseId": "healthbeat",
+   "domain": "인체 연금술",
+   "axis": [
+    "science"
+   ],
+   "tags": [
+    "W01",
+    "alchemy"
+   ],
+   "front": "🫁 폐 + 💨 공기 = ?",
+   "back": "호흡계 — 코·인두·후두·기관·기관지·폐로 이어져 산소를 들이고 이산화탄소를 내보내는 계통.",
+   "unlock": {
+    "type": "al",
+    "id": "HB-AL-resp"
+   },
+   "difficulty": 1
+  },
+  {
+   "id": "HB-C-AL-digest",
+   "courseId": "healthbeat",
+   "domain": "인체 연금술",
+   "axis": [
+    "science"
+   ],
+   "tags": [
+    "W01",
+    "alchemy"
+   ],
+   "front": "◻︎ 위 + 🍚 음식 = ?",
+   "back": "소화계 — 입에서 항문까지 이어진 소화관과 간·쓸개·췌장이 음식을 분해·흡수하는 계통.",
+   "unlock": {
+    "type": "al",
+    "id": "HB-AL-digest"
+   },
+   "difficulty": 1
+  },
+  {
+   "id": "HB-C-AL-nerve",
+   "courseId": "healthbeat",
+   "domain": "인체 연금술",
+   "axis": [
+    "science"
+   ],
+   "tags": [
+    "W01",
+    "alchemy"
+   ],
+   "front": "🧠 뇌 + ⚡ 신호 = ?",
+   "back": "신경계 — 뇌·척수(중추)와 온몸의 신경(말초)이 전기 신호로 감각·운동·자율 기능을 조절하는 계통.",
+   "unlock": {
+    "type": "al",
+    "id": "HB-AL-nerve"
+   },
+   "difficulty": 1
+  },
+  {
+   "id": "HB-C-AL-alcohol",
+   "courseId": "healthbeat",
+   "domain": "인체 연금술",
+   "axis": [
+    "science"
+   ],
+   "tags": [
+    "W01",
+    "alchemy"
+   ],
+   "front": "🍚 음식 + ⏳ 시간 = ?",
+   "back": "술 — 곡물·과일의 당이 효모에 의해 발효되어 생긴 에탄올이 든 음료.",
+   "unlock": {
+    "type": "al",
+    "id": "HB-AL-alcohol"
+   },
+   "difficulty": 1,
+   "why": "국제암연구소(IARC)는 알코올 음료를 1군 발암물질로 분류한다."
+  },
+  {
+   "id": "HB-C-AL-liver",
+   "courseId": "healthbeat",
+   "domain": "인체 연금술",
+   "axis": [
+    "science"
+   ],
+   "tags": [
+    "W01",
+    "alchemy"
+   ],
+   "front": "◻︎ 장기 + 🍺 술 = ?",
+   "back": "간 — 알코올·약물 같은 물질을 분해(대사)하고 영양을 저장하는, 몸 안에서 가장 큰 장기.",
+   "unlock": {
+    "type": "al",
+    "id": "HB-AL-liver"
+   },
+   "difficulty": 1
+  },
+  {
+   "id": "HB-C-AL-metab",
+   "courseId": "healthbeat",
+   "domain": "인체 연금술",
+   "axis": [
+    "science"
+   ],
+   "tags": [
+    "W01",
+    "alchemy"
+   ],
+   "front": "🔬 세포 + 🍚 음식 = ?",
+   "back": "대사 — 세포가 영양소에서 에너지를 꺼내 쓰고 몸의 재료를 만드는 화학 반응 전체.",
+   "unlock": {
+    "type": "al",
+    "id": "HB-AL-metab"
+   },
+   "difficulty": 1
+  },
+  {
+   "id": "HB-C-AL-waste",
+   "courseId": "healthbeat",
+   "domain": "인체 연금술",
+   "axis": [
+    "science"
+   ],
+   "tags": [
+    "W01",
+    "alchemy"
+   ],
+   "front": "◻︎ 대사 + 🩸 혈액 = ?",
+   "back": "노폐물 — 대사 뒤에 남는 쓸모없는 물질. 단백질이 분해되며 생기는 요소, 근육에서 나오는 크레아티닌 등이 있다.",
+   "unlock": {
+    "type": "al",
+    "id": "HB-AL-waste"
+   },
+   "difficulty": 1
+  },
+  {
+   "id": "HB-C-AL-kidney",
+   "courseId": "healthbeat",
+   "domain": "인체 연금술",
+   "axis": [
+    "science"
+   ],
+   "tags": [
+    "W01",
+    "alchemy"
+   ],
+   "front": "◻︎ 노폐물 + ◻︎ 장기 = ?",
+   "back": "콩팥 — 혈액을 걸러 노폐물과 남는 물을 소변으로 내보내는 장기(신장). 혈압·전해질 조절도 맡는다.",
+   "unlock": {
+    "type": "al",
+    "id": "HB-AL-kidney"
+   },
+   "difficulty": 1,
+   "why": "콩팥 기능은 혈액 크레아티닌으로 계산한 사구체여과율(eGFR)로 흔히 표시한다."
+  },
+  {
+   "id": "HB-C-AL-hormone",
+   "courseId": "healthbeat",
+   "domain": "인체 연금술",
+   "axis": [
+    "science"
+   ],
+   "tags": [
+    "W01",
+    "alchemy"
+   ],
+   "front": "⚡ 신호 + 🩸 혈액 = ?",
+   "back": "호르몬 — 내분비샘에서 나와 혈액을 타고 멀리 있는 장기에 전달되는 화학 신호 물질.",
+   "unlock": {
+    "type": "al",
+    "id": "HB-AL-hormone"
+   },
+   "difficulty": 1
+  },
+  {
+   "id": "HB-C-AL-insulin",
+   "courseId": "healthbeat",
+   "domain": "인체 연금술",
+   "axis": [
+    "science"
+   ],
+   "tags": [
+    "W01",
+    "alchemy"
+   ],
+   "front": "◻︎ 호르몬 + 🍚 음식 = ?",
+   "back": "인슐린 — 식사 뒤 췌장에서 나와 혈액의 포도당을 세포 안으로 들여보내 혈당을 낮추는 호르몬.",
+   "unlock": {
+    "type": "al",
+    "id": "HB-AL-insulin"
+   },
+   "difficulty": 1
+  },
+  {
+   "id": "HB-C-AL-glucose",
+   "courseId": "healthbeat",
+   "domain": "인체 연금술",
+   "axis": [
+    "science"
+   ],
+   "tags": [
+    "W01",
+    "alchemy"
+   ],
+   "front": "🍚 음식 + 🩸 혈액 = ?",
+   "back": "혈당 — 혈액 속 포도당 농도. 공복 혈당은 100mg/dL 미만이 정상이다.",
+   "unlock": {
+    "type": "al",
+    "id": "HB-AL-glucose"
+   },
+   "difficulty": 1
+  },
+  {
+   "id": "HB-C-AL-diabetes",
+   "courseId": "healthbeat",
+   "domain": "인체 연금술",
+   "axis": [
+    "science"
+   ],
+   "tags": [
+    "W01",
+    "alchemy"
+   ],
+   "front": "🍬 혈당 + ⏳ 시간 = ?",
+   "back": "당뇨병 — 인슐린이 부족하거나 잘 듣지 않아 혈당이 높은 상태가 계속되는 병. 공복 혈당 126mg/dL 이상 등으로 진단한다.",
+   "unlock": {
+    "type": "al",
+    "id": "HB-AL-diabetes"
+   },
+   "difficulty": 1,
+   "why": "국내 환자 대부분은 2형이다. 1형과 2형은 원인이 달라 구분해 쓴다."
+  },
+  {
+   "id": "HB-C-AL-fat",
+   "courseId": "healthbeat",
+   "domain": "인체 연금술",
+   "axis": [
+    "science"
+   ],
+   "tags": [
+    "W01",
+    "alchemy"
+   ],
+   "front": "🍚 음식 + 🍚 음식 = ?",
+   "back": "지방 — 같은 무게에서 에너지가 가장 많은 영양소(1g당 9kcal). 쓰고 남은 에너지는 지방 조직에 저장된다.",
+   "unlock": {
+    "type": "al",
+    "id": "HB-AL-fat"
+   },
+   "difficulty": 1
+  },
+  {
+   "id": "HB-C-AL-obesity",
+   "courseId": "healthbeat",
+   "domain": "인체 연금술",
+   "axis": [
+    "science"
+   ],
+   "tags": [
+    "W01",
+    "alchemy"
+   ],
+   "front": "🧈 지방 + ⏳ 시간 = ?",
+   "back": "비만 — 몸에 지방이 지나치게 쌓인 상태. 국내 기준은 체질량지수(BMI) 25 이상이다.",
+   "unlock": {
+    "type": "al",
+    "id": "HB-AL-obesity"
+   },
+   "difficulty": 1,
+   "why": "WHO 기준은 BMI 30 이상이라, 나라 간 비만율을 비교할 땐 기준부터 확인한다."
+  },
+  {
+   "id": "HB-C-AL-athero",
+   "courseId": "healthbeat",
+   "domain": "인체 연금술",
+   "axis": [
+    "science"
+   ],
+   "tags": [
+    "W01",
+    "alchemy"
+   ],
+   "front": "◻︎ 혈관 + 🧈 지방 = ?",
+   "back": "죽상경화 — 혈관 벽에 콜레스테롤 등이 쌓여 동맥이 좁아지고 딱딱해지는 변화. 흔히 동맥경화라고 부른다.",
+   "unlock": {
+    "type": "al",
+    "id": "HB-AL-athero"
+   },
+   "difficulty": 1
+  },
+  {
+   "id": "HB-C-AL-mi",
+   "courseId": "healthbeat",
+   "domain": "인체 연금술",
+   "axis": [
+    "science"
+   ],
+   "tags": [
+    "W01",
+    "alchemy"
+   ],
+   "front": "◻︎ 죽상경화 + 🫀 심장 = ?",
+   "back": "심근경색 — 심장 근육에 피를 대는 관상동맥이 막혀 근육이 죽는 응급 질환.",
+   "unlock": {
+    "type": "al",
+    "id": "HB-AL-mi"
+   },
+   "difficulty": 1,
+   "why": "갑자기 심한 가슴 통증이 이어지면 바로 119에 연락하도록 기사에 대처법을 함께 쓴다."
+  },
+  {
+   "id": "HB-C-AL-infarct",
+   "courseId": "healthbeat",
+   "domain": "인체 연금술",
+   "axis": [
+    "science"
+   ],
+   "tags": [
+    "W01",
+    "alchemy"
+   ],
+   "front": "◻︎ 죽상경화 + 🧠 뇌 = ?",
+   "back": "뇌경색 — 뇌혈관이 막혀 뇌 조직이 손상되는 뇌졸중. 뇌졸중 가운데 가장 흔한 형태다.",
+   "unlock": {
+    "type": "al",
+    "id": "HB-AL-infarct"
+   },
+   "difficulty": 1
+  },
+  {
+   "id": "HB-C-AL-bp",
+   "courseId": "healthbeat",
+   "domain": "인체 연금술",
+   "axis": [
+    "science"
+   ],
+   "tags": [
+    "W01",
+    "alchemy"
+   ],
+   "front": "🩸 혈액 + ◻︎ 혈관 = ?",
+   "back": "혈압 — 혈액이 혈관 벽을 미는 압력. ‘120/80mmHg’처럼 수축기/이완기로 적는다.",
+   "unlock": {
+    "type": "al",
+    "id": "HB-AL-bp"
+   },
+   "difficulty": 1
+  },
+  {
+   "id": "HB-C-AL-htn",
+   "courseId": "healthbeat",
+   "domain": "인체 연금술",
+   "axis": [
+    "science"
+   ],
+   "tags": [
+    "W01",
+    "alchemy"
+   ],
+   "front": "◻︎ 혈압 + ⏳ 시간 = ?",
+   "back": "고혈압 — 혈압이 높은 상태가 계속되는 병. 국내 진단 기준은 140/90mmHg 이상이다.",
+   "unlock": {
+    "type": "al",
+    "id": "HB-AL-htn"
+   },
+   "difficulty": 1,
+   "why": "미국 지침은 130/80mmHg부터 고혈압으로 본다. 기준이 다르면 유병률도 달라진다."
+  },
+  {
+   "id": "HB-C-AL-microbe",
+   "courseId": "healthbeat",
+   "domain": "인체 연금술",
+   "axis": [
+    "science"
+   ],
+   "tags": [
+    "W01",
+    "alchemy"
+   ],
+   "front": "🔬 세포 + 💨 공기 = ?",
+   "back": "미생물 — 눈에 보이지 않을 만큼 작은 생물. 세균·곰팡이 등이며, 바이러스도 흔히 함께 묶어 부른다.",
+   "unlock": {
+    "type": "al",
+    "id": "HB-AL-microbe"
+   },
+   "difficulty": 1
+  },
+  {
+   "id": "HB-C-AL-infect",
+   "courseId": "healthbeat",
+   "domain": "인체 연금술",
+   "axis": [
+    "science"
+   ],
+   "tags": [
+    "W01",
+    "alchemy"
+   ],
+   "front": "🦠 미생물 + 🩸 혈액 = ?",
+   "back": "감염 — 병원체가 몸에 들어와 자리 잡고 늘어나는 것. 증상이 없는 감염도 있다.",
+   "unlock": {
+    "type": "al",
+    "id": "HB-AL-infect"
+   },
+   "difficulty": 1
+  },
+  {
+   "id": "HB-C-AL-pneumonia",
+   "courseId": "healthbeat",
+   "domain": "인체 연금술",
+   "axis": [
+    "science"
+   ],
+   "tags": [
+    "W01",
+    "alchemy"
+   ],
+   "front": "◻︎ 감염 + 🫁 폐 = ?",
+   "back": "폐렴 — 폐에 생긴 염증. 대개 세균·바이러스 감염이 원인이다.",
+   "unlock": {
+    "type": "al",
+    "id": "HB-AL-pneumonia"
+   },
+   "difficulty": 1,
+   "why": "2025년 국내 사망원인 3위. 고령층에서 특히 위험하다."
+  },
+  {
+   "id": "HB-C-AL-hepatitis",
+   "courseId": "healthbeat",
+   "domain": "인체 연금술",
+   "axis": [
+    "science"
+   ],
+   "tags": [
+    "W01",
+    "alchemy"
+   ],
+   "front": "◻︎ 감염 + ◻︎ 간 = ?",
+   "back": "간염 — 간에 생긴 염증. B형·C형 간염 바이러스, 술, 약물 등이 원인이다.",
+   "unlock": {
+    "type": "al",
+    "id": "HB-AL-hepatitis"
+   },
+   "difficulty": 1
+  },
+  {
+   "id": "HB-C-AL-cirrhosis",
+   "courseId": "healthbeat",
+   "domain": "인체 연금술",
+   "axis": [
+    "science"
+   ],
+   "tags": [
+    "W01",
+    "alchemy"
+   ],
+   "front": "◻︎ 간염 + ⏳ 시간 = ?",
+   "back": "간경변 — 오랜 손상으로 간에 흉터 조직이 생기고 굳어 기능이 떨어진 상태.",
+   "unlock": {
+    "type": "al",
+    "id": "HB-AL-cirrhosis"
+   },
+   "difficulty": 1
+  },
+  {
+   "id": "HB-C-AL-fattyliver",
+   "courseId": "healthbeat",
+   "domain": "인체 연금술",
+   "axis": [
+    "science"
+   ],
+   "tags": [
+    "W01",
+    "alchemy"
+   ],
+   "front": "🧈 지방 + ◻︎ 간 = ?",
+   "back": "지방간 — 간세포에 지방이 지나치게 쌓인 상태. 술 때문인 것과 대사 이상 때문인 것으로 나눈다.",
+   "unlock": {
+    "type": "al",
+    "id": "HB-AL-fattyliver"
+   },
+   "difficulty": 1
+  },
+  {
+   "id": "HB-C-AL-cells",
+   "courseId": "healthbeat",
+   "domain": "인체 연금술",
+   "axis": [
+    "science"
+   ],
+   "tags": [
+    "W01",
+    "alchemy"
+   ],
+   "front": "🩸 혈액 + 🔬 세포 = ?",
+   "back": "혈구 — 혈액 속 세포. 산소를 나르는 적혈구, 몸을 지키는 백혈구, 피를 멈추게 하는 혈소판.",
+   "unlock": {
+    "type": "al",
+    "id": "HB-AL-cells"
+   },
+   "difficulty": 1
+  },
+  {
+   "id": "HB-C-AL-immune",
+   "courseId": "healthbeat",
+   "domain": "인체 연금술",
+   "axis": [
+    "science"
+   ],
+   "tags": [
+    "W01",
+    "alchemy"
+   ],
+   "front": "◻︎ 혈구 + 🦠 미생물 = ?",
+   "back": "면역 — 몸이 병원체 같은 침입자를 알아보고 물리치는 방어 체계. 한 번 만난 적을 기억하기도 한다.",
+   "unlock": {
+    "type": "al",
+    "id": "HB-AL-immune"
+   },
+   "difficulty": 1
+  },
+  {
+   "id": "HB-C-AL-vaccine",
+   "courseId": "healthbeat",
+   "domain": "인체 연금술",
+   "axis": [
+    "science"
+   ],
+   "tags": [
+    "W01",
+    "alchemy"
+   ],
+   "front": "🛡️ 면역 + 🦠 미생물 = ?",
+   "back": "백신 — 병원체를 약하게 하거나 그 일부만 보여 줘 면역 기억을 미리 만드는 약.",
+   "unlock": {
+    "type": "al",
+    "id": "HB-AL-vaccine"
+   },
+   "difficulty": 1,
+   "why": "효과(예방률)는 ‘걸릴 위험이 얼마나 줄었나’로 읽는다. ‘100% 예방’으로 쓰지 않는다."
+  },
+  {
+   "id": "HB-C-AL-inflam",
+   "courseId": "healthbeat",
+   "domain": "인체 연금술",
+   "axis": [
+    "science"
+   ],
+   "tags": [
+    "W01",
+    "alchemy"
+   ],
+   "front": "🛡️ 면역 + 🧩 조직 = ?",
+   "back": "염증 — 손상·감염에 대한 몸의 방어 반응. 붉어짐·열감·부기·통증이 나타난다.",
+   "unlock": {
+    "type": "al",
+    "id": "HB-AL-inflam"
+   },
+   "difficulty": 1
+  },
+  {
+   "id": "HB-C-AL-drug",
+   "courseId": "healthbeat",
+   "domain": "인체 연금술",
+   "axis": [
+    "science"
+   ],
+   "tags": [
+    "W01",
+    "alchemy"
+   ],
+   "front": "◻︎ 대사 + ⚡ 신호 = ?",
+   "back": "약 — 몸의 신호나 대사에 작용해 기능을 바꾸려고 쓰는 물질.",
+   "unlock": {
+    "type": "al",
+    "id": "HB-AL-drug"
+   },
+   "difficulty": 1,
+   "why": "같은 성분도 용량·대상에 따라 효과와 부작용이 달라 ‘효과 있다’만 쓰지 않는다."
+  },
+  {
+   "id": "HB-C-AL-abx",
+   "courseId": "healthbeat",
+   "domain": "인체 연금술",
+   "axis": [
+    "science"
+   ],
+   "tags": [
+    "W01",
+    "alchemy"
+   ],
+   "front": "💊 약 + 🦠 미생물 = ?",
+   "back": "항생제 — 세균을 죽이거나 자라지 못하게 하는 약.",
+   "unlock": {
+    "type": "al",
+    "id": "HB-AL-abx"
+   },
+   "difficulty": 1,
+   "why": "감기 같은 바이러스 감염에는 듣지 않는다."
+  },
+  {
+   "id": "HB-C-AL-amr",
+   "courseId": "healthbeat",
+   "domain": "인체 연금술",
+   "axis": [
+    "science"
+   ],
+   "tags": [
+    "W01",
+    "alchemy"
+   ],
+   "front": "◻︎ 항생제 + ⏳ 시간 = ?",
+   "back": "항생제 내성 — 항생제를 남용하거나 잘못 쓰면 살아남은 세균이 퍼져 약이 듣지 않게 되는 현상.",
+   "unlock": {
+    "type": "al",
+    "id": "HB-AL-amr"
+   },
+   "difficulty": 1
+  },
+  {
+   "id": "HB-C-AL-aging",
+   "courseId": "healthbeat",
+   "domain": "인체 연금술",
+   "axis": [
+    "science"
+   ],
+   "tags": [
+    "W01",
+    "alchemy"
+   ],
+   "front": "🔬 세포 + ⏳ 시간 = ?",
+   "back": "노화 — 세포와 조직의 기능이 시간이 지나며 서서히 떨어지는 과정. 그 자체는 병이 아니다.",
+   "unlock": {
+    "type": "al",
+    "id": "HB-AL-aging"
+   },
+   "difficulty": 1
+  },
+  {
+   "id": "HB-C-AL-gene",
+   "courseId": "healthbeat",
+   "domain": "인체 연금술",
+   "axis": [
+    "science"
+   ],
+   "tags": [
+    "W01",
+    "alchemy"
+   ],
+   "front": "🔬 세포 + ⚡ 신호 = ?",
+   "back": "유전자 — 단백질을 만드는 설계 정보. 세포핵 속 DNA에 담겨 있다.",
+   "unlock": {
+    "type": "al",
+    "id": "HB-AL-gene"
+   },
+   "difficulty": 1
+  },
+  {
+   "id": "HB-C-AL-mutation",
+   "courseId": "healthbeat",
+   "domain": "인체 연금술",
+   "axis": [
+    "science"
+   ],
+   "tags": [
+    "W01",
+    "alchemy"
+   ],
+   "front": "🧬 유전자 + ⏳ 시간 = ?",
+   "back": "돌연변이 — DNA 정보가 바뀌는 것. 나이·흡연·자외선 등으로 쌓이며, 모두 병을 일으키지는 않는다.",
+   "unlock": {
+    "type": "al",
+    "id": "HB-AL-mutation"
+   },
+   "difficulty": 1
+  },
+  {
+   "id": "HB-C-AL-cancer",
+   "courseId": "healthbeat",
+   "domain": "인체 연금술",
+   "axis": [
+    "science"
+   ],
+   "tags": [
+    "W01",
+    "alchemy"
+   ],
+   "front": "◻︎ 돌연변이 + 🔬 세포 = ?",
+   "back": "암 — 세포가 통제를 벗어나 계속 늘어나고 다른 곳으로 퍼지는 병.",
+   "unlock": {
+    "type": "al",
+    "id": "HB-AL-cancer"
+   },
+   "difficulty": 1,
+   "why": "2025년 국내 사망원인 1위다."
+  },
+  {
+   "id": "HB-C-AL-lungca",
+   "courseId": "healthbeat",
+   "domain": "인체 연금술",
+   "axis": [
+    "science"
+   ],
+   "tags": [
+    "W01",
+    "alchemy"
+   ],
+   "front": "◻︎ 암 + 🫁 폐 = ?",
+   "back": "폐암 — 폐에 생긴 암. 국내 암 사망 1위이며 흡연이 가장 큰 위험 요인이다.",
+   "unlock": {
+    "type": "al",
+    "id": "HB-AL-lungca"
+   },
+   "difficulty": 1
+  },
+  {
+   "id": "HB-C-AL-liverca",
+   "courseId": "healthbeat",
+   "domain": "인체 연금술",
+   "axis": [
+    "science"
+   ],
+   "tags": [
+    "W01",
+    "alchemy"
+   ],
+   "front": "◻︎ 암 + ◻︎ 간 = ?",
+   "back": "간암 — 간에 생긴 암. B형·C형 간염과 간경변이 주요 위험 요인이다.",
+   "unlock": {
+    "type": "al",
+    "id": "HB-AL-liverca"
+   },
+   "difficulty": 1
+  },
+  {
+   "id": "HB-C-AL-gastricca",
+   "courseId": "healthbeat",
+   "domain": "인체 연금술",
+   "axis": [
+    "science"
+   ],
+   "tags": [
+    "W01",
+    "alchemy"
+   ],
+   "front": "◻︎ 암 + ◻︎ 위 = ?",
+   "back": "위암 — 위에 생긴 암. 국가암검진은 40세 이상에게 2년마다 위내시경 검사를 권한다.",
+   "unlock": {
+    "type": "al",
+    "id": "HB-AL-gastricca"
+   },
+   "difficulty": 1
+  },
+  {
+   "id": "HB-C-AL-habit",
+   "courseId": "healthbeat",
+   "domain": "인체 연금술",
+   "axis": [
+    "science"
+   ],
+   "tags": [
+    "W01",
+    "alchemy"
+   ],
+   "front": "◻︎ 신경계 + ⏳ 시간 = ?",
+   "back": "습관 — 반복으로 굳어진 행동. 건강에서는 흡연·음주·운동·식사 습관이 핵심이다.",
+   "unlock": {
+    "type": "al",
+    "id": "HB-AL-habit"
+   },
+   "difficulty": 1
+  },
+  {
+   "id": "HB-C-AL-smoking",
+   "courseId": "healthbeat",
+   "domain": "인체 연금술",
+   "axis": [
+    "science"
+   ],
+   "tags": [
+    "W01",
+    "alchemy"
+   ],
+   "front": "◻︎ 습관 + 💨 공기 = ?",
+   "back": "흡연 — 담배 연기를 들이마시는 것. 폐암·심혈관질환·COPD의 주요 위험 요인이다.",
+   "unlock": {
+    "type": "al",
+    "id": "HB-AL-smoking"
+   },
+   "difficulty": 1
+  },
+  {
+   "id": "HB-C-AL-copd",
+   "courseId": "healthbeat",
+   "domain": "인체 연금술",
+   "axis": [
+    "science"
+   ],
+   "tags": [
+    "W01",
+    "alchemy"
+   ],
+   "front": "🚬 흡연 + 🫁 폐 = ?",
+   "back": "COPD — 주로 흡연 탓에 기도와 폐가 손상돼 숨길이 계속 좁아지는 병(만성폐쇄성폐질환).",
+   "unlock": {
+    "type": "al",
+    "id": "HB-AL-copd"
+   },
+   "difficulty": 1
+  },
+  {
+   "id": "HB-C-AL-exercise",
+   "courseId": "healthbeat",
+   "domain": "인체 연금술",
+   "axis": [
+    "science"
+   ],
+   "tags": [
+    "W01",
+    "alchemy"
+   ],
+   "front": "◻︎ 습관 + 🫀 심장 = ?",
+   "back": "운동 — 심장과 근육을 쓰는 신체 활동.",
+   "unlock": {
+    "type": "al",
+    "id": "HB-AL-exercise"
+   },
+   "difficulty": 1,
+   "why": "WHO는 성인에게 주 150~300분의 중강도 유산소 활동을 권한다."
+  },
+  {
+   "id": "HB-C-AL-hemorrhage",
+   "courseId": "healthbeat",
+   "domain": "인체 연금술",
+   "axis": [
+    "science"
+   ],
+   "tags": [
+    "W01",
+    "alchemy"
+   ],
+   "front": "◻︎ 고혈압 + 🧠 뇌 = ?",
+   "back": "뇌출혈 — 뇌혈관이 터져 뇌 안에 피가 고이는 뇌졸중. 고혈압이 가장 큰 위험 요인이다.",
+   "unlock": {
+    "type": "al",
+    "id": "HB-AL-hemorrhage"
+   },
+   "difficulty": 1
+  },
+  {
+   "id": "HB-C-AL-dementia",
+   "courseId": "healthbeat",
+   "domain": "인체 연금술",
+   "axis": [
+    "science"
+   ],
+   "tags": [
+    "W01",
+    "alchemy"
+   ],
+   "front": "🧠 뇌 + ◻︎ 노화 = ?",
+   "back": "치매 — 기억력 등 인지 기능이 떨어져 일상생활이 어려워진 상태. 알츠하이머병이 가장 흔한 원인이다.",
+   "unlock": {
+    "type": "al",
+    "id": "HB-AL-dementia"
+   },
+   "difficulty": 1,
+   "why": "정상 노화와 다르다. ‘나이 들면 다 치매’라고 쓰지 않는다."
+  },
+  {
+   "id": "HB-C-AL-bpdrug",
+   "courseId": "healthbeat",
+   "domain": "인체 연금술",
+   "axis": [
+    "science"
+   ],
+   "tags": [
+    "W01",
+    "alchemy"
+   ],
+   "front": "💊 약 + ◻︎ 고혈압 = ?",
+   "back": "혈압약 — 혈압을 낮추는 약. 이뇨제·칼슘 통로 차단제·ACE 억제제 등 여러 계열이 있다.",
+   "unlock": {
+    "type": "al",
+    "id": "HB-AL-bpdrug"
+   },
+   "difficulty": 1
+  },
+  {
+   "id": "HB-C-AL-dmdrug",
+   "courseId": "healthbeat",
+   "domain": "인체 연금술",
+   "axis": [
+    "science"
+   ],
+   "tags": [
+    "W01",
+    "alchemy"
+   ],
+   "front": "💊 약 + ◻︎ 당뇨병 = ?",
+   "back": "당뇨병 약 — 혈당을 낮추는 약. 2형 당뇨병에선 메트포르민이 대표적인 첫 약이다.",
+   "unlock": {
+    "type": "al",
+    "id": "HB-AL-dmdrug"
+   },
+   "difficulty": 1
+  },
+  {
+   "id": "HB-C-AL-chemo",
+   "courseId": "healthbeat",
+   "domain": "인체 연금술",
+   "axis": [
+    "science"
+   ],
+   "tags": [
+    "W01",
+    "alchemy"
+   ],
+   "front": "💊 약 + ◻︎ 암 = ?",
+   "back": "항암제 — 암세포를 죽이거나 자라지 못하게 하는 약. 세포독성·표적·면역항암제로 나눈다.",
+   "unlock": {
+    "type": "al",
+    "id": "HB-AL-chemo"
+   },
+   "difficulty": 1
+  },
+  {
+   "id": "HB-C-AL-io",
+   "courseId": "healthbeat",
+   "domain": "인체 연금술",
+   "axis": [
+    "science"
+   ],
+   "tags": [
+    "W01",
+    "alchemy"
+   ],
+   "front": "🛡️ 면역 + ◻︎ 암 = ?",
+   "back": "면역항암제 — 면역세포가 암을 다시 공격하도록 브레이크를 풀어 주는 약(예: PD-1 억제제).",
+   "unlock": {
+    "type": "al",
+    "id": "HB-AL-io"
+   },
+   "difficulty": 1,
+   "why": "모든 환자에게 듣지는 않는다. ‘꿈의 항암제’ 같은 표현은 피한다."
+  },
+  {
+   "id": "HB-C-EV-01",
+   "courseId": "healthbeat",
+   "domain": "근거 사다리",
+   "axis": [
+    "science",
+    "media"
+   ],
+   "tags": [
+    "evidence"
+   ],
+   "front": "근거 사다리 1단계 🗣️ ‘일화’ — 무엇이고, 기사에서 조심할 점은?",
+   "back": "한 사람의 경험담(‘먹고 나았다’). 우연·자연 회복·위약 효과를 걸러 내지 못한다.",
+   "why": "체험담은 근거가 아니라 취재의 출발점이다.",
+   "unlock": {
+    "type": "ev",
+    "id": "HB-EV-01"
+   },
+   "difficulty": 2
+  },
+  {
+   "id": "HB-C-EV-02",
+   "courseId": "healthbeat",
+   "domain": "근거 사다리",
+   "axis": [
+    "science",
+    "media"
+   ],
+   "tags": [
+    "evidence"
+   ],
+   "front": "근거 사다리 2단계 🐭 ‘세포·동물 실험’ — 무엇이고, 기사에서 조심할 점은?",
+   "back": "실험실의 세포나 동물에서 본 결과. 원리를 보여 주지만 사람에게 그대로 들어맞지 않는 경우가 많다.",
+   "why": "‘쥐에서 효과’를 ‘치료 효과’로 쓰지 않는다.",
+   "unlock": {
+    "type": "ev",
+    "id": "HB-EV-02"
+   },
+   "difficulty": 2
+  },
+  {
+   "id": "HB-C-EV-03",
+   "courseId": "healthbeat",
+   "domain": "근거 사다리",
+   "axis": [
+    "science",
+    "media"
+   ],
+   "tags": [
+    "evidence"
+   ],
+   "front": "근거 사다리 3단계 🎓 ‘전문가 의견’ — 무엇이고, 기사에서 조심할 점은?",
+   "back": "자료 분석 없이 경험과 이론에 기댄 견해. 근거 수준으로는 낮은 편이다.",
+   "why": "전문가의 말도 어떤 연구에 근거했는지 묻는다.",
+   "unlock": {
+    "type": "ev",
+    "id": "HB-EV-03"
+   },
+   "difficulty": 2
+  },
+  {
+   "id": "HB-C-EV-04",
+   "courseId": "healthbeat",
+   "domain": "근거 사다리",
+   "axis": [
+    "science",
+    "media"
+   ],
+   "tags": [
+    "evidence"
+   ],
+   "front": "근거 사다리 4단계 📄 ‘사례 보고’ — 무엇이고, 기사에서 조심할 점은?",
+   "back": "환자 한 명이나 몇 명의 특이한 경과를 자세히 기록한 보고. 새 질병·부작용의 첫 신호가 된다.",
+   "why": "비교군이 없어 효과를 증명하지 못한다.",
+   "unlock": {
+    "type": "ev",
+    "id": "HB-EV-04"
+   },
+   "difficulty": 2
+  },
+  {
+   "id": "HB-C-EV-05",
+   "courseId": "healthbeat",
+   "domain": "근거 사다리",
+   "axis": [
+    "science",
+    "media"
+   ],
+   "tags": [
+    "evidence"
+   ],
+   "front": "근거 사다리 5단계 📸 ‘단면 연구’ — 무엇이고, 기사에서 조심할 점은?",
+   "back": "한 시점에 여러 사람을 조사해 질병과 요인의 관계를 보는 연구(설문·검진 자료 등).",
+   "why": "원인과 결과의 선후를 알 수 없다.",
+   "unlock": {
+    "type": "ev",
+    "id": "HB-EV-05"
+   },
+   "difficulty": 2
+  },
+  {
+   "id": "HB-C-EV-06",
+   "courseId": "healthbeat",
+   "domain": "근거 사다리",
+   "axis": [
+    "science",
+    "media"
+   ],
+   "tags": [
+    "evidence"
+   ],
+   "front": "근거 사다리 6단계 ⚖️ ‘환자-대조군 연구’ — 무엇이고, 기사에서 조심할 점은?",
+   "back": "병이 있는 사람과 없는 사람의 과거 노출을 비교하는 연구. 드문 병을 연구할 때 유리하다.",
+   "why": "기억에 기댄 답(회상 편향)에 주의한다.",
+   "unlock": {
+    "type": "ev",
+    "id": "HB-EV-06"
+   },
+   "difficulty": 2
+  },
+  {
+   "id": "HB-C-EV-07",
+   "courseId": "healthbeat",
+   "domain": "근거 사다리",
+   "axis": [
+    "science",
+    "media"
+   ],
+   "tags": [
+    "evidence"
+   ],
+   "front": "근거 사다리 7단계 👥 ‘코호트 연구’ — 무엇이고, 기사에서 조심할 점은?",
+   "back": "노출된 집단과 아닌 집단을 시간에 따라 따라가며 병이 생기는지 보는 연구.",
+   "why": "연관성은 보여도 인과를 단정하지 못한다. 교란 변수를 확인한다.",
+   "unlock": {
+    "type": "ev",
+    "id": "HB-EV-07"
+   },
+   "difficulty": 2
+  },
+  {
+   "id": "HB-C-EV-08",
+   "courseId": "healthbeat",
+   "domain": "근거 사다리",
+   "axis": [
+    "science",
+    "media"
+   ],
+   "tags": [
+    "evidence"
+   ],
+   "front": "근거 사다리 8단계 🎲 ‘무작위 대조 시험’ — 무엇이고, 기사에서 조심할 점은?",
+   "back": "참여자를 무작위로 나눠 한쪽만 치료하고 결과를 비교하는 연구(RCT). 인과를 보기에 가장 강한 단일 연구 설계다.",
+   "why": "대상·기간·평가 지표가 기사 속 주장과 맞는지 본다.",
+   "unlock": {
+    "type": "ev",
+    "id": "HB-EV-08"
+   },
+   "difficulty": 2
+  },
+  {
+   "id": "HB-C-EV-09",
+   "courseId": "healthbeat",
+   "domain": "근거 사다리",
+   "axis": [
+    "science",
+    "media"
+   ],
+   "tags": [
+    "evidence"
+   ],
+   "front": "근거 사다리 9단계 📚 ‘메타분석’ — 무엇이고, 기사에서 조심할 점은?",
+   "back": "같은 질문을 다룬 연구를 빠짐없이 모아 질을 평가하고(체계적 문헌고찰), 결과를 통계적으로 합친 연구.",
+   "why": "질 낮은 연구를 모으면 결론도 약하다.",
+   "unlock": {
+    "type": "ev",
+    "id": "HB-EV-09"
+   },
+   "difficulty": 2
+  },
+  {
+   "id": "HB-C-EV-10",
+   "courseId": "healthbeat",
+   "domain": "근거 사다리",
+   "axis": [
+    "science",
+    "media"
+   ],
+   "tags": [
+    "evidence"
+   ],
+   "front": "근거 사다리 10단계 🏛️ ‘진료지침’ — 무엇이고, 기사에서 조심할 점은?",
+   "back": "근거를 종합하고 이익과 위해를 따져 학회 등이 내놓는 진료 권고. 권고마다 근거 수준과 강도가 붙는다.",
+   "why": "지침은 개정된다. 기사에선 발표 연도와 기관을 쓴다.",
+   "unlock": {
+    "type": "ev",
+    "id": "HB-EV-10"
+   },
+   "difficulty": 2
+  },
+  {
+   "id": "HB-C-DX-0001",
+   "courseId": "healthbeat",
+   "domain": "오늘의 진단",
+   "axis": [
+    "science"
+   ],
+   "tags": [
+    "dx",
+    "tier-S"
+   ],
+   "front": "🩺 비만 — 어느 계통이고, 무엇으로 진단·치료하나?",
+   "back": "계통: 내분비·대사계. 검사: BMI·허리둘레, 지질 검사. 치료: 비만 약 계열, 비만대사수술.",
+   "unlock": {
+    "type": "dx",
+    "id": "HB-DZ-0001"
+   },
+   "difficulty": 2,
+   "why": "헷갈리는 병: 대사증후군"
+  },
+  {
+   "id": "HB-C-DX-0002",
+   "courseId": "healthbeat",
+   "domain": "오늘의 진단",
+   "axis": [
+    "science"
+   ],
+   "tags": [
+    "dx",
+    "tier-S"
+   ],
+   "front": "🩺 당뇨병 — 어느 계통이고, 무엇으로 진단·치료하나?",
+   "back": "계통: 내분비·대사계. 검사: 공복혈당, 당화혈색소. 치료: 당뇨 약 계열, 인슐린.",
+   "unlock": {
+    "type": "dx",
+    "id": "HB-DZ-0002"
+   },
+   "difficulty": 2,
+   "why": "헷갈리는 병: 대사증후군"
+  },
+  {
+   "id": "HB-C-DX-0003",
+   "courseId": "healthbeat",
+   "domain": "오늘의 진단",
+   "axis": [
+    "science"
+   ],
+   "tags": [
+    "dx",
+    "tier-S"
+   ],
+   "front": "🩺 치매 — 어느 계통이고, 무엇으로 진단·치료하나?",
+   "back": "계통: 신경계. 검사: 인지기능 선별검사, 아밀로이드 PET. 치료: 치매 치료제, 재활.",
+   "unlock": {
+    "type": "dx",
+    "id": "HB-DZ-0003"
+   },
+   "difficulty": 2,
+   "why": "헷갈리는 병: 경도인지장애, 파킨슨병"
+  },
+  {
+   "id": "HB-C-DX-0004",
+   "courseId": "healthbeat",
+   "domain": "오늘의 진단",
+   "axis": [
+    "science"
+   ],
+   "tags": [
+    "dx",
+    "tier-S"
+   ],
+   "front": "🩺 암 — 어느 계통이고, 무엇으로 진단·치료하나?",
+   "back": "계통: 기타. 검사: 종양표지자, 유전자 검사. 치료: 세포독성 항암제, 면역관문억제제.",
+   "unlock": {
+    "type": "dx",
+    "id": "HB-DZ-0004"
+   },
+   "difficulty": 2
+  },
+  {
+   "id": "HB-C-DX-0005",
+   "courseId": "healthbeat",
+   "domain": "오늘의 진단",
+   "axis": [
+    "science"
+   ],
+   "tags": [
+    "dx",
+    "tier-S"
+   ],
+   "front": "🩺 심뇌혈관질환 — 어느 계통이고, 무엇으로 진단·치료하나?",
+   "back": "계통: 순환계. 검사: 혈압, 지질 검사. 치료: 고혈압 약 계열, 항혈소판제·항응고제.",
+   "unlock": {
+    "type": "dx",
+    "id": "HB-DZ-0005"
+   },
+   "difficulty": 2
+  },
+  {
+   "id": "HB-C-DX-0006",
+   "courseId": "healthbeat",
+   "domain": "오늘의 진단",
+   "axis": [
+    "science"
+   ],
+   "tags": [
+    "dx",
+    "tier-S"
+   ],
+   "front": "🩺 정신건강과 자살 — 어느 계통이고, 무엇으로 진단·치료하나?",
+   "back": "계통: 신경계. 검사: 우울·불안 선별검사. 치료: 항우울제, 심리치료.",
+   "unlock": {
+    "type": "dx",
+    "id": "HB-DZ-0006"
+   },
+   "difficulty": 2
+  },
+  {
+   "id": "HB-C-DX-0007",
+   "courseId": "healthbeat",
+   "domain": "오늘의 진단",
+   "axis": [
+    "science"
+   ],
+   "tags": [
+    "dx",
+    "tier-A"
+   ],
+   "front": "🩺 고혈압 — 어느 계통이고, 무엇으로 진단·치료하나?",
+   "back": "계통: 순환계. 검사: 혈압, 심전도. 치료: 고혈압 약 계열.",
+   "unlock": {
+    "type": "dx",
+    "id": "HB-DZ-0007"
+   },
+   "difficulty": 2,
+   "why": "헷갈리는 병: 이상지질혈증"
+  },
+  {
+   "id": "HB-C-DX-0008",
+   "courseId": "healthbeat",
+   "domain": "오늘의 진단",
+   "axis": [
+    "science"
+   ],
+   "tags": [
+    "dx",
+    "tier-A"
+   ],
+   "front": "🩺 이상지질혈증 — 어느 계통이고, 무엇으로 진단·치료하나?",
+   "back": "계통: 순환계. 검사: 지질 검사, 경동맥 초음파. 치료: 지질 강하제 계열.",
+   "unlock": {
+    "type": "dx",
+    "id": "HB-DZ-0008"
+   },
+   "difficulty": 2,
+   "why": "헷갈리는 병: 고혈압"
+  },
+  {
+   "id": "HB-C-DX-0009",
+   "courseId": "healthbeat",
+   "domain": "오늘의 진단",
+   "axis": [
+    "science"
+   ],
+   "tags": [
+    "dx",
+    "tier-A"
+   ],
+   "front": "🩺 2형 당뇨병 — 어느 계통이고, 무엇으로 진단·치료하나?",
+   "back": "계통: 내분비·대사계. 검사: 당화혈색소, 경구당부하검사. 치료: 당뇨 약 계열, 인슐린.",
+   "unlock": {
+    "type": "dx",
+    "id": "HB-DZ-0009"
+   },
+   "difficulty": 2,
+   "why": "헷갈리는 병: 1형 당뇨병"
+  },
+  {
+   "id": "HB-C-DX-0010",
+   "courseId": "healthbeat",
+   "domain": "오늘의 진단",
+   "axis": [
+    "science"
+   ],
+   "tags": [
+    "dx",
+    "tier-A"
+   ],
+   "front": "🩺 1형 당뇨병 — 어느 계통이고, 무엇으로 진단·치료하나?",
+   "back": "계통: 내분비·대사계. 검사: 당화혈색소, 공복혈당. 치료: 인슐린.",
+   "unlock": {
+    "type": "dx",
+    "id": "HB-DZ-0010"
+   },
+   "difficulty": 2,
+   "why": "헷갈리는 병: 2형 당뇨병"
+  },
+  {
+   "id": "HB-C-DX-0011",
+   "courseId": "healthbeat",
+   "domain": "오늘의 진단",
+   "axis": [
+    "science"
+   ],
+   "tags": [
+    "dx",
+    "tier-A"
+   ],
+   "front": "🩺 대사증후군 — 어느 계통이고, 무엇으로 진단·치료하나?",
+   "back": "계통: 내분비·대사계. 검사: BMI·허리둘레, 지질 검사. 치료: 고혈압 약 계열, 지질 강하제 계열.",
+   "unlock": {
+    "type": "dx",
+    "id": "HB-DZ-0011"
+   },
+   "difficulty": 2,
+   "why": "헷갈리는 병: 비만, 당뇨병"
+  },
+  {
+   "id": "HB-C-DX-0012",
+   "courseId": "healthbeat",
+   "domain": "오늘의 진단",
+   "axis": [
+    "science"
+   ],
+   "tags": [
+    "dx",
+    "tier-A"
+   ],
+   "front": "🩺 허혈성 심질환 — 어느 계통이고, 무엇으로 진단·치료하나?",
+   "back": "계통: 순환계. 검사: 심전도, 관상동맥 CT. 치료: 관상동맥 중재술·우회술, 항혈소판제·항응고제.",
+   "unlock": {
+    "type": "dx",
+    "id": "HB-DZ-0012"
+   },
+   "difficulty": 2,
+   "why": "헷갈리는 병: 심부전"
+  },
+  {
+   "id": "HB-C-DX-0013",
+   "courseId": "healthbeat",
+   "domain": "오늘의 진단",
+   "axis": [
+    "science"
+   ],
+   "tags": [
+    "dx",
+    "tier-A"
+   ],
+   "front": "🩺 심부전 — 어느 계통이고, 무엇으로 진단·치료하나?",
+   "back": "계통: 순환계. 검사: 심초음파, 심전도. 치료: 심부전 약 계열, 재활.",
+   "unlock": {
+    "type": "dx",
+    "id": "HB-DZ-0013"
+   },
+   "difficulty": 2,
+   "why": "헷갈리는 병: 허혈성 심질환, 심방세동"
+  },
+  {
+   "id": "HB-C-DX-0014",
+   "courseId": "healthbeat",
+   "domain": "오늘의 진단",
+   "axis": [
+    "science"
+   ],
+   "tags": [
+    "dx",
+    "tier-A"
+   ],
+   "front": "🩺 심방세동 — 어느 계통이고, 무엇으로 진단·치료하나?",
+   "back": "계통: 순환계. 검사: 심전도, 심초음파. 치료: 항혈소판제·항응고제, 항부정맥제·심율동 치료.",
+   "unlock": {
+    "type": "dx",
+    "id": "HB-DZ-0014"
+   },
+   "difficulty": 2,
+   "why": "헷갈리는 병: 심부전"
+  },
+  {
+   "id": "HB-C-DX-0015",
+   "courseId": "healthbeat",
+   "domain": "오늘의 진단",
+   "axis": [
+    "science"
+   ],
+   "tags": [
+    "dx",
+    "tier-A"
+   ],
+   "front": "🩺 뇌경색 — 어느 계통이고, 무엇으로 진단·치료하나?",
+   "back": "계통: 신경계. 검사: 뇌 MRI·MRA, 경동맥 초음파. 치료: 혈전용해·혈전제거술, 항혈소판제·항응고제.",
+   "unlock": {
+    "type": "dx",
+    "id": "HB-DZ-0015"
+   },
+   "difficulty": 2,
+   "why": "헷갈리는 병: 뇌출혈, 두통·편두통·어지럼증"
+  },
+  {
+   "id": "HB-C-DX-0016",
+   "courseId": "healthbeat",
+   "domain": "오늘의 진단",
+   "axis": [
+    "science"
+   ],
+   "tags": [
+    "dx",
+    "tier-A"
+   ],
+   "front": "🩺 뇌출혈 — 어느 계통이고, 무엇으로 진단·치료하나?",
+   "back": "계통: 신경계. 검사: 뇌 MRI·MRA, 혈압. 치료: 재활, 고혈압 약 계열.",
+   "unlock": {
+    "type": "dx",
+    "id": "HB-DZ-0016"
+   },
+   "difficulty": 2,
+   "why": "헷갈리는 병: 뇌경색"
+  },
+  {
+   "id": "HB-C-DX-0017",
+   "courseId": "healthbeat",
+   "domain": "오늘의 진단",
+   "axis": [
+    "science"
+   ],
+   "tags": [
+    "dx",
+    "tier-A"
+   ],
+   "front": "🩺 만성콩팥병 — 어느 계통이고, 무엇으로 진단·치료하나?",
+   "back": "계통: 비뇨계. 검사: 신기능 검사, 소변검사. 치료: 투석·신장이식, 고혈압 약 계열.",
+   "unlock": {
+    "type": "dx",
+    "id": "HB-DZ-0017"
+   },
+   "difficulty": 2
+  },
+  {
+   "id": "HB-C-DX-0018",
+   "courseId": "healthbeat",
+   "domain": "오늘의 진단",
+   "axis": [
+    "science"
+   ],
+   "tags": [
+    "dx",
+    "tier-A"
+   ],
+   "front": "🩺 폐암 — 어느 계통이고, 무엇으로 진단·치료하나?",
+   "back": "계통: 호흡계. 검사: 저선량 폐 CT, 동반진단. 치료: 표적치료제, 면역관문억제제.",
+   "unlock": {
+    "type": "dx",
+    "id": "HB-DZ-0018"
+   },
+   "difficulty": 2
+  },
+  {
+   "id": "HB-C-DX-0019",
+   "courseId": "healthbeat",
+   "domain": "오늘의 진단",
+   "axis": [
+    "science"
+   ],
+   "tags": [
+    "dx",
+    "tier-A"
+   ],
+   "front": "🩺 위암 — 어느 계통이고, 무엇으로 진단·치료하나?",
+   "back": "계통: 소화계. 검사: 위내시경, 종양표지자. 치료: 암 수술, 세포독성 항암제.",
+   "unlock": {
+    "type": "dx",
+    "id": "HB-DZ-0019"
+   },
+   "difficulty": 2
+  },
+  {
+   "id": "HB-C-DX-0020",
+   "courseId": "healthbeat",
+   "domain": "오늘의 진단",
+   "axis": [
+    "science"
+   ],
+   "tags": [
+    "dx",
+    "tier-A"
+   ],
+   "front": "🩺 대장암 — 어느 계통이고, 무엇으로 진단·치료하나?",
+   "back": "계통: 소화계. 검사: 대장내시경, 대변잠혈검사. 치료: 암 수술, 세포독성 항암제.",
+   "unlock": {
+    "type": "dx",
+    "id": "HB-DZ-0020"
+   },
+   "difficulty": 2
+  },
+  {
+   "id": "HB-C-DX-0021",
+   "courseId": "healthbeat",
+   "domain": "오늘의 진단",
+   "axis": [
+    "science"
+   ],
+   "tags": [
+    "dx",
+    "tier-A"
+   ],
+   "front": "🩺 간암 — 어느 계통이고, 무엇으로 진단·치료하나?",
+   "back": "계통: 소화계. 검사: 간기능 검사, 종양표지자. 치료: 암 수술, 표적치료제.",
+   "unlock": {
+    "type": "dx",
+    "id": "HB-DZ-0021"
+   },
+   "difficulty": 2
+  },
+  {
+   "id": "HB-C-DX-0022",
+   "courseId": "healthbeat",
+   "domain": "오늘의 진단",
+   "axis": [
+    "science"
+   ],
+   "tags": [
+    "dx",
+    "tier-A"
+   ],
+   "front": "🩺 갑상선암 — 어느 계통이고, 무엇으로 진단·치료하나?",
+   "back": "계통: 내분비·대사계. 검사: 갑상선 기능 검사, 유전자 검사, 초음파. 치료: 암 수술, 갑상선 약.",
+   "unlock": {
+    "type": "dx",
+    "id": "HB-DZ-0022"
+   },
+   "difficulty": 2,
+   "why": "헷갈리는 병: 갑상선 질환"
+  },
+  {
+   "id": "HB-C-DX-0023",
+   "courseId": "healthbeat",
+   "domain": "오늘의 진단",
+   "axis": [
+    "science"
+   ],
+   "tags": [
+    "dx",
+    "tier-A"
+   ],
+   "front": "🩺 유방암 — 어느 계통이고, 무엇으로 진단·치료하나?",
+   "back": "계통: 생식계. 검사: 유방촬영, 유전자 검사. 치료: 암 수술, 표적치료제.",
+   "unlock": {
+    "type": "dx",
+    "id": "HB-DZ-0023"
+   },
+   "difficulty": 2
+  },
+  {
+   "id": "HB-C-DX-0024",
+   "courseId": "healthbeat",
+   "domain": "오늘의 진단",
+   "axis": [
+    "science"
+   ],
+   "tags": [
+    "dx",
+    "tier-A"
+   ],
+   "front": "🩺 전립선암 — 어느 계통이고, 무엇으로 진단·치료하나?",
+   "back": "계통: 생식계. 검사: 종양표지자, 유전자 검사. 치료: 암 수술, 방사선치료.",
+   "unlock": {
+    "type": "dx",
+    "id": "HB-DZ-0024"
+   },
+   "difficulty": 2,
+   "why": "헷갈리는 병: 전립선비대증"
+  },
+  {
+   "id": "HB-C-DX-0025",
+   "courseId": "healthbeat",
+   "domain": "오늘의 진단",
+   "axis": [
+    "science"
+   ],
+   "tags": [
+    "dx",
+    "tier-A"
+   ],
+   "front": "🩺 췌장암 — 어느 계통이고, 무엇으로 진단·치료하나?",
+   "back": "계통: 소화계. 검사: 종양표지자, 유전자 검사. 치료: 세포독성 항암제, 암 수술.",
+   "unlock": {
+    "type": "dx",
+    "id": "HB-DZ-0025"
+   },
+   "difficulty": 2
+  },
+  {
+   "id": "HB-C-DX-0026",
+   "courseId": "healthbeat",
+   "domain": "오늘의 진단",
+   "axis": [
+    "science"
+   ],
+   "tags": [
+    "dx",
+    "tier-A"
+   ],
+   "front": "🩺 자궁경부암 — 어느 계통이고, 무엇으로 진단·치료하나?",
+   "back": "계통: 생식계. 검사: 자궁경부세포검사·HPV 검사. 치료: 암 수술, 방사선치료.",
+   "unlock": {
+    "type": "dx",
+    "id": "HB-DZ-0026"
+   },
+   "difficulty": 2
+  },
+  {
+   "id": "HB-C-DX-0027",
+   "courseId": "healthbeat",
+   "domain": "오늘의 진단",
+   "axis": [
+    "science"
+   ],
+   "tags": [
+    "dx",
+    "tier-A"
+   ],
+   "front": "🩺 알츠하이머병 — 어느 계통이고, 무엇으로 진단·치료하나?",
+   "back": "계통: 신경계. 검사: 아밀로이드 PET, 치매 혈액 바이오마커. 치료: 치매 치료제, 재활.",
+   "unlock": {
+    "type": "dx",
+    "id": "HB-DZ-0027"
+   },
+   "difficulty": 2,
+   "why": "헷갈리는 병: 혈관성 치매"
+  },
+  {
+   "id": "HB-C-DX-0028",
+   "courseId": "healthbeat",
+   "domain": "오늘의 진단",
+   "axis": [
+    "science"
+   ],
+   "tags": [
+    "dx",
+    "tier-A"
+   ],
+   "front": "🩺 혈관성 치매 — 어느 계통이고, 무엇으로 진단·치료하나?",
+   "back": "계통: 신경계. 검사: 뇌 MRI·MRA, 인지기능 선별검사. 치료: 치매 치료제, 고혈압 약 계열.",
+   "unlock": {
+    "type": "dx",
+    "id": "HB-DZ-0028"
+   },
+   "difficulty": 2,
+   "why": "헷갈리는 병: 알츠하이머병"
+  },
+  {
+   "id": "HB-C-DX-0029",
+   "courseId": "healthbeat",
+   "domain": "오늘의 진단",
+   "axis": [
+    "science"
+   ],
+   "tags": [
+    "dx",
+    "tier-A"
+   ],
+   "front": "🩺 경도인지장애 — 어느 계통이고, 무엇으로 진단·치료하나?",
+   "back": "계통: 신경계. 검사: 인지기능 선별검사, 치매 혈액 바이오마커. 치료: 치매 치료제, 재활.",
+   "unlock": {
+    "type": "dx",
+    "id": "HB-DZ-0029"
+   },
+   "difficulty": 2,
+   "why": "헷갈리는 병: 치매"
+  },
+  {
+   "id": "HB-C-DX-0030",
+   "courseId": "healthbeat",
+   "domain": "오늘의 진단",
+   "axis": [
+    "science"
+   ],
+   "tags": [
+    "dx",
+    "tier-A"
+   ],
+   "front": "🩺 파킨슨병 — 어느 계통이고, 무엇으로 진단·치료하나?",
+   "back": "계통: 신경계. 검사: 뇌 MRI·MRA. 치료: 뇌자극 치료, 재활.",
+   "unlock": {
+    "type": "dx",
+    "id": "HB-DZ-0030"
+   },
+   "difficulty": 2,
+   "why": "헷갈리는 병: 치매"
+  },
+  {
+   "id": "HB-C-DX-0031",
+   "courseId": "healthbeat",
+   "domain": "오늘의 진단",
+   "axis": [
+    "science"
+   ],
+   "tags": [
+    "dx",
+    "tier-A"
+   ],
+   "front": "🩺 우울증 — 어느 계통이고, 무엇으로 진단·치료하나?",
+   "back": "계통: 신경계. 검사: 우울·불안 선별검사. 치료: 항우울제, 심리치료.",
+   "unlock": {
+    "type": "dx",
+    "id": "HB-DZ-0031"
+   },
+   "difficulty": 2,
+   "why": "헷갈리는 병: 양극성장애, 불안장애, 알코올사용장애"
+  },
+  {
+   "id": "HB-C-DX-0032",
+   "courseId": "healthbeat",
+   "domain": "오늘의 진단",
+   "axis": [
+    "science"
+   ],
+   "tags": [
+    "dx",
+    "tier-A"
+   ],
+   "front": "🩺 불안장애 — 어느 계통이고, 무엇으로 진단·치료하나?",
+   "back": "계통: 신경계. 검사: 우울·불안 선별검사. 치료: 항우울제, 심리치료.",
+   "unlock": {
+    "type": "dx",
+    "id": "HB-DZ-0032"
+   },
+   "difficulty": 2,
+   "why": "헷갈리는 병: 우울증"
+  },
+  {
+   "id": "HB-C-DX-0033",
+   "courseId": "healthbeat",
+   "domain": "오늘의 진단",
+   "axis": [
+    "science"
+   ],
+   "tags": [
+    "dx",
+    "tier-A"
+   ],
+   "front": "🩺 조현병 — 어느 계통이고, 무엇으로 진단·치료하나?",
+   "back": "계통: 신경계. 검사: —. 치료: 항정신병약, 심리치료.",
+   "unlock": {
+    "type": "dx",
+    "id": "HB-DZ-0033"
+   },
+   "difficulty": 2,
+   "why": "헷갈리는 병: 양극성장애"
+  },
+  {
+   "id": "HB-C-DX-0034",
+   "courseId": "healthbeat",
+   "domain": "오늘의 진단",
+   "axis": [
+    "science"
+   ],
+   "tags": [
+    "dx",
+    "tier-A"
+   ],
+   "front": "🩺 알코올사용장애 — 어느 계통이고, 무엇으로 진단·치료하나?",
+   "back": "계통: 신경계. 검사: 간기능 검사. 치료: 심리치료.",
+   "unlock": {
+    "type": "dx",
+    "id": "HB-DZ-0034"
+   },
+   "difficulty": 2,
+   "why": "헷갈리는 병: 우울증"
+  },
+  {
+   "id": "HB-C-DX-0035",
+   "courseId": "healthbeat",
+   "domain": "오늘의 진단",
+   "axis": [
+    "science"
+   ],
+   "tags": [
+    "dx",
+    "tier-A"
+   ],
+   "front": "🩺 COPD — 어느 계통이고, 무엇으로 진단·치료하나?",
+   "back": "계통: 호흡계. 검사: 폐기능 검사, 흉부 X선. 치료: 흡입제, 금연 치료.",
+   "unlock": {
+    "type": "dx",
+    "id": "HB-DZ-0035"
+   },
+   "difficulty": 2,
+   "why": "헷갈리는 병: 천식"
+  },
+  {
+   "id": "HB-C-DX-0036",
+   "courseId": "healthbeat",
+   "domain": "오늘의 진단",
+   "axis": [
+    "science"
+   ],
+   "tags": [
+    "dx",
+    "tier-A"
+   ],
+   "front": "🩺 천식 — 어느 계통이고, 무엇으로 진단·치료하나?",
+   "back": "계통: 호흡계. 검사: 폐기능 검사. 치료: 흡입제, 생물학적제제.",
+   "unlock": {
+    "type": "dx",
+    "id": "HB-DZ-0036"
+   },
+   "difficulty": 2,
+   "why": "헷갈리는 병: COPD"
+  },
+  {
+   "id": "HB-C-DX-0037",
+   "courseId": "healthbeat",
+   "domain": "오늘의 진단",
+   "axis": [
+    "science"
+   ],
+   "tags": [
+    "dx",
+    "tier-A"
+   ],
+   "front": "🩺 폐렴 — 어느 계통이고, 무엇으로 진단·치료하나?",
+   "back": "계통: 호흡계. 검사: 흉부 X선, CRP. 치료: 항생제, 백신 플랫폼.",
+   "unlock": {
+    "type": "dx",
+    "id": "HB-DZ-0037"
+   },
+   "difficulty": 2,
+   "why": "헷갈리는 병: 급성 상기도감염·급성 기관지염·급성 편도염, 결핵, 패혈증"
+  },
+  {
+   "id": "HB-C-DX-0038",
+   "courseId": "healthbeat",
+   "domain": "오늘의 진단",
+   "axis": [
+    "science"
+   ],
+   "tags": [
+    "dx",
+    "tier-A"
+   ],
+   "front": "🩺 결핵 — 어느 계통이고, 무엇으로 진단·치료하나?",
+   "back": "계통: 호흡계. 검사: 결핵 검사, 흉부 X선. 치료: 항생제.",
+   "unlock": {
+    "type": "dx",
+    "id": "HB-DZ-0038"
+   },
+   "difficulty": 2,
+   "why": "헷갈리는 병: 폐렴"
+  },
+  {
+   "id": "HB-C-DX-0039",
+   "courseId": "healthbeat",
+   "domain": "오늘의 진단",
+   "axis": [
+    "science"
+   ],
+   "tags": [
+    "dx",
+    "tier-A"
+   ],
+   "front": "🩺 인플루엔자 — 어느 계통이고, 무엇으로 진단·치료하나?",
+   "back": "계통: 호흡계. 검사: PCR·신속항원검사. 치료: 항바이러스제, 백신 플랫폼.",
+   "unlock": {
+    "type": "dx",
+    "id": "HB-DZ-0039"
+   },
+   "difficulty": 2,
+   "why": "헷갈리는 병: 급성 상기도감염·급성 기관지염·급성 편도염, 코로나19"
+  },
+  {
+   "id": "HB-C-DX-0040",
+   "courseId": "healthbeat",
+   "domain": "오늘의 진단",
+   "axis": [
+    "science"
+   ],
+   "tags": [
+    "dx",
+    "tier-A"
+   ],
+   "front": "🩺 코로나19 — 어느 계통이고, 무엇으로 진단·치료하나?",
+   "back": "계통: 호흡계. 검사: PCR·신속항원검사. 치료: 항바이러스제, 백신 플랫폼.",
+   "unlock": {
+    "type": "dx",
+    "id": "HB-DZ-0040"
+   },
+   "difficulty": 2,
+   "why": "헷갈리는 병: 인플루엔자"
+  },
+  {
+   "id": "HB-C-DX-0041",
+   "courseId": "healthbeat",
+   "domain": "오늘의 진단",
+   "axis": [
+    "science"
+   ],
+   "tags": [
+    "dx",
+    "tier-A"
+   ],
+   "front": "🩺 대상포진 — 어느 계통이고, 무엇으로 진단·치료하나?",
+   "back": "계통: 외피·감각계. 검사: —. 치료: 항바이러스제, 백신 플랫폼.",
+   "unlock": {
+    "type": "dx",
+    "id": "HB-DZ-0041"
+   },
+   "difficulty": 2,
+   "why": "헷갈리는 병: 피부염·두드러기·아토피피부염"
+  },
+  {
+   "id": "HB-C-DX-0042",
+   "courseId": "healthbeat",
+   "domain": "오늘의 진단",
+   "axis": [
+    "science"
+   ],
+   "tags": [
+    "dx",
+    "tier-A"
+   ],
+   "front": "🩺 패혈증 — 어느 계통이고, 무엇으로 진단·치료하나?",
+   "back": "계통: 면역·림프계. 검사: CRP, 일반혈액검사. 치료: 항생제.",
+   "unlock": {
+    "type": "dx",
+    "id": "HB-DZ-0042"
+   },
+   "difficulty": 2,
+   "why": "헷갈리는 병: 폐렴"
+  },
+  {
+   "id": "HB-C-DX-0043",
+   "courseId": "healthbeat",
+   "domain": "오늘의 진단",
+   "axis": [
+    "science"
+   ],
+   "tags": [
+    "dx",
+    "tier-A"
+   ],
+   "front": "🩺 바이러스 간염 — 어느 계통이고, 무엇으로 진단·치료하나?",
+   "back": "계통: 소화계. 검사: 간기능 검사. 치료: 항바이러스제.",
+   "unlock": {
+    "type": "dx",
+    "id": "HB-DZ-0043"
+   },
+   "difficulty": 2,
+   "why": "헷갈리는 병: 대사이상 지방간질환"
+  },
+  {
+   "id": "HB-C-DX-0044",
+   "courseId": "healthbeat",
+   "domain": "오늘의 진단",
+   "axis": [
+    "science"
+   ],
+   "tags": [
+    "dx",
+    "tier-A"
+   ],
+   "front": "🩺 대사이상 지방간질환 — 어느 계통이고, 무엇으로 진단·치료하나?",
+   "back": "계통: 소화계. 검사: 간기능 검사, 초음파. 치료: 비만 약 계열.",
+   "unlock": {
+    "type": "dx",
+    "id": "HB-DZ-0044"
+   },
+   "difficulty": 2,
+   "why": "헷갈리는 병: 바이러스 간염"
+  },
+  {
+   "id": "HB-C-DX-0045",
+   "courseId": "healthbeat",
+   "domain": "오늘의 진단",
+   "axis": [
+    "science"
+   ],
+   "tags": [
+    "dx",
+    "tier-A"
+   ],
+   "front": "🩺 골다공증 — 어느 계통이고, 무엇으로 진단·치료하나?",
+   "back": "계통: 근골격계. 검사: 골밀도 검사. 치료: 골다공증 약.",
+   "unlock": {
+    "type": "dx",
+    "id": "HB-DZ-0045"
+   },
+   "difficulty": 2,
+   "why": "헷갈리는 병: 골관절염"
+  },
+  {
+   "id": "HB-C-DX-0046",
+   "courseId": "healthbeat",
+   "domain": "오늘의 진단",
+   "axis": [
+    "science"
+   ],
+   "tags": [
+    "dx",
+    "tier-A"
+   ],
+   "front": "🩺 골관절염 — 어느 계통이고, 무엇으로 진단·치료하나?",
+   "back": "계통: 근골격계. 검사: 근골격 영상. 치료: 관절 주사 치료, 재활.",
+   "unlock": {
+    "type": "dx",
+    "id": "HB-DZ-0046"
+   },
+   "difficulty": 2,
+   "why": "헷갈리는 병: 류마티스관절염, 골다공증, 척추질환"
+  },
+  {
+   "id": "HB-C-DX-0047",
+   "courseId": "healthbeat",
+   "domain": "오늘의 진단",
+   "axis": [
+    "science"
+   ],
+   "tags": [
+    "dx",
+    "tier-A"
+   ],
+   "front": "🩺 근감소증 — 어느 계통이고, 무엇으로 진단·치료하나?",
+   "back": "계통: 근골격계. 검사: 근골격 영상. 치료: 재활.",
+   "unlock": {
+    "type": "dx",
+    "id": "HB-DZ-0047"
+   },
+   "difficulty": 2
+  },
+  {
+   "id": "HB-C-DX-0048",
+   "courseId": "healthbeat",
+   "domain": "오늘의 진단",
+   "axis": [
+    "science"
+   ],
+   "tags": [
+    "dx",
+    "tier-A"
+   ],
+   "front": "🩺 치은염·치주질환·치아우식 — 어느 계통이고, 무엇으로 진단·치료하나?",
+   "back": "계통: 소화계. 검사: 구강검진. 치료: 치주 치료·임플란트.",
+   "unlock": {
+    "type": "dx",
+    "id": "HB-DZ-0048"
+   },
+   "difficulty": 2
+  },
+  {
+   "id": "HB-C-DX-0049",
+   "courseId": "healthbeat",
+   "domain": "오늘의 진단",
+   "axis": [
+    "science"
+   ],
+   "tags": [
+    "dx",
+    "tier-A"
+   ],
+   "front": "🩺 급성 상기도감염·급성 기관지염·급성 편도염 — 어느 계통이고, 무엇으로 진단·치료하나?",
+   "back": "계통: 호흡계. 검사: PCR·신속항원검사. 치료: 항생제, 진통제.",
+   "unlock": {
+    "type": "dx",
+    "id": "HB-DZ-0049"
+   },
+   "difficulty": 2,
+   "why": "헷갈리는 병: 인플루엔자, 폐렴, 알레르기 비염·부비동염"
+  },
+  {
+   "id": "HB-C-DX-0050",
+   "courseId": "healthbeat",
+   "domain": "오늘의 진단",
+   "axis": [
+    "science"
+   ],
+   "tags": [
+    "dx",
+    "tier-A"
+   ],
+   "front": "🩺 알레르기 비염·부비동염 — 어느 계통이고, 무엇으로 진단·치료하나?",
+   "back": "계통: 호흡계. 검사: 알레르기 검사. 치료: 항히스타민제, 알레르기 면역치료.",
+   "unlock": {
+    "type": "dx",
+    "id": "HB-DZ-0050"
+   },
+   "difficulty": 2,
+   "why": "헷갈리는 병: 급성 상기도감염·급성 기관지염·급성 편도염"
+  },
+  {
+   "id": "HB-C-DX-0051",
+   "courseId": "healthbeat",
+   "domain": "오늘의 진단",
+   "axis": [
+    "science"
+   ],
+   "tags": [
+    "dx",
+    "tier-A"
+   ],
+   "front": "🩺 위염·기능성 소화불량·헬리코박터 감염 — 어느 계통이고, 무엇으로 진단·치료하나?",
+   "back": "계통: 소화계. 검사: 위내시경. 치료: 위산 억제제, 헬리코박터 제균 치료.",
+   "unlock": {
+    "type": "dx",
+    "id": "HB-DZ-0051"
+   },
+   "difficulty": 2,
+   "why": "헷갈리는 병: 위식도역류질환"
+  },
+  {
+   "id": "HB-C-DX-0052",
+   "courseId": "healthbeat",
+   "domain": "오늘의 진단",
+   "axis": [
+    "science"
+   ],
+   "tags": [
+    "dx",
+    "tier-A"
+   ],
+   "front": "🩺 위식도역류질환 — 어느 계통이고, 무엇으로 진단·치료하나?",
+   "back": "계통: 소화계. 검사: 위내시경. 치료: 위산 억제제.",
+   "unlock": {
+    "type": "dx",
+    "id": "HB-DZ-0052"
+   },
+   "difficulty": 2,
+   "why": "헷갈리는 병: 위염·기능성 소화불량·헬리코박터 감염"
+  },
+  {
+   "id": "HB-C-DX-0053",
+   "courseId": "healthbeat",
+   "domain": "오늘의 진단",
+   "axis": [
+    "science"
+   ],
+   "tags": [
+    "dx",
+    "tier-A"
+   ],
+   "front": "🩺 노년 백내장 — 어느 계통이고, 무엇으로 진단·치료하나?",
+   "back": "계통: 외피·감각계. 검사: 안저·안압 검사. 치료: 백내장 수술·인공수정체.",
+   "unlock": {
+    "type": "dx",
+    "id": "HB-DZ-0053"
+   },
+   "difficulty": 2,
+   "why": "헷갈리는 병: 녹내장"
+  },
+  {
+   "id": "HB-C-DX-0054",
+   "courseId": "healthbeat",
+   "domain": "오늘의 진단",
+   "axis": [
+    "science"
+   ],
+   "tags": [
+    "dx",
+    "tier-A"
+   ],
+   "front": "🩺 감염성 위장염·식중독 — 어느 계통이고, 무엇으로 진단·치료하나?",
+   "back": "계통: 소화계. 검사: PCR·신속항원검사. 치료: 항생제.",
+   "unlock": {
+    "type": "dx",
+    "id": "HB-DZ-0054"
+   },
+   "difficulty": 2,
+   "why": "헷갈리는 병: 과민성 장증후군"
+  },
+  {
+   "id": "HB-C-DX-0055",
+   "courseId": "healthbeat",
+   "domain": "오늘의 진단",
+   "axis": [
+    "science"
+   ],
+   "tags": [
+    "dx",
+    "tier-A"
+   ],
+   "front": "🩺 척추질환 — 어느 계통이고, 무엇으로 진단·치료하나?",
+   "back": "계통: 근골격계. 검사: 근골격 영상. 치료: 재활, 관절 주사 치료.",
+   "unlock": {
+    "type": "dx",
+    "id": "HB-DZ-0055"
+   },
+   "difficulty": 2,
+   "why": "헷갈리는 병: 골관절염"
+  },
+  {
+   "id": "HB-C-DX-0056",
+   "courseId": "healthbeat",
+   "domain": "오늘의 진단",
+   "axis": [
+    "science"
+   ],
+   "tags": [
+    "dx",
+    "tier-A"
+   ],
+   "front": "🩺 어깨 질환 — 어느 계통이고, 무엇으로 진단·치료하나?",
+   "back": "계통: 근골격계. 검사: 근골격 영상. 치료: 재활, 관절 주사 치료.",
+   "unlock": {
+    "type": "dx",
+    "id": "HB-DZ-0056"
+   },
+   "difficulty": 2
+  },
+  {
+   "id": "HB-C-DX-0057",
+   "courseId": "healthbeat",
+   "domain": "오늘의 진단",
+   "axis": [
+    "science"
+   ],
+   "tags": [
+    "dx",
+    "tier-A"
+   ],
+   "front": "🩺 갑상선 질환 — 어느 계통이고, 무엇으로 진단·치료하나?",
+   "back": "계통: 내분비·대사계. 검사: 갑상선 기능 검사, 초음파. 치료: 갑상선 약.",
+   "unlock": {
+    "type": "dx",
+    "id": "HB-DZ-0057"
+   },
+   "difficulty": 2,
+   "why": "헷갈리는 병: 갑상선암"
+  },
+  {
+   "id": "HB-C-DX-0058",
+   "courseId": "healthbeat",
+   "domain": "오늘의 진단",
+   "axis": [
+    "science"
+   ],
+   "tags": [
+    "dx",
+    "tier-A"
+   ],
+   "front": "🩺 두통·편두통·어지럼증 — 어느 계통이고, 무엇으로 진단·치료하나?",
+   "back": "계통: 신경계. 검사: 뇌 MRI·MRA. 치료: 편두통 약, 진통제.",
+   "unlock": {
+    "type": "dx",
+    "id": "HB-DZ-0058"
+   },
+   "difficulty": 2,
+   "why": "헷갈리는 병: 뇌경색"
+  },
+  {
+   "id": "HB-C-DX-0059",
+   "courseId": "healthbeat",
+   "domain": "오늘의 진단",
+   "axis": [
+    "science"
+   ],
+   "tags": [
+    "dx",
+    "tier-A"
+   ],
+   "front": "🩺 피부염·두드러기·아토피피부염 — 어느 계통이고, 무엇으로 진단·치료하나?",
+   "back": "계통: 외피·감각계. 검사: 알레르기 검사. 치료: 스테로이드, 생물학적제제.",
+   "unlock": {
+    "type": "dx",
+    "id": "HB-DZ-0059"
+   },
+   "difficulty": 2,
+   "why": "헷갈리는 병: 건선, 대상포진"
+  },
+  {
+   "id": "HB-C-DX-0060",
+   "courseId": "healthbeat",
+   "domain": "오늘의 진단",
+   "axis": [
+    "science"
+   ],
+   "tags": [
+    "dx",
+    "tier-B"
+   ],
+   "front": "🩺 혈액암 — 어느 계통이고, 무엇으로 진단·치료하나?",
+   "back": "계통: 면역·림프계. 검사: 일반혈액검사. 치료: 세포치료, 세포독성 항암제.",
+   "unlock": {
+    "type": "dx",
+    "id": "HB-DZ-0060"
+   },
+   "difficulty": 2
+  },
+  {
+   "id": "HB-C-DX-0061",
+   "courseId": "healthbeat",
+   "domain": "오늘의 진단",
+   "axis": [
+    "science"
+   ],
+   "tags": [
+    "dx",
+    "tier-B"
+   ],
+   "front": "🩺 신장암·방광암 — 어느 계통이고, 무엇으로 진단·치료하나?",
+   "back": "계통: 비뇨계. 검사: 소변검사. 치료: 암 수술.",
+   "unlock": {
+    "type": "dx",
+    "id": "HB-DZ-0061"
+   },
+   "difficulty": 2
+  },
+  {
+   "id": "HB-C-DX-0062",
+   "courseId": "healthbeat",
+   "domain": "오늘의 진단",
+   "axis": [
+    "science"
+   ],
+   "tags": [
+    "dx",
+    "tier-B"
+   ],
+   "front": "🩺 난소암·자궁내막암 — 어느 계통이고, 무엇으로 진단·치료하나?",
+   "back": "계통: 생식계. 검사: —. 치료: 암 수술.",
+   "unlock": {
+    "type": "dx",
+    "id": "HB-DZ-0062"
+   },
+   "difficulty": 2
+  },
+  {
+   "id": "HB-C-DX-0063",
+   "courseId": "healthbeat",
+   "domain": "오늘의 진단",
+   "axis": [
+    "science"
+   ],
+   "tags": [
+    "dx",
+    "tier-B"
+   ],
+   "front": "🩺 류마티스관절염 — 어느 계통이고, 무엇으로 진단·치료하나?",
+   "back": "계통: 근골격계. 검사: CRP. 치료: 생물학적제제, JAK 억제제.",
+   "unlock": {
+    "type": "dx",
+    "id": "HB-DZ-0063"
+   },
+   "difficulty": 2,
+   "why": "헷갈리는 병: 골관절염"
+  },
+  {
+   "id": "HB-C-DX-0064",
+   "courseId": "healthbeat",
+   "domain": "오늘의 진단",
+   "axis": [
+    "science"
+   ],
+   "tags": [
+    "dx",
+    "tier-B"
+   ],
+   "front": "🩺 통풍 — 어느 계통이고, 무엇으로 진단·치료하나?",
+   "back": "계통: 근골격계. 검사: —. 치료: —.",
+   "unlock": {
+    "type": "dx",
+    "id": "HB-DZ-0064"
+   },
+   "difficulty": 2
+  },
+  {
+   "id": "HB-C-DX-0065",
+   "courseId": "healthbeat",
+   "domain": "오늘의 진단",
+   "axis": [
+    "science"
+   ],
+   "tags": [
+    "dx",
+    "tier-B"
+   ],
+   "front": "🩺 강직성척추염 — 어느 계통이고, 무엇으로 진단·치료하나?",
+   "back": "계통: 근골격계. 검사: —. 치료: 생물학적제제.",
+   "unlock": {
+    "type": "dx",
+    "id": "HB-DZ-0065"
+   },
+   "difficulty": 2
+  },
+  {
+   "id": "HB-C-DX-0066",
+   "courseId": "healthbeat",
+   "domain": "오늘의 진단",
+   "axis": [
+    "science"
+   ],
+   "tags": [
+    "dx",
+    "tier-B"
+   ],
+   "front": "🩺 전신홍반루푸스 — 어느 계통이고, 무엇으로 진단·치료하나?",
+   "back": "계통: 면역·림프계. 검사: —. 치료: 스테로이드.",
+   "unlock": {
+    "type": "dx",
+    "id": "HB-DZ-0066"
+   },
+   "difficulty": 2
+  },
+  {
+   "id": "HB-C-DX-0067",
+   "courseId": "healthbeat",
+   "domain": "오늘의 진단",
+   "axis": [
+    "science"
+   ],
+   "tags": [
+    "dx",
+    "tier-B"
+   ],
+   "front": "🩺 건선 — 어느 계통이고, 무엇으로 진단·치료하나?",
+   "back": "계통: 외피·감각계. 검사: —. 치료: 생물학적제제, JAK 억제제.",
+   "unlock": {
+    "type": "dx",
+    "id": "HB-DZ-0067"
+   },
+   "difficulty": 2,
+   "why": "헷갈리는 병: 피부염·두드러기·아토피피부염"
+  },
+  {
+   "id": "HB-C-DX-0068",
+   "courseId": "healthbeat",
+   "domain": "오늘의 진단",
+   "axis": [
+    "science"
+   ],
+   "tags": [
+    "dx",
+    "tier-B"
+   ],
+   "front": "🩺 탈모증 — 어느 계통이고, 무엇으로 진단·치료하나?",
+   "back": "계통: 외피·감각계. 검사: —. 치료: —.",
+   "unlock": {
+    "type": "dx",
+    "id": "HB-DZ-0068"
+   },
+   "difficulty": 2
+  },
+  {
+   "id": "HB-C-DX-0069",
+   "courseId": "healthbeat",
+   "domain": "오늘의 진단",
+   "axis": [
+    "science"
+   ],
+   "tags": [
+    "dx",
+    "tier-B"
+   ],
+   "front": "🩺 염증성 장질환 — 어느 계통이고, 무엇으로 진단·치료하나?",
+   "back": "계통: 소화계. 검사: 대장내시경. 치료: 생물학적제제, JAK 억제제.",
+   "unlock": {
+    "type": "dx",
+    "id": "HB-DZ-0069"
+   },
+   "difficulty": 2,
+   "why": "헷갈리는 병: 과민성 장증후군"
+  },
+  {
+   "id": "HB-C-DX-0070",
+   "courseId": "healthbeat",
+   "domain": "오늘의 진단",
+   "axis": [
+    "science"
+   ],
+   "tags": [
+    "dx",
+    "tier-B"
+   ],
+   "front": "🩺 과민성 장증후군 — 어느 계통이고, 무엇으로 진단·치료하나?",
+   "back": "계통: 소화계. 검사: —. 치료: —.",
+   "unlock": {
+    "type": "dx",
+    "id": "HB-DZ-0070"
+   },
+   "difficulty": 2,
+   "why": "헷갈리는 병: 염증성 장질환, 감염성 위장염·식중독"
+  },
+  {
+   "id": "HB-C-DX-0071",
+   "courseId": "healthbeat",
+   "domain": "오늘의 진단",
+   "axis": [
+    "science"
+   ],
+   "tags": [
+    "dx",
+    "tier-B"
+   ],
+   "front": "🩺 변비·치핵 — 어느 계통이고, 무엇으로 진단·치료하나?",
+   "back": "계통: 소화계. 검사: —. 치료: —.",
+   "unlock": {
+    "type": "dx",
+    "id": "HB-DZ-0071"
+   },
+   "difficulty": 2
+  },
+  {
+   "id": "HB-C-DX-0072",
+   "courseId": "healthbeat",
+   "domain": "오늘의 진단",
+   "axis": [
+    "science"
+   ],
+   "tags": [
+    "dx",
+    "tier-B"
+   ],
+   "front": "🩺 담석증·담낭염 — 어느 계통이고, 무엇으로 진단·치료하나?",
+   "back": "계통: 소화계. 검사: —. 치료: —.",
+   "unlock": {
+    "type": "dx",
+    "id": "HB-DZ-0072"
+   },
+   "difficulty": 2
+  },
+  {
+   "id": "HB-C-DX-0073",
+   "courseId": "healthbeat",
+   "domain": "오늘의 진단",
+   "axis": [
+    "science"
+   ],
+   "tags": [
+    "dx",
+    "tier-B"
+   ],
+   "front": "🩺 췌장염 — 어느 계통이고, 무엇으로 진단·치료하나?",
+   "back": "계통: 소화계. 검사: —. 치료: —.",
+   "unlock": {
+    "type": "dx",
+    "id": "HB-DZ-0073"
+   },
+   "difficulty": 2
+  },
+  {
+   "id": "HB-C-DX-0074",
+   "courseId": "healthbeat",
+   "domain": "오늘의 진단",
+   "axis": [
+    "science"
+   ],
+   "tags": [
+    "dx",
+    "tier-B"
+   ],
+   "front": "🩺 방광염·요로감염 — 어느 계통이고, 무엇으로 진단·치료하나?",
+   "back": "계통: 비뇨계. 검사: 소변검사. 치료: 항생제.",
+   "unlock": {
+    "type": "dx",
+    "id": "HB-DZ-0074"
+   },
+   "difficulty": 2
+  },
+  {
+   "id": "HB-C-DX-0075",
+   "courseId": "healthbeat",
+   "domain": "오늘의 진단",
+   "axis": [
+    "science"
+   ],
+   "tags": [
+    "dx",
+    "tier-B"
+   ],
+   "front": "🩺 전립선비대증 — 어느 계통이고, 무엇으로 진단·치료하나?",
+   "back": "계통: 생식계. 검사: —. 치료: —.",
+   "unlock": {
+    "type": "dx",
+    "id": "HB-DZ-0075"
+   },
+   "difficulty": 2,
+   "why": "헷갈리는 병: 전립선암"
+  },
+  {
+   "id": "HB-C-DX-0076",
+   "courseId": "healthbeat",
+   "domain": "오늘의 진단",
+   "axis": [
+    "science"
+   ],
+   "tags": [
+    "dx",
+    "tier-B"
+   ],
+   "front": "🩺 과민성 방광·요실금 — 어느 계통이고, 무엇으로 진단·치료하나?",
+   "back": "계통: 비뇨계. 검사: —. 치료: —.",
+   "unlock": {
+    "type": "dx",
+    "id": "HB-DZ-0076"
+   },
+   "difficulty": 2
+  },
+  {
+   "id": "HB-C-DX-0077",
+   "courseId": "healthbeat",
+   "domain": "오늘의 진단",
+   "axis": [
+    "science"
+   ],
+   "tags": [
+    "dx",
+    "tier-B"
+   ],
+   "front": "🩺 녹내장 — 어느 계통이고, 무엇으로 진단·치료하나?",
+   "back": "계통: 외피·감각계. 검사: 안저·안압 검사. 치료: —.",
+   "unlock": {
+    "type": "dx",
+    "id": "HB-DZ-0077"
+   },
+   "difficulty": 2,
+   "why": "헷갈리는 병: 노년 백내장"
+  },
+  {
+   "id": "HB-C-DX-0078",
+   "courseId": "healthbeat",
+   "domain": "오늘의 진단",
+   "axis": [
+    "science"
+   ],
+   "tags": [
+    "dx",
+    "tier-B"
+   ],
+   "front": "🩺 황반변성 — 어느 계통이고, 무엇으로 진단·치료하나?",
+   "back": "계통: 외피·감각계. 검사: 안저·안압 검사. 치료: 생물학적제제.",
+   "unlock": {
+    "type": "dx",
+    "id": "HB-DZ-0078"
+   },
+   "difficulty": 2
+  },
+  {
+   "id": "HB-C-DX-0079",
+   "courseId": "healthbeat",
+   "domain": "오늘의 진단",
+   "axis": [
+    "science"
+   ],
+   "tags": [
+    "dx",
+    "tier-B"
+   ],
+   "front": "🩺 안구건조증·결막염 — 어느 계통이고, 무엇으로 진단·치료하나?",
+   "back": "계통: 외피·감각계. 검사: —. 치료: —.",
+   "unlock": {
+    "type": "dx",
+    "id": "HB-DZ-0079"
+   },
+   "difficulty": 2
+  },
+  {
+   "id": "HB-C-DX-0080",
+   "courseId": "healthbeat",
+   "domain": "오늘의 진단",
+   "axis": [
+    "science"
+   ],
+   "tags": [
+    "dx",
+    "tier-B"
+   ],
+   "front": "🩺 당뇨망막병증 — 어느 계통이고, 무엇으로 진단·치료하나?",
+   "back": "계통: 외피·감각계. 검사: 안저·안압 검사. 치료: —.",
+   "unlock": {
+    "type": "dx",
+    "id": "HB-DZ-0080"
+   },
+   "difficulty": 2
+  },
+  {
+   "id": "HB-C-DX-0081",
+   "courseId": "healthbeat",
+   "domain": "오늘의 진단",
+   "axis": [
+    "science"
+   ],
+   "tags": [
+    "dx",
+    "tier-B"
+   ],
+   "front": "🩺 난청·이명 — 어느 계통이고, 무엇으로 진단·치료하나?",
+   "back": "계통: 외피·감각계. 검사: 청력 검사. 치료: —.",
+   "unlock": {
+    "type": "dx",
+    "id": "HB-DZ-0081"
+   },
+   "difficulty": 2
+  },
+  {
+   "id": "HB-C-DX-0082",
+   "courseId": "healthbeat",
+   "domain": "오늘의 진단",
+   "axis": [
+    "science"
+   ],
+   "tags": [
+    "dx",
+    "tier-B"
+   ],
+   "front": "🩺 중이염 — 어느 계통이고, 무엇으로 진단·치료하나?",
+   "back": "계통: 외피·감각계. 검사: —. 치료: 항생제.",
+   "unlock": {
+    "type": "dx",
+    "id": "HB-DZ-0082"
+   },
+   "difficulty": 2
+  },
+  {
+   "id": "HB-C-DX-0083",
+   "courseId": "healthbeat",
+   "domain": "오늘의 진단",
+   "axis": [
+    "science"
+   ],
+   "tags": [
+    "dx",
+    "tier-B"
+   ],
+   "front": "🩺 ADHD — 어느 계통이고, 무엇으로 진단·치료하나?",
+   "back": "계통: 신경계. 검사: —. 치료: ADHD 약물.",
+   "unlock": {
+    "type": "dx",
+    "id": "HB-DZ-0083"
+   },
+   "difficulty": 2
+  },
+  {
+   "id": "HB-C-DX-0084",
+   "courseId": "healthbeat",
+   "domain": "오늘의 진단",
+   "axis": [
+    "science"
+   ],
+   "tags": [
+    "dx",
+    "tier-B"
+   ],
+   "front": "🩺 양극성장애 — 어느 계통이고, 무엇으로 진단·치료하나?",
+   "back": "계통: 신경계. 검사: —. 치료: 기분안정제.",
+   "unlock": {
+    "type": "dx",
+    "id": "HB-DZ-0084"
+   },
+   "difficulty": 2,
+   "why": "헷갈리는 병: 우울증, 조현병"
+  },
+  {
+   "id": "HB-C-DX-0085",
+   "courseId": "healthbeat",
+   "domain": "오늘의 진단",
+   "axis": [
+    "science"
+   ],
+   "tags": [
+    "dx",
+    "tier-B"
+   ],
+   "front": "🩺 불면증·수면무호흡증 — 어느 계통이고, 무엇으로 진단·치료하나?",
+   "back": "계통: 신경계. 검사: 수면다원검사. 치료: 수면제.",
+   "unlock": {
+    "type": "dx",
+    "id": "HB-DZ-0085"
+   },
+   "difficulty": 2
+  },
+  {
+   "id": "HB-C-DX-0086",
+   "courseId": "healthbeat",
+   "domain": "오늘의 진단",
+   "axis": [
+    "science"
+   ],
+   "tags": [
+    "dx",
+    "tier-B"
+   ],
+   "front": "🩺 자폐스펙트럼장애 — 어느 계통이고, 무엇으로 진단·치료하나?",
+   "back": "계통: 신경계. 검사: —. 치료: —.",
+   "unlock": {
+    "type": "dx",
+    "id": "HB-DZ-0086"
+   },
+   "difficulty": 2
+  },
+  {
+   "id": "HB-C-DX-0087",
+   "courseId": "healthbeat",
+   "domain": "오늘의 진단",
+   "axis": [
+    "science"
+   ],
+   "tags": [
+    "dx",
+    "tier-B"
+   ],
+   "front": "🩺 섭식장애 — 어느 계통이고, 무엇으로 진단·치료하나?",
+   "back": "계통: 신경계. 검사: —. 치료: 심리치료.",
+   "unlock": {
+    "type": "dx",
+    "id": "HB-DZ-0087"
+   },
+   "difficulty": 2
+  },
+  {
+   "id": "HB-C-DX-0088",
+   "courseId": "healthbeat",
+   "domain": "오늘의 진단",
+   "axis": [
+    "science"
+   ],
+   "tags": [
+    "dx",
+    "tier-B"
+   ],
+   "front": "🩺 뇌전증 — 어느 계통이고, 무엇으로 진단·치료하나?",
+   "back": "계통: 신경계. 검사: —. 치료: —.",
+   "unlock": {
+    "type": "dx",
+    "id": "HB-DZ-0088"
+   },
+   "difficulty": 2
+  },
+  {
+   "id": "HB-C-DX-0089",
+   "courseId": "healthbeat",
+   "domain": "오늘의 진단",
+   "axis": [
+    "science"
+   ],
+   "tags": [
+    "dx",
+    "tier-B"
+   ],
+   "front": "🩺 다발성경화증 — 어느 계통이고, 무엇으로 진단·치료하나?",
+   "back": "계통: 신경계. 검사: —. 치료: —.",
+   "unlock": {
+    "type": "dx",
+    "id": "HB-DZ-0089"
+   },
+   "difficulty": 2
+  },
+  {
+   "id": "HB-C-DX-0090",
+   "courseId": "healthbeat",
+   "domain": "오늘의 진단",
+   "axis": [
+    "science"
+   ],
+   "tags": [
+    "dx",
+    "tier-B"
+   ],
+   "front": "🩺 근위축성측삭경화증 — 어느 계통이고, 무엇으로 진단·치료하나?",
+   "back": "계통: 신경계. 검사: —. 치료: —.",
+   "unlock": {
+    "type": "dx",
+    "id": "HB-DZ-0090"
+   },
+   "difficulty": 2
+  },
+  {
+   "id": "HB-C-DX-0091",
+   "courseId": "healthbeat",
+   "domain": "오늘의 진단",
+   "axis": [
+    "science"
+   ],
+   "tags": [
+    "dx",
+    "tier-B"
+   ],
+   "front": "🩺 철결핍빈혈 — 어느 계통이고, 무엇으로 진단·치료하나?",
+   "back": "계통: 순환계. 검사: 일반혈액검사. 치료: —.",
+   "unlock": {
+    "type": "dx",
+    "id": "HB-DZ-0091"
+   },
+   "difficulty": 2
+  },
+  {
+   "id": "HB-C-DX-0092",
+   "courseId": "healthbeat",
+   "domain": "오늘의 진단",
+   "axis": [
+    "science"
+   ],
+   "tags": [
+    "dx",
+    "tier-B"
+   ],
+   "front": "🩺 고관절 골절 — 어느 계통이고, 무엇으로 진단·치료하나?",
+   "back": "계통: 근골격계. 검사: 골밀도 검사. 치료: 재활.",
+   "unlock": {
+    "type": "dx",
+    "id": "HB-DZ-0092"
+   },
+   "difficulty": 2
+  },
+  {
+   "id": "HB-C-DX-0093",
+   "courseId": "healthbeat",
+   "domain": "오늘의 진단",
+   "axis": [
+    "science"
+   ],
+   "tags": [
+    "dx",
+    "tier-B"
+   ],
+   "front": "🩺 난임 — 어느 계통이고, 무엇으로 진단·치료하나?",
+   "back": "계통: 생식계. 검사: —. 치료: —.",
+   "unlock": {
+    "type": "dx",
+    "id": "HB-DZ-0093"
+   },
+   "difficulty": 2
+  },
+  {
+   "id": "HB-C-DX-0094",
+   "courseId": "healthbeat",
+   "domain": "오늘의 진단",
+   "axis": [
+    "science"
+   ],
+   "tags": [
+    "dx",
+    "tier-B"
+   ],
+   "front": "🩺 자궁내막증 — 어느 계통이고, 무엇으로 진단·치료하나?",
+   "back": "계통: 생식계. 검사: —. 치료: —.",
+   "unlock": {
+    "type": "dx",
+    "id": "HB-DZ-0094"
+   },
+   "difficulty": 2
+  },
+  {
+   "id": "HB-C-DX-0095",
+   "courseId": "healthbeat",
+   "domain": "오늘의 진단",
+   "axis": [
+    "science"
+   ],
+   "tags": [
+    "dx",
+    "tier-B"
+   ],
+   "front": "🩺 갱년기 증후군 — 어느 계통이고, 무엇으로 진단·치료하나?",
+   "back": "계통: 생식계. 검사: —. 치료: —.",
+   "unlock": {
+    "type": "dx",
+    "id": "HB-DZ-0095"
+   },
+   "difficulty": 2
+  },
+  {
+   "id": "HB-C-DX-0096",
+   "courseId": "healthbeat",
+   "domain": "오늘의 진단",
+   "axis": [
+    "science"
+   ],
+   "tags": [
+    "dx",
+    "tier-B"
+   ],
+   "front": "🩺 HIV 감염 — 어느 계통이고, 무엇으로 진단·치료하나?",
+   "back": "계통: 면역·림프계. 검사: —. 치료: 항바이러스제.",
+   "unlock": {
+    "type": "dx",
+    "id": "HB-DZ-0096"
+   },
+   "difficulty": 2
+  },
+  {
+   "id": "HB-C-DX-0097",
+   "courseId": "healthbeat",
+   "domain": "오늘의 진단",
+   "axis": [
+    "science"
+   ],
+   "tags": [
+    "dx",
+    "tier-B"
+   ],
+   "front": "🩺 성매개감염 — 어느 계통이고, 무엇으로 진단·치료하나?",
+   "back": "계통: 생식계. 검사: —. 치료: 항생제.",
+   "unlock": {
+    "type": "dx",
+    "id": "HB-DZ-0097"
+   },
+   "difficulty": 2
+  },
+  {
+   "id": "HB-C-DX-0098",
+   "courseId": "healthbeat",
+   "domain": "오늘의 진단",
+   "axis": [
+    "science"
+   ],
+   "tags": [
+    "dx",
+    "tier-B"
+   ],
+   "front": "🩺 소아 호흡기·장 감염 — 어느 계통이고, 무엇으로 진단·치료하나?",
+   "back": "계통: 호흡계. 검사: PCR·신속항원검사. 치료: —.",
+   "unlock": {
+    "type": "dx",
+    "id": "HB-DZ-0098"
+   },
+   "difficulty": 2
+  },
+  {
+   "id": "HB-C-DX-0099",
+   "courseId": "healthbeat",
+   "domain": "오늘의 진단",
+   "axis": [
+    "science"
+   ],
+   "tags": [
+    "dx",
+    "tier-B"
+   ],
+   "front": "🩺 홍역·백일해 — 어느 계통이고, 무엇으로 진단·치료하나?",
+   "back": "계통: 호흡계. 검사: —. 치료: 백신 플랫폼.",
+   "unlock": {
+    "type": "dx",
+    "id": "HB-DZ-0099"
+   },
+   "difficulty": 2
+  },
+  {
+   "id": "HB-C-DX-0100",
+   "courseId": "healthbeat",
+   "domain": "오늘의 진단",
+   "axis": [
+    "science"
+   ],
+   "tags": [
+    "dx",
+    "tier-B"
+   ],
+   "front": "🩺 엠폭스 — 어느 계통이고, 무엇으로 진단·치료하나?",
+   "back": "계통: 외피·감각계. 검사: —. 치료: —.",
+   "unlock": {
+    "type": "dx",
+    "id": "HB-DZ-0100"
+   },
+   "difficulty": 2
+  },
+  {
+   "id": "HB-C-DX-0101",
+   "courseId": "healthbeat",
+   "domain": "오늘의 진단",
+   "axis": [
+    "science"
+   ],
+   "tags": [
+    "dx",
+    "tier-B"
+   ],
+   "front": "🩺 해외유입 감염 — 어느 계통이고, 무엇으로 진단·치료하나?",
+   "back": "계통: 면역·림프계. 검사: —. 치료: —.",
+   "unlock": {
+    "type": "dx",
+    "id": "HB-DZ-0101"
+   },
+   "difficulty": 2
+  },
+  {
+   "id": "HB-C-DX-0102",
+   "courseId": "healthbeat",
+   "domain": "오늘의 진단",
+   "axis": [
+    "science"
+   ],
+   "tags": [
+    "dx",
+    "tier-B"
+   ],
+   "front": "🩺 폭염·한랭질환 — 어느 계통이고, 무엇으로 진단·치료하나?",
+   "back": "계통: 외피·감각계. 검사: —. 치료: —.",
+   "unlock": {
+    "type": "dx",
+    "id": "HB-DZ-0102"
+   },
+   "difficulty": 2
+  },
+  {
+   "id": "HB-C-DX-0103",
+   "courseId": "healthbeat",
+   "domain": "오늘의 진단",
+   "axis": [
+    "science"
+   ],
+   "tags": [
+    "dx",
+    "tier-B"
+   ],
+   "front": "🩺 미세먼지 관련 건강 영향 — 어느 계통이고, 무엇으로 진단·치료하나?",
+   "back": "계통: 호흡계. 검사: —. 치료: —.",
+   "unlock": {
+    "type": "dx",
+    "id": "HB-DZ-0103"
+   },
+   "difficulty": 2
+  },
+  {
+   "id": "HB-C-DX-0104",
+   "courseId": "healthbeat",
+   "domain": "오늘의 진단",
+   "axis": [
+    "science"
+   ],
+   "tags": [
+    "dx",
+    "tier-B"
+   ],
+   "front": "🩺 손상 — 어느 계통이고, 무엇으로 진단·치료하나?",
+   "back": "계통: 근골격계. 검사: —. 치료: 재활.",
+   "unlock": {
+    "type": "dx",
+    "id": "HB-DZ-0104"
+   },
+   "difficulty": 2
+  },
+  {
+   "id": "HB-C-DX-0105",
+   "courseId": "healthbeat",
+   "domain": "오늘의 진단",
+   "axis": [
+    "science"
+   ],
+   "tags": [
+    "dx",
+    "tier-B"
+   ],
+   "front": "🩺 마약류 의존·중독 — 어느 계통이고, 무엇으로 진단·치료하나?",
+   "back": "계통: 신경계. 검사: —. 치료: —.",
+   "unlock": {
+    "type": "dx",
+    "id": "HB-DZ-0105"
+   },
+   "difficulty": 2
+  },
+  {
+   "id": "HB-C-DX-0106",
+   "courseId": "healthbeat",
+   "domain": "오늘의 진단",
+   "axis": [
+    "science"
+   ],
+   "tags": [
+    "dx",
+    "tier-B"
+   ],
+   "front": "🩺 니코틴 의존·전자담배 — 어느 계통이고, 무엇으로 진단·치료하나?",
+   "back": "계통: 호흡계. 검사: —. 치료: 금연 치료.",
+   "unlock": {
+    "type": "dx",
+    "id": "HB-DZ-0106"
+   },
+   "difficulty": 2
+  },
+  {
+   "id": "HB-C-DX-0107",
+   "courseId": "healthbeat",
+   "domain": "오늘의 진단",
+   "axis": [
+    "science"
+   ],
+   "tags": [
+    "dx",
+    "tier-C"
+   ],
+   "front": "🩺 척수성근위축증 — 어느 계통이고, 무엇으로 진단·치료하나?",
+   "back": "계통: 신경계. 검사: —. 치료: 유전자·세포치료.",
+   "unlock": {
+    "type": "dx",
+    "id": "HB-DZ-0107"
+   },
+   "difficulty": 2
+  },
+  {
+   "id": "HB-C-DX-0108",
+   "courseId": "healthbeat",
+   "domain": "오늘의 진단",
+   "axis": [
+    "science"
+   ],
+   "tags": [
+    "dx",
+    "tier-C"
+   ],
+   "front": "🩺 혈우병 — 어느 계통이고, 무엇으로 진단·치료하나?",
+   "back": "계통: 순환계. 검사: —. 치료: 유전자·세포치료.",
+   "unlock": {
+    "type": "dx",
+    "id": "HB-DZ-0108"
+   },
+   "difficulty": 2
+  },
+  {
+   "id": "HB-C-DX-0109",
+   "courseId": "healthbeat",
+   "domain": "오늘의 진단",
+   "axis": [
+    "science"
+   ],
+   "tags": [
+    "dx",
+    "tier-C"
+   ],
+   "front": "🩺 파브리병 — 어느 계통이고, 무엇으로 진단·치료하나?",
+   "back": "계통: 내분비·대사계. 검사: —. 치료: —.",
+   "unlock": {
+    "type": "dx",
+    "id": "HB-DZ-0109"
+   },
+   "difficulty": 2
+  },
+  {
+   "id": "HB-C-DX-0110",
+   "courseId": "healthbeat",
+   "domain": "오늘의 진단",
+   "axis": [
+    "science"
+   ],
+   "tags": [
+    "dx",
+    "tier-C"
+   ],
+   "front": "🩺 고셔병 — 어느 계통이고, 무엇으로 진단·치료하나?",
+   "back": "계통: 내분비·대사계. 검사: —. 치료: —.",
+   "unlock": {
+    "type": "dx",
+    "id": "HB-DZ-0110"
+   },
+   "difficulty": 2
+  },
+  {
+   "id": "HB-C-DX-0111",
+   "courseId": "healthbeat",
+   "domain": "오늘의 진단",
+   "axis": [
+    "science"
+   ],
+   "tags": [
+    "dx",
+    "tier-C"
+   ],
+   "front": "🩺 듀센 근이영양증 — 어느 계통이고, 무엇으로 진단·치료하나?",
+   "back": "계통: 근골격계. 검사: —. 치료: 유전자·세포치료.",
+   "unlock": {
+    "type": "dx",
+    "id": "HB-DZ-0111"
+   },
+   "difficulty": 2
+  },
+  {
+   "id": "HB-C-DX-0112",
+   "courseId": "healthbeat",
+   "domain": "오늘의 진단",
+   "axis": [
+    "science"
+   ],
+   "tags": [
+    "dx",
+    "tier-C"
+   ],
+   "front": "🩺 헌팅턴병 — 어느 계통이고, 무엇으로 진단·치료하나?",
+   "back": "계통: 신경계. 검사: —. 치료: —.",
+   "unlock": {
+    "type": "dx",
+    "id": "HB-DZ-0112"
+   },
+   "difficulty": 2
+  },
+  {
+   "id": "HB-C-DX-0113",
+   "courseId": "healthbeat",
+   "domain": "오늘의 진단",
+   "axis": [
+    "science"
+   ],
+   "tags": [
+    "dx",
+    "tier-C"
+   ],
+   "front": "🩺 발작성 야간 혈색소뇨증 — 어느 계통이고, 무엇으로 진단·치료하나?",
+   "back": "계통: 순환계. 검사: —. 치료: 생물학적제제.",
+   "unlock": {
+    "type": "dx",
+    "id": "HB-DZ-0113"
+   },
+   "difficulty": 2
+  },
+  {
+   "id": "HB-C-DX-0114",
+   "courseId": "healthbeat",
+   "domain": "오늘의 진단",
+   "axis": [
+    "science"
+   ],
+   "tags": [
+    "dx",
+    "tier-C"
+   ],
+   "front": "🩺 특발성 폐섬유증 — 어느 계통이고, 무엇으로 진단·치료하나?",
+   "back": "계통: 호흡계. 검사: —. 치료: —.",
+   "unlock": {
+    "type": "dx",
+    "id": "HB-DZ-0114"
+   },
+   "difficulty": 2
+  },
+  {
+   "id": "HB-C-DX-0115",
+   "courseId": "healthbeat",
+   "domain": "오늘의 진단",
+   "axis": [
+    "science"
+   ],
+   "tags": [
+    "dx",
+    "tier-C"
+   ],
+   "front": "🩺 아밀로이드증 — 어느 계통이고, 무엇으로 진단·치료하나?",
+   "back": "계통: 순환계. 검사: —. 치료: —.",
+   "unlock": {
+    "type": "dx",
+    "id": "HB-DZ-0115"
+   },
+   "difficulty": 2
+  },
+  {
+   "id": "HB-C-DX-0116",
+   "courseId": "healthbeat",
+   "domain": "오늘의 진단",
+   "axis": [
+    "science"
+   ],
+   "tags": [
+    "dx",
+    "tier-C"
+   ],
+   "front": "🩺 시신경척수염 — 어느 계통이고, 무엇으로 진단·치료하나?",
+   "back": "계통: 신경계. 검사: —. 치료: 생물학적제제.",
+   "unlock": {
+    "type": "dx",
+    "id": "HB-DZ-0116"
+   },
+   "difficulty": 2
+  },
+  {
+   "id": "HB-C-DX-0117",
+   "courseId": "healthbeat",
+   "domain": "오늘의 진단",
+   "axis": [
+    "science"
+   ],
+   "tags": [
+    "dx",
+    "tier-C"
+   ],
+   "front": "🩺 중증 근무력증 — 어느 계통이고, 무엇으로 진단·치료하나?",
+   "back": "계통: 신경계. 검사: —. 치료: 생물학적제제.",
+   "unlock": {
+    "type": "dx",
+    "id": "HB-DZ-0117"
+   },
+   "difficulty": 2
+  },
+  {
+   "id": "HB-C-DX-0118",
+   "courseId": "healthbeat",
+   "domain": "오늘의 진단",
+   "axis": [
+    "science"
+   ],
+   "tags": [
+    "dx",
+    "tier-C"
+   ],
+   "front": "🩺 원발성 담즙성 담관염 — 어느 계통이고, 무엇으로 진단·치료하나?",
+   "back": "계통: 소화계. 검사: —. 치료: —.",
+   "unlock": {
+    "type": "dx",
+    "id": "HB-DZ-0118"
+   },
+   "difficulty": 2
+  },
+  {
+   "id": "HB-C-DX-0119",
+   "courseId": "healthbeat",
+   "domain": "오늘의 진단",
+   "axis": [
+    "science"
+   ],
+   "tags": [
+    "dx",
+    "tier-C"
+   ],
+   "front": "🩺 소아 희귀 암 — 어느 계통이고, 무엇으로 진단·치료하나?",
+   "back": "계통: 면역·림프계. 검사: —. 치료: 세포치료.",
+   "unlock": {
+    "type": "dx",
+    "id": "HB-DZ-0119"
+   },
+   "difficulty": 2
+  },
+  {
+   "id": "HB-C-ST-0001",
+   "courseId": "healthbeat",
+   "domain": "오늘의 숫자",
+   "axis": [
+    "media"
+   ],
+   "tags": [
+    "num"
+   ],
+   "front": "📊 사망자 수 (2025년, 전국(주민등록지 기준))는?",
+   "back": "362,968 명 — 공표 2026-09-22.",
+   "why": "사망신고서 기초, 한국표준질병·사인분류에 따른 근원 사인 기준. 2025년 발생 사망을 2026년 4월까지 신고분으로 집계한 확정 통계",
+   "unlock": {
+    "type": "num",
+    "id": "ST-0001"
+   },
+   "difficulty": 3
+  },
+  {
+   "id": "HB-C-ST-0002",
+   "courseId": "healthbeat",
+   "domain": "오늘의 숫자",
+   "axis": [
+    "media"
+   ],
+   "tags": [
+    "num"
+   ],
+   "front": "📊 조사망률 (2025년, 전국(주민등록지 기준))는?",
+   "back": "712.6 명/인구 10만 명 — 공표 2026-09-22.",
+   "why": "연간 사망자 수 ÷ 주민등록 연앙인구 × 100,000",
+   "unlock": {
+    "type": "num",
+    "id": "ST-0002"
+   },
+   "difficulty": 3
+  },
+  {
+   "id": "HB-C-ST-0003",
+   "courseId": "healthbeat",
+   "domain": "오늘의 숫자",
+   "axis": [
+    "media"
+   ],
+   "tags": [
+    "num"
+   ],
+   "front": "📊 연령표준화 사망률 (2025년, 전국(주민등록지 기준))는?",
+   "back": "285.3 명/표준인구 10만 명 — 공표 2026-09-22.",
+   "why": "2005년 전국 인구를 표준인구로 연령 구조 차이를 보정한 사망률",
+   "unlock": {
+    "type": "num",
+    "id": "ST-0003"
+   },
+   "difficulty": 3
+  },
+  {
+   "id": "HB-C-ST-0005",
+   "courseId": "healthbeat",
+   "domain": "오늘의 숫자",
+   "axis": [
+    "media"
+   ],
+   "tags": [
+    "num"
+   ],
+   "front": "📊 3대 사망원인(암·심장 질환·폐렴)의 사망 비중 (2025년, 전국(주민등록지 기준))는?",
+   "back": "42.7 % — 공표 2026-09-22.",
+   "why": "사망신고서 기초, 한국표준질병·사인분류에 따른 근원 사인 기준. 2025년 발생 사망을 2026년 4월까지 신고분으로 집계한 확정 통계",
+   "unlock": {
+    "type": "num",
+    "id": "ST-0005"
+   },
+   "difficulty": 3
+  },
+  {
+   "id": "HB-C-ST-0006",
+   "courseId": "healthbeat",
+   "domain": "오늘의 숫자",
+   "axis": [
+    "media"
+   ],
+   "tags": [
+    "num"
+   ],
+   "front": "📊 암 사망률 (2025년, 전국(주민등록지 기준))는?",
+   "back": "177.1 명/인구 10만 명 — 공표 2026-09-22.",
+   "why": "사망신고서 기초, 한국표준질병·사인분류에 따른 근원 사인 기준. 2025년 발생 사망을 2026년 4월까지 신고분으로 집계한 확정 통계",
+   "unlock": {
+    "type": "num",
+    "id": "ST-0006"
+   },
+   "difficulty": 3
+  },
+  {
+   "id": "HB-C-ST-0007",
+   "courseId": "healthbeat",
+   "domain": "오늘의 숫자",
+   "axis": [
+    "media"
+   ],
+   "tags": [
+    "num"
+   ],
+   "front": "📊 전체 사망 중 암 사망 비중 (2025년, 전국(주민등록지 기준))는?",
+   "back": "24.9 % — 공표 2026-09-22.",
+   "why": "사망신고서 기초, 한국표준질병·사인분류에 따른 근원 사인 기준. 2025년 발생 사망을 2026년 4월까지 신고분으로 집계한 확정 통계",
+   "unlock": {
+    "type": "num",
+    "id": "ST-0007"
+   },
+   "difficulty": 3
+  },
+  {
+   "id": "HB-C-ST-0008",
+   "courseId": "healthbeat",
+   "domain": "오늘의 숫자",
+   "axis": [
+    "media"
+   ],
+   "tags": [
+    "num"
+   ],
+   "front": "📊 자살 사망자 수 (2025년, 전국(주민등록지 기준))는?",
+   "back": "14,144 명 — 공표 2026-09-22.",
+   "why": "사망신고서 기초, 한국표준질병·사인분류에 따른 근원 사인 기준. 2025년 발생 사망을 2026년 4월까지 신고분으로 집계한 확정 통계",
+   "unlock": {
+    "type": "num",
+    "id": "ST-0008"
+   },
+   "difficulty": 3
+  },
+  {
+   "id": "HB-C-ST-0009",
+   "courseId": "healthbeat",
+   "domain": "오늘의 숫자",
+   "axis": [
+    "media"
+   ],
+   "tags": [
+    "num"
+   ],
+   "front": "📊 자살률 (2025년, 전국(주민등록지 기준))는?",
+   "back": "27.8 명/인구 10만 명 — 공표 2026-09-22.",
+   "why": "사망신고서 기초, 한국표준질병·사인분류에 따른 근원 사인 기준. 2025년 발생 사망을 2026년 4월까지 신고분으로 집계한 확정 통계",
+   "unlock": {
+    "type": "num",
+    "id": "ST-0009"
+   },
+   "difficulty": 3
+  },
+  {
+   "id": "HB-C-ST-0010",
+   "courseId": "healthbeat",
+   "domain": "오늘의 숫자",
+   "axis": [
+    "media"
+   ],
+   "tags": [
+    "num"
+   ],
+   "front": "📊 OECD 표준인구 기준 연령표준화 자살률 (2025년, 전국(주민등록지 기준))는?",
+   "back": "24.9 명/표준인구 10만 명 — 공표 2026-09-22.",
+   "why": "OECD 표준인구로 연령 구조를 보정한 자살률(국가데이터처 산출)",
+   "unlock": {
+    "type": "num",
+    "id": "ST-0010"
+   },
+   "difficulty": 3
+  },
+  {
+   "id": "HB-C-ST-0011",
+   "courseId": "healthbeat",
+   "domain": "오늘의 숫자",
+   "axis": [
+    "media"
+   ],
+   "tags": [
+    "num"
+   ],
+   "front": "📊 치매 사망률 (2025년, 전국(주민등록지 기준))는?",
+   "back": "32 명/인구 10만 명 — 공표 2026-09-22.",
+   "why": "치매 관련 사인에 의한 사망률. 포함 사인 범위는 원문 확인",
+   "unlock": {
+    "type": "num",
+    "id": "ST-0011"
+   },
+   "difficulty": 3,
+   "needsVerification": true
+  },
+  {
+   "id": "HB-C-ST-0012",
+   "courseId": "healthbeat",
+   "domain": "오늘의 숫자",
+   "axis": [
+    "media"
+   ],
+   "tags": [
+    "num"
+   ],
+   "front": "📊 80세 이상 사망자 비중 (2025년, 전국(주민등록지 기준))는?",
+   "back": "54.7 % — 공표 2026-09-22.",
+   "why": "사망신고서 기초, 한국표준질병·사인분류에 따른 근원 사인 기준. 2025년 발생 사망을 2026년 4월까지 신고분으로 집계한 확정 통계",
+   "unlock": {
+    "type": "num",
+    "id": "ST-0012"
+   },
+   "difficulty": 3
+  },
+  {
+   "id": "HB-C-ST-0013",
+   "courseId": "healthbeat",
+   "domain": "오늘의 숫자",
+   "axis": [
+    "media"
+   ],
+   "tags": [
+    "num"
+   ],
+   "front": "📊 비감염성 질환(만성질환) 사망 비중 (2024년, 전국(주민등록지 기준))는?",
+   "back": "78.8 % — 공표 2025-12-29.",
+   "why": "WHO 비감염성 질환 분류에 따른 사망 구성비. 원자료는 국가데이터처 2024년 사망원인통계",
+   "unlock": {
+    "type": "num",
+    "id": "ST-0013"
+   },
+   "difficulty": 3
+  },
+  {
+   "id": "HB-C-ST-0014",
+   "courseId": "healthbeat",
+   "domain": "오늘의 숫자",
+   "axis": [
+    "media"
+   ],
+   "tags": [
+    "num"
+   ],
+   "front": "📊 비감염성 질환(만성질환) 진료비 (2024년, 건강보험 진료비 전체)는?",
+   "back": "90 조 원 — 공표 2025-12-29.",
+   "why": "비감염성 질환으로 인한 건강보험 진료비. 원자료는 건보공단·심평원 2024년 건강보험통계",
+   "unlock": {
+    "type": "num",
+    "id": "ST-0014"
+   },
+   "difficulty": 3
+  },
+  {
+   "id": "HB-C-ST-0015",
+   "courseId": "healthbeat",
+   "domain": "오늘의 숫자",
+   "axis": [
+    "media"
+   ],
+   "tags": [
+    "num"
+   ],
+   "front": "📊 전체 진료비 중 비감염성 질환 비중 (2024년, 건강보험 진료비 전체)는?",
+   "back": "80.3 % — 공표 2025-12-29.",
+   "why": "비감염성 질환 진료비 ÷ 전체 진료비",
+   "unlock": {
+    "type": "num",
+    "id": "ST-0015"
+   },
+   "difficulty": 3
+  },
+  {
+   "id": "HB-C-ST-0016",
+   "courseId": "healthbeat",
+   "domain": "오늘의 숫자",
+   "axis": [
+    "media"
+   ],
+   "tags": [
+    "num"
+   ],
+   "front": "📊 65세 이상 인구 비중 (2025년, 전체 인구)는?",
+   "back": "20.3 % — 공표 2025-12-29.",
+   "why": "65세 이상 인구 ÷ 전체 인구. 원자료는 국가데이터처 2025 고령자 통계",
+   "unlock": {
+    "type": "num",
+    "id": "ST-0016"
+   },
+   "difficulty": 3
+  },
+  {
+   "id": "HB-C-ST-0017",
+   "courseId": "healthbeat",
+   "domain": "오늘의 숫자",
+   "axis": [
+    "media"
+   ],
+   "tags": [
+    "num"
+   ],
+   "front": "📊 65세 이상 1인당 연평균 진료비 (2024년, 65세 이상 건강보험 적용 인구)는?",
+   "back": "551 만 원 — 공표 2025-12-29.",
+   "why": "건강보험 진료비 기준. 원자료는 2024년 건강보험통계",
+   "unlock": {
+    "type": "num",
+    "id": "ST-0017"
+   },
+   "difficulty": 3
+  },
+  {
+   "id": "HB-C-ST-0018",
+   "courseId": "healthbeat",
+   "domain": "오늘의 숫자",
+   "axis": [
+    "media"
+   ],
+   "tags": [
+    "num"
+   ],
+   "front": "📊 기대수명(2024년 출생아) (2024년, 2024년 출생아(남녀 전체))는?",
+   "back": "85.7 년 — 공표 2025-12-29.",
+   "why": "국가데이터처 2024년 생명표 기준",
+   "unlock": {
+    "type": "num",
+    "id": "ST-0018"
+   },
+   "difficulty": 3
+  },
+  {
+   "id": "HB-C-ST-0019",
+   "courseId": "healthbeat",
+   "domain": "오늘의 숫자",
+   "axis": [
+    "media"
+   ],
+   "tags": [
+    "num"
+   ],
+   "front": "📊 순환계통 질환 진료비 (2024년, 건강보험 진료비)는?",
+   "back": "14 조 원 — 공표 2025-12-29.",
+   "why": "주요 만성질환 진료비(건강보험통계 기준)",
+   "unlock": {
+    "type": "num",
+    "id": "ST-0019"
+   },
+   "difficulty": 3
+  },
+  {
+   "id": "HB-C-ST-0020",
+   "courseId": "healthbeat",
+   "domain": "오늘의 숫자",
+   "axis": [
+    "media"
+   ],
+   "tags": [
+    "num"
+   ],
+   "front": "📊 암 진료비 (2024년, 건강보험 진료비)는?",
+   "back": "10.7 조 원 — 공표 2025-12-29.",
+   "why": "주요 만성질환 진료비(건강보험통계 기준)",
+   "unlock": {
+    "type": "num",
+    "id": "ST-0020"
+   },
+   "difficulty": 3
+  },
+  {
+   "id": "HB-C-ST-0021",
+   "courseId": "healthbeat",
+   "domain": "오늘의 숫자",
+   "axis": [
+    "media"
+   ],
+   "tags": [
+    "num"
+   ],
+   "front": "📊 당뇨병 진료비 (2024년, 건강보험 진료비)는?",
+   "back": "3.7 조 원 — 공표 2025-12-29.",
+   "why": "주요 만성질환 진료비(건강보험통계 기준)",
+   "unlock": {
+    "type": "num",
+    "id": "ST-0021"
+   },
+   "difficulty": 3
+  },
+  {
+   "id": "HB-C-ST-0022",
+   "courseId": "healthbeat",
+   "domain": "오늘의 숫자",
+   "axis": [
+    "media"
+   ],
+   "tags": [
+    "num"
+   ],
+   "front": "📊 외래 다빈도 1위 치은염·치주질환 진료인원 (2025년 진료분, 건강보험 진료 환자)는?",
+   "back": "19,972,412 명 — 공표 2026-06-08.",
+   "why": "건강보험 진료인원(심평원 다빈도 상병 기준). 같은 사람의 중복 처리 기준은 원문 확인 필요",
+   "unlock": {
+    "type": "num",
+    "id": "ST-0022"
+   },
+   "difficulty": 3,
+   "needsVerification": true
+  },
+  {
+   "id": "HB-C-ST-0023",
+   "courseId": "healthbeat",
+   "domain": "오늘의 숫자",
+   "axis": [
+    "media"
+   ],
+   "tags": [
+    "num"
+   ],
+   "front": "📊 치은염·치주질환 외래 건강보험 의료비 (2025년 진료분, 건강보험 진료 환자)는?",
+   "back": "26,214 억 원 — 공표 2026-06-08.",
+   "why": "외래 건강보험 의료비(심평원 다빈도 상병 기준)",
+   "unlock": {
+    "type": "num",
+    "id": "ST-0023"
+   },
+   "difficulty": 3,
+   "needsVerification": true
+  },
+  {
+   "id": "HB-C-ST-0024",
+   "courseId": "healthbeat",
+   "domain": "오늘의 숫자",
+   "axis": [
+    "media"
+   ],
+   "tags": [
+    "num"
+   ],
+   "front": "📊 급성 기관지염 외래 진료인원 (2025년 진료분, 건강보험 진료 환자)는?",
+   "back": "15,886,042 명 — 공표 2026-06-08.",
+   "why": "건강보험 진료인원(심평원 다빈도 상병 기준). 같은 사람의 중복 처리 기준은 원문 확인 필요",
+   "unlock": {
+    "type": "num",
+    "id": "ST-0024"
+   },
+   "difficulty": 3,
+   "needsVerification": true
+  },
+  {
+   "id": "HB-C-ST-0025",
+   "courseId": "healthbeat",
+   "domain": "오늘의 숫자",
+   "axis": [
+    "media"
+   ],
+   "tags": [
+    "num"
+   ],
+   "front": "📊 본태성 고혈압 외래 진료인원 (2025년 진료분, 건강보험 진료 환자)는?",
+   "back": "7,492,579 명 — 공표 2026-06-08.",
+   "why": "건강보험 진료인원(심평원 다빈도 상병 기준). 같은 사람의 중복 처리 기준은 원문 확인 필요",
+   "unlock": {
+    "type": "num",
+    "id": "ST-0025"
+   },
+   "difficulty": 3,
+   "needsVerification": true
+  },
+  {
+   "id": "HB-C-ST-0026",
+   "courseId": "healthbeat",
+   "domain": "오늘의 숫자",
+   "axis": [
+    "media"
+   ],
+   "tags": [
+    "num"
+   ],
+   "front": "📊 혈관운동성·알레르기성 비염 외래 진료인원 (2025년 진료분, 건강보험 진료 환자)는?",
+   "back": "7,243,496 명 — 공표 2026-06-08.",
+   "why": "건강보험 진료인원(심평원 다빈도 상병 기준). 같은 사람의 중복 처리 기준은 원문 확인 필요",
+   "unlock": {
+    "type": "num",
+    "id": "ST-0026"
+   },
+   "difficulty": 3,
+   "needsVerification": true
+  },
+  {
+   "id": "HB-C-ST-0027",
+   "courseId": "healthbeat",
+   "domain": "오늘의 숫자",
+   "axis": [
+    "media"
+   ],
+   "tags": [
+    "num"
+   ],
+   "front": "📊 노년 백내장 입원 환자 수 (2025년 진료분, 건강보험 진료 환자)는?",
+   "back": "352,705 명 — 공표 2026-06-08.",
+   "why": "건강보험 진료인원(심평원 다빈도 상병 기준). 같은 사람의 중복 처리 기준은 원문 확인 필요",
+   "unlock": {
+    "type": "num",
+    "id": "ST-0027"
+   },
+   "difficulty": 3,
+   "needsVerification": true
+  },
+  {
+   "id": "HB-C-ST-0028",
+   "courseId": "healthbeat",
+   "domain": "오늘의 숫자",
+   "axis": [
+    "media"
+   ],
+   "tags": [
+    "num"
+   ],
+   "front": "📊 노년 백내장 입원 건강보험 의료비 (2025년 진료분, 건강보험 진료 환자)는?",
+   "back": "6,139.6 억 원 — 공표 2026-06-08.",
+   "why": "입원 건강보험 의료비(심평원 다빈도 상병 기준)",
+   "unlock": {
+    "type": "num",
+    "id": "ST-0028"
+   },
+   "difficulty": 3,
+   "needsVerification": true
+  },
+  {
+   "id": "HB-C-ST-0029",
+   "courseId": "healthbeat",
+   "domain": "오늘의 숫자",
+   "axis": [
+    "media"
+   ],
+   "tags": [
+    "num"
+   ],
+   "front": "📊 감염성·상세불명 기원의 기타 위장염 및 결장염 입원 환자 수 (2025년 진료분, 건강보험 진료 환자)는?",
+   "back": "267,030 명 — 공표 2026-06-08.",
+   "why": "건강보험 진료인원(심평원 다빈도 상병 기준). 같은 사람의 중복 처리 기준은 원문 확인 필요",
+   "unlock": {
+    "type": "num",
+    "id": "ST-0029"
+   },
+   "difficulty": 3,
+   "needsVerification": true
+  },
+  {
+   "id": "HB-C-ST-0030",
+   "courseId": "healthbeat",
+   "domain": "오늘의 숫자",
+   "axis": [
+    "media"
+   ],
+   "tags": [
+    "num"
+   ],
+   "front": "📊 상세불명 병원체의 폐렴 입원 환자 수 (2025년 진료분, 건강보험 진료 환자)는?",
+   "back": "225,346 명 — 공표 2026-06-08.",
+   "why": "건강보험 진료인원(심평원 다빈도 상병 기준). 같은 사람의 중복 처리 기준은 원문 확인 필요",
+   "unlock": {
+    "type": "num",
+    "id": "ST-0030"
+   },
+   "difficulty": 3,
+   "needsVerification": true
+  },
+  {
+   "id": "HB-C-ST-0031",
+   "courseId": "healthbeat",
+   "domain": "오늘의 숫자",
+   "axis": [
+    "media"
+   ],
+   "tags": [
+    "num"
+   ],
+   "front": "📊 알츠하이머성 치매 입원 건강보험 의료비 (2025년 진료분, 건강보험 진료 환자)는?",
+   "back": "19,312.4 억 원 — 공표 2026-06-08.",
+   "why": "입원 건강보험 의료비(심평원 다빈도 상병 기준)",
+   "unlock": {
+    "type": "num",
+    "id": "ST-0031"
+   },
+   "difficulty": 3,
+   "needsVerification": true
+  },
+  {
+   "id": "HB-C-ST-0032",
+   "courseId": "healthbeat",
+   "domain": "오늘의 숫자",
+   "axis": [
+    "media"
+   ],
+   "tags": [
+    "num"
+   ],
+   "front": "📊 알츠하이머성 치매 입원 환자 수 (2025년 진료분, 건강보험 진료 환자)는?",
+   "back": "132,449 명 — 공표 2026-06-08.",
+   "why": "건강보험 진료인원(심평원 다빈도 상병 기준). 같은 사람의 중복 처리 기준은 원문 확인 필요",
+   "unlock": {
+    "type": "num",
+    "id": "ST-0032"
+   },
+   "difficulty": 3,
+   "needsVerification": true
+  },
+  {
+   "id": "HB-C-ST-0033",
+   "courseId": "healthbeat",
+   "domain": "오늘의 숫자",
+   "axis": [
+    "media"
+   ],
+   "tags": [
+    "num"
+   ],
+   "front": "📊 출산 장소에 따른 생존출생 입원 건수 (2025년 진료분, 건강보험 진료 환자)는?",
+   "back": "214,542 명 — 공표 2026-06-08.",
+   "why": "건강보험 진료인원(심평원 다빈도 상병 기준). 같은 사람의 중복 처리 기준은 원문 확인 필요",
+   "unlock": {
+    "type": "num",
+    "id": "ST-0033"
+   },
+   "difficulty": 3,
+   "needsVerification": true
+  },
+  {
+   "id": "HB-C-ST-0034",
+   "courseId": "healthbeat",
+   "domain": "오늘의 숫자",
+   "axis": [
+    "media"
+   ],
+   "tags": [
+    "num"
+   ],
+   "front": "📊 치아우식 외래 진료인원 (2025년 진료분, 건강보험 진료 환자)는?",
+   "back": "6,209,018 명 — 공표 2026-06-08.",
+   "why": "건강보험 진료인원(심평원 다빈도 상병 기준). 같은 사람의 중복 처리 기준은 원문 확인 필요",
+   "unlock": {
+    "type": "num",
+    "id": "ST-0034"
+   },
+   "difficulty": 3,
+   "needsVerification": true
+  }
+ ]
+}

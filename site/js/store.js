@@ -9,7 +9,7 @@
   var KEYS = { meta: 'key', packs: 'packId', content: 'id', progress: 'id', attempts: 'id', daylogs: 'key' };
   var DEFAULT_SETTINGS = {
     schemaVersion: SCHEMA_VERSION, theme: 'auto', fontScale: 1, scenario: 'A', interviewDate: '',
-    dailyNew: 8, maxReviews: 80, retention: 0.9, dayStartHour: 4, lastBackupAt: '', sound: true, nickname: ''
+    dailyNew: 8, maxReviews: 80, retention: 0.9, dayStartHour: 4, lastBackupAt: '', sound: true, nickname: '', pipelineOpen: false, autoUpdate: true, skipPacks: []
   };
   var dbPromise = null;
 

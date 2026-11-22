@@ -35,7 +35,7 @@
   }
 
   function emptyLog(day) {
-    return { key: day, reviews: 0, fresh: 0, correct: 0, again: 0, xp: 0, ms: 0, maxCombo: 0, scoops: 0, qualified: false, cleared: false, bonus: false, extraNew: 0, sessions: 0 };
+    return { key: day, reviews: 0, fresh: 0, correct: 0, again: 0, xp: 0, ms: 0, maxCombo: 0, scoops: 0, qualified: false, cleared: false, bonus: false, extraNew: 0, sessions: 0, disc: 0, puzzles: 0 };
   }
   function merge(def, obj) { var o = {}; Object.keys(def).forEach(function (k) { o[k] = def[k]; }); Object.keys(obj || {}).forEach(function (k) { o[k] = obj[k]; }); return o; }
 
@@ -94,51 +94,90 @@
     });
   }
 
-  function quests(log, q, newLimit) {
+  /* 오늘의 퀘스트 3개(D019): 복습 정리 · 새 발견 3 · 오늘의 퍼즐 2 */
+  var QUEST_DISC = 3, QUEST_PUZZLES = 2;
+  function quests(log, q) {
     var reviewLeft = q ? q.review + q.learning : 0;
-    var freshTarget = Math.max(0, newLimit);
     var list = [
       { id: 'review', label: '복습', done: log.reviews, target: Math.max(1, log.reviews + reviewLeft), complete: reviewLeft === 0, color: 'var(--ring-review)' },
-      { id: 'fresh', label: '새 카드', done: log.fresh, target: Math.max(1, freshTarget), complete: log.fresh >= freshTarget || (q && q.freshAvailable === 0 && q.fresh === 0), color: 'var(--ring-new)' },
-      { id: 'combo', label: '콤보 7', done: Math.min(7, log.maxCombo), target: 7, complete: log.maxCombo >= 7, color: 'var(--ring-apply)' }
+      { id: 'disc', label: '새 발견', done: Math.min(QUEST_DISC, log.disc || 0), target: QUEST_DISC, complete: (log.disc || 0) >= QUEST_DISC, color: 'var(--ring-new)' },
+      { id: 'puzzle', label: '오늘의 퍼즐', done: Math.min(QUEST_PUZZLES, log.puzzles || 0), target: QUEST_PUZZLES, complete: (log.puzzles || 0) >= QUEST_PUZZLES, color: 'var(--ring-apply)' }
     ];
     list.forEach(function (x) { x.ratio = x.complete ? 1 : Math.max(0, Math.min(1, x.done / x.target)); x.text = x.done + '/' + x.target; });
     if (log.reviews + reviewLeft === 0) { list[0].text = '만기 없음'; }
-    if (freshTarget === 0 || (q && q.freshAvailable === 0 && !log.fresh)) { list[1].text = '새 카드 없음'; }
     return list;
   }
 
+  // 연속일 인정과 퀘스트 보너스(세션·발견·퍼즐 뒤에 공통으로).
+  function settleInto(g, log, today, q) {
+    var out = { streakUp: false, bonusXp: 0 };
+    var dueLeft = q ? q.review + q.learning : 0;
+    var activity = log.reviews + log.fresh + (log.disc || 0) + (log.puzzles || 0);
+    if (dueLeft === 0 && activity > 0) { log.cleared = true; }
+    if (!log.qualified && ((log.cleared && activity > 0) || log.reviews + log.fresh >= QUALIFY_REVIEWS || log.ms >= QUALIFY_MS)) {
+      log.qualified = true;
+      var yest = R.addDays(today, -1);
+      g.streak = g.lastQualified === yest ? g.streak + 1 : (g.lastQualified === today ? g.streak : 1);
+      g.best = Math.max(g.best || 0, g.streak);
+      g.lastQualified = today;
+      out.streakUp = true;
+    }
+    var qs = quests(log, q);
+    out.quests = qs;
+    if (!log.bonus && qs.every(function (x) { return x.complete; }) && activity > 0) {
+      log.bonus = true;
+      out.bonusXp = XP.quests;
+      g.xp += XP.quests; log.xp += XP.quests;
+    }
+    return out;
+  }
+
   /* 세션을 마칠 때: 연속일 인정, 재개 보너스, 퀘스트 3개 보너스. */
-  function finishSession(today, sess, q, newLimit) {
+  function finishSession(today, sess, q) {
     return load(today).then(function (st) {
-      var g = st.game, log = st.log, out = { before: levelInfo(g.xp - sess.xp), bonusXp: 0, comebackXp: 0, streakUp: false };
+      var g = st.game, log = st.log;
+      var before = levelInfo(g.xp - sess.xp);
       log.ms += sess.ms || 0;
       log.sessions += 1;
       g.sessions = (g.sessions || 0) + 1;
-      if (q && q.review + q.learning === 0) { log.cleared = true; }
-      if (!log.qualified && (log.cleared || log.reviews + log.fresh >= QUALIFY_REVIEWS || log.ms >= QUALIFY_MS)) {
-        log.qualified = true;
-        var yest = R.addDays(today, -1);
-        g.streak = g.lastQualified === yest ? g.streak + 1 : (g.lastQualified === today ? g.streak : 1);
-        g.best = Math.max(g.best || 0, g.streak);
-        g.lastQualified = today;
-        out.streakUp = true;
-      }
+      var comebackXp = 0;
       if (g.comebackUntil && today <= g.comebackUntil && sess.xp > 0) {
-        out.comebackXp = Math.floor(sess.xp * 0.5);
-        g.xp += out.comebackXp; log.xp += out.comebackXp;
+        comebackXp = Math.floor(sess.xp * 0.5);
+        g.xp += comebackXp; log.xp += comebackXp;
       }
-      var qs = quests(log, q, newLimit);
-      out.quests = qs;
-      if (!log.bonus && qs.every(function (x) { return x.complete; }) && (log.reviews + log.fresh) > 0) {
-        log.bonus = true;
-        out.bonusXp = XP.quests;
-        g.xp += XP.quests; log.xp += XP.quests;
-      }
-      out.after = levelInfo(g.xp);
-      out.game = g;
-      out.log = log;
+      var out = settleInto(g, log, today, q);
+      out.before = before; out.comebackXp = comebackXp; out.after = levelInfo(g.xp); out.game = g; out.log = log;
       return Promise.all([S.putMany('meta', [g]), S.putMany('daylogs', [log])]).then(function () { return out; });
+    });
+  }
+
+  /* 게임(발견·퍼즐)에서 XP를 더하고 하루 기록을 갱신한다. field: 'disc' | 'puzzles' */
+  function addXp(today, n, field, q) {
+    return load(today).then(function (st) {
+      var g = st.game, log = st.log;
+      var before = levelInfo(g.xp);
+      var gain = n;
+      if (g.comebackUntil && today <= g.comebackUntil) { gain = Math.round(n * 1.5); }
+      g.xp += gain; log.xp += gain;
+      if (field) { log[field] = (log[field] || 0) + 1; }
+      var out = settleInto(g, log, today, q);
+      out.gained = gain; out.before = before; out.after = levelInfo(g.xp); out.game = g; out.log = log;
+      return Promise.all([S.putMany('meta', [g]), S.putMany('daylogs', [log])]).then(function () { return out; });
+    });
+  }
+
+  /* 발견 기록(D019): 연금술 원소(al)·근거 단계(ev)·오늘의 진단(dx)·오늘의 숫자(num). 발견하면 그 카드가 취재 덱에 들어간다. */
+  function loadDiscover() {
+    return S.get('meta', 'discover').then(function (d) {
+      d = d || {};
+      return { key: 'discover', al: d.al || {}, ev: d.ev || {}, dx: d.dx || {}, num: d.num || {} };
+    });
+  }
+  function discover(type, id) {
+    return loadDiscover().then(function (d) {
+      if (d[type][id]) { return { isNew: false, all: d }; }
+      d[type][id] = Date.now();
+      return S.putMany('meta', [d]).then(function () { return { isNew: true, all: d }; });
     });
   }
 
@@ -227,8 +266,8 @@
   function haptic(ms) { try { if (navigator.vibrate) { navigator.vibrate(ms || 8); } } catch (e) { /* 지원 안 함 */ } }
 
   var LINES = {
-    idle: ['오늘 취재 나가 볼까요?', '카드 몇 장이면 기사 한 줄이 단단해져요.', '떠올리고 뒤집는 것, 그게 전부예요.', '근거부터 챙기는 기자가 오래 갑니다.'],
-    sleep: ['쿨… 취재 카드가 기다려요.', '오늘 첫 카드를 넘겨 주세요.'],
+    idle: ['오늘은 뭘 발견해 볼까요?', '혈액에 음식을 섞으면… 궁금하지 않아요?', '근거 2048, 메타분석까지 가 봐요.', '떠올리고 뒤집는 것, 그게 전부예요.', '근거부터 챙기는 기자가 오래 갑니다.'],
+    sleep: ['쿨… 오늘의 퍼즐이 기다려요.', '세포랑 세포를 섞으면 뭐가 될까요?'],
     happy: ['오늘 마감 완료! 내일 또 봐요.', '오늘은 데스크가 칭찬하겠는데요.', '한 장 더 보면 내일이 편해져요.'],
     empty: ['취재 카드가 아직 없어요. 받아 올까요?']
   };
@@ -241,6 +280,7 @@
     RANKS: RANKS, GEAR: GEAR, XP: XP, SCOOP_RATE: SCOOP_RATE, QUALIFY_REVIEWS: QUALIFY_REVIEWS,
     needFor: needFor, levelInfo: levelInfo, rankOf: rankOf, gearOf: gearOf,
     load: load, settle: settle, recentLogs: recentLogs, addAnswer: addAnswer, finishSession: finishSession, quests: quests, addExtraNew: addExtraNew,
+    addXp: addXp, loadDiscover: loadDiscover, discover: discover,
     charSvg: charSvg, FLAME: FLAME, STAR: STAR, sfx: sfx, haptic: haptic, line: line, emptyLog: emptyLog
   };
 })();

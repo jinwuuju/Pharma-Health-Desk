@@ -15,17 +15,39 @@
   function settings() { return app().settings(); }
 
   /* ---------- 카드 묶음과 오늘 계획(홈 화면과 같이 쓴다) ---------- */
+  /* 덱: 코스 2(HEALTH BEAT) 먼저, PIPELINE은 열기 전까지 제외(D019). 발견해야 열리는 카드(unlock)는 발견한 순서대로. */
   function loadDeck() {
-    return Promise.all([S.getAll('content', 'kind', 'card'), S.getAll('progress'), S.getAll('packs')]).then(function (res) {
+    return Promise.all([S.getAll('content', 'kind', 'card'), S.getAll('progress'), S.getAll('packs'), G.loadDiscover()]).then(function (res) {
+      var st = settings();
       var week = {};
       res[2].forEach(function (pk) { week[pk.packId] = typeof pk.week === 'number' ? pk.week : 99; });
-      var cards = res[0].slice().sort(function (a, b) {
-        return (a.courseId === b.courseId ? 0 : (a.courseId === 'pipeline' ? -1 : 1)) || ((week[a.packId] || 0) - (week[b.packId] || 0)) || (a.id < b.id ? -1 : 1);
+      var disc = res[3];
+      function unlockedAt(c) {
+        var u = c.data && c.data.unlock;
+        if (!u || !u.type) { return 0; }
+        var m = disc[u.type] || {};
+        return m[u.id] || -1;
+      }
+      var all = res[0].filter(function (c) { return c.courseId !== 'pipeline' || !!st.pipelineOpen; });
+      all.sort(function (a, b) {
+        var ca = a.courseId === 'healthbeat' ? 0 : 1, cb = b.courseId === 'healthbeat' ? 0 : 1;
+        if (ca !== cb) { return ca - cb; }
+        var ua = unlockedAt(a), ub = unlockedAt(b);
+        if (ua !== ub) { return (ua < 0 ? 9e15 : ua) - (ub < 0 ? 9e15 : ub); }
+        return ((week[a.packId] || 0) - (week[b.packId] || 0)) || (a.id < b.id ? -1 : 1);
       });
+      var cards = all.filter(function (c) { return unlockedAt(c) >= 0; });
       var pm = {};
       res[1].forEach(function (p) { if (p && p.kind === 'card') { pm[p.id] = p; } });
-      return { cards: cards, pm: pm, packs: res[2] };
+      return { cards: cards, all: all, pm: pm, packs: res[2], discover: disc };
     });
+  }
+
+  // 지금 남은 복습(연속일·퀘스트 계산용).
+  function today() { return U.studyDate(settings().dayStartHour); }
+  function status() {
+    var day = today();
+    return Promise.all([loadDeck(), G.load(day)]).then(function (res) { var p = plan(res[0], res[1].log, day); p.deck = res[0]; p.log = res[1].log; p.game = res[1].game; return p; });
   }
 
   function plan(deck, log, today) {
@@ -210,7 +232,7 @@
     loadDeck().then(function (deck) {
       return G.load(s.today).then(function (st) {
         var p = plan(deck, st.log, s.today);
-        return G.finishSession(s.today, { xp: s.xp, ms: ms }, p.q, p.limit);
+        return G.finishSession(s.today, { xp: s.xp, ms: ms }, p.q);
       });
     }).then(function (out) {
       renderResults(s, out, ms);
@@ -304,5 +326,5 @@
     if (used) { ev.preventDefault(); ev.stopImmediatePropagation(); }
   }, true);
 
-  PHD.play = { start: start, loadDeck: loadDeck, plan: plan, minutes: minutes, active: function () { return !!sess; } };
+  PHD.play = { start: start, loadDeck: loadDeck, plan: plan, status: status, minutes: minutes, active: function () { return !!sess; } };
 })();
