@@ -2,6 +2,11 @@
 
 > 맨 위가 최신. 형식: 한 일 / 검증한 것 / 검증 못 한 것 / 다음.
 
+## 2026-11-22 — 게임형 UI·M2 배포 확인
+
+- Actions 실행 45005058635 성공(Check project → 복습 엔진 시뮬레이션·스모크 검사 → Pages 배포).
+- 공개 주소의 index.html·css·js 8개(util·store·packs·srs·game·play·screens·app)·project.json·packs/index.json 12개 파일 HTTP 200, 저장소 site/ 파일과 바이트 단위로 같음.
+
 ## 2026-11-22 — 단계 2b 게임형 UI/UX + 단계 3 M2 복습 엔진(D018)
 
 - 한 일: 사용자 지시로 화면을 ‘업무 프로그램’에서 웹게임 구조로 바꾸고, 복습 엔진을 그 게임의 핵심 판(‘취재’)으로 만들었다.
