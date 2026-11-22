@@ -1,6 +1,6 @@
-/* 진우주 기자 학교 — 오보 지뢰찾기(지뢰찾기형, D020). 근거 2048을 대신한다.
+/* 진우주 기자 학교 — 오보찾기: 지뢰찾기(D020·D021). 함정은 오보찾기 문제 은행(quiz.js)의 4지선다 문항.
    규칙은 고전 지뢰찾기 그대로: 숫자 = 주변 8칸의 함정 수, 깃발, 첫 칸은 늘 안전, 숫자 칸을 다시 누르면 주변을 한꺼번에 연다.
-   함정(지뢰)은 기사 속 오보 유형이다. 밟으면 ‘이 제목의 문제는?’ 3지선다 — 맞히면 해체, 틀리면 ❤️ 하나를 잃는다. */
+   함정(지뢰)은 기사 속 오보 유형이다. 밟으면 4지선다 — 맞히면 해체, 틀리면 ❤️ 하나를 잃는다. 해설은 선지마다. */
 (function () {
   'use strict';
   var PHD = window.PHD;
@@ -21,8 +21,8 @@
   function L() { return LEVELS[st.level] || LEVELS.easy; }
 
   function load() {
-    return Promise.all([S.get('meta', 'mines'), S.getAll('content', 'kind', 'trap'), G.loadDiscover()]).then(function (res) {
-      traps = res[1].map(function (r) { return r.data; }).sort(function (a, b) { return (a.order || 0) - (b.order || 0); });
+    return Promise.all([S.get('meta', 'mines'), PHD.quiz.load(), G.loadDiscover()]).then(function (res) {
+      traps = res[1];
       byTrap = {};
       traps.forEach(function (t) { byTrap[t.id] = t; });
       disc = res[2];
@@ -58,8 +58,7 @@
     nb(first).forEach(function (j) { ban[j] = true; });
     for (var i = 0; i < st.mine.length; i++) { if (!ban[i]) { cells.push(i); } }
     shuffle(cells);
-    var fresh = shuffle(traps.filter(function (t) { return !disc.tr[t.id]; })), seen = shuffle(traps.filter(function (t) { return disc.tr[t.id]; }));
-    var order = fresh.concat(seen);
+    var order = PHD.quiz.pick(L().mines);
     cells.slice(0, L().mines).forEach(function (i, k) { st.mine[i] = true; st.trap[i] = order.length ? order[k % order.length].id : null; });
     st.started = true;
     st.t0 = Date.now();
@@ -130,14 +129,13 @@
   function hitMine(i) {
     var t = byTrap[st.trap[i]] || traps[0];
     st.flag[i] = false;
-    var order = shuffle([0, 1, 2]);
+    var order = PHD.quiz.order(t);
     pending = { i: i, trap: t, order: order };
     G.sfx('again', sound());
     G.haptic(30);
     paint();
-    A().openSheet(`<div class='grab'></div><div class='trap'><span class='trap-k'>🚨 오보 함정을 밟았어요</span>` +
-      `<blockquote class='trap-head'>${esc(t.headline)}</blockquote><p class='trap-q'>이 제목의 가장 큰 문제는?</p>` +
-      `<div class='trap-choices'>${order.map(function (k) { return `<button type='button' class='tc' data-action='ms-answer' data-k='${k}'>${esc(t.choices[k])}</button>`; }).join('')}</div></div>`);
+    PHD.quiz.ask(answer);
+    A().openSheet(`<div class='grab'></div><div class='trap'><span class='trap-k'>🚨 오보 함정을 밟았어요</span>` + PHD.quiz.questionHtml(t, order) + `</div>`);
   }
   function answer(k) {
     if (!pending || pending.answered) { return; }
@@ -146,11 +144,10 @@
     st.hit[pending.i] = ok ? 'ok' : 'bad';
     st.open[pending.i] = true;
     if (!ok) { st.hearts -= 1; }
-    var wasNew = !disc.tr[t.id];
     G.sfx(ok ? 'good' : 'again', sound());
-    var day = today();
-    G.discover('tr', t.id).then(function (r) { disc = r.all; return G.discover('ev', t.evidenceId); }).then(function (r) {
-      disc = r.all;
+    var day = today(), wasNew = false;
+    PHD.quiz.record(t.id, ok).then(function (r) { wasNew = r.isNew; return G.loadDiscover(); }).then(function (d) {
+      disc = d;
       return PHD.play.status();
     }).then(function (s2) {
       return ok ? G.addXp(day, 2, wasNew ? 'disc' : null, s2.q) : null;
@@ -159,10 +156,10 @@
       if (lost) { lose(); }
       save();
       paint();
-      A().openSheet(`<div class='grab'></div><div class='trap'><span class='trap-k ${ok ? 'ok' : 'bad'}'>${ok ? '✓ 함정 해체!' : '✕ 오보가 나갔어요 · ❤️ −1'}</span>` +
-        `<h2>${esc(t.icon || '')} ${esc(t.title)}</h2><p class='trap-ans'><b>정답</b> ${esc(t.choices[t.answer || 0])}</p><p class='disc-note'><b>기자 포인트</b> ${esc(t.why)}</p>` +
-        `<p class='disc-xp'>${out ? '+' + out.gained + ' XP · ' : ''}${wasNew ? '카드가 취재 덱에 들어갔어요' : '이미 아는 함정'}</p>` +
-        `<div class='btn-row'><button type='button' class='btn' data-action='ms-continue'>${lost ? '결과 보기' : '계속'}</button></div></div>`);
+      var extra = ok ? '함정 해체' + (out ? ' +' + out.gained + ' XP' : '') : '❤️ −1';
+      A().openSheet(`<div class='grab'></div>` + PHD.quiz.explainHtml(t, pending.order, Number(k), { extra: extra }) +
+        `<p class='disc-xp'>${wasNew ? '카드가 취재 덱에 들어갔어요' : '이미 아는 오보 유형'}</p>` +
+        `<div class='btn-row'><button type='button' class='btn' data-action='ms-continue'>${lost ? '결과 보기' : '계속'}</button></div>`);
     }).catch(function (e) { A().toast('저장하지 못했습니다: ' + (e && e.message ? e.message : e)); });
   }
   function cont() {
@@ -243,7 +240,7 @@
   function screen() {
     return load().then(function () {
       if (!traps.length) {
-        return `<h1 class='large-title'>오보 지뢰찾기</h1>` + A().emptyCard('함정 자료가 아직 없어요', '기본 콘텐츠를 받으면 시작할 수 있어요.', `<button type='button' class='btn' data-action='load-builtin'>기본 콘텐츠 받기</button>`);
+        return `<a class='back' href='#/evidence'>‹ 오보찾기</a><h1 class='large-title'>지뢰찾기</h1>` + A().emptyCard('함정 자료가 아직 없어요', '기본 콘텐츠를 받으면 시작할 수 있어요.', `<button type='button' class='btn' data-action='load-builtin'>기본 콘텐츠 받기</button>`);
       }
       var lv = L();
       var known = traps.filter(function (t) { return disc.tr[t.id]; }).length;
@@ -251,13 +248,13 @@
         return `<button type='button' data-action='ms-level' data-val='${k}' aria-pressed='${st.level === k ? 'true' : 'false'}'>${LEVELS[k].name}</button>`;
       }).join('') + `</div>`;
       var modeSeg = `<div class='seg wide ms-mode' role='group'><button type='button' data-action='ms-mode' data-val='open' aria-pressed='${mode === 'open' ? 'true' : 'false'}'>⛏️ 열기</button><button type='button' data-action='ms-mode' data-val='flag' aria-pressed='${mode === 'flag' ? 'true' : 'false'}'>🚩 깃발</button></div>`;
-      return `<div class='al-top'><h1 class='large-title'>오보 지뢰찾기</h1>${seg}</div>` +
+      return `<a class='back' href='#/evidence'>‹ 오보찾기</a><div class='al-top'><h1 class='large-title'>지뢰찾기</h1>${seg}</div>` +
         `<p class='g-goal'>함정 ${lv.mines}개를 피해 기사를 살리세요. 알게 된 오보 유형 <b class='num'>${known}</b>/${traps.length}</p>` +
         `<div class='ms-bar'><span class='ms-chip' title='남은 함정'>🚨 <b class='num' id='ms-left'>${remaining()}</b></span><span id='ms-hearts' class='ms-hearts'>${hearts()}</span>` +
         `<button type='button' class='ms-face' id='ms-face' data-action='ms-new' aria-label='새 판'>${face()}</button><span class='ms-chip'>⏱ <b class='num' id='ms-time'>${clock(st.started ? secs() : 0)}</b></span></div>` +
         `<div class='ms-board' id='ms-board' style='--cols:${lv.cols}'>${st.mine.map(function (m, i) { return cellHtml(i); }).join('')}</div>` +
         modeSeg +
-        `<p class='footnote'>숫자 = 주변 8칸의 함정 수. 길게 누르거나 우클릭하면 깃발, 숫자 칸을 누르면 주변을 한꺼번에 엽니다. 함정을 밟으면 3지선다로 해체!</p>`;
+        `<p class='footnote'>숫자 = 주변 8칸의 함정 수. 길게 누르거나 우클릭하면 깃발, 숫자 칸을 누르면 주변을 한꺼번에 엽니다. 함정을 밟으면 4지선다로 해체!</p>`;
     });
   }
 
@@ -291,6 +288,7 @@
   }, 1000);
 
   PHD.mines = {
+    answerTrap: function (k) { answer(k); },
     screen: screen, tap: tap, flag: flag, answer: answer, cont: cont, newGame: newGame,
     setMode: function (m) { mode = m === 'flag' ? 'flag' : 'open'; A().refresh(); },
     setLevel: function (lv) { if (LEVELS[lv]) { newGame(lv); } },

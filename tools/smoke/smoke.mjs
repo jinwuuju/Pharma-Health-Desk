@@ -69,13 +69,13 @@ const setInput = (id, v) => { const i = doc.getElementById(id); i.value = v; i.d
 const today = () => w.PHD.util.studyDate(4);
 
 console.log('0. 스크립트 순서');
-check(order.join(',') === 'util.js,store.js,packs.js,srs.js,game.js,play.js,alchemy.js,mines.js,daily.js,screens.js,app.js', 'index.html 스크립트 11개 ' + order.join(','));
+check(order.join(',') === 'util.js,store.js,packs.js,srs.js,game.js,play.js,alchemy.js,quiz.js,mines.js,arcade.js,rush.js,snake.js,daily.js,screens.js,app.js', 'index.html 스크립트 15개 ' + order.join(','));
 
 console.log('1. 첫 화면(게임 홈)');
 check(await until(() => doc.querySelector('.stage .char')), '홈에 캐릭터');
 check(await until(() => main().indexOf('취재 카드가 아직 없어요') >= 0), '빈 상태 말풍선');
 check(!!doc.querySelector('.play-btn[data-action=load-builtin]'), '빈 상태 주 행동 = 기본 콘텐츠 받기');
-check(doc.querySelectorAll('.tab').length === 5 && doc.getElementById('tabbar').textContent.indexOf('발견') >= 0 && doc.getElementById('tabbar').textContent.indexOf('지뢰찾기') >= 0, '탭 5개(홈·발견·지뢰찾기·도감·나)');
+check(doc.querySelectorAll('.tab').length === 5 && doc.getElementById('tabbar').textContent.indexOf('발견') >= 0 && doc.getElementById('tabbar').textContent.indexOf('오보찾기') >= 0, '탭 5개(홈·발견·오보찾기·도감·나)');
 check(doc.title === '진우주 기자 학교', '앱 이름');
 check(main().indexOf('HEALTH BEAT') >= 0 && main().indexOf('수습기자') >= 0, '코스 2 표시·수습기자');
 
@@ -109,7 +109,7 @@ console.log('5. 게임 빈 상태');
 await nav('#/discover');
 check(await until(() => main().indexOf('연금술 재료가 아직 없어요') >= 0), '발견: 재료 없음 안내');
 await nav('#/evidence');
-check(await until(() => main().indexOf('함정 자료가 아직 없어요') >= 0), '지뢰찾기: 빈 상태');
+check(await until(() => main().indexOf('문항이 아직 없어요') >= 0), '오보찾기: 빈 상태');
 await nav('#/puzzle/dx');
 check(await until(() => main().indexOf('퍼즐 재료가 없어요') >= 0), '오늘의 진단: 빈 상태');
 
@@ -157,7 +157,7 @@ console.log('9. 기본 콘텐츠(코스 2 게임 팩 포함)');
 doc.querySelector('[data-action=load-builtin]').click();
 check(await until(async () => !!(await S.get('packs', 'HB-GAME-001')) && !!(await S.get('packs', 'W01-pipeline-map')) && !!(await S.get('packs', 'HB-REG-001')), 6000), '기본 팩 4개(HB 게임·통계·W00·W01)');
 const hb = await S.get('packs', 'HB-GAME-001');
-check(hb.courseId === 'healthbeat' && hb.counts.element === 64 && hb.counts.recipe === 58 && hb.counts.evidence === 10 && hb.counts.trap === 16 && hb.counts.disease === 119 && hb.counts.card === 236, 'HB 게임 팩: 원소 64·조합 58·근거 10·함정 16·질환 119·카드 236');
+check(hb.courseId === 'healthbeat' && hb.counts.element === 64 && hb.counts.recipe === 58 && hb.counts.evidence === 10 && hb.counts.trap === 59 && hb.counts.disease === 119 && hb.counts.card === 279, 'HB 게임 팩: 원소 64·조합 58·근거 10·오보찾기 59·질환 119·카드 279');
 const man = JSON.parse(fs.readFileSync(path.join(site, 'packs', 'index.json'), 'utf8'));
 check(man.packs[0].packId === 'HB-GAME-001', '기본 팩 목록 첫 줄이 코스 2');
 let shc = doc.querySelector('[data-action=sheet-close]'); if (shc) { shc.click(); }
@@ -172,7 +172,7 @@ check(main().indexOf('HEALTH BEAT W1') >= 0, '다음 일정 = HEALTH BEAT W1');
 key('2');
 check(await until(() => w.location.hash.indexOf('discover') >= 0), '숫자 키 2 → 발견');
 key('3');
-check(await until(() => w.location.hash.indexOf('evidence') >= 0), '숫자 키 3 → 지뢰찾기');
+check(await until(() => w.location.hash.indexOf('evidence') >= 0), '숫자 키 3 → 오보찾기');
 key('1');
 check(await until(() => w.location.hash.indexOf('today') >= 0 && doc.querySelectorAll('.tab kbd').length === 5), '숫자 키 1 → 홈');
 
@@ -209,20 +209,20 @@ check(alStats.found === 9 && alStats.total === 64, '연금술 9/64');
 
 console.log('12. 오보 지뢰찾기(D020)');
 const board = (mines, traps) => { const n = 64, o = { key: 'mines', level: 'easy', mine: [], open: [], flag: [], trap: [], hit: {}, hearts: 3, started: true, over: false, won: false, t0: Date.now(), t1: 0, best: {}, wins: 0 }; for (let i = 0; i < n; i++) { o.mine.push(mines.includes(i)); o.open.push(false); o.flag.push(false); o.trap.push(mines.includes(i) ? traps[mines.indexOf(i)] : null); } return o; };
-await nav('#/evidence');
+await nav('#/evidence/mines');
 check(await until(() => doc.querySelectorAll('#ms-board .mc').length === 64 && doc.querySelector('#ms-face')), '8×8 판·얼굴 버튼(수습)');
 check(doc.querySelectorAll('.ms-level button').length === 3 && doc.querySelectorAll('.ms-mode button').length === 2, '난이도 3단계·열기/깃발 전환');
 doc.querySelector('#ms-board .mc[data-i="27"]'.split(String.fromCharCode(34)).join("'")).click();
 check(await until(() => doc.querySelectorAll('#ms-board .mc.op').length >= 9), '첫 칸은 늘 안전, 주변이 열림');
 await S.putMany('meta', [board([0], ['HB-TR-mouse'])]);
-await nav('#/today'); await nav('#/evidence');
+await nav('#/today'); await nav('#/evidence/mines');
 await until(() => doc.querySelectorAll('#ms-board .mc').length === 64);
 const xpm = (await G.load(today())).game.xp;
 doc.querySelector("#ms-board .mc[data-i='0']").click();
-check(await until(() => doc.getElementById('sheet').textContent.indexOf('오보 함정을 밟았어요') >= 0 && doc.querySelectorAll('.tc').length === 3), '함정 밟음 → 3지선다');
+check(await until(() => doc.getElementById('sheet').textContent.indexOf('오보 함정을 밟았어요') >= 0 && doc.querySelectorAll('.tc').length === 4), '함정 밟음 → 4지선다');
 check(doc.getElementById('sheet').textContent.indexOf('생쥐 실험') >= 0, '함정 = 쥐 실험을 치료 효과로');
 doc.querySelector(".tc[data-k='0']").click();
-check(await until(() => doc.getElementById('sheet').textContent.indexOf('함정 해체') >= 0), '정답 → 함정 해체');
+check(await until(() => doc.getElementById('sheet').textContent.indexOf('함정 해체') >= 0 && doc.getElementById('sheet').textContent.indexOf('고쳐 쓰면') >= 0), '정답 → 함정 해체·고쳐 쓰기 해설');
 const dm = await G.loadDiscover();
 check(!!dm.tr['HB-TR-mouse'] && !!dm.ev['HB-EV-02'], '함정·근거 사다리 2단계 카드 열림');
 check((await G.load(today())).game.xp === xpm + 2, '해체 +2 XP');
@@ -233,12 +233,12 @@ check(await until(() => doc.getElementById('sheet').textContent.indexOf('기사 
 check(doc.querySelectorAll('.ms-stars i.on').length === 2, '밟았지만 모두 해체 → 별 2개');
 doc.querySelector('[data-action=ms-new]').click();
 await S.putMany('meta', [board([0, 1, 2], ['HB-TR-causal', 'HB-TR-relative', 'HB-TR-case'])]);
-await nav('#/today'); await nav('#/evidence');
+await nav('#/today'); await nav('#/evidence/mines');
 await until(() => doc.querySelectorAll('#ms-board .mc').length === 64);
 doc.querySelector("#ms-board .mc[data-i='0']").click();
-await until(() => doc.querySelectorAll('.tc').length === 3);
+await until(() => doc.querySelectorAll('.tc').length === 4);
 doc.querySelector(".tc[data-k='1']").click();
-check(await until(() => doc.getElementById('sheet').textContent.indexOf('오보가 나갔어요') >= 0 && w.PHD.mines.state().hearts === 2), '오답 → ❤️ 하나 잃음·해설');
+check(await until(() => doc.getElementById('sheet').textContent.indexOf('❤️ −1') >= 0 && doc.querySelectorAll('#sheet .ex-list li').length === 4 && w.PHD.mines.state().hearts === 2), '오답 → ❤️ 하나 잃음·선지마다 해설');
 doc.querySelector('[data-action=ms-continue]').click();
 await wait(100);
 doc.querySelector("[data-action=ms-mode][data-val='flag']").click();
@@ -249,6 +249,98 @@ doc.querySelector("[data-action=ms-mode][data-val='open']").click();
 await until(() => doc.querySelector("[data-action=ms-mode][data-val='open'][aria-pressed='true']"));
 doc.querySelector("[data-action=ms-level][data-val='mid']").click();
 check(await until(() => doc.querySelectorAll('#ms-board .mc').length === 88), '기자 난이도 8×11');
+
+console.log('12b. 오보찾기 허브(D021)');
+await nav('#/evidence');
+check(await until(() => doc.querySelectorAll('.gtile').length === 5 && doc.querySelector('.ob-hero')), '게임 5종 타일·오늘의 게임');
+check(doc.querySelectorAll('.cat-r').length === 7 && main().indexOf('오답 노트') >= 0, '분야 7개 진행·오답 노트');
+check(!doc.body.classList.contains('in-game'), '허브에선 탭바 보임');
+const bank = w.PHD.quiz.bank();
+const longest = bank.filter((it) => it.choices[0].t.length > Math.max(...it.choices.slice(1).map((c) => c.t.length))).length;
+check(bank.length === 59 && bank.every((it) => it.choices.length === 4 && it.choices.every((c) => c.why)), '문항 59개 모두 4지선다·선지마다 해설');
+check(longest / bank.length < 0.25, '정답이 가장 긴 선지인 문항 ' + longest + '/59(25% 미만)');
+
+console.log('12c. 퀴즈쇼');
+await nav('#/evidence/show');
+check(await until(() => doc.querySelectorAll('#sh-body .tc').length === 4 && doc.querySelector('[data-action=sh-final]')), '문항·선지 4개·최종 답변 버튼');
+check(doc.body.classList.contains('in-game') && doc.querySelectorAll('.ladder-row i').length === 12, '게임 중 탭바 숨김·사다리 12단계');
+check(doc.querySelector('[data-action=sh-final]').disabled, '고르기 전엔 최종 답변 잠김');
+doc.querySelector("[data-action=sh-life][data-val='fifty']").click();
+check(await until(() => doc.querySelectorAll('#sh-body .tc.gone').length === 2), '50:50 — 오답 두 개 지움');
+doc.querySelector("#sh-body .tc[data-k='0']").click();
+check(await until(() => doc.querySelector('#sh-body .tc.sel') && !doc.querySelector('[data-action=sh-final]').disabled), '선택 → 최종 답변 활성');
+doc.querySelector('[data-action=sh-final]').click();
+check(await until(() => doc.querySelector('#sh-body .ex-list') && main().indexOf('통과') >= 0, 3000), '정답 공개·선지별 해설');
+doc.querySelector('[data-action=sh-next]').click();
+check(await until(() => w.PHD.arcade._show().rung === 1 && doc.querySelectorAll('#sh-body .tc').length === 4), '다음 단계로');
+doc.querySelector("#sh-body .tc[data-k='2']").click();
+doc.querySelector('[data-action=sh-final]').click();
+await until(() => doc.querySelector('[data-action=sh-next]'), 3000);
+doc.querySelector('[data-action=sh-next]').click();
+check(await until(() => doc.querySelector('.sh-end') && main().indexOf('수습 첫날') >= 0), '오답 → 탈락, 안전 지점 전이면 처음으로');
+check(await until(async () => (await S.get('meta', 'quiz')).best.show === 1), '최고 기록 저장');
+
+console.log('12d. 속보 러시');
+await nav('#/evidence/rush');
+check(await until(() => doc.querySelector('[data-action=ru-start]')), '시작 화면');
+doc.querySelector('[data-action=ru-start]').click();
+check(await until(() => doc.querySelector('#ru-card') && doc.querySelectorAll('.ru-b').length === 2), '문장 카드·정확/오보 버튼');
+const ru = () => w.PHD.rush.state();
+doc.querySelector(ru().cur.a ? "[data-action=ru-ans][data-val='o']" : "[data-action=ru-ans][data-val='x']").click();
+check(await until(() => ru().score === 1), '맞히면 1점');
+key(ru().cur.a ? 'ArrowRight' : 'ArrowLeft');
+check(await until(() => ru().score === 2), '방향키로도 판정');
+for (let i = 0; i < 3; i++) { key(ru().cur.a ? 'ArrowLeft' : 'ArrowRight'); await wait(30); }
+check(await until(() => ru().phase === 'over' && main().indexOf('스트라이크 아웃') >= 0), '세 번 틀리면 끝');
+check(await until(() => doc.querySelectorAll('.notes .row').length === 3 && doc.querySelector('.ox-tag')), '오답 노트 3개(정확/오보 표시·해설)');
+
+console.log('12e. 짝 맞추기');
+await nav('#/evidence/memory');
+check(await until(() => doc.querySelectorAll('.mm').length === 12), '카드 12장(6쌍)');
+const cards = w.PHD.arcade._mem().cards;
+const other = cards.findIndex((c) => c.id !== cards[0].id);
+doc.querySelector("[data-action=mm-flip][data-i='0']").click();
+doc.querySelector("[data-action=mm-flip][data-i='" + other + "']").click();
+check(await until(() => w.PHD.arcade._mem().moves === 1 && w.PHD.arcade._mem().open.length === 0, 2500), '짝이 아니면 다시 덮임');
+const done = {};
+for (let i = 0; i < cards.length; i++) {
+  if (done[cards[i].id]) { continue; }
+  const j = cards.findIndex((c, k) => k !== i && c.id === cards[i].id);
+  done[cards[i].id] = true;
+  doc.querySelector("[data-action=mm-flip][data-i='" + i + "']").click();
+  doc.querySelector("[data-action=mm-flip][data-i='" + j + "']").click();
+  await wait(20);
+}
+check(await until(() => main().indexOf('모든 짝을 찾았어요') >= 0 && w.PHD.arcade._mem().moves === 7), '6쌍 완성·뒤집기 7번');
+check(await until(async () => (await S.get('meta', 'quiz')).best.memory === 7), '최소 뒤집기 기록');
+
+console.log('12f. 스네이크');
+await nav('#/evidence/snake');
+check(await until(() => doc.querySelector('[data-action=sn-start]')), '시작 화면');
+doc.querySelector('[data-action=sn-start]').click();
+w.PHD.snake._stop();
+check(await until(() => doc.querySelectorAll('.sn-food').length === 4 && doc.querySelectorAll('.sn-seg').length === 3 && doc.querySelectorAll('.sn-q li').length === 4), '먹이 A~D·뱀 3칸·문항');
+const sn = () => w.PHD.snake.state();
+w.PHD.snake._eat(sn().order.indexOf(sn().item.answer)); w.PHD.snake._stop();
+check(sn().score === 1 && sn().grow === 2, '정답 글자를 먹으면 1점·길어짐');
+w.PHD.snake._tick(); w.PHD.snake._tick();
+check(sn().snake.length === 5, '두 칸 자람');
+w.PHD.snake._eat(sn().order.findIndex((k) => k !== sn().item.answer));
+check(await until(() => sn().phase === 'explain' && doc.querySelector('.sn-ex') && sn().hearts === 2), '틀린 글자 → ❤️ −1·멈추고 해설');
+doc.querySelector('[data-action=sn-cont]').click(); w.PHD.snake._stop();
+check(sn().phase === 'run', '계속');
+w.PHD.snake.turn('up'); w.PHD.snake._tick();
+check(sn().dir.y === -1, '방향 바꾸기');
+w.PHD.snake._eat(sn().order.findIndex((k) => k !== sn().item.answer)); doc.querySelector('[data-action=sn-cont]').click(); w.PHD.snake._stop();
+w.PHD.snake._eat(sn().order.findIndex((k) => k !== sn().item.answer));
+check(await until(() => sn().phase === 'over' && main().indexOf('게임 끝') >= 0), '❤️ 3개 잃으면 끝');
+await nav('#/evidence/notes');
+check(await until(() => doc.querySelectorAll('.row[data-action=note-open]').length > 0), '오답 노트에 틀린 문항');
+doc.querySelector('.row[data-action=note-open]').click();
+check(await until(() => doc.getElementById('sheet').textContent.indexOf('기자 체크') >= 0), '오답 노트 → 해설');
+doc.querySelector('[data-action=sheet-close]').click();
+await nav('#/today');
+check(await until(() => !doc.body.classList.contains('in-game')), '게임을 나오면 탭바 복귀');
 
 console.log('13. 오늘의 진단(Wordle형)');
 await nav('#/today');
@@ -323,7 +415,7 @@ check((await G.load(today())).game.streak === 1, '연속 1일');
 key('Enter');
 check(await until(() => playBox().hidden), '결과 닫기');
 await nav('#/review');
-check(await until(() => doc.querySelectorAll('.tile').length === 236 && doc.querySelectorAll('.tile:not(.unseen)').length === nDisc), '도감 ' + nDisc + '/236 열림');
+check(await until(() => doc.querySelectorAll('.tile').length === 279 && doc.querySelectorAll('.tile:not(.unseen)').length === nDisc), '도감 ' + nDisc + '/279 열림');
 doc.querySelector('.tile.unseen').click();
 check(await until(() => doc.getElementById('sheet').textContent.indexOf('발견하면 열립니다') >= 0), '미발견 카드: 어디서 열리는지 안내');
 doc.querySelector('#sheet [data-action=go]').click();

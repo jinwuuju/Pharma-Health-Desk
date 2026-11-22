@@ -152,14 +152,14 @@
   }
 
   /* 게임(발견·퍼즐)에서 XP를 더하고 하루 기록을 갱신한다. field: 'disc' | 'puzzles' */
-  function addXp(today, n, field, q) {
+  function addXp(today, n, field, q, count) {
     return load(today).then(function (st) {
       var g = st.game, log = st.log;
       var before = levelInfo(g.xp);
       var gain = n;
       if (g.comebackUntil && today <= g.comebackUntil) { gain = Math.round(n * 1.5); }
       g.xp += gain; log.xp += gain;
-      if (field) { log[field] = (log[field] || 0) + 1; }
+      if (field) { log[field] = (log[field] || 0) + (count || 1); }
       var out = settleInto(g, log, today, q);
       out.gained = gain; out.before = before; out.after = levelInfo(g.xp); out.game = g; out.log = log;
       return Promise.all([S.putMany('meta', [g]), S.putMany('daylogs', [log])]).then(function () { return out; });
@@ -266,7 +266,7 @@
   function haptic(ms) { try { if (navigator.vibrate) { navigator.vibrate(ms || 8); } } catch (e) { /* 지원 안 함 */ } }
 
   var LINES = {
-    idle: ['오늘은 뭘 발견해 볼까요?', '혈액에 음식을 섞으면… 궁금하지 않아요?', '오보 지뢰찾기, 함정을 피해 기사를 살려 봐요.', '떠올리고 뒤집는 것, 그게 전부예요.', '근거부터 챙기는 기자가 오래 갑니다.'],
+    idle: ['오늘은 뭘 발견해 볼까요?', '혈액에 음식을 섞으면… 궁금하지 않아요?', '오보찾기 한 판 어때요? 오늘은 다른 게임으로.', '떠올리고 뒤집는 것, 그게 전부예요.', '근거부터 챙기는 기자가 오래 갑니다.'],
     sleep: ['쿨… 오늘의 퍼즐이 기다려요.', '세포랑 세포를 섞으면 뭐가 될까요?'],
     happy: ['오늘 마감 완료! 내일 또 봐요.', '오늘은 데스크가 칭찬하겠는데요.', '한 장 더 보면 내일이 편해져요.'],
     empty: ['취재 카드가 아직 없어요. 받아 올까요?']

@@ -6,12 +6,12 @@
   var U = PHD.util, S = PHD.store, P = PHD.packs;
   var esc = U.esc;
 
-  var APP_STEP = 'M2·게임 3종(지뢰찾기)';
+  var APP_STEP = 'M2·오보찾기 5종';
   var REPO = 'https://github.com/jinwuuju/Pharma-Health-Desk/blob/main/';
   var TABS = [
     { id: 'today', label: '홈' },
     { id: 'discover', label: '발견' },
-    { id: 'evidence', label: '지뢰찾기' },
+    { id: 'evidence', label: '오보찾기' },
     { id: 'review', label: '도감' },
     { id: 'me', label: '나' }
   ];
@@ -86,7 +86,8 @@
     if (tab === 'me' && sub === 'settings') { return screenSettings; }
     if (tab === 'me' && sub === 'dev') { return screenDev; }
     if (tab === 'puzzle') { return { num: function () { return PHD.daily.numScreen(false); }, nump: function () { return PHD.daily.numScreen(true); }, dxp: function () { return PHD.daily.dxScreen(true); } }[sub] || function () { return PHD.daily.dxScreen(false); }; }
-    return { today: SC.home, discover: PHD.alchemy.screen, evidence: PHD.mines.screen, pipeline: SC.map, review: SC.dex, me: SC.me }[tab] || SC.home;
+    if (tab === 'evidence') { return function () { return PHD.arcade.screen(sub); }; }
+    return { today: SC.home, discover: PHD.alchemy.screen, pipeline: SC.map, review: SC.dex, me: SC.me }[tab] || SC.home;
   }
   function route() {
     var r = parseHash();
@@ -100,6 +101,7 @@
       if (token !== state.token) { return; }
       el('main').innerHTML = html;
       el('main').setAttribute('data-screen', state.tab + (state.sub ? '-' + state.sub : ''));
+      document.body.classList.toggle('in-game', state.tab === 'evidence' && !!state.sub && state.sub !== 'notes');
       afterRender();
       if (moved) { window.scrollTo(0, 0); }
     }).catch(fatal);
@@ -456,6 +458,19 @@
       case 'al-hint': PHD.alchemy.hint(); break;
       case 'al-info': PHD.alchemy.info(t.getAttribute('data-id')); break;
       case 'al-continue': PHD.alchemy.after(); break;
+      case 'qz-pick': PHD.quiz.choose(t.getAttribute('data-k')); break;
+      case 'note-open': PHD.quiz.openNote(t.getAttribute('data-id')); break;
+      case 'sh-final': PHD.arcade.showFinal(); break;
+      case 'sh-next': PHD.arcade.showNext(); break;
+      case 'sh-life': PHD.arcade.lifeline(t.getAttribute('data-val')); break;
+      case 'sh-restart': PHD.arcade.showRestart(); break;
+      case 'mm-flip': PHD.arcade.memFlip(t.getAttribute('data-i')); break;
+      case 'mm-restart': PHD.arcade.memRestart(); break;
+      case 'ru-start': PHD.rush.start(); break;
+      case 'ru-ans': PHD.rush.answer(t.getAttribute('data-val') === 'o'); break;
+      case 'sn-start': PHD.snake.start(); break;
+      case 'sn-dir': PHD.snake.turn(t.getAttribute('data-val')); break;
+      case 'sn-cont': PHD.snake.cont(); break;
       case 'ms-cell': PHD.mines.tap(t.getAttribute('data-i')); break;
       case 'ms-answer': PHD.mines.answer(t.getAttribute('data-k')); break;
       case 'ms-continue': PHD.mines.cont(); break;

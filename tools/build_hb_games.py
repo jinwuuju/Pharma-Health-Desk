@@ -1,10 +1,12 @@
 #!/usr/bin/env python3
-# 코스 2(HEALTH BEAT) 게임 팩 생성기(D019·D020). 원본: 이 파일의 연금술·오보 함정·근거 사다리 정의 + data/canon/master-index.json + data/registry/stats-001.json
+# 코스 2(HEALTH BEAT) 게임 팩 생성기(D019·D020·D021). 원본: 이 파일의 연금술·오보 함정·근거 사다리 정의 + data/canon/master-index.json + data/registry/stats-001.json
 # 출력: data/packs/healthbeat/HB-GAME-001.json, site/packs/hb-games.json, site/packs/index.json 갱신. 감수 전(review: draft).
-import json, os, re
+import json, os, re, sys
+sys.path.insert(0, os.path.dirname(os.path.abspath(__file__)))
+import hb_ohbo_bank as OB
 
 ROOT = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
-VERSION = '2026-11-22.2'
+VERSION = '2026-11-22.3'
 PACK_ID = 'HB-GAME-001'
 
 # ---------- 인체 연금술(Little Alchemy형) ----------
@@ -90,27 +92,6 @@ EV = [
   ('진료지침', '🏛️', '근거를 종합하고 이익과 위해를 따져 학회 등이 내놓는 진료 권고. 권고마다 근거 수준과 강도가 붙는다.', '지침은 개정된다. 기사에선 발표 연도와 기관을 쓴다.'),
 ]
 
-# ---------- 오보 지뢰찾기(지뢰찾기형, D020) ----------
-# (id, 함정 이름, 아이콘, 나쁜 제목 예시, [정답, 오답, 오답], 해설, 관련 근거 사다리 단계)
-TR = [
-  ('anecdote', '체험담을 근거로', '🗣️', '“○○즙 먹고 3주 만에 혈당 정상” — 독자 제보로 본 효과', ['한 사람의 경험담을 효과의 근거로 썼다', '혈당 단위를 빠뜨렸다', '기간을 3주로 짧게 잡았다'], '체험담은 우연·자연 회복·위약 효과를 가려내지 못한다. 근거 사다리 맨 아래(일화)다.', 1),
-  ('mouse', '쥐 실험을 치료 효과로', '🐭', '“○○ 성분, 치매 치료 길 열었다” — 생쥐 실험 결과', ['동물 실험 결과를 사람 치료 효과처럼 썼다', '생쥐 수를 밝히지 않았다', '치매를 질병으로 다뤘다'], '세포·동물 결과는 사람에서 재현되지 않는 경우가 많다. 제목부터 ‘동물 실험에서’라고 밝힌다.', 2),
-  ('expert', '전문가 한 명의 말만', '🎓', '“이 영양제면 면역력 2배” — 한 대학병원 교수', ['연구 근거 없이 전문가 한 명의 말만 옮겼다', '교수의 소속을 밝혔다', '면역력이라는 단어를 썼다'], '전문가 의견은 근거 수준이 낮다. 어떤 연구에 근거했는지 묻고 다른 전문가의 의견도 듣는다.', 3),
-  ('coi', '이해관계 숨기기', '💼', '“○○ 유산균, 장 건강 개선” — 제조사가 지원한 연구, 기사엔 언급 없음', ['연구비를 댄 회사(이해관계)를 밝히지 않았다', '유산균 이름을 썼다', '장 건강을 다뤘다'], '기업이 지원한 연구는 그 사실을 밝히고, 독립적인 연구가 있는지 함께 본다.', 3),
-  ('case', '환자 몇 명으로 일반화', '📄', '“신약 투여 환자 3명 모두 호전”', ['비교군 없는 소수 사례로 효과를 일반화했다', '환자 이름을 가렸다', '신약 이름을 밝혔다'], '사례 보고는 새 신호를 알리지만 비교군이 없어 효과를 증명하지 못한다.', 4),
-  ('cross', '선후 관계 뒤집기', '📸', '“스마트폰 오래 보는 청소년 우울감 높아… 스마트폰이 우울증 부른다” — 설문 조사', ['한 시점 설문으로 원인과 결과를 단정했다', '청소년을 대상으로 했다', '우울감을 측정했다'], '단면 연구는 무엇이 먼저인지 알 수 없다. 우울해서 스마트폰을 더 볼 수도 있다.', 5),
-  ('recall', '기억에 기댄 답을 사실로', '⚖️', '“폐암 환자들, 과거 ○○를 즐겨 먹었다고 답해… ○○가 폐암 원인”', ['환자들의 기억에 기댄 비교를 원인 확정처럼 썼다', '폐암 환자를 조사했다', '음식 이름을 밝혔다'], '환자-대조군 연구는 회상 편향에 흔들릴 수 있다. ‘연관이 있었다’로 쓴다.', 6),
-  ('causal', '연관을 인과로', '👥', '“커피 하루 3잔, 사망 위험 낮춘다” — 10만 명 추적 연구', ['관찰 연구의 연관성을 ‘낮춘다’는 인과로 썼다', '참여자 수를 밝혔다', '커피 잔 수를 구체적으로 썼다'], '코호트 연구는 연관성을 보여 줄 뿐이다. 원래 건강한 사람이 커피를 더 마셨을 수도 있다(교란). ‘~와 관련’으로 쓴다.', 7),
-  ('relative', '상대 위험만 쓰기', '📈', '“○○ 식품, 대장암 위험 18% 높여” — 실제 몇 명이 걸리는지는 없음', ['상대 위험만 쓰고 실제(절대) 위험을 빠뜨렸다', '암 종류를 밝혔다', '퍼센트를 썼다'], '18% 증가가 100명 중 몇 명에서 몇 명이 되는 것인지(절대 위험)를 함께 써야 독자가 크기를 안다.', 7),
-  ('surrogate', '대리 지표를 생명 연장으로', '🎯', '“신약, 종양 크기 줄여… 생명 연장 기대”', ['종양 크기 같은 대리 지표를 생존 연장처럼 썼다', '종양을 측정했다', '신약이라고 불렀다'], '종양 축소·수치 개선은 대리 지표다. 실제로 더 오래 사는지(전체 생존)는 따로 확인한다.', 8),
-  ('abstract', '중간 결과를 ‘입증’으로', '🧾', '“○○ 치료제, 효과 입증” — 학회 포스터의 중간 결과', ['동료 심사 전 중간 결과를 ‘입증’으로 썼다', '학회 이름을 밝혔다', '치료제라고 불렀다'], '학회 초록·중간 결과는 바뀔 수 있다. ‘발표했다’로 쓰고 최종 결과와 논문 게재 여부를 확인한다.', 8),
-  ('pvalue', '유의하면 효과가 크다?', '🔢', '“통계적으로 유의한 차이… 획기적 효과”', ['통계적 유의성을 효과의 크기로 착각했다', '통계를 언급했다', '차이가 있다고 썼다'], '‘유의하다’는 우연일 가능성이 낮다는 뜻이지 효과가 크다는 뜻이 아니다. 효과의 크기를 숫자로 쓴다.', 8),
-  ('miracle', '꿈의·기적의 과장', '✨', '“부작용 없는 꿈의 항암제”', ['근거 없는 과장 표현(꿈의·부작용 없는)을 썼다', '항암제라고 불렀다', '따옴표를 썼다'], '모든 약에는 부작용과 효과가 없는 환자가 있다. 수식어를 빼고 숫자로 쓴다.', 8),
-  ('vaccine', '100% 예방', '💉', '“이 백신 맞으면 독감 절대 안 걸린다”', ['예방 효과를 ‘절대 안 걸린다’로 과장했다', '독감을 다뤘다', '백신 접종을 권했다'], '백신 효과는 걸릴 위험이 얼마나 줄었나로 읽는다. 맞아도 걸릴 수 있다.', 8),
-  ('meta', '모으기만 하면 확실?', '📚', '“연구 20편 메타분석… 효과 확실”', ['포함된 연구의 질을 따지지 않았다', '연구 수를 밝혔다', '메타분석이라고 썼다'], '질 낮은 연구를 모은 메타분석은 결론도 약하다. 포함된 연구의 설계와 결과의 차이(이질성)를 본다.', 9),
-  ('guideline', '옛 지침을 지금 권고로', '🏛️', '“학회 권고: 콜레스테롤 목표치는 ○○” — 10년 전 지침 인용', ['개정 전 옛 지침을 현재 권고처럼 썼다', '학회 이름을 밝혔다', '목표치를 숫자로 썼다'], '지침은 개정된다. 발표 연도·기관과 최신판인지 확인한다.', 10),
-]
-
 LENS = {'mortality': '사망', 'utilization': '진료', 'news': '뉴스', 'burden': '부담', 'cost': '비용'}
 
 def load(path):
@@ -162,12 +143,26 @@ def build():
                       'front': '근거 사다리 {}단계 {} ‘{}’ — 무엇이고, 기사에서 조심할 점은?'.format(n, icon, name),
                       'back': d, 'why': note, 'unlock': {'type': 'ev', 'id': 'HB-EV-%02d' % n}, 'difficulty': 2})
     traps = []
-    for n, (tid, title, icon, head, choices, why, level) in enumerate(TR, start=1):
-        traps.append({'id': 'HB-TR-' + tid, 'courseId': 'healthbeat', 'order': n, 'title': title, 'icon': icon, 'headline': head,
-                      'choices': choices, 'answer': 0, 'why': why, 'level': level, 'evidenceId': 'HB-EV-%02d' % level})
-        cards.append({'id': 'HB-C-TR-' + tid, 'courseId': 'healthbeat', 'domain': '오보 지뢰찾기', 'axis': ['media', 'science'], 'tags': ['trap'],
-                      'front': '🚨 {} — 이 제목의 문제는?'.format(head), 'back': '{}: {}'.format(title, choices[0]), 'why': why,
-                      'unlock': {'type': 'tr', 'id': 'HB-TR-' + tid}, 'difficulty': 2})
+    rank_longest = 0
+    for n, it in enumerate(OB.B, start=1):
+        tid = 'HB-TR-' + it['id']
+        choices = [{'t': t, 'why': w} for (t, w) in it['ch']]
+        lens = [len(c['t']) for c in choices]
+        if lens[0] > max(lens[1:]):
+            rank_longest += 1
+        ox = [{'t': it['head'], 'a': False, 'why': it['ch'][0][1]}, {'t': it['fix'], 'a': True, 'why': it['tip']}]
+        ox += [{'t': t, 'a': a, 'why': w} for (t, a, w) in it['ox']]
+        tr = {'id': tid, 'courseId': 'healthbeat', 'order': n, 'cat': it['cat'], 'catName': OB.CATS[it['cat']], 'lv': it['lv'],
+              'title': it['title'], 'icon': it['icon'], 'headline': it['head'], 'short': it['short'], 'q': '이 문장의 가장 큰 문제는?',
+              'choices': choices, 'answer': 0, 'fix': it['fix'], 'tip': it['tip'], 'ox': ox}
+        if it['ev']:
+            tr['level'] = it['ev']
+            tr['evidenceId'] = 'HB-EV-%02d' % it['ev']
+        traps.append(tr)
+        cards.append({'id': 'HB-C-TR-' + it['id'], 'courseId': 'healthbeat', 'domain': '오보찾기 · ' + OB.CATS[it['cat']], 'axis': ['media', 'science'], 'tags': ['trap', it['cat']],
+                      'front': '🚨 {} — 이 문장의 가장 큰 문제는?'.format(it['head']), 'back': '{} — {}. 고쳐 쓰면: {}'.format(it['title'], it['ch'][0][0], it['fix']),
+                      'why': it['tip'], 'unlock': {'type': 'tr', 'id': tid}, 'difficulty': it['lv']})
+    print('오보찾기 문항', len(traps), '· 정답이 가장 긴 선지', rank_longest)
     diseases = []
     for r in idx:
         if r.get('type') != 'disease':
@@ -202,8 +197,8 @@ def build():
         cards.append(card)
     pack = {
         'packId': PACK_ID, 'courseId': 'healthbeat', 'version': VERSION, 'week': 1, 'review': 'draft',
-        'title': 'HEALTH BEAT 게임 1차 — 인체 연금술·오보 지뢰찾기·오늘의 진단·오늘의 숫자',
-        'description': '코스 2를 게임으로 시작한다(D019·D020). 연금술 64원소·조합 58, 오보 함정 16, 근거 사다리 10단계, 질환 비교 퍼즐(마스터 색인 관계), 통계 카드(레지스트리). 발견하면 카드가 취재 덱에 들어간다.',
+        'title': 'HEALTH BEAT 게임 1차 — 인체 연금술·오보찾기·오늘의 진단·오늘의 숫자',
+        'description': '코스 2를 게임으로 시작한다(D019·D020·D021). 연금술 64원소·조합 58, 오보찾기 문항 59(4지선다·해설·O/X), 근거 사다리 10단계, 질환 비교 퍼즐(마스터 색인 관계), 통계 카드(레지스트리). 발견하면 카드가 취재 덱에 들어간다.',
         'elements': elements, 'recipes': recipes, 'evidence': evidence, 'traps': traps, 'diseases': diseases, 'cards': cards,
     }
     return pack
