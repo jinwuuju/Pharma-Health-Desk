@@ -1,4 +1,4 @@
-/* 기자 데스크 — 화면(M1 앱 골격). 데이터 변경은 store·packs 모듈을 통해서만 한다. */
+/* 진우주 기자 학교 — 화면(M1 앱 골격). 데이터 변경은 store·packs 모듈을 통해서만 한다. */
 (function () {
   'use strict';
   var PHD = window.PHD;
@@ -97,7 +97,7 @@
   }
   function refresh() { route(); }
   function renderTabbar() {
-    el('tabbar').innerHTML = `<div class='brand'>기자 데스크</div>` + TABS.map(function (t) {
+    el('tabbar').innerHTML = `<div class='brand'>진우주 기자 학교</div>` + TABS.map(function (t) {
       var cur = state.tab === t.id ? ` aria-current='page'` : '';
       return `<button type='button' class='tab' data-action='tab' data-tab='${t.id}'${cur}>${ICONS[t.id]}<span>${t.label}</span></button>`;
     }).join('');
@@ -135,7 +135,7 @@
           `</div><div class='btn-row'><button type='button' class='btn secondary' data-action='go-me'>콘텐츠 관리</button></div></div>`
         : emptyCard('아직 콘텐츠가 없습니다', '샘플 팩으로 동작을 확인하거나, AI로 만든 콘텐츠 팩(JSON)을 가져오세요.',
           `<button type='button' class='btn' data-action='load-sample'>샘플 불러오기</button><button type='button' class='btn secondary' data-action='import-file'>팩 가져오기</button>`);
-      return `<div class='eyebrow'>${esc(U.koDate())}</div><h1 class='large-title'>오늘</h1>` +
+      return `<div class='eyebrow'>진우주 기자 학교 · ${esc(U.koDate())}</div><h1 class='large-title'>오늘</h1>` +
         `<div class='card'><div class='rings'>${rings([0, 0, 0])}<div class='ring-legend'>` +
         `<div><span class='dot' style='background:var(--ring-review)'></span>복습 <b>0</b></div>` +
         `<div><span class='dot' style='background:var(--ring-new)'></span>신규 <b>0 / ${esc(s.dailyNew)}</b></div>` +
@@ -249,7 +249,7 @@
         `<div class='row'><label class='tx' for='set-max'>하루 최대 복습</label><input id='set-max' type='number' min='10' max='500' inputmode='numeric' data-input='maxReviews' value='${esc(s.maxReviews)}'></div></div>` +
         `<div class='section-title'>앱</div><div class='list'>` +
         `<a class='row' href='#/me/dev'><div class='tx'>개발 현황<span class='sub'>설치 단계와 문서</span></div><span class='chev'>›</span></a>` +
-        `<div class='row'><div class='tx'>버전</div><span class='val'>${APP_STEP} · 저장 스키마 v${S.SCHEMA_VERSION}</span></div>` +
+        `<div class='row'><div class='tx'>버전</div><span class='val'>진우주 기자 학교 · ${APP_STEP} · 저장 스키마 v${S.SCHEMA_VERSION}</span></div>` +
         `<button type='button' class='row danger' data-action='reset'>모든 데이터 지우기</button></div>` +
         `<p class='footnote'>의학·통계·시장 정보는 검수 전 초안일 수 있습니다. 항목마다 기준일과 출처를 확인하세요. 이 앱은 진단·치료 판단을 위한 것이 아닙니다.</p>`;
     });
@@ -276,7 +276,7 @@
         `<h2>${cur ? esc(cur.title) : '설치 완료'}</h2><p>${cur && cur.detail ? esc(cur.detail) : ''}</p><p>현황 갱신 ${esc(U.dots(p.updated))}</p></div></div>`;
       var list = steps.map(function (x, i) {
         var tag = x.date ? U.dots(x.date.slice(5)) : (STEP_LABEL[x.status] || '');
-        return `<div class='row step ${esc(x.status)}'><span class='ic'>${STEP_ICON[x.status] || STEP_ICON.todo}</span><div class='tx'>${i}. ${esc(x.id)} · ${esc(x.title)}${x.detail ? `<span class='sub'>${esc(x.detail)}</span>` : ''}</div><span class='val'>${esc(tag)}</span></div>`;
+        return `<div class='row step ${esc(x.status)}'><span class='ic'>${STEP_ICON[x.status] || STEP_ICON.todo}</span><div class='tx'>${esc(x.n != null ? x.n : i)}. ${esc(x.id)} · ${esc(x.title)}${x.detail ? `<span class='sub'>${esc(x.detail)}</span>` : ''}</div><span class='val'>${esc(tag)}</span></div>`;
       }).join('');
       var docs = (p.docs || []).map(function (d) {
         return `<a class='row' href='${esc(REPO + d.path)}' target='_blank' rel='noopener'><div class='tx'>${esc(d.title)}<span class='sub'>${esc(d.desc)}</span></div><span class='chev'>›</span></a>`;

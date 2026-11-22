@@ -1,4 +1,4 @@
-/* 기자 데스크 — 공통 도구. 날짜는 Asia/Seoul 기준으로 이 파일에서만 계산한다. */
+/* 진우주 기자 학교 — 공통 도구. 날짜는 Asia/Seoul 기준으로 이 파일에서만 계산한다. */
 (function () {
   'use strict';
   var NL = String.fromCharCode(10);

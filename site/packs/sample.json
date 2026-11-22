@@ -99,6 +99,6 @@
     { "term": "시판 후 연구", "en": "Phase 4", "definition": "허가 뒤 실제 진료 환경에서 안전성과 효과를 추가로 확인하는 연구.", "cardId": "SAMPLE-C6" }
   ],
   "sources": [
-    { "id": "S-SAMPLE-1", "title": "샘플용 설명 — 실제 학습 팩은 감수 후 교체", "publisher": "기자 데스크", "type": "other" }
+    { "id": "S-SAMPLE-1", "title": "샘플용 설명 — 실제 학습 팩은 감수 후 교체", "publisher": "진우주 기자 학교", "type": "other" }
   ]
 }

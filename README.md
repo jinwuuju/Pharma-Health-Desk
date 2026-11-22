@@ -1,8 +1,10 @@
-# 제약·헬스 기자 데스크 (PIPELINE × HEALTH BEAT)
+# 진우주 기자 학교 (PIPELINE × HEALTH BEAT)
 
 건강의학 기자가 제약·바이오 산업 전문기자로 성장하기 위한 개인 학습 앱과 ‘기자 바이블’(건강의학 백과)을 만드는 저장소. 기획·개발: **진우주**.
 
 > **핵심 원칙:** 학습자는 의대생이 아니라 기자다. 이 앱이 키우는 능력은 정확히 알고, 근거를 따지고, 쉽고 과장 없이 전하는 것이다. 진단·치료 판단과 약 용량·처방은 다루지 않는다.
+
+> 저장소 이름(Pharma-Health-Desk)과 Mac 폴더 이름(`~/제약헬스 기자 데스크`)은 주소·기록 유지를 위해 그대로 둔다(D012).
 
 > **앱 열기:** https://jinwuuju.github.io/Pharma-Health-Desk/
 >
@@ -14,6 +16,10 @@
 |---|---|---|---|
 | 1 | PIPELINE | 제약산업 특성화대학원 입학 전, 약학·생명과학·경영 전공 동기 수준까지 (36주) | [기획안 1](docs/plans/01-PIPELINE.md) |
 | 2 | HEALTH BEAT | 인체·질환 기본기 건강기자 5~7년차, 제약·바이오 기사 작성 1~3년차 + 평생 쓰는 건강의학 백과 | [기획안 2](docs/plans/02-HEALTH-BEAT.md) |
+
+## 온라인 학교 (계획)
+
+크롬(Google 계정)으로 로그인해 초대받은 동료 기자들과 주간 리그·오늘의 문제 대결로 경쟁하고, 토론·동료 첨삭으로 소통한다. Firebase(Google 로그인 + Firestore, 무료 요금제)로 만들고, 로그인하지 않아도 혼자 학습은 그대로 된다. [기획안 3](docs/plans/03-ONLINE-SCHOOL.md) · 설치 단계 8a·13a·14a.
 
 ## 이어서 작업하는 법 (한 단계씩)
 
@@ -33,7 +39,8 @@
 4. [다음 단계](docs/production/NEXT-STEPS.md)
 5. [기획안 1 — PIPELINE](docs/plans/01-PIPELINE.md)
 6. [기획안 2 — HEALTH BEAT 바이블](docs/plans/02-HEALTH-BEAT.md)
-7. [결정 기록](docs/decisions/DECISIONS.md)
+7. [기획안 3 — 온라인 학교](docs/plans/03-ONLINE-SCHOOL.md)
+8. [결정 기록](docs/decisions/DECISIONS.md)
 
 ## 폴더
 

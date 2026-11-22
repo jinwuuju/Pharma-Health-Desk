@@ -62,6 +62,7 @@ console.log('1. 첫 화면');
 check(await until(() => main().indexOf('오늘') >= 0), '오늘 화면이 열린다');
 check(await until(() => main().indexOf('아직 콘텐츠가 없습니다') >= 0), '빈 상태 안내가 보인다');
 check(doc.querySelectorAll('.tab').length === 5, '탭 5개');
+check(doc.title === '진우주 기자 학교' && doc.getElementById('tabbar').textContent.indexOf('진우주 기자 학교') >= 0, '앱 이름 진우주 기자 학교');
 
 console.log('2. 샘플 불러오기');
 doc.querySelector('[data-action=load-sample]').click();
@@ -101,6 +102,7 @@ await nav('#/me');
 check(await until(() => main().indexOf('SAMPLE-W01') >= 0), '나 탭 팩 목록');
 await nav('#/me/dev');
 check(await until(() => main().indexOf('설치 단계') >= 0 && main().indexOf('앱 골격') >= 0), '개발 현황');
+check(main().indexOf('8a. O1') >= 0 && main().indexOf('14a. O2') >= 0, '개발 현황에 온라인 단계 번호');
 await nav('#/nothing');
 check(await until(() => main().indexOf('학습 일정') >= 0), '모르는 주소는 오늘로');
 

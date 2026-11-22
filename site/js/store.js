@@ -1,4 +1,4 @@
-/* 기자 데스크 — 저장소. IndexedDB(콘텐츠·학습 기록) + localStorage(설정). D004·D010. */
+/* 진우주 기자 학교 — 저장소. IndexedDB(콘텐츠·학습 기록) + localStorage(설정). D004·D010. */
 (function () {
   'use strict';
   var DB_NAME = 'pharma-health-desk';

@@ -1,5 +1,5 @@
 {
-  "name": "제약·헬스 기자 데스크",
+  "name": "진우주 기자 학교",
   "updated": "2026-11-22",
   "current": "M1",
   "next": "콘텐츠",
@@ -37,122 +37,163 @@
       "title": "기반",
       "detail": "저장소·문서·자동 배포·시작 화면",
       "status": "done",
-      "date": "2026-11-22"
+      "date": "2026-11-22",
+      "n": "0"
     },
     {
       "id": "M1",
       "title": "앱 골격",
       "detail": "탭·디자인·저장·팩 가져오기·백업",
       "status": "done",
-      "date": "2026-11-22"
+      "date": "2026-11-22",
+      "n": "1"
     },
     {
       "id": "콘텐츠",
       "title": "첫 콘텐츠 팩",
       "detail": "코스 1 W0·W1, 코스 2 마스터 색인·통계 시드",
-      "status": "next"
+      "status": "next",
+      "n": "2"
     },
     {
       "id": "M2",
       "title": "복습 엔진",
       "detail": "간격 반복·확신도·부하 관리",
-      "status": "todo"
+      "status": "todo",
+      "n": "3"
     },
     {
       "id": "M3",
       "title": "레슨 리더",
       "detail": "사전 질문·청크·파인만 박스",
-      "status": "todo"
+      "status": "todo",
+      "n": "4"
     },
     {
       "id": "C1·E1",
       "title": "멀티 코스와 백과 엔진",
       "detail": "코스 전환·항목 렌더러·통계 토큰·주소",
-      "status": "todo"
+      "status": "todo",
+      "n": "5"
     },
     {
       "id": "C2",
       "title": "학습 연결",
       "detail": "항목→카드·떠올려 보기·연차 라벨·인체 지도",
-      "status": "todo"
+      "status": "todo",
+      "n": "6"
     },
     {
       "id": "M4",
       "title": "문항 엔진",
       "detail": "13개 유형·오류 원인·Elo",
-      "status": "todo"
+      "status": "todo",
+      "n": "7"
     },
     {
       "id": "M5",
       "title": "오늘의 세션",
       "detail": "두 코스 통합 오늘 화면·링·스트릭",
+      "status": "todo",
+      "n": "8"
+    },
+    {
+      "n": "8a",
+      "id": "O1",
+      "title": "온라인 학교",
+      "detail": "Google 로그인·초대·프로필·보안 규칙",
       "status": "todo"
     },
     {
       "id": "PWA",
       "title": "iPhone 설치",
       "detail": "홈 화면 추가·오프라인",
-      "status": "todo"
+      "status": "todo",
+      "n": "9"
     },
     {
       "id": "E2",
       "title": "검색·색인",
       "detail": "초성 검색·동의어·색인",
-      "status": "todo"
+      "status": "todo",
+      "n": "10"
     },
     {
       "id": "C3",
       "title": "회독·통독",
       "detail": "백지 모드·60초 브리핑·통독 플랜",
-      "status": "todo"
+      "status": "todo",
+      "n": "11"
     },
     {
       "id": "M6",
       "title": "파이프라인 지도",
       "detail": "마스터리 단계·단원 시험",
-      "status": "todo"
+      "status": "todo",
+      "n": "12"
     },
     {
       "id": "C4",
       "title": "작업실",
       "detail": "기사·인터뷰·기획·포트폴리오",
+      "status": "todo",
+      "n": "13"
+    },
+    {
+      "n": "13a",
+      "id": "O3",
+      "title": "소통",
+      "detail": "토론·동료 첨삭·질문 게시판",
       "status": "todo"
     },
     {
       "id": "M7·C5",
       "title": "게임",
       "detail": "오늘의 보도자료·기사 교정·러시·게서",
+      "status": "todo",
+      "n": "14"
+    },
+    {
+      "n": "14a",
+      "id": "O2",
+      "title": "동료 리그·대결",
+      "detail": "주간 리그·오늘의 문제 대결·응원",
       "status": "todo"
     },
     {
       "id": "M8·C5",
       "title": "랩",
       "detail": "PK·2×2 표·딜·ICER·검진 정확도",
-      "status": "todo"
+      "status": "todo",
+      "n": "15"
     },
     {
       "id": "M9",
       "title": "시험·입시·인증",
       "detail": "진단·PBJ·HB 인증·모의 구술",
-      "status": "todo"
+      "status": "todo",
+      "n": "16"
     },
     {
       "id": "E3",
       "title": "관계·비교·개정",
       "detail": "관계 지도·비교 모드·버전 비교",
-      "status": "todo"
+      "status": "todo",
+      "n": "17"
     },
     {
       "id": "E4",
       "title": "취재 레이어",
       "detail": "취재 전 브리핑·내 취재 수첩",
-      "status": "todo"
+      "status": "todo",
+      "n": "18"
     },
     {
       "id": "M10·C6",
       "title": "분석과 생산 관리",
       "detail": "준비도·보정·생산 현황",
-      "status": "todo"
+      "status": "todo",
+      "n": "19"
     }
   ],
   "docs": [
@@ -185,6 +226,11 @@
       "title": "기획안 2 — HEALTH BEAT",
       "desc": "건강의학 기자 바이블",
       "path": "docs/plans/02-HEALTH-BEAT.md"
+    },
+    {
+      "title": "기획안 3 — 온라인 학교",
+      "desc": "로그인·동료 리그·소통",
+      "path": "docs/plans/03-ONLINE-SCHOOL.md"
     },
     {
       "title": "결정 기록",

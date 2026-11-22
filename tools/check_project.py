@@ -16,6 +16,7 @@ REQUIRED = [
     'docs/00-MASTER-ROADMAP.md',
     'docs/plans/01-PIPELINE.md',
     'docs/plans/02-HEALTH-BEAT.md',
+    'docs/plans/03-ONLINE-SCHOOL.md',
     'docs/production/STATUS.md',
     'docs/production/NEXT-STEPS.md',
     'docs/decisions/DECISIONS.md',
