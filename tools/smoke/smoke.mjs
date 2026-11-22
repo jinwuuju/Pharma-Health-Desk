@@ -155,6 +155,21 @@ doc.querySelector('[data-action=delete-pack][data-id=PASTE-1]').click();
 check(await until(async () => !(await S.get('packs', 'PASTE-1'))), '팩 삭제');
 check((await S.get('progress', 'SAMPLE-C1')).phase === 'p1', '다른 학습 기록 유지');
 
+console.log('11. 초안·원본 팩 가져오기');
+const root = path.resolve(here, '..', '..');
+const packFiles = [];
+const walkJson = (d) => { for (const f of fs.readdirSync(d, { withFileTypes: true })) { const p = path.join(d, f.name); if (f.isDirectory()) { walkJson(p); } else if (f.name.endsWith('.json')) { packFiles.push(p); } } };
+for (const dir of ['drafts', 'data']) { if (fs.existsSync(path.join(root, dir))) { walkJson(path.join(root, dir)); } }
+for (const f of packFiles) {
+  const obj = JSON.parse(fs.readFileSync(f, 'utf8'));
+  if (Array.isArray(obj) || !obj.packId) { continue; }
+  const r = await P.importPack(obj, path.basename(f));
+  check(r.ok && r.added + r.updated > 0, path.relative(root, f) + ' 가져오기(' + (r.ok ? r.added + r.updated : r.errors.join(', ')) + ')');
+}
+const w00 = await S.get('packs', 'W00-diagnostic');
+check(!w00 || (w00.counts && w00.counts.item === 95 && w00.counts.exam === 1), 'W00 진단평가 문항 95 · 시험 1 저장');
+const reg = await S.get('packs', 'HB-REG-001');
+check(!reg || (reg.courseId === 'healthbeat' && reg.counts && reg.counts.stat === 34), '통계 시드 34건이 코스 2로 저장');
 await wait(100);
 check(pageErrors.length === 0, '페이지 오류 없음' + (pageErrors.length ? ': ' + pageErrors.join(' | ') : ''));
 if (failures.length) { console.log('스모크 검사 실패 ' + failures.length + '건'); process.exit(1); }

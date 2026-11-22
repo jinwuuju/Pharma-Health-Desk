@@ -1,8 +1,8 @@
 {
   "name": "진우주 기자 학교",
   "updated": "2026-11-22",
-  "current": "M1",
-  "next": "콘텐츠",
+  "current": "콘텐츠",
+  "next": "UI/UX",
   "calendar": [
     {
       "label": "W0 진단평가",
@@ -51,9 +51,16 @@
     {
       "id": "콘텐츠",
       "title": "첫 콘텐츠 팩",
-      "detail": "코스 1 W0·W1, 코스 2 마스터 색인·통계 시드",
-      "status": "next",
+      "detail": "코스 2 색인·통계 → 코스 1 W0·W1 (초안, 감수 대기)",
+      "status": "doing",
       "n": "2"
+    },
+    {
+      "id": "UI",
+      "title": "UI/UX 정돈",
+      "detail": "애플식 기준 + 간결·효율 UI 성공 사례 5개",
+      "status": "todo",
+      "n": "2a"
     },
     {
       "id": "M2",
