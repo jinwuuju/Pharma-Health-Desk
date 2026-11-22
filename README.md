@@ -6,7 +6,7 @@
 
 > **앱 열기:** https://jinwuuju.github.io/Pharma-Health-Desk/
 >
-> **현재 배포: M0 시작 화면 / 2026-11-22.** 저장소 뼈대, 기획 문서, 자동 배포, 설치 단계 현황 화면. 학습 기능은 M1부터 한 단계씩 설치한다. [현재 상태](docs/production/STATUS.md) · [다음 단계](docs/production/NEXT-STEPS.md)
+> **현재 배포: M1 앱 골격 / 2026-11-22.** 하단 탭 5개(오늘·파이프라인·복습·시험·나), Apple 스타일 디자인과 라이트·다크, 기기 안 저장(IndexedDB), 콘텐츠 팩 가져오기(파일·붙여넣기·샘플), 백업·복원, 설정. 복습 엔진 등 학습 기능은 다음 단계부터 하나씩 설치한다. [현재 상태](docs/production/STATUS.md) · [다음 단계](docs/production/NEXT-STEPS.md)
 
 ## 두 코스
 
@@ -46,7 +46,7 @@
 | `data/canon/` | 코스 2 백과 항목(CanonPack)과 마스터 색인 |
 | `data/registry/` | 통계 레지스트리(StatRecord) |
 | `docs/` | 기획·로드맵·상태·결정 기록 |
-| `tools/` | 검사 스크립트 |
+| `tools/` | 저장소 검사(`check_project.py`), 앱 동작 검사(`smoke/`) |
 
 ## 주의
 

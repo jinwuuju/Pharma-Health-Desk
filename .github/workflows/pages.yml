@@ -26,6 +26,11 @@ jobs:
           node-version: '22'
       - name: Check project
         run: python3 tools/check_project.py
+      - name: Smoke test (jsdom)
+        run: |
+          cd tools/smoke
+          npm ci --no-audit --no-fund
+          node smoke.mjs
       - name: Assemble Pages
         run: |
           mkdir -p dist

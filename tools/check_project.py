@@ -21,6 +21,14 @@ REQUIRED = [
     'docs/decisions/DECISIONS.md',
     'site/index.html',
     'site/data/project.json',
+    'site/css/app.css',
+    'site/js/util.js',
+    'site/js/store.js',
+    'site/js/packs.js',
+    'site/js/app.js',
+    'site/packs/sample.json',
+    'tools/smoke/smoke.mjs',
+    'tools/smoke/package-lock.json',
 ]
 
 # 공개 저장소에 올리면 안 되는 파일(D008)

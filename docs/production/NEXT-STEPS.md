@@ -7,6 +7,14 @@
 
 > **“AGENTS.md를 읽고 NEXT-STEPS.md의 다음 단계를 진행해줘.”**
 
+### 새 채팅에서 이어갈 때 (Mac을 제어할 수 있는 AI에게 그대로 붙여넣기)
+```
+내 Mac의 ~/제약헬스 기자 데스크 저장소(github.com/jinwuuju/Pharma-Health-Desk)에서 이어서 작업한다.
+터미널로 git pull 한 뒤 AGENTS.md → docs/production/STATUS.md 맨 위 → docs/production/NEXT-STEPS.md 순서로 읽고,
+체크 안 된 다음 단계 하나만 진행해줘. 끝나면 AGENTS.md 3절대로 검사·기록·push·배포 확인까지 하고,
+바뀐 것과 내가 직접 확인할 것만 짧게 알려줘.
+```
+
 ### 방법 A — 코딩 에이전트 (권장)
 1. 터미널에서 `cd ~/'제약헬스 기자 데스크'` 후 코딩 에이전트를 연다.
 2. 위 한 줄을 말한다. 에이전트가 파일 수정 → 검사 → STATUS·project.json 갱신 → 커밋 → push까지 한다.
@@ -19,6 +27,7 @@
 ```
 cd ~/'제약헬스 기자 데스크'
 python3 tools/check_project.py
+(cd tools/smoke && npm ci && node smoke.mjs)
 git add -A && git commit -m '단계 이름: 한 줄 요약' && git push
 ```
 4. `site/data/project.json`과 `docs/production/STATUS.md` 갱신도 잊지 않는다(AGENTS 3절).
@@ -26,7 +35,7 @@ git add -A && git commit -m '단계 이름: 한 줄 요약' && git push
 ## 단계 목록
 
 - [x] 0. M0 기반 — 저장소·문서·자동 배포·시작 화면 (2026-11-22)
-- [ ] 1. M1 앱 골격
+- [x] 1. M1 앱 골격 (2026-11-22)
 - [ ] 2. 첫 콘텐츠 팩
 - [ ] 3. M2 복습 엔진
 - [ ] 4. M3 레슨 리더

@@ -28,3 +28,9 @@ GitHub Pages 무료 배포를 위해 공개 저장소로 둔다. 따라서 취�
 
 ## D009 기획안 기준본 (2026-11-22)
 기획안 1·2의 기준본은 저장소의 `docs/plans/` 사본이다. 바탕화면 원본은 참고용이며, 개정은 저장소 사본에 버전을 올려 한다.
+
+## D010 M1 저장 구조 (2026-11-22)
+IndexedDB 이름 pharma-health-desk, 구조 버전 1. 저장소 6개: meta(key), packs(packId), content(id, 색인 packId·kind·courseId), progress(id), attempts(id), daylogs(key). 콘텐츠는 원본 객체를 {id, kind, packId, courseId, data}로 감싸 저장한다. 팩 가져오기는 같은 id를 덮어쓰고 학습 기록(progress·attempts·daylogs)은 건드리지 않는다. 같은 packId의 파트 파일은 합쳐지고, 파트에서 비어 있는 메타 값은 기존 값을 지킨다. 최상위가 배열인 파일(마스터 색인·통계 목록)은 단계 5(C1·E1)부터 받는다. 백업 파일은 app 'pharma-health-desk', kind 'backup', schemaVersion, stores, settings로 이루어지며 더 새 스키마의 백업은 거부한다. 설정은 localStorage 키 phd.settings.
+
+## D011 개발용 앱 동작 검사 (2026-11-22)
+D003(빌드 도구 없음)은 배포본(site/)에 대한 원칙이다. 개발용 검사에 한해 tools/smoke에서 npm 의존성(jsdom, fake-indexeddb)을 허용한다. Actions에서 check_project 다음에 돌리고, 통과해야 배포한다. 새 기능을 설치할 때마다 smoke.mjs에 검사 항목을 추가한다.

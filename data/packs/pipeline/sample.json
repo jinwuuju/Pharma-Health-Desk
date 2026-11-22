@@ -1,0 +1,104 @@
+{
+  "packId": "SAMPLE-W01",
+  "courseId": "pipeline",
+  "version": "2026-11-22.1",
+  "week": 1,
+  "title": "샘플 — 신약개발 전주기 맛보기",
+  "description": "앱 동작 확인용 샘플 팩. 실제 학습 팩은 기획안 1의 14.2로 만들고 감수한 뒤 가져온다.",
+  "domains": ["D05", "D17"],
+  "units": [
+    { "id": "SAMPLE-U1", "domain": "D05", "title": "신약개발 전주기", "order": 1, "lessonIds": ["SAMPLE-L1"] }
+  ],
+  "lessons": [
+    {
+      "id": "SAMPLE-L1", "unitId": "SAMPLE-U1", "title": "신약은 어떤 길을 지나 환자에게 가나", "minutes": 10,
+      "objectives": ["신약개발 단계를 순서대로 설명한다", "임상시험계획 승인과 품목허가의 차이를 구분한다", "보도자료의 단계 표현이 과장인지 판단한다"],
+      "pretestItemIds": ["SAMPLE-I4"],
+      "chunks": [
+        { "id": "SAMPLE-L1-C1", "markdown": "신약 후보물질은 먼저 세포·동물 실험(전임상)으로 효력과 독성을 확인한다. 그다음 규제기관에 임상시험계획을 제출해 승인을 받아야 사람에게 처음 투여할 수 있다.", "checkItemId": "SAMPLE-I1" },
+        { "id": "SAMPLE-L1-C2", "markdown": "임상은 보통 1상(안전성·용량), 2상(효과 신호·용량 탐색), 3상(대규모 확증)으로 이어진다. 3상 결과를 바탕으로 허가를 신청하고, 허가 뒤에는 실제 진료 환경에서 시판 후 연구(4상)가 이어진다.", "checkItemId": "SAMPLE-I2" }
+      ],
+      "boxes": [
+        { "kind": "reporter", "markdown": "보도자료에 ‘승인’이라는 말이 나오면 무엇의 승인인지(임상시험계획 승인인가, 품목허가인가, 급여 결정인가)부터 확인한다." },
+        { "kind": "misconception", "markdown": "임상시험계획(IND) 승인은 사람 대상 시험을 시작해도 된다는 뜻이지, 약효가 입증됐다는 뜻이 아니다." }
+      ],
+      "feynman": {
+        "prompt": "독자에게 신약이 환자에게 가기까지의 길을 3문장으로 설명해 보세요.",
+        "modelSummary": "신약 후보는 세포·동물 실험으로 효력과 독성을 확인한 뒤, 규제기관의 임상시험계획 승인을 받아 사람 대상 임상 1·2·3상을 거친다. 3상에서 효과와 안전성이 확증되면 허가를 신청하고, 허가 뒤에도 시판 후 연구로 장기 안전성을 계속 본다. 단계마다 많은 후보가 탈락하므로 초기 단계 소식을 성공처럼 보도하면 안 된다.",
+        "mustInclude": ["전임상", "임상시험계획 승인", "3상", "허가", "시판 후"]
+      },
+      "cardIds": ["SAMPLE-C1", "SAMPLE-C2", "SAMPLE-C3", "SAMPLE-C4", "SAMPLE-C5", "SAMPLE-C6"],
+      "sourceIds": ["S-SAMPLE-1"]
+    }
+  ],
+  "cards": [
+    { "id": "SAMPLE-C1", "domain": "D05", "axis": ["science"], "tags": ["core"], "front": "전임상 단계에서는 무엇을 확인하나?", "back": "사람에게 쓰기 전 세포·동물 실험으로 효력과 독성을 확인한다.", "why": "동물에서 효과가 있어도 사람에서 그대로 재현된다는 보장은 없다.", "difficulty": 1, "sourceIds": ["S-SAMPLE-1"] },
+    { "id": "SAMPLE-C2", "domain": "D05", "axis": ["science", "media"], "tags": ["core"], "front": "임상시험계획(IND) 승인은 무엇을 뜻하나?", "back": "사람 대상 임상시험을 시작해도 된다는 승인이다. 약효 입증이나 판매 허가가 아니다.", "example": "‘A사 신약 후보 IND 승인’ 보도는 임상 시작 소식이다.", "en": "Investigational New Drug", "abbr": "IND", "difficulty": 1, "sourceIds": ["S-SAMPLE-1"] },
+    { "id": "SAMPLE-C3", "domain": "D05", "axis": ["science"], "tags": ["core"], "front": "임상 1상의 주된 목적은?", "back": "소수의 참여자에게 투여해 안전성, 몸속에서 약이 움직이는 방식, 견딜 수 있는 용량 범위를 확인한다.", "difficulty": 2, "sourceIds": ["S-SAMPLE-1"] },
+    { "id": "SAMPLE-C4", "domain": "D05", "axis": ["science"], "tags": ["core"], "front": "임상 2상은 무엇을 확인하나?", "back": "목표 환자에게서 효과의 신호와 적절한 용량을 탐색하고 안전성을 계속 본다.", "difficulty": 2, "sourceIds": ["S-SAMPLE-1"] },
+    { "id": "SAMPLE-C5", "domain": "D05", "axis": ["science", "industry"], "tags": ["core"], "front": "임상 3상의 역할은?", "back": "많은 환자를 대상으로 기존 치료나 위약과 비교해 효과와 안전성을 확증한다. 허가 신청의 핵심 근거가 된다.", "difficulty": 2, "sourceIds": ["S-SAMPLE-1"] },
+    { "id": "SAMPLE-C6", "domain": "D05", "axis": ["science"], "tags": [], "front": "시판 후 연구(임상 4상)는?", "back": "허가 뒤 실제 진료 환경에서 장기 안전성과 효과를 추가로 확인하는 연구.", "difficulty": 2, "sourceIds": ["S-SAMPLE-1"] }
+  ],
+  "items": [
+    { "id": "SAMPLE-I1", "type": "mcq", "domain": "D05", "axis": ["media"], "cardIds": ["SAMPLE-C2"], "bloom": "apply", "difficulty": 2,
+      "stem": "보도자료 제목이 ‘A사, 신약 후보 IND 승인 획득’이다. 가장 정확한 해석은?",
+      "options": [
+        { "id": "a", "text": "사람 대상 임상시험을 시작해도 된다는 승인을 받았다", "correct": true, "rationale": "IND 승인은 임상시험계획 승인이다." },
+        { "id": "b", "text": "신약의 효과가 입증됐다", "correct": false, "rationale": "효과는 임상시험을 거쳐야 확인된다." },
+        { "id": "c", "text": "신약 판매 허가를 받았다", "correct": false, "rationale": "판매는 품목허가 이후다." },
+        { "id": "d", "text": "건강보험 급여가 결정됐다", "correct": false, "rationale": "급여는 허가 뒤 별도 절차다." }
+      ],
+      "explanation": "‘승인’이라는 말이 나오면 무엇의 승인인지부터 확인한다.", "sourceIds": ["S-SAMPLE-1"] },
+    { "id": "SAMPLE-I2", "type": "order", "domain": "D05", "axis": ["science"], "cardIds": ["SAMPLE-C1", "SAMPLE-C3", "SAMPLE-C5"], "bloom": "remember", "difficulty": 1,
+      "stem": "신약개발 단계를 순서대로 놓으세요.",
+      "options": [
+        { "id": "a", "text": "전임상", "correct": true, "rationale": "" },
+        { "id": "b", "text": "임상시험계획(IND) 승인", "correct": true, "rationale": "" },
+        { "id": "c", "text": "임상 1상", "correct": true, "rationale": "" },
+        { "id": "d", "text": "임상 2상", "correct": true, "rationale": "" },
+        { "id": "e", "text": "임상 3상", "correct": true, "rationale": "" },
+        { "id": "f", "text": "허가 신청·허가", "correct": true, "rationale": "" },
+        { "id": "g", "text": "시판 후 연구(4상)", "correct": true, "rationale": "" }
+      ],
+      "answer": ["a", "b", "c", "d", "e", "f", "g"],
+      "explanation": "전임상 → 임상시험계획 승인 → 1상 → 2상 → 3상 → 허가 → 시판 후 연구.", "sourceIds": ["S-SAMPLE-1"] },
+    { "id": "SAMPLE-I3", "type": "cloze", "domain": "D05", "axis": ["science"], "cardIds": ["SAMPLE-C6"], "bloom": "remember", "difficulty": 1,
+      "stem": "허가 뒤 실제 진료 환경에서 장기 안전성을 확인하는 연구를 임상 ___상이라고 한다.",
+      "answer": { "accepted": ["4", "4상", "사"] },
+      "explanation": "시판 후 연구를 임상 4상이라고 부른다.", "sourceIds": ["S-SAMPLE-1"] },
+    { "id": "SAMPLE-I4", "type": "mcq", "domain": "D05", "axis": ["science"], "cardIds": ["SAMPLE-C4"], "bloom": "understand", "difficulty": 2,
+      "stem": "임상 2상의 주된 목적으로 가장 알맞은 것은?",
+      "options": [
+        { "id": "a", "text": "목표 환자에게서 효과 신호와 적절한 용량을 찾는다", "correct": true, "rationale": "2상은 효과 신호와 용량 탐색 단계다." },
+        { "id": "b", "text": "동물에서 독성을 확인한다", "correct": false, "rationale": "전임상의 일이다." },
+        { "id": "c", "text": "많은 환자로 효과를 확증한다", "correct": false, "rationale": "주로 3상의 역할이다." },
+        { "id": "d", "text": "판매 뒤 장기 안전성을 본다", "correct": false, "rationale": "시판 후 연구의 역할이다." }
+      ],
+      "explanation": "단계마다 목적이 다르다.", "sourceIds": ["S-SAMPLE-1"] },
+    { "id": "SAMPLE-I5", "type": "mcq", "domain": "D17", "axis": ["media"], "cardIds": ["SAMPLE-C1"], "bloom": "evaluate", "difficulty": 3,
+      "stem": "‘동물실험에서 종양 크기 90% 감소’를 리드로 쓴 기사의 가장 큰 문제는?",
+      "options": [
+        { "id": "a", "text": "사람에서의 효과처럼 읽히게 한다", "correct": true, "rationale": "동물 결과는 사람에서 재현된다는 보장이 없다." },
+        { "id": "b", "text": "숫자를 썼다", "correct": false, "rationale": "숫자 자체가 아니라 맥락이 빠진 것이 문제다." },
+        { "id": "c", "text": "종양이라는 용어를 썼다", "correct": false, "rationale": "용어 선택은 핵심 문제가 아니다." },
+        { "id": "d", "text": "기사가 짧다", "correct": false, "rationale": "길이는 핵심 문제가 아니다." }
+      ],
+      "explanation": "전임상 결과는 단계와 한계를 함께 써야 한다.", "sourceIds": ["S-SAMPLE-1"] },
+    { "id": "SAMPLE-I6", "type": "numeric", "domain": "D05", "axis": ["industry"], "cardIds": ["SAMPLE-C5"], "bloom": "apply", "difficulty": 3,
+      "stem": "연습용 가정: 1상→2상 전환 확률 50%, 2상→3상 30%, 3상→허가 신청 60%. 1상에 들어간 후보가 허가 신청까지 갈 누적 확률은 몇 %인가?",
+      "answer": { "value": 9, "tolerance": 0.5 },
+      "explanation": "0.5 × 0.3 × 0.6 = 0.09, 즉 9%. 단계별 확률을 곱한다. 실제 성공률은 보고서마다 다르므로 출처와 함께 쓴다.", "sourceIds": ["S-SAMPLE-1"] }
+  ],
+  "exams": [
+    { "id": "SAMPLE-E1", "kind": "weekly", "minutes": 10, "passRate": 0.8,
+      "blueprint": [ { "domain": "D05", "count": 5 }, { "domain": "D17", "count": 1 } ],
+      "itemIds": ["SAMPLE-I1", "SAMPLE-I2", "SAMPLE-I3", "SAMPLE-I4", "SAMPLE-I5", "SAMPLE-I6"] }
+  ],
+  "glossary": [
+    { "term": "임상시험계획 승인", "en": "Investigational New Drug", "abbr": "IND", "definition": "사람 대상 임상시험을 시작하기 위한 규제기관 승인.", "cardId": "SAMPLE-C2" },
+    { "term": "시판 후 연구", "en": "Phase 4", "definition": "허가 뒤 실제 진료 환경에서 안전성과 효과를 추가로 확인하는 연구.", "cardId": "SAMPLE-C6" }
+  ],
+  "sources": [
+    { "id": "S-SAMPLE-1", "title": "샘플용 설명 — 실제 학습 팩은 감수 후 교체", "publisher": "기자 데스크", "type": "other" }
+  ]
+}

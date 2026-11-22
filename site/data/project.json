@@ -1,45 +1,195 @@
 {
   "name": "제약·헬스 기자 데스크",
   "updated": "2026-11-22",
-  "current": "M0",
-  "next": "M1",
+  "current": "M1",
+  "next": "콘텐츠",
   "calendar": [
-    { "label": "W0 진단평가", "date": "2026-11-30" },
-    { "label": "W1 학습 시작", "date": "2026-12-07" }
+    {
+      "label": "W0 진단평가",
+      "date": "2026-11-30"
+    },
+    {
+      "label": "W1 학습 시작",
+      "date": "2026-12-07"
+    }
   ],
   "courses": [
-    { "id": "pipeline", "name": "PIPELINE", "accent": "blue", "title": "제약·바이오 산업 전문기자 준비", "goal": "제약산업 특성화대학원 입학 전, 약학·생명과학·경영 전공 동기 수준까지. 36주.", "plan": "docs/plans/01-PIPELINE.md" },
-    { "id": "healthbeat", "name": "HEALTH BEAT", "accent": "mint", "title": "건강의학 기자 바이블", "goal": "인체·질환 기본기 5~7년차, 제약·바이오 기사 작성 1~3년차. 기본편 26주와 평생 쓰는 백과.", "plan": "docs/plans/02-HEALTH-BEAT.md" }
+    {
+      "id": "pipeline",
+      "name": "PIPELINE",
+      "accent": "blue",
+      "title": "제약·바이오 산업 전문기자 준비",
+      "goal": "제약산업 특성화대학원 입학 전, 약학·생명과학·경영 전공 동기 수준까지. 36주.",
+      "plan": "docs/plans/01-PIPELINE.md"
+    },
+    {
+      "id": "healthbeat",
+      "name": "HEALTH BEAT",
+      "accent": "mint",
+      "title": "건강의학 기자 바이블",
+      "goal": "인체·질환 기본기 5~7년차, 제약·바이오 기사 작성 1~3년차. 기본편 26주와 평생 쓰는 백과.",
+      "plan": "docs/plans/02-HEALTH-BEAT.md"
+    }
   ],
   "steps": [
-    { "id": "M0", "title": "기반", "detail": "저장소·문서·자동 배포·시작 화면", "status": "done", "date": "2026-11-22" },
-    { "id": "M1", "title": "앱 골격", "detail": "탭·디자인·저장·팩 가져오기·백업", "status": "next" },
-    { "id": "콘텐츠", "title": "첫 콘텐츠 팩", "detail": "코스 1 W0·W1, 코스 2 마스터 색인·통계 시드", "status": "todo" },
-    { "id": "M2", "title": "복습 엔진", "detail": "간격 반복·확신도·부하 관리", "status": "todo" },
-    { "id": "M3", "title": "레슨 리더", "detail": "사전 질문·청크·파인만 박스", "status": "todo" },
-    { "id": "C1·E1", "title": "멀티 코스와 백과 엔진", "detail": "코스 전환·항목 렌더러·통계 토큰·주소", "status": "todo" },
-    { "id": "C2", "title": "학습 연결", "detail": "항목→카드·떠올려 보기·연차 라벨·인체 지도", "status": "todo" },
-    { "id": "M4", "title": "문항 엔진", "detail": "13개 유형·오류 원인·Elo", "status": "todo" },
-    { "id": "M5", "title": "오늘의 세션", "detail": "두 코스 통합 오늘 화면·링·스트릭", "status": "todo" },
-    { "id": "PWA", "title": "iPhone 설치", "detail": "홈 화면 추가·오프라인", "status": "todo" },
-    { "id": "E2", "title": "검색·색인", "detail": "초성 검색·동의어·색인", "status": "todo" },
-    { "id": "C3", "title": "회독·통독", "detail": "백지 모드·60초 브리핑·통독 플랜", "status": "todo" },
-    { "id": "M6", "title": "파이프라인 지도", "detail": "마스터리 단계·단원 시험", "status": "todo" },
-    { "id": "C4", "title": "작업실", "detail": "기사·인터뷰·기획·포트폴리오", "status": "todo" },
-    { "id": "M7·C5", "title": "게임", "detail": "오늘의 보도자료·기사 교정·러시·게서", "status": "todo" },
-    { "id": "M8·C5", "title": "랩", "detail": "PK·2×2 표·딜·ICER·검진 정확도", "status": "todo" },
-    { "id": "M9", "title": "시험·입시·인증", "detail": "진단·PBJ·HB 인증·모의 구술", "status": "todo" },
-    { "id": "E3", "title": "관계·비교·개정", "detail": "관계 지도·비교 모드·버전 비교", "status": "todo" },
-    { "id": "E4", "title": "취재 레이어", "detail": "취재 전 브리핑·내 취재 수첩", "status": "todo" },
-    { "id": "M10·C6", "title": "분석과 생산 관리", "detail": "준비도·보정·생산 현황", "status": "todo" }
+    {
+      "id": "M0",
+      "title": "기반",
+      "detail": "저장소·문서·자동 배포·시작 화면",
+      "status": "done",
+      "date": "2026-11-22"
+    },
+    {
+      "id": "M1",
+      "title": "앱 골격",
+      "detail": "탭·디자인·저장·팩 가져오기·백업",
+      "status": "done",
+      "date": "2026-11-22"
+    },
+    {
+      "id": "콘텐츠",
+      "title": "첫 콘텐츠 팩",
+      "detail": "코스 1 W0·W1, 코스 2 마스터 색인·통계 시드",
+      "status": "next"
+    },
+    {
+      "id": "M2",
+      "title": "복습 엔진",
+      "detail": "간격 반복·확신도·부하 관리",
+      "status": "todo"
+    },
+    {
+      "id": "M3",
+      "title": "레슨 리더",
+      "detail": "사전 질문·청크·파인만 박스",
+      "status": "todo"
+    },
+    {
+      "id": "C1·E1",
+      "title": "멀티 코스와 백과 엔진",
+      "detail": "코스 전환·항목 렌더러·통계 토큰·주소",
+      "status": "todo"
+    },
+    {
+      "id": "C2",
+      "title": "학습 연결",
+      "detail": "항목→카드·떠올려 보기·연차 라벨·인체 지도",
+      "status": "todo"
+    },
+    {
+      "id": "M4",
+      "title": "문항 엔진",
+      "detail": "13개 유형·오류 원인·Elo",
+      "status": "todo"
+    },
+    {
+      "id": "M5",
+      "title": "오늘의 세션",
+      "detail": "두 코스 통합 오늘 화면·링·스트릭",
+      "status": "todo"
+    },
+    {
+      "id": "PWA",
+      "title": "iPhone 설치",
+      "detail": "홈 화면 추가·오프라인",
+      "status": "todo"
+    },
+    {
+      "id": "E2",
+      "title": "검색·색인",
+      "detail": "초성 검색·동의어·색인",
+      "status": "todo"
+    },
+    {
+      "id": "C3",
+      "title": "회독·통독",
+      "detail": "백지 모드·60초 브리핑·통독 플랜",
+      "status": "todo"
+    },
+    {
+      "id": "M6",
+      "title": "파이프라인 지도",
+      "detail": "마스터리 단계·단원 시험",
+      "status": "todo"
+    },
+    {
+      "id": "C4",
+      "title": "작업실",
+      "detail": "기사·인터뷰·기획·포트폴리오",
+      "status": "todo"
+    },
+    {
+      "id": "M7·C5",
+      "title": "게임",
+      "detail": "오늘의 보도자료·기사 교정·러시·게서",
+      "status": "todo"
+    },
+    {
+      "id": "M8·C5",
+      "title": "랩",
+      "detail": "PK·2×2 표·딜·ICER·검진 정확도",
+      "status": "todo"
+    },
+    {
+      "id": "M9",
+      "title": "시험·입시·인증",
+      "detail": "진단·PBJ·HB 인증·모의 구술",
+      "status": "todo"
+    },
+    {
+      "id": "E3",
+      "title": "관계·비교·개정",
+      "detail": "관계 지도·비교 모드·버전 비교",
+      "status": "todo"
+    },
+    {
+      "id": "E4",
+      "title": "취재 레이어",
+      "detail": "취재 전 브리핑·내 취재 수첩",
+      "status": "todo"
+    },
+    {
+      "id": "M10·C6",
+      "title": "분석과 생산 관리",
+      "detail": "준비도·보정·생산 현황",
+      "status": "todo"
+    }
   ],
   "docs": [
-    { "title": "작업 규칙", "desc": "AGENTS.md — 이어서 작업할 때 가장 먼저", "path": "AGENTS.md" },
-    { "title": "다음 단계", "desc": "한 단계씩 설치하는 순서와 범위", "path": "docs/production/NEXT-STEPS.md" },
-    { "title": "현재 상태", "desc": "날짜별 작업 기록", "path": "docs/production/STATUS.md" },
-    { "title": "전체 로드맵", "desc": "개발·학습·콘텐츠 일정", "path": "docs/00-MASTER-ROADMAP.md" },
-    { "title": "기획안 1 — PIPELINE", "desc": "제약산업 대학원 준비 학습 앱", "path": "docs/plans/01-PIPELINE.md" },
-    { "title": "기획안 2 — HEALTH BEAT", "desc": "건강의학 기자 바이블", "path": "docs/plans/02-HEALTH-BEAT.md" },
-    { "title": "결정 기록", "desc": "기획과 다르게 정한 것", "path": "docs/decisions/DECISIONS.md" }
+    {
+      "title": "작업 규칙",
+      "desc": "AGENTS.md — 이어서 작업할 때 가장 먼저",
+      "path": "AGENTS.md"
+    },
+    {
+      "title": "다음 단계",
+      "desc": "한 단계씩 설치하는 순서와 범위",
+      "path": "docs/production/NEXT-STEPS.md"
+    },
+    {
+      "title": "현재 상태",
+      "desc": "날짜별 작업 기록",
+      "path": "docs/production/STATUS.md"
+    },
+    {
+      "title": "전체 로드맵",
+      "desc": "개발·학습·콘텐츠 일정",
+      "path": "docs/00-MASTER-ROADMAP.md"
+    },
+    {
+      "title": "기획안 1 — PIPELINE",
+      "desc": "제약산업 대학원 준비 학습 앱",
+      "path": "docs/plans/01-PIPELINE.md"
+    },
+    {
+      "title": "기획안 2 — HEALTH BEAT",
+      "desc": "건강의학 기자 바이블",
+      "path": "docs/plans/02-HEALTH-BEAT.md"
+    },
+    {
+      "title": "결정 기록",
+      "desc": "기획과 다르게 정한 것",
+      "path": "docs/decisions/DECISIONS.md"
+    }
   ]
 }

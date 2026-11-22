@@ -3,178 +3,28 @@
 <head>
 <meta charset='utf-8'>
 <meta name='viewport' content='width=device-width, initial-scale=1, viewport-fit=cover'>
-<meta name='theme-color' content='#F2F2F7' media='(prefers-color-scheme: light)'>
-<meta name='theme-color' content='#000000' media='(prefers-color-scheme: dark)'>
+<meta name='theme-color' content='#F2F2F7'>
+<meta name='color-scheme' content='light dark'>
 <meta name='apple-mobile-web-app-capable' content='yes'>
+<meta name='apple-mobile-web-app-status-bar-style' content='default'>
 <meta name='apple-mobile-web-app-title' content='기자 데스크'>
 <meta name='description' content='제약·헬스 기자 데스크 — PIPELINE × HEALTH BEAT 학습 앱'>
-<title>기자 데스크 — PIPELINE × HEALTH BEAT</title>
-<style>
-:root{
-  --bg:#F2F2F7; --card:#FFFFFF; --card2:#F2F2F7; --text:#000000;
-  --text2:rgba(60,60,67,0.6); --sep:rgba(60,60,67,0.29);
-  --blue:#007AFF; --mint:#00C7BE; --green:#34C759; --orange:#FF9500; --gray:#8E8E93;
-  --radius:16px;
-}
-@media (prefers-color-scheme: dark){
-  :root{
-    --bg:#000000; --card:#1C1C1E; --card2:#2C2C2E; --text:#FFFFFF;
-    --text2:rgba(235,235,245,0.6); --sep:rgba(84,84,88,0.65);
-    --blue:#0A84FF; --mint:#63E6E2; --green:#30D158; --orange:#FF9F0A; --gray:#8E8E93;
-  }
-}
-*{box-sizing:border-box;margin:0;padding:0}
-html{-webkit-text-size-adjust:100%}
-body{
-  font-family:-apple-system,BlinkMacSystemFont,'SF Pro Text','Apple SD Gothic Neo','Pretendard',system-ui,sans-serif;
-  background:var(--bg);color:var(--text);line-height:1.5;
-  padding:env(safe-area-inset-top) env(safe-area-inset-right) env(safe-area-inset-bottom) env(safe-area-inset-left);
-}
-.wrap{max-width:720px;margin:0 auto;padding:16px 16px 48px}
-@media (min-width:1024px){.wrap{padding:32px 24px 64px}}
-header{padding:24px 4px 4px}
-.eyebrow{font-size:13px;font-weight:600;color:var(--text2);letter-spacing:.02em}
-h1{font-size:34px;line-height:41px;font-weight:700;letter-spacing:-.02em;margin-top:2px}
-.sub{font-size:17px;color:var(--text2);margin-top:2px}
-.section-title{font-size:13px;font-weight:600;color:var(--text2);letter-spacing:.02em;margin:28px 16px 8px}
-.card{background:var(--card);border-radius:var(--radius);padding:20px}
-.hero{display:flex;gap:20px;align-items:center}
-.hero h2{font-size:22px;line-height:28px;font-weight:700;letter-spacing:-.01em}
-.hero p{font-size:15px;color:var(--text2);margin-top:4px}
-.pill{display:inline-block;font-size:12px;font-weight:600;padding:3px 10px;border-radius:999px;background:var(--card2);color:var(--text2);margin-bottom:6px}
-.pill.next{background:color-mix(in srgb,var(--blue) 15%,transparent);color:var(--blue)}
-.grid{display:grid;grid-template-columns:1fr 1fr;gap:12px}
-@media (max-width:520px){.grid.courses{grid-template-columns:1fr}}
-.dday{text-align:center;padding:18px 12px}
-.dday b{display:block;font-size:28px;line-height:34px;font-weight:700;letter-spacing:-.02em;font-variant-numeric:tabular-nums}
-.dday span{font-size:13px;color:var(--text2)}
-.course{position:relative;overflow:hidden;padding-left:24px}
-.course .bar{position:absolute;left:0;top:0;bottom:0;width:5px}
-.course .name{font-size:12px;font-weight:700;letter-spacing:.08em}
-.course h3{font-size:17px;font-weight:600;margin-top:2px}
-.course p{font-size:15px;color:var(--text2);margin-top:6px}
-.course a{display:inline-block;margin-top:12px;font-size:15px;color:var(--blue);text-decoration:none;font-weight:500}
-.list{background:var(--card);border-radius:var(--radius);overflow:hidden}
-.row{display:flex;align-items:center;gap:12px;padding:11px 16px;min-height:44px}
-.row + .row{border-top:.5px solid var(--sep)}
-.row .ic{flex:0 0 22px;height:22px;display:flex;align-items:center;justify-content:center}
-.row .tx{flex:1;min-width:0}
-.row .t{font-size:16px}
-.row .d{font-size:13px;color:var(--text2)}
-.row .tag{font-size:12px;color:var(--text2);font-variant-numeric:tabular-nums;white-space:nowrap}
-.row.done .t{color:var(--text2)}
-.row.next,.row.doing{background:color-mix(in srgb,var(--blue) 7%,transparent)}
-.row.next .tag,.row.doing .tag{color:var(--blue);font-weight:600}
-a.row{color:inherit;text-decoration:none}
-a.row:active{background:var(--card2)}
-.chev{color:var(--gray);font-size:20px}
-.note{font-size:13px;color:var(--text2);margin:10px 16px 0}
-footer{font-size:12px;color:var(--text2);text-align:center;margin-top:36px}
-.ring .fg{transition:stroke-dashoffset .8s cubic-bezier(.2,.8,.2,1)}
-@media (prefers-reduced-motion: reduce){.ring .fg{transition:none}}
-</style>
+<title>기자 데스크</title>
+<link rel='stylesheet' href='css/app.css'>
 </head>
 <body>
-<div class='wrap'>
-  <header>
-    <div class='eyebrow' id='today'>오늘</div>
-    <h1>기자 데스크</h1>
-    <div class='sub'>PIPELINE × HEALTH BEAT</div>
-  </header>
-
-  <div class='section-title'>지금 단계</div>
-  <div class='card hero' id='hero'><p>불러오는 중…</p></div>
-
-  <div class='section-title'>학습 일정</div>
-  <div class='grid' id='dday'></div>
-
-  <div class='section-title'>두 코스</div>
-  <div class='grid courses' id='courses'></div>
-
-  <div class='section-title'>설치 단계</div>
-  <div class='list' id='steps'></div>
-  <p class='note'>학습 기능은 한 단계씩 설치됩니다. 단계가 끝날 때마다 이 목록이 갱신됩니다.</p>
-
-  <div class='section-title'>문서</div>
-  <div class='list' id='docs'></div>
-
-  <footer>기획·개발 진우주 · 의학 정보는 검수 전 초안일 수 있습니다</footer>
+<div class='app'>
+  <nav class='tabbar' id='tabbar' aria-label='주 메뉴'></nav>
+  <main class='main' id='main' tabindex='-1'><p class='footnote'>불러오는 중…</p></main>
 </div>
-<script>
-(function () {
-  'use strict';
-  var REPO = 'https://github.com/jinwuuju/Pharma-Health-Desk/blob/main/';
-  var ESC = { '&': '&amp;', '<': '&lt;', '>': '&gt;' };
-  ESC[String.fromCharCode(34)] = '&quot;';
-  ESC[String.fromCharCode(39)] = '&#39;';
-  function esc(s) {
-    var t = String(s == null ? '' : s);
-    Object.keys(ESC).forEach(function (k) { t = t.split(k).join(ESC[k]); });
-    return t;
-  }
-  function el(id) { return document.getElementById(id); }
-  function seoulToday() {
-    return new Intl.DateTimeFormat('en-CA', { timeZone: 'Asia/Seoul' }).format(new Date());
-  }
-  function dots(d) { return String(d).split('-').join('.'); }
-  function daysBetween(a, b) {
-    return Math.round((Date.parse(b + 'T00:00:00Z') - Date.parse(a + 'T00:00:00Z')) / 86400000);
-  }
-  var ICON = {
-    done: `<svg width='22' height='22' viewBox='0 0 22 22' aria-hidden='true'><circle cx='11' cy='11' r='10' fill='var(--green)'/><path d='M6.5 11.4l3 3 6-6.4' fill='none' stroke='#fff' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'/></svg>`,
-    next: `<svg width='22' height='22' viewBox='0 0 22 22' aria-hidden='true'><circle cx='11' cy='11' r='9.25' fill='none' stroke='var(--blue)' stroke-width='1.5'/><circle cx='11' cy='11' r='5' fill='var(--blue)'/></svg>`,
-    todo: `<svg width='22' height='22' viewBox='0 0 22 22' aria-hidden='true'><circle cx='11' cy='11' r='9.25' fill='none' stroke='var(--gray)' stroke-width='1.5' opacity='.6'/></svg>`
-  };
-  ICON.doing = ICON.next;
-  var LABEL = { done: '완료', doing: '진행 중', next: '다음', todo: '예정' };
-  function ring(done, total) {
-    var r = 30, c = 2 * Math.PI * r;
-    var off = c * (1 - (total ? done / total : 0));
-    return `<svg class='ring' width='76' height='76' viewBox='0 0 76 76' role='img' aria-label='설치 진행 ${done} / ${total}'>` +
-      `<circle cx='38' cy='38' r='${r}' fill='none' stroke='var(--card2)' stroke-width='9'/>` +
-      `<circle class='fg' cx='38' cy='38' r='${r}' fill='none' stroke='var(--blue)' stroke-width='9' stroke-linecap='round' stroke-dasharray='${c.toFixed(1)}' stroke-dashoffset='${off.toFixed(1)}' transform='rotate(-90 38 38)'/>` +
-      `<text x='38' y='43' text-anchor='middle' font-size='15' font-weight='700' fill='var(--text)'>${done}/${total}</text></svg>`;
-  }
-  function render(p) {
-    var today = seoulToday();
-    el('today').textContent = dots(today) + ' · 현황 갱신 ' + dots(p.updated || '');
-    var steps = p.steps || [];
-    var done = steps.filter(function (s) { return s.status === 'done'; });
-    var cur = steps.filter(function (s) { return s.status === 'doing'; })[0] || steps.filter(function (s) { return s.status === 'next'; })[0];
-    var last = done[done.length - 1];
-    el('hero').innerHTML = ring(done.length, steps.length) +
-      `<div><span class='pill next'>${cur ? esc(LABEL[cur.status]) + ' · ' + esc(cur.id) : '모두 완료'}</span>` +
-      `<h2>${cur ? esc(cur.title) : '설치 완료'}</h2>` +
-      `<p>${cur && cur.detail ? esc(cur.detail) : ''}</p>` +
-      `<p>${last ? '최근 완료 · ' + esc(last.id) + ' ' + esc(last.title) + ' (' + esc(dots(last.date)) + ')' : ''}</p></div>`;
-    el('dday').innerHTML = (p.calendar || []).map(function (e) {
-      var d = daysBetween(today, e.date);
-      var big = d > 0 ? 'D-' + d : (d === 0 ? 'D-DAY' : '진행 중');
-      return `<div class='card dday'><b>${esc(big)}</b><span>${esc(e.label)} · ${esc(dots(e.date.slice(5)))}</span></div>`;
-    }).join('');
-    el('courses').innerHTML = (p.courses || []).map(function (c) {
-      var accent = c.accent === 'mint' ? 'mint' : 'blue';
-      return `<div class='card course'><div class='bar' style='background:var(--${accent})'></div>` +
-        `<div class='name' style='color:var(--${accent})'>${esc(c.name)}</div><h3>${esc(c.title)}</h3><p>${esc(c.goal)}</p>` +
-        `<a href='${esc(REPO + c.plan)}' target='_blank' rel='noopener'>기획안 보기 ›</a></div>`;
-    }).join('');
-    el('steps').innerHTML = steps.map(function (s, i) {
-      var tag = s.date ? dots(s.date.slice(5)) : (LABEL[s.status] || '');
-      return `<div class='row ${esc(s.status)}'><div class='ic'>${ICON[s.status] || ICON.todo}</div>` +
-        `<div class='tx'><div class='t'>${i}. ${esc(s.id)} · ${esc(s.title)}</div>${s.detail ? `<div class='d'>${esc(s.detail)}</div>` : ''}</div>` +
-        `<div class='tag'>${esc(tag)}</div></div>`;
-    }).join('');
-    el('docs').innerHTML = (p.docs || []).map(function (d) {
-      return `<a class='row' href='${esc(REPO + d.path)}' target='_blank' rel='noopener'><div class='tx'><div class='t'>${esc(d.title)}</div><div class='d'>${esc(d.desc)}</div></div><div class='chev'>›</div></a>`;
-    }).join('');
-  }
-  fetch('data/project.json', { cache: 'no-store' })
-    .then(function (r) { if (!r.ok) { throw new Error('HTTP ' + r.status); } return r.json(); })
-    .then(render)
-    .catch(function () {
-      el('hero').innerHTML = `<div><span class='pill'>현황 없음</span><h2>설치 현황을 읽지 못했습니다</h2><p>파일을 직접 열면(file://) 현황 데이터를 읽을 수 없습니다. https://jinwuuju.github.io/Pharma-Health-Desk/ 에서 열어 주세요.</p></div>`;
-    });
-})();
-</script>
+<div class='toast' id='toast' role='status' aria-live='polite'></div>
+<div class='sheet-backdrop' id='sheet' hidden></div>
+<input type='file' id='file-pack' multiple hidden>
+<input type='file' id='file-backup' hidden>
+<noscript><p style='padding:24px'>이 앱은 JavaScript가 필요합니다.</p></noscript>
+<script src='js/util.js'></script>
+<script src='js/store.js'></script>
+<script src='js/packs.js'></script>
+<script src='js/app.js'></script>
 </body>
 </html>

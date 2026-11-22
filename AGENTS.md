@@ -13,8 +13,8 @@
 
 ## 2. 지금 어디까지 (2026-11-22)
 
-- 완료: M0 기반 — 저장소, 문서 체계, 검사 스크립트, Actions 자동 배포, 시작 화면(설치 단계 현황). 주소 https://jinwuuju.github.io/Pharma-Health-Desk/
-- 다음: NEXT-STEPS 단계 1 = M1 앱 골격(기획안 1의 13장).
+- 완료: M0 기반(저장소·문서·검사·자동 배포), M1 앱 골격(탭 5개·디자인 토큰·라이트/다크·IndexedDB 저장·팩 가져오기·백업/복원·샘플 팩·설정, 설치 현황은 나 → 개발 현황). 주소 https://jinwuuju.github.io/Pharma-Health-Desk/
+- 다음: NEXT-STEPS 단계 2 = 첫 콘텐츠 팩(코스 1 W00·W01, 코스 2 마스터 색인·통계 시드). 그다음 단계 3 = M2 복습 엔진.
 - 학습 일정: W0 진단평가 2026-11-30 주, W1 2026-12-07 시작(두 코스 공통 달력).
 - 사람 확인 게이트(작업자가 대신할 수 없음): 화면 미감, 실제 iPhone Safari 동작, 의학·통계 사실 확인, 학습 효과.
 
@@ -31,6 +31,7 @@
 ## 4. 배포·검증 (D002)
 
 - main에 push하면 `.github/workflows/pages.yml`이 `tools/check_project.py`를 돌린 뒤 `site/`를 그대로 Pages에 올린다.
+- 앱 동작 검사(D011): `cd tools/smoke && npm ci && node smoke.mjs` — jsdom과 가짜 IndexedDB로 화면 이동·가져오기·백업·복원을 확인한다. `site/`를 바꿨으면 push 전에 반드시 돌리고, 새 기능마다 검사 항목을 추가한다.
 - 검사 내용: 필수 문서 존재, 모든 JSON 파싱, project.json 구조, `site/`의 HTML 안 스크립트와 `.js` 문법(`node --check`), 공개 저장소 금지 파일(문서·음성·백업·취재원).
 - 이 Mac의 경로: node `/opt/homebrew/bin/node`, gh `/opt/homebrew/bin/gh`.
 - Actions 실패 시: `gh run list --limit 3` → `gh run view --log-failed`.
@@ -38,6 +39,7 @@
 ## 5. 코드 구조 (D003~D007)
 
 - 빌드 도구 없음. `site/index.html`에서 시작하고, 커지면 `site/js/*.js`(일반 script 태그, ES 모듈 의존 없이)와 `site/css/app.css`로 나눈다. file:// 로 열어도 핵심 기능이 동작해야 한다.
+- 현재 파일(D010): `site/index.html`(뼈대) · `site/css/app.css`(디자인 토큰·컴포넌트) · `site/js/util.js`(날짜·이스케이프·파일) · `site/js/store.js`(IndexedDB·설정·백업, DB_VERSION·SCHEMA_VERSION) · `site/js/packs.js`(팩 검사·가져오기) · `site/js/app.js`(화면·이벤트). 화면은 store·packs를 통해서만 데이터를 바꾼다.
 - 외부 CDN·외부 이미지·외부 폰트 금지(오프라인 동작, 저작권). 아이콘은 인라인 SVG로 직접 그린다.
 - 저장: 학습 기록·콘텐츠는 IndexedDB, 설정만 localStorage. 저장 스키마에 schemaVersion, 바뀌면 마이그레이션 함수. 백업 JSON 내보내기·가져오기 필수. 기존 사용자 기록을 지우는 변경 금지.
 - 한 앱 두 코스(D005): 모든 데이터에 courseId('pipeline' | 'healthbeat').
